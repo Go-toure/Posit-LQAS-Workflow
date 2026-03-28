@@ -1,0 +1,27 @@
+FROM rocker/verse:latest
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libxml2-dev \
+    libgit2-dev \
+    cmake \
+    pandoc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install R packages
+RUN R -e "install.packages(c('qs', 'data.table', 'future', 'furrr', 'logger', 'config', 'here', 'fs', 'janitor'), repos='https://cloud.r-project.org/')"
+
+# Create working directory
+WORKDIR /home/rstudio/lqas_pipeline
+
+# Set environment variables
+ENV RENV_PATHS_ROOT /renv
+ENV R_PROFILE_USER /home/rstudio/.Rprofile
+
+# Expose RStudio Server port
+EXPOSE 8787
+
+# Start RStudio Server
+CMD ["/init"]
