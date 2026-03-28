@@ -1,0 +1,12 @@
+Starting LQAS Data Fetch
+ONA API token found
+Fetching form 4500 
+  Page 1 ...
+    Got 500 records
+  Page 2 ...
+    Got 500 records
+  Page 3 ...
+    Got 500 records
+Total records: 1500 
+Saved 3000 rows to data/raw/4500.qs 
+Done!
