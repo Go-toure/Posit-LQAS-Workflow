@@ -1,0 +1,35 @@
+---
+title: "LQAS Data Dashboard"
+output:
+  html_document:
+    toc: true
+    theme: flatly
+    code_folding: show
+    df_print: paged
+params:
+  data_file: "data/final/combined.qs"
+  run_date: !r Sys.Date()
+---
+
+```{r setup, include=FALSE}
+library(data.table)
+library(ggplot2)
+library(plotly)
+library(DT)
+library(knitr)
+library(qs)
+
+# Load data
+if (file.exists(params$data_file)) {
+  dt <- qread(params$data_file)
+  data_available <- TRUE
+} else {
+  dt <- data.table()
+  data_available <- FALSE
+}
+```
+
+# 📊 LQAS Data Dashboard
+
+**Generated:** `r params$run_date`
+**Data Source:** `r params$data_file`
