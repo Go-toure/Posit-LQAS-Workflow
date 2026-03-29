@@ -1,0 +1,187 @@
+{
+  "timestamp": "2026-03-29T11:38:41.991093",
+  "forms_total": 35,
+  "successful": 33,
+  "skipped": 1,
+  "failed": 1,
+  "total_records": 160094,
+  "total_size_mb": 66.99,
+  "format": "parquet",
+  "results": [
+    {
+      "form_id": 4500,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 8588,
+      "status": "success",
+      "records": 4747
+    },
+    {
+      "form_id": 10271,
+      "status": "success",
+      "records": 8781
+    },
+    {
+      "form_id": 5203,
+      "status": "success",
+      "records": 12803
+    },
+    {
+      "form_id": 4388,
+      "status": "success",
+      "records": 2327
+    },
+    {
+      "form_id": 8834,
+      "status": "success",
+      "records": 324
+    },
+    {
+      "form_id": 4450,
+      "status": "success",
+      "records": 2502
+    },
+    {
+      "form_id": 9601,
+      "status": "success",
+      "records": 882
+    },
+    {
+      "form_id": 4436,
+      "status": "success",
+      "records": 1971
+    },
+    {
+      "form_id": 4431,
+      "status": "success",
+      "records": 11271
+    },
+    {
+      "form_id": 4999,
+      "status": "success",
+      "records": 2147
+    },
+    {
+      "form_id": 4481,
+      "status": "success",
+      "records": 5404
+    },
+    {
+      "form_id": 8094,
+      "status": "failed",
+      "records": 0
+    },
+    {
+      "form_id": 6837,
+      "status": "success",
+      "records": 8831
+    },
+    {
+      "form_id": 3583,
+      "status": "success",
+      "records": 8597
+    },
+    {
+      "form_id": 5299,
+      "status": "success",
+      "records": 1939
+    },
+    {
+      "form_id": 7589,
+      "status": "success",
+      "records": 258
+    },
+    {
+      "form_id": 6420,
+      "status": "success",
+      "records": 3012
+    },
+    {
+      "form_id": 5889,
+      "status": "success",
+      "records": 1924
+    },
+    {
+      "form_id": 8281,
+      "status": "success",
+      "records": 4603
+    },
+    {
+      "form_id": 7602,
+      "status": "success",
+      "records": 1093
+    },
+    {
+      "form_id": 4987,
+      "status": "success",
+      "records": 42534
+    },
+    {
+      "form_id": 6429,
+      "status": "success",
+      "records": 1516
+    },
+    {
+      "form_id": 7623,
+      "status": "success",
+      "records": 8689
+    },
+    {
+      "form_id": 15782,
+      "status": "success",
+      "records": 462
+    },
+    {
+      "form_id": 5214,
+      "status": "success",
+      "records": 4458
+    },
+    {
+      "form_id": 9794,
+      "status": "success",
+      "records": 552
+    },
+    {
+      "form_id": 6350,
+      "status": "success",
+      "records": 944
+    },
+    {
+      "form_id": 6104,
+      "status": "success",
+      "records": 453
+    },
+    {
+      "form_id": 5777,
+      "status": "success",
+      "records": 1699
+    },
+    {
+      "form_id": 7614,
+      "status": "success",
+      "records": 4135
+    },
+    {
+      "form_id": 4419,
+      "status": "success",
+      "records": 928
+    },
+    {
+      "form_id": 6769,
+      "status": "success",
+      "records": 1968
+    },
+    {
+      "form_id": 4351,
+      "status": "success",
+      "records": 4845
+    },
+    {
+      "form_id": 7983,
+      "status": "success",
+      "records": 3495
+    }
+  ]
+}

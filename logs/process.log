@@ -10,3 +10,2630 @@ INFO [2026-03-28 16:09:49] Applying reason analysis...
 INFO [2026-03-28 16:09:50] Reading preparedness data...
 INFO [2026-03-28 16:09:50] Read lookup file from data/lookup/lqas_lookup.xlsx
 INFO [2026-03-28 16:09:50] Lookup table has 359 entries
+INFO [2026-03-29 10:57:20] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:57:20] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 10:57:20] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:57:20] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:57:20] PROCESSING LQAS DATA
+INFO [2026-03-29 10:57:20] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:57:20] Found 2 files in data/raw/
+INFO [2026-03-29 10:57:20]   📄 Regular file: 4500.parquet
+INFO [2026-03-29 10:57:20]   🔸 Detected special case Nigeria: Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-03-29 10:57:20] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 10:57:20] PROCESSING SPECIAL CASE: Nigeria CSV
+INFO [2026-03-29 10:57:20] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:57:20] 🔸 Processing special case: Nigeria CSV
+INFO [2026-03-29 10:57:21]   Read 2687 rows from input file
+INFO [2026-03-29 10:57:25]   ✅ Saved Nigeria processed data to data/processed/nigeria_processed.csv
+INFO [2026-03-29 10:57:25] ✅ Successfully processed Nigeria CSV special case
+INFO [2026-03-29 10:57:25] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 10:57:25] PROCESSING REGULAR LQAS FILES
+INFO [2026-03-29 10:57:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:57:25] Processing 1 regular LQAS files
+INFO [2026-03-29 10:57:25]   Processing: 4500.parquet
+INFO [2026-03-29 10:57:26]     Read 26553 rows, 51 columns
+INFO [2026-03-29 10:57:26] Combined regular data: 26553 rows, 51 columns
+INFO [2026-03-29 10:57:26]   Standardizing data...
+INFO [2026-03-29 10:57:26]   Calculating metrics...
+INFO [2026-03-29 10:57:26]   Aggregating by district...
+INFO [2026-03-29 10:57:27]   Adding vaccine types...
+INFO [2026-03-29 10:57:27]   Loading campaign lookup table...
+INFO [2026-03-29 10:57:27]   Final formatting...
+INFO [2026-03-29 10:57:27]   ✅ Saved regular LQAS data to data/processed/regular_lqas_processed.csv
+INFO [2026-03-29 10:57:27] ✅ Successfully processed regular LQAS files
+INFO [2026-03-29 10:57:27] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 10:57:27] COMBINING ALL PROCESSED DATA FOR DASHBOARD
+INFO [2026-03-29 10:57:27] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:57:27] Found 2 processed CSV files
+INFO [2026-03-29 10:57:27]   Reading: nigeria_processed.csv
+INFO [2026-03-29 10:57:27]   Reading: regular_lqas_processed.csv
+INFO [2026-03-29 10:57:28] Combined final data: 5134 rows, 43 columns
+INFO [2026-03-29 10:57:28] ✅ Saved dashboard input to data/final/lqas_dashboard_input.csv
+INFO [2026-03-29 10:57:28] ✅ Saved dashboard input to data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 10:57:28] ✅ Saved processing summary
+INFO [2026-03-29 10:57:28] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 10:57:28] PROCESSING COMPLETE!
+INFO [2026-03-29 10:57:28] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:58:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:58:18] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 10:58:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:58:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:58:18] PROCESSING LQAS DATA
+INFO [2026-03-29 10:58:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:58:18] Found 2 files in data/raw/
+INFO [2026-03-29 10:58:18]   📄 Regular file: 4500.parquet
+INFO [2026-03-29 10:58:18]   🔸 Detected special case Nigeria: Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-03-29 10:58:18] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 10:58:18] PROCESSING SPECIAL CASE: Nigeria CSV
+INFO [2026-03-29 10:58:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:58:18] 🔸 Processing special case: Nigeria CSV
+INFO [2026-03-29 10:58:19]   Read 2687 rows from input file
+INFO [2026-03-29 10:58:22]   ✅ Saved Nigeria processed data to data/processed/nigeria_processed.csv
+INFO [2026-03-29 10:58:22] ✅ Successfully processed Nigeria CSV special case
+INFO [2026-03-29 10:58:22] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 10:58:22] PROCESSING REGULAR LQAS FILES
+INFO [2026-03-29 10:58:22] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:58:22] Processing 1 regular LQAS files
+INFO [2026-03-29 10:58:22]   Processing: 4500.parquet
+INFO [2026-03-29 10:58:23]     Read 26553 rows, 51 columns
+INFO [2026-03-29 10:58:23] Combined regular data: 26553 rows, 51 columns
+INFO [2026-03-29 10:58:23]   Standardizing data...
+INFO [2026-03-29 10:58:24]   Calculating metrics...
+INFO [2026-03-29 10:58:24]   Aggregating by district...
+INFO [2026-03-29 10:58:24]   Adding vaccine types...
+INFO [2026-03-29 10:58:24]   Loading campaign lookup table...
+INFO [2026-03-29 10:58:24]   Final formatting...
+INFO [2026-03-29 10:58:25]   ✅ Saved regular LQAS data to data/processed/regular_lqas_processed.csv
+INFO [2026-03-29 10:58:25] ✅ Successfully processed regular LQAS files
+INFO [2026-03-29 10:58:25] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 10:58:25] COMBINING ALL PROCESSED DATA FOR DASHBOARD
+INFO [2026-03-29 10:58:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 10:58:25] Found 2 processed CSV files
+INFO [2026-03-29 10:58:25]   Reading: nigeria_processed.csv
+INFO [2026-03-29 10:58:25]   Reading: regular_lqas_processed.csv
+INFO [2026-03-29 10:58:25] Combined final data: 5134 rows, 43 columns
+INFO [2026-03-29 10:58:25] ✅ Saved dashboard input to data/final/lqas_dashboard_input.csv
+INFO [2026-03-29 10:58:25] ✅ Saved dashboard input to data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 10:58:25] ✅ Saved processing summary
+INFO [2026-03-29 10:58:25] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 10:58:25] PROCESSING COMPLETE!
+INFO [2026-03-29 10:58:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:21:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:21:25] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 11:21:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:21:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:21:26] PROCESSING LQAS DATA
+INFO [2026-03-29 11:21:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:21:26] Found 2 files in data/raw/
+INFO [2026-03-29 11:21:26]   📄 Regular file: 4500.parquet
+INFO [2026-03-29 11:21:26]   🔸 Detected special case Nigeria: Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-03-29 11:21:26] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:21:26] PROCESSING SPECIAL CASE: Nigeria CSV
+INFO [2026-03-29 11:21:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:21:26] 🔸 Processing special case: Nigeria CSV
+INFO [2026-03-29 11:21:26]   Read 2687 rows from input file
+INFO [2026-03-29 11:21:30]   ✅ Saved Nigeria processed data to data/processed/nigeria_processed.csv
+INFO [2026-03-29 11:21:30] ✅ Successfully processed Nigeria CSV special case
+INFO [2026-03-29 11:21:30] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:21:30] PROCESSING REGULAR LQAS FILES
+INFO [2026-03-29 11:21:30] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:21:30] Processing 1 regular LQAS files
+INFO [2026-03-29 11:21:30]   Processing: 4500.parquet
+INFO [2026-03-29 11:21:32]     Read 26553 rows, 51 columns
+INFO [2026-03-29 11:21:32] Combined regular data: 26553 rows, 51 columns
+INFO [2026-03-29 11:21:32]   Standardizing data...
+INFO [2026-03-29 11:21:32]   Calculating metrics...
+INFO [2026-03-29 11:21:32]   Aggregating by district...
+INFO [2026-03-29 11:21:32]   Adding vaccine types...
+INFO [2026-03-29 11:21:33]   Loading campaign lookup table...
+INFO [2026-03-29 11:21:33]   Final formatting...
+INFO [2026-03-29 11:21:33]   ✅ Saved regular LQAS data to data/processed/regular_lqas_processed.csv
+INFO [2026-03-29 11:21:33] ✅ Successfully processed regular LQAS files
+INFO [2026-03-29 11:21:33] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:21:33] COMBINING ALL PROCESSED DATA FOR DASHBOARD
+INFO [2026-03-29 11:21:33] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:21:33] Found 2 processed CSV files
+INFO [2026-03-29 11:21:33]   Reading: nigeria_processed.csv
+INFO [2026-03-29 11:21:33]   Reading: regular_lqas_processed.csv
+INFO [2026-03-29 11:21:33] Combined final data: 5134 rows, 43 columns
+INFO [2026-03-29 11:21:33] ✅ Saved dashboard input to data/final/lqas_dashboard_input.csv
+INFO [2026-03-29 11:21:33] ✅ Saved dashboard input to data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 11:21:33] ✅ Saved processing summary
+INFO [2026-03-29 11:21:33] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:21:33] PROCESSING COMPLETE!
+INFO [2026-03-29 11:21:33] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:38:43] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:38:43] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 11:38:43] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:38:43] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:38:43] PROCESSING LQAS DATA
+INFO [2026-03-29 11:38:43] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:38:43] Found 35 files in data/raw/
+INFO [2026-03-29 11:38:43]   📄 Regular file: 10271.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 15782.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 3583.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4351.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4388.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4419.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4431.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4436.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4450.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4481.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4500.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4987.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 4999.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 5203.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 5214.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 5299.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 5777.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 5889.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 6104.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 6350.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 6420.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 6429.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 6769.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 6837.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 7589.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 7602.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 7614.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 7623.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 7983.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 8281.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 8588.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 8834.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 9601.parquet
+INFO [2026-03-29 11:38:43]   📄 Regular file: 9794.parquet
+INFO [2026-03-29 11:38:43]   🔸 Detected special case Nigeria: Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-03-29 11:38:43] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:38:43] PROCESSING SPECIAL CASE: Nigeria CSV
+INFO [2026-03-29 11:38:43] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:38:44] 🔸 Processing special case: Nigeria CSV
+INFO [2026-03-29 11:38:44]   Read 2687 rows from input file
+INFO [2026-03-29 11:38:48]   ✅ Saved Nigeria processed data to data/processed/nigeria_processed.csv
+INFO [2026-03-29 11:38:48] ✅ Successfully processed Nigeria CSV special case
+INFO [2026-03-29 11:38:48] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:38:48] PROCESSING REGULAR LQAS FILES
+INFO [2026-03-29 11:38:48] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:38:48] Processing 34 regular LQAS files
+INFO [2026-03-29 11:38:48]   Processing: 10271.parquet
+INFO [2026-03-29 11:38:49]     Read 8781 rows, 218 columns
+INFO [2026-03-29 11:38:49]   Processing: 15782.parquet
+INFO [2026-03-29 11:38:49]     Read 462 rows, 179 columns
+INFO [2026-03-29 11:38:49]   Processing: 3583.parquet
+INFO [2026-03-29 11:38:49]     Read 8597 rows, 188 columns
+INFO [2026-03-29 11:38:49]   Processing: 4351.parquet
+INFO [2026-03-29 11:38:49]     Read 4845 rows, 198 columns
+INFO [2026-03-29 11:38:49]   Processing: 4388.parquet
+INFO [2026-03-29 11:38:49]     Read 2327 rows, 308 columns
+INFO [2026-03-29 11:38:49]   Processing: 4419.parquet
+INFO [2026-03-29 11:38:50]     Read 928 rows, 195 columns
+INFO [2026-03-29 11:38:50]   Processing: 4431.parquet
+INFO [2026-03-29 11:38:50]     Read 11271 rows, 219 columns
+INFO [2026-03-29 11:38:50]   Processing: 4436.parquet
+INFO [2026-03-29 11:38:50]     Read 1971 rows, 307 columns
+INFO [2026-03-29 11:38:50]   Processing: 4450.parquet
+INFO [2026-03-29 11:38:50]     Read 2502 rows, 294 columns
+INFO [2026-03-29 11:38:50]   Processing: 4481.parquet
+INFO [2026-03-29 11:38:51]     Read 5404 rows, 311 columns
+INFO [2026-03-29 11:38:51]   Processing: 4500.parquet
+INFO [2026-03-29 11:38:52]     Read 26553 rows, 51 columns
+INFO [2026-03-29 11:38:52]   Processing: 4987.parquet
+INFO [2026-03-29 11:38:56]     Read 42534 rows, 578 columns
+INFO [2026-03-29 11:38:56]   Processing: 4999.parquet
+INFO [2026-03-29 11:38:56]     Read 2147 rows, 313 columns
+INFO [2026-03-29 11:38:56]   Processing: 5203.parquet
+INFO [2026-03-29 11:38:57]     Read 12803 rows, 297 columns
+INFO [2026-03-29 11:38:57]   Processing: 5214.parquet
+INFO [2026-03-29 11:38:57]     Read 4458 rows, 188 columns
+INFO [2026-03-29 11:38:57]   Processing: 5299.parquet
+INFO [2026-03-29 11:38:57]     Read 1939 rows, 489 columns
+INFO [2026-03-29 11:38:57]   Processing: 5777.parquet
+INFO [2026-03-29 11:38:57]     Read 1699 rows, 225 columns
+INFO [2026-03-29 11:38:57]   Processing: 5889.parquet
+INFO [2026-03-29 11:38:57]     Read 1924 rows, 192 columns
+INFO [2026-03-29 11:38:57]   Processing: 6104.parquet
+INFO [2026-03-29 11:38:57]     Read 453 rows, 334 columns
+INFO [2026-03-29 11:38:57]   Processing: 6350.parquet
+INFO [2026-03-29 11:38:57]     Read 944 rows, 335 columns
+INFO [2026-03-29 11:38:57]   Processing: 6420.parquet
+INFO [2026-03-29 11:38:58]     Read 3012 rows, 213 columns
+INFO [2026-03-29 11:38:58]   Processing: 6429.parquet
+INFO [2026-03-29 11:38:58]     Read 1516 rows, 345 columns
+INFO [2026-03-29 11:38:58]   Processing: 6769.parquet
+INFO [2026-03-29 11:38:58]     Read 1968 rows, 366 columns
+INFO [2026-03-29 11:38:58]   Processing: 6837.parquet
+INFO [2026-03-29 11:38:59]     Read 8831 rows, 289 columns
+INFO [2026-03-29 11:38:59]   Processing: 7589.parquet
+INFO [2026-03-29 11:38:59]     Read 258 rows, 341 columns
+INFO [2026-03-29 11:38:59]   Processing: 7602.parquet
+INFO [2026-03-29 11:38:59]     Read 1093 rows, 356 columns
+INFO [2026-03-29 11:38:59]   Processing: 7614.parquet
+INFO [2026-03-29 11:38:59]     Read 4135 rows, 182 columns
+INFO [2026-03-29 11:38:59]   Processing: 7623.parquet
+INFO [2026-03-29 11:38:59]     Read 8689 rows, 506 columns
+INFO [2026-03-29 11:38:59]   Processing: 7983.parquet
+INFO [2026-03-29 11:38:59]     Read 3495 rows, 345 columns
+INFO [2026-03-29 11:38:59]   Processing: 8281.parquet
+INFO [2026-03-29 11:38:59]     Read 4603 rows, 238 columns
+INFO [2026-03-29 11:38:59]   Processing: 8588.parquet
+INFO [2026-03-29 11:39:00]     Read 4747 rows, 193 columns
+INFO [2026-03-29 11:39:00]   Processing: 8834.parquet
+INFO [2026-03-29 11:39:00]     Read 324 rows, 256 columns
+INFO [2026-03-29 11:39:00]   Processing: 9601.parquet
+INFO [2026-03-29 11:39:00]     Read 882 rows, 182 columns
+INFO [2026-03-29 11:39:00]   Processing: 9794.parquet
+INFO [2026-03-29 11:39:00]     Read 552 rows, 255 columns
+INFO [2026-03-29 11:39:08] Combined regular data: 186647 rows, 1587 columns
+INFO [2026-03-29 11:39:08]   Standardizing data...
+INFO [2026-03-29 11:39:08]   Calculating metrics...
+INFO [2026-03-29 11:39:08]   Aggregating by district...
+ERROR [2026-03-29 11:39:09] Failed to process regular LQAS files: Can't transform a data frame with duplicate names.
+INFO [2026-03-29 11:39:09] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:39:09] COMBINING ALL PROCESSED DATA FOR DASHBOARD
+INFO [2026-03-29 11:39:09] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:09] Found 2 processed CSV files
+INFO [2026-03-29 11:39:09]   Reading: nigeria_processed.csv
+INFO [2026-03-29 11:39:09]   Reading: regular_lqas_processed.csv
+INFO [2026-03-29 11:39:09] Combined final data: 5134 rows, 43 columns
+INFO [2026-03-29 11:39:09] ✅ Saved dashboard input to data/final/lqas_dashboard_input.csv
+INFO [2026-03-29 11:39:09] ✅ Saved dashboard input to data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 11:39:09] ✅ Saved processing summary
+INFO [2026-03-29 11:39:09] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:39:09] PROCESSING COMPLETE!
+INFO [2026-03-29 11:39:09] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:09] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:09] PROCESSING LQAS DATA
+INFO [2026-03-29 11:39:09] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:09] Found 35 files in data/raw/
+INFO [2026-03-29 11:39:09]   📄 Regular file: 10271.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 15782.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 3583.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4351.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4388.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4419.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4431.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4436.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4450.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4481.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4500.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4987.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 4999.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 5203.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 5214.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 5299.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 5777.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 5889.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 6104.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 6350.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 6420.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 6429.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 6769.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 6837.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 7589.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 7602.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 7614.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 7623.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 7983.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 8281.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 8588.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 8834.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 9601.parquet
+INFO [2026-03-29 11:39:09]   📄 Regular file: 9794.parquet
+INFO [2026-03-29 11:39:09]   🔸 Detected special case Nigeria: Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-03-29 11:39:09] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:39:09] PROCESSING SPECIAL CASE: Nigeria CSV
+INFO [2026-03-29 11:39:09] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:09] 🔸 Processing special case: Nigeria CSV
+INFO [2026-03-29 11:39:10]   Read 2687 rows from input file
+INFO [2026-03-29 11:39:15]   ✅ Saved Nigeria processed data to data/processed/nigeria_processed.csv
+INFO [2026-03-29 11:39:15] ✅ Successfully processed Nigeria CSV special case
+INFO [2026-03-29 11:39:15] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:39:15] PROCESSING REGULAR LQAS FILES
+INFO [2026-03-29 11:39:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:15] Processing 34 regular LQAS files
+INFO [2026-03-29 11:39:15]   Processing: 10271.parquet
+INFO [2026-03-29 11:39:16]     Read 8781 rows, 218 columns
+INFO [2026-03-29 11:39:16]   Processing: 15782.parquet
+INFO [2026-03-29 11:39:16]     Read 462 rows, 179 columns
+INFO [2026-03-29 11:39:16]   Processing: 3583.parquet
+INFO [2026-03-29 11:39:16]     Read 8597 rows, 188 columns
+INFO [2026-03-29 11:39:16]   Processing: 4351.parquet
+INFO [2026-03-29 11:39:16]     Read 4845 rows, 198 columns
+INFO [2026-03-29 11:39:16]   Processing: 4388.parquet
+INFO [2026-03-29 11:39:16]     Read 2327 rows, 308 columns
+INFO [2026-03-29 11:39:16]   Processing: 4419.parquet
+INFO [2026-03-29 11:39:16]     Read 928 rows, 195 columns
+INFO [2026-03-29 11:39:16]   Processing: 4431.parquet
+INFO [2026-03-29 11:39:16]     Read 11271 rows, 219 columns
+INFO [2026-03-29 11:39:16]   Processing: 4436.parquet
+INFO [2026-03-29 11:39:16]     Read 1971 rows, 307 columns
+INFO [2026-03-29 11:39:16]   Processing: 4450.parquet
+INFO [2026-03-29 11:39:16]     Read 2502 rows, 294 columns
+INFO [2026-03-29 11:39:16]   Processing: 4481.parquet
+INFO [2026-03-29 11:39:17]     Read 5404 rows, 311 columns
+INFO [2026-03-29 11:39:17]   Processing: 4500.parquet
+INFO [2026-03-29 11:39:17]     Read 26553 rows, 51 columns
+INFO [2026-03-29 11:39:17]   Processing: 4987.parquet
+INFO [2026-03-29 11:39:19]     Read 42534 rows, 578 columns
+INFO [2026-03-29 11:39:19]   Processing: 4999.parquet
+INFO [2026-03-29 11:39:19]     Read 2147 rows, 313 columns
+INFO [2026-03-29 11:39:19]   Processing: 5203.parquet
+INFO [2026-03-29 11:39:19]     Read 12803 rows, 297 columns
+INFO [2026-03-29 11:39:19]   Processing: 5214.parquet
+INFO [2026-03-29 11:39:19]     Read 4458 rows, 188 columns
+INFO [2026-03-29 11:39:19]   Processing: 5299.parquet
+INFO [2026-03-29 11:39:19]     Read 1939 rows, 489 columns
+INFO [2026-03-29 11:39:19]   Processing: 5777.parquet
+INFO [2026-03-29 11:39:19]     Read 1699 rows, 225 columns
+INFO [2026-03-29 11:39:19]   Processing: 5889.parquet
+INFO [2026-03-29 11:39:19]     Read 1924 rows, 192 columns
+INFO [2026-03-29 11:39:19]   Processing: 6104.parquet
+INFO [2026-03-29 11:39:19]     Read 453 rows, 334 columns
+INFO [2026-03-29 11:39:19]   Processing: 6350.parquet
+INFO [2026-03-29 11:39:20]     Read 944 rows, 335 columns
+INFO [2026-03-29 11:39:20]   Processing: 6420.parquet
+INFO [2026-03-29 11:39:20]     Read 3012 rows, 213 columns
+INFO [2026-03-29 11:39:20]   Processing: 6429.parquet
+INFO [2026-03-29 11:39:20]     Read 1516 rows, 345 columns
+INFO [2026-03-29 11:39:20]   Processing: 6769.parquet
+INFO [2026-03-29 11:39:20]     Read 1968 rows, 366 columns
+INFO [2026-03-29 11:39:20]   Processing: 6837.parquet
+INFO [2026-03-29 11:39:21]     Read 8831 rows, 289 columns
+INFO [2026-03-29 11:39:21]   Processing: 7589.parquet
+INFO [2026-03-29 11:39:21]     Read 258 rows, 341 columns
+INFO [2026-03-29 11:39:21]   Processing: 7602.parquet
+INFO [2026-03-29 11:39:21]     Read 1093 rows, 356 columns
+INFO [2026-03-29 11:39:21]   Processing: 7614.parquet
+INFO [2026-03-29 11:39:21]     Read 4135 rows, 182 columns
+INFO [2026-03-29 11:39:21]   Processing: 7623.parquet
+INFO [2026-03-29 11:39:21]     Read 8689 rows, 506 columns
+INFO [2026-03-29 11:39:21]   Processing: 7983.parquet
+INFO [2026-03-29 11:39:21]     Read 3495 rows, 345 columns
+INFO [2026-03-29 11:39:21]   Processing: 8281.parquet
+INFO [2026-03-29 11:39:22]     Read 4603 rows, 238 columns
+INFO [2026-03-29 11:39:22]   Processing: 8588.parquet
+INFO [2026-03-29 11:39:22]     Read 4747 rows, 193 columns
+INFO [2026-03-29 11:39:22]   Processing: 8834.parquet
+INFO [2026-03-29 11:39:22]     Read 324 rows, 256 columns
+INFO [2026-03-29 11:39:22]   Processing: 9601.parquet
+INFO [2026-03-29 11:39:22]     Read 882 rows, 182 columns
+INFO [2026-03-29 11:39:22]   Processing: 9794.parquet
+INFO [2026-03-29 11:39:22]     Read 552 rows, 255 columns
+INFO [2026-03-29 11:39:26] Combined regular data: 186647 rows, 1587 columns
+INFO [2026-03-29 11:39:26]   Standardizing data...
+INFO [2026-03-29 11:39:27]   Calculating metrics...
+INFO [2026-03-29 11:39:27]   Aggregating by district...
+ERROR [2026-03-29 11:39:27] Failed to process regular LQAS files: Can't transform a data frame with duplicate names.
+INFO [2026-03-29 11:39:27] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:39:27] COMBINING ALL PROCESSED DATA FOR DASHBOARD
+INFO [2026-03-29 11:39:27] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:27] Found 2 processed CSV files
+INFO [2026-03-29 11:39:27]   Reading: nigeria_processed.csv
+INFO [2026-03-29 11:39:27]   Reading: regular_lqas_processed.csv
+INFO [2026-03-29 11:39:27] Combined final data: 5134 rows, 43 columns
+INFO [2026-03-29 11:39:27] ✅ Saved dashboard input to data/final/lqas_dashboard_input.csv
+INFO [2026-03-29 11:39:27] ✅ Saved dashboard input to data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 11:39:27] ✅ Saved processing summary
+INFO [2026-03-29 11:39:27] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:39:27] PROCESSING COMPLETE!
+INFO [2026-03-29 11:39:27] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:27] ✅ Processing complete
+INFO [2026-03-29 11:39:27] 🌍 STEP 3: Cleaning geonames...
+INFO [2026-03-29 11:43:06] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:43:06] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 11:43:06] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:43:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:43:07] PROCESSING LQAS DATA
+INFO [2026-03-29 11:43:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:43:07] Found 35 files in data/raw/
+INFO [2026-03-29 11:43:07]   📄 Regular file: 10271.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 15782.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 3583.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4351.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4388.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4419.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4431.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4436.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4450.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4481.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4500.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4987.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 4999.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 5203.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 5214.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 5299.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 5777.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 5889.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 6104.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 6350.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 6420.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 6429.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 6769.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 6837.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 7589.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 7602.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 7614.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 7623.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 7983.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 8281.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 8588.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 8834.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 9601.parquet
+INFO [2026-03-29 11:43:07]   📄 Regular file: 9794.parquet
+INFO [2026-03-29 11:43:07]   🔸 Detected special case Nigeria: Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-03-29 11:43:07] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:43:07] PROCESSING SPECIAL CASE: Nigeria CSV
+INFO [2026-03-29 11:43:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:43:07] 🔸 Processing special case: Nigeria CSV
+INFO [2026-03-29 11:43:08]   Read 2687 rows from input file
+INFO [2026-03-29 11:43:12]   ✅ Saved Nigeria processed data to data/processed/nigeria_processed.csv
+INFO [2026-03-29 11:43:12] ✅ Successfully processed Nigeria CSV special case
+INFO [2026-03-29 11:43:12] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:43:12] PROCESSING REGULAR LQAS FILES
+INFO [2026-03-29 11:43:12] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:43:12] Processing 34 regular LQAS files
+INFO [2026-03-29 11:43:12]   Processing: 10271.parquet
+INFO [2026-03-29 11:43:12]     Read 8781 rows, 218 columns
+INFO [2026-03-29 11:43:12]   Processing: 15782.parquet
+INFO [2026-03-29 11:43:12]     Read 462 rows, 179 columns
+INFO [2026-03-29 11:43:12]   Processing: 3583.parquet
+INFO [2026-03-29 11:43:13]     Read 8597 rows, 188 columns
+INFO [2026-03-29 11:43:13]   Processing: 4351.parquet
+INFO [2026-03-29 11:43:13]     Read 4845 rows, 198 columns
+INFO [2026-03-29 11:43:13]   Processing: 4388.parquet
+INFO [2026-03-29 11:43:13]     Read 2327 rows, 308 columns
+INFO [2026-03-29 11:43:13]   Processing: 4419.parquet
+INFO [2026-03-29 11:43:13]     Read 928 rows, 195 columns
+INFO [2026-03-29 11:43:13]   Processing: 4431.parquet
+INFO [2026-03-29 11:43:14]     Read 11271 rows, 219 columns
+INFO [2026-03-29 11:43:14]   Processing: 4436.parquet
+INFO [2026-03-29 11:43:14]     Read 1971 rows, 307 columns
+INFO [2026-03-29 11:43:14]   Processing: 4450.parquet
+INFO [2026-03-29 11:43:14]     Read 2502 rows, 294 columns
+INFO [2026-03-29 11:43:14]   Processing: 4481.parquet
+INFO [2026-03-29 11:43:14]     Read 5404 rows, 311 columns
+INFO [2026-03-29 11:43:14]   Processing: 4500.parquet
+INFO [2026-03-29 11:43:16]     Read 26553 rows, 51 columns
+INFO [2026-03-29 11:43:16]   Processing: 4987.parquet
+INFO [2026-03-29 11:43:19]     Read 42534 rows, 578 columns
+INFO [2026-03-29 11:43:19]   Processing: 4999.parquet
+INFO [2026-03-29 11:43:19]     Read 2147 rows, 313 columns
+INFO [2026-03-29 11:43:19]   Processing: 5203.parquet
+INFO [2026-03-29 11:43:20]     Read 12803 rows, 297 columns
+INFO [2026-03-29 11:43:20]   Processing: 5214.parquet
+INFO [2026-03-29 11:43:20]     Read 4458 rows, 188 columns
+INFO [2026-03-29 11:43:20]   Processing: 5299.parquet
+INFO [2026-03-29 11:43:20]     Read 1939 rows, 489 columns
+INFO [2026-03-29 11:43:20]   Processing: 5777.parquet
+INFO [2026-03-29 11:43:21]     Read 1699 rows, 225 columns
+INFO [2026-03-29 11:43:21]   Processing: 5889.parquet
+INFO [2026-03-29 11:43:21]     Read 1924 rows, 192 columns
+INFO [2026-03-29 11:43:21]   Processing: 6104.parquet
+INFO [2026-03-29 11:43:21]     Read 453 rows, 334 columns
+INFO [2026-03-29 11:43:21]   Processing: 6350.parquet
+INFO [2026-03-29 11:43:21]     Read 944 rows, 335 columns
+INFO [2026-03-29 11:43:21]   Processing: 6420.parquet
+INFO [2026-03-29 11:43:21]     Read 3012 rows, 213 columns
+INFO [2026-03-29 11:43:21]   Processing: 6429.parquet
+INFO [2026-03-29 11:43:21]     Read 1516 rows, 345 columns
+INFO [2026-03-29 11:43:21]   Processing: 6769.parquet
+INFO [2026-03-29 11:43:21]     Read 1968 rows, 366 columns
+INFO [2026-03-29 11:43:21]   Processing: 6837.parquet
+INFO [2026-03-29 11:43:22]     Read 8831 rows, 289 columns
+INFO [2026-03-29 11:43:22]   Processing: 7589.parquet
+INFO [2026-03-29 11:43:22]     Read 258 rows, 341 columns
+INFO [2026-03-29 11:43:22]   Processing: 7602.parquet
+INFO [2026-03-29 11:43:22]     Read 1093 rows, 356 columns
+INFO [2026-03-29 11:43:22]   Processing: 7614.parquet
+INFO [2026-03-29 11:43:22]     Read 4135 rows, 182 columns
+INFO [2026-03-29 11:43:22]   Processing: 7623.parquet
+INFO [2026-03-29 11:43:22]     Read 8689 rows, 506 columns
+INFO [2026-03-29 11:43:22]   Processing: 7983.parquet
+INFO [2026-03-29 11:43:22]     Read 3495 rows, 345 columns
+INFO [2026-03-29 11:43:22]   Processing: 8281.parquet
+INFO [2026-03-29 11:43:22]     Read 4603 rows, 238 columns
+INFO [2026-03-29 11:43:23]   Processing: 8588.parquet
+INFO [2026-03-29 11:43:23]     Read 4747 rows, 193 columns
+INFO [2026-03-29 11:43:23]   Processing: 8834.parquet
+INFO [2026-03-29 11:43:23]     Read 324 rows, 256 columns
+INFO [2026-03-29 11:43:23]   Processing: 9601.parquet
+INFO [2026-03-29 11:43:23]     Read 882 rows, 182 columns
+INFO [2026-03-29 11:43:23]   Processing: 9794.parquet
+INFO [2026-03-29 11:43:23]     Read 552 rows, 255 columns
+INFO [2026-03-29 11:43:31] Combined regular data: 186647 rows, 1587 columns
+INFO [2026-03-29 11:43:31]   Standardizing data...
+INFO [2026-03-29 11:43:31]   Calculating metrics...
+INFO [2026-03-29 11:43:31]   Aggregating by district...
+ERROR [2026-03-29 11:43:31] Failed to process regular LQAS files: Can't transform a data frame with duplicate names.
+INFO [2026-03-29 11:43:31] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:43:31] COMBINING ALL PROCESSED DATA FOR DASHBOARD
+INFO [2026-03-29 11:43:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:43:31] Found 2 processed CSV files
+INFO [2026-03-29 11:43:32]   Reading: nigeria_processed.csv
+INFO [2026-03-29 11:43:32]   Reading: regular_lqas_processed.csv
+INFO [2026-03-29 11:43:32] Combined final data: 5134 rows, 43 columns
+INFO [2026-03-29 11:43:32] ✅ Saved dashboard input to data/final/lqas_dashboard_input.csv
+INFO [2026-03-29 11:43:32] ✅ Saved dashboard input to data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 11:43:32] ✅ Saved processing summary
+INFO [2026-03-29 11:43:32] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:43:32] PROCESSING COMPLETE!
+INFO [2026-03-29 11:43:32] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:49:38] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:49:38] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 11:49:38] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:49:38] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:49:38] PROCESSING LQAS DATA
+INFO [2026-03-29 11:49:38] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:49:38] Found 35 files in data/raw/
+INFO [2026-03-29 11:49:38]   📄 Regular file: 10271.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 15782.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 3583.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4351.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4388.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4419.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4431.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4436.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4450.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4481.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4500.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4987.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 4999.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 5203.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 5214.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 5299.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 5777.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 5889.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 6104.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 6350.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 6420.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 6429.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 6769.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 6837.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 7589.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 7602.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 7614.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 7623.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 7983.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 8281.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 8588.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 8834.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 9601.parquet
+INFO [2026-03-29 11:49:38]   📄 Regular file: 9794.parquet
+INFO [2026-03-29 11:49:38]   🔸 Detected special case Nigeria: Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-03-29 11:49:38] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:49:38] PROCESSING SPECIAL CASE: Nigeria CSV
+INFO [2026-03-29 11:49:38] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:49:39] 🔸 Processing special case: Nigeria CSV
+INFO [2026-03-29 11:49:39]   Read 2687 rows from input file
+INFO [2026-03-29 11:49:43]   ✅ Saved Nigeria processed data to data/processed/nigeria_processed.csv
+INFO [2026-03-29 11:49:43] ✅ Successfully processed Nigeria CSV special case
+INFO [2026-03-29 11:49:43] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:49:43] PROCESSING REGULAR LQAS FILES
+INFO [2026-03-29 11:49:43] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:49:43] Processing 34 regular LQAS files
+INFO [2026-03-29 11:49:43]   Processing: 10271.parquet
+INFO [2026-03-29 11:49:44]     Read 8781 rows, 218 columns
+INFO [2026-03-29 11:49:44]   Processing: 15782.parquet
+INFO [2026-03-29 11:49:44]     Read 462 rows, 179 columns
+INFO [2026-03-29 11:49:44]   Processing: 3583.parquet
+INFO [2026-03-29 11:49:44]     Read 8597 rows, 188 columns
+INFO [2026-03-29 11:49:44]   Processing: 4351.parquet
+INFO [2026-03-29 11:49:44]     Read 4845 rows, 198 columns
+INFO [2026-03-29 11:49:44]   Processing: 4388.parquet
+INFO [2026-03-29 11:49:44]     Read 2327 rows, 308 columns
+INFO [2026-03-29 11:49:44]   Processing: 4419.parquet
+INFO [2026-03-29 11:49:44]     Read 928 rows, 195 columns
+INFO [2026-03-29 11:49:44]   Processing: 4431.parquet
+INFO [2026-03-29 11:49:45]     Read 11271 rows, 219 columns
+INFO [2026-03-29 11:49:45]   Processing: 4436.parquet
+INFO [2026-03-29 11:49:45]     Read 1971 rows, 307 columns
+INFO [2026-03-29 11:49:45]   Processing: 4450.parquet
+INFO [2026-03-29 11:49:45]     Read 2502 rows, 294 columns
+INFO [2026-03-29 11:49:45]   Processing: 4481.parquet
+INFO [2026-03-29 11:49:45]     Read 5404 rows, 311 columns
+INFO [2026-03-29 11:49:45]   Processing: 4500.parquet
+INFO [2026-03-29 11:49:47]     Read 26553 rows, 51 columns
+INFO [2026-03-29 11:49:47]   Processing: 4987.parquet
+INFO [2026-03-29 11:49:51]     Read 42534 rows, 578 columns
+INFO [2026-03-29 11:49:51]   Processing: 4999.parquet
+INFO [2026-03-29 11:49:51]     Read 2147 rows, 313 columns
+INFO [2026-03-29 11:49:51]   Processing: 5203.parquet
+INFO [2026-03-29 11:49:51]     Read 12803 rows, 297 columns
+INFO [2026-03-29 11:49:51]   Processing: 5214.parquet
+INFO [2026-03-29 11:49:52]     Read 4458 rows, 188 columns
+INFO [2026-03-29 11:49:52]   Processing: 5299.parquet
+INFO [2026-03-29 11:49:52]     Read 1939 rows, 489 columns
+INFO [2026-03-29 11:49:52]   Processing: 5777.parquet
+INFO [2026-03-29 11:49:52]     Read 1699 rows, 225 columns
+INFO [2026-03-29 11:49:52]   Processing: 5889.parquet
+INFO [2026-03-29 11:49:52]     Read 1924 rows, 192 columns
+INFO [2026-03-29 11:49:52]   Processing: 6104.parquet
+INFO [2026-03-29 11:49:53]     Read 453 rows, 334 columns
+INFO [2026-03-29 11:49:53]   Processing: 6350.parquet
+INFO [2026-03-29 11:49:53]     Read 944 rows, 335 columns
+INFO [2026-03-29 11:49:53]   Processing: 6420.parquet
+INFO [2026-03-29 11:49:53]     Read 3012 rows, 213 columns
+INFO [2026-03-29 11:49:53]   Processing: 6429.parquet
+INFO [2026-03-29 11:49:53]     Read 1516 rows, 345 columns
+INFO [2026-03-29 11:49:53]   Processing: 6769.parquet
+INFO [2026-03-29 11:49:53]     Read 1968 rows, 366 columns
+INFO [2026-03-29 11:49:53]   Processing: 6837.parquet
+INFO [2026-03-29 11:49:53]     Read 8831 rows, 289 columns
+INFO [2026-03-29 11:49:53]   Processing: 7589.parquet
+INFO [2026-03-29 11:49:53]     Read 258 rows, 341 columns
+INFO [2026-03-29 11:49:53]   Processing: 7602.parquet
+INFO [2026-03-29 11:49:53]     Read 1093 rows, 356 columns
+INFO [2026-03-29 11:49:53]   Processing: 7614.parquet
+INFO [2026-03-29 11:49:54]     Read 4135 rows, 182 columns
+INFO [2026-03-29 11:49:54]   Processing: 7623.parquet
+INFO [2026-03-29 11:49:54]     Read 8689 rows, 506 columns
+INFO [2026-03-29 11:49:54]   Processing: 7983.parquet
+INFO [2026-03-29 11:49:54]     Read 3495 rows, 345 columns
+INFO [2026-03-29 11:49:54]   Processing: 8281.parquet
+INFO [2026-03-29 11:49:54]     Read 4603 rows, 238 columns
+INFO [2026-03-29 11:49:54]   Processing: 8588.parquet
+INFO [2026-03-29 11:49:54]     Read 4747 rows, 193 columns
+INFO [2026-03-29 11:49:54]   Processing: 8834.parquet
+INFO [2026-03-29 11:49:54]     Read 324 rows, 256 columns
+INFO [2026-03-29 11:49:54]   Processing: 9601.parquet
+INFO [2026-03-29 11:49:55]     Read 882 rows, 182 columns
+INFO [2026-03-29 11:49:55]   Processing: 9794.parquet
+INFO [2026-03-29 11:49:55]     Read 552 rows, 255 columns
+INFO [2026-03-29 11:50:03] Combined regular data: 186647 rows, 1587 columns
+INFO [2026-03-29 11:50:03]   Standardizing data...
+INFO [2026-03-29 11:50:04]   Calculating metrics...
+INFO [2026-03-29 11:50:04]   Aggregating by district...
+ERROR [2026-03-29 11:50:04] Failed to process regular LQAS files: Can't transform a data frame with duplicate names.
+INFO [2026-03-29 11:50:04] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:50:04] COMBINING ALL PROCESSED DATA FOR DASHBOARD
+INFO [2026-03-29 11:50:04] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:50:04] Found 2 processed CSV files
+INFO [2026-03-29 11:50:04]   Reading: nigeria_processed.csv
+INFO [2026-03-29 11:50:04]   Reading: regular_lqas_processed.csv
+INFO [2026-03-29 11:50:04] Combined final data: 5134 rows, 43 columns
+INFO [2026-03-29 11:50:04] ✅ Saved dashboard input to data/final/lqas_dashboard_input.csv
+INFO [2026-03-29 11:50:04] ✅ Saved dashboard input to data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 11:50:04] ✅ Saved processing summary
+INFO [2026-03-29 11:50:04] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-03-29 11:50:04] PROCESSING COMPLETE!
+INFO [2026-03-29 11:50:04] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 14:48:40] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 14:48:40] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 14:48:40] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 14:48:41] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 14:48:41] PROCESSING LQAS DATA
+INFO [2026-03-29 14:48:41] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 14:48:41] Step 1: Reading Parquet files...
+INFO [2026-03-29 14:48:41] Found 34 Parquet files
+INFO [2026-03-29 14:48:41]   [1/34] Reading 10271.parquet...
+INFO [2026-03-29 14:48:41]   [2/34] Reading 15782.parquet...
+INFO [2026-03-29 14:48:41]   [3/34] Reading 3583.parquet...
+INFO [2026-03-29 14:48:42]   [4/34] Reading 4351.parquet...
+INFO [2026-03-29 14:48:42]   [5/34] Reading 4388.parquet...
+INFO [2026-03-29 14:48:42]   [6/34] Reading 4419.parquet...
+INFO [2026-03-29 14:48:42]   [7/34] Reading 4431.parquet...
+INFO [2026-03-29 14:48:43]   [8/34] Reading 4436.parquet...
+INFO [2026-03-29 14:48:43]   [9/34] Reading 4450.parquet...
+INFO [2026-03-29 14:48:43]   [10/34] Reading 4481.parquet...
+INFO [2026-03-29 14:48:43]   [11/34] Reading 4500.parquet...
+INFO [2026-03-29 14:48:45]   [12/34] Reading 4987.parquet...
+INFO [2026-03-29 14:48:48]   [13/34] Reading 4999.parquet...
+INFO [2026-03-29 14:48:49]   [14/34] Reading 5203.parquet...
+INFO [2026-03-29 14:48:49]   [15/34] Reading 5214.parquet...
+INFO [2026-03-29 14:48:49]   [16/34] Reading 5299.parquet...
+INFO [2026-03-29 14:48:50]   [17/34] Reading 5777.parquet...
+INFO [2026-03-29 14:48:50]   [18/34] Reading 5889.parquet...
+INFO [2026-03-29 14:48:50]   [19/34] Reading 6104.parquet...
+INFO [2026-03-29 14:48:50]   [20/34] Reading 6350.parquet...
+INFO [2026-03-29 14:48:50]   [21/34] Reading 6420.parquet...
+INFO [2026-03-29 14:48:50]   [22/34] Reading 6429.parquet...
+INFO [2026-03-29 14:48:50]   [23/34] Reading 6769.parquet...
+INFO [2026-03-29 14:48:50]   [24/34] Reading 6837.parquet...
+INFO [2026-03-29 14:48:51]   [25/34] Reading 7589.parquet...
+INFO [2026-03-29 14:48:51]   [26/34] Reading 7602.parquet...
+INFO [2026-03-29 14:48:51]   [27/34] Reading 7614.parquet...
+INFO [2026-03-29 14:48:51]   [28/34] Reading 7623.parquet...
+INFO [2026-03-29 14:48:52]   [29/34] Reading 7983.parquet...
+INFO [2026-03-29 14:48:52]   [30/34] Reading 8281.parquet...
+INFO [2026-03-29 14:48:52]   [31/34] Reading 8588.parquet...
+INFO [2026-03-29 14:48:52]   [32/34] Reading 8834.parquet...
+INFO [2026-03-29 14:48:52]   [33/34] Reading 9601.parquet...
+INFO [2026-03-29 14:48:52]   [34/34] Reading 9794.parquet...
+INFO [2026-03-29 14:49:02] Combined dataset: 186647 rows, 1587 columns
+INFO [2026-03-29 14:49:02] Step 2: Standardizing data...
+INFO [2026-03-29 14:49:03] Step 3: Calculating metrics...
+INFO [2026-03-29 14:49:03] Step 4: Aggregating by district...
+INFO [2026-03-29 14:49:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 14:49:31] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 14:49:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 14:49:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 14:49:31] PROCESSING LQAS DATA
+INFO [2026-03-29 14:49:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 14:49:31] Step 1: Reading Parquet files...
+INFO [2026-03-29 14:49:31] Found 34 Parquet files
+INFO [2026-03-29 14:49:31]   [1/34] Reading 10271.parquet...
+INFO [2026-03-29 14:49:32]   [2/34] Reading 15782.parquet...
+INFO [2026-03-29 14:49:32]   [3/34] Reading 3583.parquet...
+INFO [2026-03-29 14:49:32]   [4/34] Reading 4351.parquet...
+INFO [2026-03-29 14:49:32]   [5/34] Reading 4388.parquet...
+INFO [2026-03-29 14:49:32]   [6/34] Reading 4419.parquet...
+INFO [2026-03-29 14:49:32]   [7/34] Reading 4431.parquet...
+INFO [2026-03-29 14:49:33]   [8/34] Reading 4436.parquet...
+INFO [2026-03-29 14:49:33]   [9/34] Reading 4450.parquet...
+INFO [2026-03-29 14:49:33]   [10/34] Reading 4481.parquet...
+INFO [2026-03-29 14:49:33]   [11/34] Reading 4500.parquet...
+INFO [2026-03-29 14:49:34]   [12/34] Reading 4987.parquet...
+INFO [2026-03-29 14:49:37]   [13/34] Reading 4999.parquet...
+INFO [2026-03-29 14:49:38]   [14/34] Reading 5203.parquet...
+INFO [2026-03-29 14:49:38]   [15/34] Reading 5214.parquet...
+INFO [2026-03-29 14:49:38]   [16/34] Reading 5299.parquet...
+INFO [2026-03-29 14:49:39]   [17/34] Reading 5777.parquet...
+INFO [2026-03-29 14:49:39]   [18/34] Reading 5889.parquet...
+INFO [2026-03-29 14:49:39]   [19/34] Reading 6104.parquet...
+INFO [2026-03-29 14:49:39]   [20/34] Reading 6350.parquet...
+INFO [2026-03-29 14:49:39]   [21/34] Reading 6420.parquet...
+INFO [2026-03-29 14:49:39]   [22/34] Reading 6429.parquet...
+INFO [2026-03-29 14:49:39]   [23/34] Reading 6769.parquet...
+INFO [2026-03-29 14:49:39]   [24/34] Reading 6837.parquet...
+INFO [2026-03-29 14:49:40]   [25/34] Reading 7589.parquet...
+INFO [2026-03-29 14:49:40]   [26/34] Reading 7602.parquet...
+INFO [2026-03-29 14:49:40]   [27/34] Reading 7614.parquet...
+INFO [2026-03-29 14:49:40]   [28/34] Reading 7623.parquet...
+INFO [2026-03-29 14:49:40]   [29/34] Reading 7983.parquet...
+INFO [2026-03-29 14:49:40]   [30/34] Reading 8281.parquet...
+INFO [2026-03-29 14:49:40]   [31/34] Reading 8588.parquet...
+INFO [2026-03-29 14:49:41]   [32/34] Reading 8834.parquet...
+INFO [2026-03-29 14:49:41]   [33/34] Reading 9601.parquet...
+INFO [2026-03-29 14:49:41]   [34/34] Reading 9794.parquet...
+INFO [2026-03-29 14:49:49] Combined dataset: 186647 rows, 1587 columns
+INFO [2026-03-29 14:49:49] Step 2: Standardizing data...
+INFO [2026-03-29 14:49:51] Step 3: Calculating metrics...
+INFO [2026-03-29 14:49:51] Step 4: Aggregating by district...
+INFO [2026-03-29 15:44:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 15:44:25] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 15:44:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 15:44:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 15:44:25] PROCESSING LQAS DATA
+INFO [2026-03-29 15:44:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 15:44:25] Step 1: Reading Parquet files...
+INFO [2026-03-29 15:44:25] Found 34 Parquet files
+INFO [2026-03-29 15:44:25]   [1/34] Reading 10271.parquet...
+INFO [2026-03-29 15:44:26]   [2/34] Reading 15782.parquet...
+INFO [2026-03-29 15:44:26]   [3/34] Reading 3583.parquet...
+INFO [2026-03-29 15:44:26]   [4/34] Reading 4351.parquet...
+INFO [2026-03-29 15:44:26]   [5/34] Reading 4388.parquet...
+INFO [2026-03-29 15:44:26]   [6/34] Reading 4419.parquet...
+INFO [2026-03-29 15:44:26]   [7/34] Reading 4431.parquet...
+INFO [2026-03-29 15:44:27]   [8/34] Reading 4436.parquet...
+INFO [2026-03-29 15:44:27]   [9/34] Reading 4450.parquet...
+INFO [2026-03-29 15:44:27]   [10/34] Reading 4481.parquet...
+INFO [2026-03-29 15:44:27]   [11/34] Reading 4500.parquet...
+INFO [2026-03-29 15:44:28]   [12/34] Reading 4987.parquet...
+INFO [2026-03-29 15:44:32]   [13/34] Reading 4999.parquet...
+INFO [2026-03-29 15:44:32]   [14/34] Reading 5203.parquet...
+INFO [2026-03-29 15:44:32]   [15/34] Reading 5214.parquet...
+INFO [2026-03-29 15:44:32]   [16/34] Reading 5299.parquet...
+INFO [2026-03-29 15:44:33]   [17/34] Reading 5777.parquet...
+INFO [2026-03-29 15:44:33]   [18/34] Reading 5889.parquet...
+INFO [2026-03-29 15:44:33]   [19/34] Reading 6104.parquet...
+INFO [2026-03-29 15:44:33]   [20/34] Reading 6350.parquet...
+INFO [2026-03-29 15:44:33]   [21/34] Reading 6420.parquet...
+INFO [2026-03-29 15:44:33]   [22/34] Reading 6429.parquet...
+INFO [2026-03-29 15:44:33]   [23/34] Reading 6769.parquet...
+INFO [2026-03-29 15:44:33]   [24/34] Reading 6837.parquet...
+INFO [2026-03-29 15:44:34]   [25/34] Reading 7589.parquet...
+INFO [2026-03-29 15:44:34]   [26/34] Reading 7602.parquet...
+INFO [2026-03-29 15:44:34]   [27/34] Reading 7614.parquet...
+INFO [2026-03-29 15:44:34]   [28/34] Reading 7623.parquet...
+INFO [2026-03-29 15:44:35]   [29/34] Reading 7983.parquet...
+INFO [2026-03-29 15:44:35]   [30/34] Reading 8281.parquet...
+INFO [2026-03-29 15:44:35]   [31/34] Reading 8588.parquet...
+INFO [2026-03-29 15:44:35]   [32/34] Reading 8834.parquet...
+INFO [2026-03-29 15:44:35]   [33/34] Reading 9601.parquet...
+INFO [2026-03-29 15:44:35]   [34/34] Reading 9794.parquet...
+INFO [2026-03-29 15:44:42] Combined dataset: 186647 rows, 1587 columns
+INFO [2026-03-29 15:44:42] Step 2: Standardizing data...
+INFO [2026-03-29 15:44:44] Step 3: Calculating metrics...
+INFO [2026-03-29 15:44:44] Step 4: Aggregating by district...
+INFO [2026-03-29 16:00:36] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 16:00:36] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 16:00:36] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 16:00:37] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 16:00:37] PROCESSING LQAS DATA
+INFO [2026-03-29 16:00:37] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 16:00:37] Step 1: Reading Parquet files...
+INFO [2026-03-29 16:00:37] Found 34 Parquet files
+INFO [2026-03-29 16:00:37]   [1/34] Reading 10271.parquet...
+INFO [2026-03-29 16:00:37]   [2/34] Reading 15782.parquet...
+INFO [2026-03-29 16:00:37]   [3/34] Reading 3583.parquet...
+INFO [2026-03-29 16:00:37]   [4/34] Reading 4351.parquet...
+INFO [2026-03-29 16:00:37]   [5/34] Reading 4388.parquet...
+INFO [2026-03-29 16:00:37]   [6/34] Reading 4419.parquet...
+INFO [2026-03-29 16:00:38]   [7/34] Reading 4431.parquet...
+INFO [2026-03-29 16:00:38]   [8/34] Reading 4436.parquet...
+INFO [2026-03-29 16:00:38]   [9/34] Reading 4450.parquet...
+INFO [2026-03-29 16:00:38]   [10/34] Reading 4481.parquet...
+INFO [2026-03-29 16:00:39]   [11/34] Reading 4500.parquet...
+INFO [2026-03-29 16:00:40]   [12/34] Reading 4987.parquet...
+INFO [2026-03-29 16:00:43]   [13/34] Reading 4999.parquet...
+INFO [2026-03-29 16:00:43]   [14/34] Reading 5203.parquet...
+INFO [2026-03-29 16:00:44]   [15/34] Reading 5214.parquet...
+INFO [2026-03-29 16:00:44]   [16/34] Reading 5299.parquet...
+INFO [2026-03-29 16:00:44]   [17/34] Reading 5777.parquet...
+INFO [2026-03-29 16:00:44]   [18/34] Reading 5889.parquet...
+INFO [2026-03-29 16:00:45]   [19/34] Reading 6104.parquet...
+INFO [2026-03-29 16:00:45]   [20/34] Reading 6350.parquet...
+INFO [2026-03-29 16:00:45]   [21/34] Reading 6420.parquet...
+INFO [2026-03-29 16:00:45]   [22/34] Reading 6429.parquet...
+INFO [2026-03-29 16:00:45]   [23/34] Reading 6769.parquet...
+INFO [2026-03-29 16:00:45]   [24/34] Reading 6837.parquet...
+INFO [2026-03-29 16:00:46]   [25/34] Reading 7589.parquet...
+INFO [2026-03-29 16:00:46]   [26/34] Reading 7602.parquet...
+INFO [2026-03-29 16:00:46]   [27/34] Reading 7614.parquet...
+INFO [2026-03-29 16:00:46]   [28/34] Reading 7623.parquet...
+INFO [2026-03-29 16:00:46]   [29/34] Reading 7983.parquet...
+INFO [2026-03-29 16:00:47]   [30/34] Reading 8281.parquet...
+INFO [2026-03-29 16:00:47]   [31/34] Reading 8588.parquet...
+INFO [2026-03-29 16:00:47]   [32/34] Reading 8834.parquet...
+INFO [2026-03-29 16:00:47]   [33/34] Reading 9601.parquet...
+INFO [2026-03-29 16:00:47]   [34/34] Reading 9794.parquet...
+INFO [2026-03-29 16:01:00] Combined dataset: 186647 rows, 1587 columns
+INFO [2026-03-29 16:01:00] Step 2: Standardizing data...
+INFO [2026-03-29 16:01:02] Step 3: Calculating metrics...
+INFO [2026-03-29 16:01:02] Step 4: Aggregating by district...
+INFO [2026-03-29 16:03:32] ============================================================
+INFO [2026-03-29 16:03:32] Starting LQAS Data Processing (regular process aligned to original)
+INFO [2026-03-29 16:03:32] ============================================================
+INFO [2026-03-29 16:03:32] ============================================================
+INFO [2026-03-29 16:03:32] PROCESSING LQAS DATA
+INFO [2026-03-29 16:03:33] ============================================================
+INFO [2026-03-29 16:03:33] Step 1: Reading Parquet files
+INFO [2026-03-29 16:03:33] Found 34 parquet files
+INFO [2026-03-29 16:03:33]   [1/34] Reading 10271.parquet
+INFO [2026-03-29 16:03:33]   [2/34] Reading 15782.parquet
+INFO [2026-03-29 16:03:33]   [3/34] Reading 3583.parquet
+INFO [2026-03-29 16:03:33]   [4/34] Reading 4351.parquet
+INFO [2026-03-29 16:03:33]   [5/34] Reading 4388.parquet
+INFO [2026-03-29 16:03:33]   [6/34] Reading 4419.parquet
+INFO [2026-03-29 16:03:33]   [7/34] Reading 4431.parquet
+INFO [2026-03-29 16:03:34]   [8/34] Reading 4436.parquet
+INFO [2026-03-29 16:03:34]   [9/34] Reading 4450.parquet
+INFO [2026-03-29 16:03:34]   [10/34] Reading 4481.parquet
+INFO [2026-03-29 16:03:34]   [11/34] Reading 4500.parquet
+INFO [2026-03-29 16:03:35]   [12/34] Reading 4987.parquet
+INFO [2026-03-29 16:03:38]   [13/34] Reading 4999.parquet
+INFO [2026-03-29 16:03:38]   [14/34] Reading 5203.parquet
+INFO [2026-03-29 16:03:39]   [15/34] Reading 5214.parquet
+INFO [2026-03-29 16:03:39]   [16/34] Reading 5299.parquet
+INFO [2026-03-29 16:03:39]   [17/34] Reading 5777.parquet
+INFO [2026-03-29 16:03:39]   [18/34] Reading 5889.parquet
+INFO [2026-03-29 16:03:39]   [19/34] Reading 6104.parquet
+INFO [2026-03-29 16:03:39]   [20/34] Reading 6350.parquet
+INFO [2026-03-29 16:03:39]   [21/34] Reading 6420.parquet
+INFO [2026-03-29 16:03:39]   [22/34] Reading 6429.parquet
+INFO [2026-03-29 16:03:39]   [23/34] Reading 6769.parquet
+INFO [2026-03-29 16:03:39]   [24/34] Reading 6837.parquet
+INFO [2026-03-29 16:03:40]   [25/34] Reading 7589.parquet
+INFO [2026-03-29 16:03:40]   [26/34] Reading 7602.parquet
+INFO [2026-03-29 16:03:40]   [27/34] Reading 7614.parquet
+INFO [2026-03-29 16:03:40]   [28/34] Reading 7623.parquet
+INFO [2026-03-29 16:03:40]   [29/34] Reading 7983.parquet
+INFO [2026-03-29 16:03:41]   [30/34] Reading 8281.parquet
+INFO [2026-03-29 16:03:41]   [31/34] Reading 8588.parquet
+INFO [2026-03-29 16:03:41]   [32/34] Reading 8834.parquet
+INFO [2026-03-29 16:03:41]   [33/34] Reading 9601.parquet
+INFO [2026-03-29 16:03:41]   [34/34] Reading 9794.parquet
+INFO [2026-03-29 16:03:41] Combined dataset: 186647 rows, 91 columns
+INFO [2026-03-29 16:03:41] Step 2: Standardizing data
+INFO [2026-03-29 16:03:53] Step 3: Calculating metrics
+INFO [2026-03-29 16:03:54] Step 4: Aggregating by district
+INFO [2026-03-29 16:03:57] Step 5: Adding vaccine types
+INFO [2026-03-29 16:03:57] Step 6: Loading campaign lookup table
+INFO [2026-03-29 16:03:57] Step 7: Final formatting
+INFO [2026-03-29 16:03:57] Step 8: Saving outputs
+INFO [2026-03-29 16:03:57] Saved CSV to data/final/lqas_dashboard_input.csv
+INFO [2026-03-29 16:03:57] Saved Parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 16:03:57] Saved summary to data/processed/processing_summary.rds
+INFO [2026-03-29 16:03:57] ============================================================
+INFO [2026-03-29 16:03:57] PROCESSING COMPLETE
+INFO [2026-03-29 16:03:57] ============================================================
+INFO [2026-03-29 16:08:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 16:08:31] Starting LQAS Data Processing (Full Integration)
+INFO [2026-03-29 16:08:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 16:08:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 16:08:31] PROCESSING LQAS DATA
+INFO [2026-03-29 16:08:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 16:08:31] Step 1: Reading Parquet files...
+INFO [2026-03-29 16:08:31] Found 34 Parquet files
+INFO [2026-03-29 16:08:31]   [1/34] Reading 10271.parquet...
+INFO [2026-03-29 16:08:31]   [2/34] Reading 15782.parquet...
+INFO [2026-03-29 16:08:31]   [3/34] Reading 3583.parquet...
+INFO [2026-03-29 16:08:32]   [4/34] Reading 4351.parquet...
+INFO [2026-03-29 16:08:32]   [5/34] Reading 4388.parquet...
+INFO [2026-03-29 16:08:32]   [6/34] Reading 4419.parquet...
+INFO [2026-03-29 16:08:32]   [7/34] Reading 4431.parquet...
+INFO [2026-03-29 16:08:33]   [8/34] Reading 4436.parquet...
+INFO [2026-03-29 16:08:33]   [9/34] Reading 4450.parquet...
+INFO [2026-03-29 16:08:33]   [10/34] Reading 4481.parquet...
+INFO [2026-03-29 16:08:33]   [11/34] Reading 4500.parquet...
+INFO [2026-03-29 16:08:34]   [12/34] Reading 4987.parquet...
+INFO [2026-03-29 16:08:38]   [13/34] Reading 4999.parquet...
+INFO [2026-03-29 16:08:38]   [14/34] Reading 5203.parquet...
+INFO [2026-03-29 16:08:39]   [15/34] Reading 5214.parquet...
+INFO [2026-03-29 16:08:39]   [16/34] Reading 5299.parquet...
+INFO [2026-03-29 16:08:39]   [17/34] Reading 5777.parquet...
+INFO [2026-03-29 16:08:39]   [18/34] Reading 5889.parquet...
+INFO [2026-03-29 16:08:39]   [19/34] Reading 6104.parquet...
+INFO [2026-03-29 16:08:39]   [20/34] Reading 6350.parquet...
+INFO [2026-03-29 16:08:39]   [21/34] Reading 6420.parquet...
+INFO [2026-03-29 16:08:39]   [22/34] Reading 6429.parquet...
+INFO [2026-03-29 16:08:39]   [23/34] Reading 6769.parquet...
+INFO [2026-03-29 16:08:40]   [24/34] Reading 6837.parquet...
+INFO [2026-03-29 16:08:40]   [25/34] Reading 7589.parquet...
+INFO [2026-03-29 16:08:40]   [26/34] Reading 7602.parquet...
+INFO [2026-03-29 16:08:40]   [27/34] Reading 7614.parquet...
+INFO [2026-03-29 16:08:41]   [28/34] Reading 7623.parquet...
+INFO [2026-03-29 16:08:41]   [29/34] Reading 7983.parquet...
+INFO [2026-03-29 16:08:41]   [30/34] Reading 8281.parquet...
+INFO [2026-03-29 16:08:41]   [31/34] Reading 8588.parquet...
+INFO [2026-03-29 16:08:41]   [32/34] Reading 8834.parquet...
+INFO [2026-03-29 16:08:41]   [33/34] Reading 9601.parquet...
+INFO [2026-03-29 16:08:41]   [34/34] Reading 9794.parquet...
+INFO [2026-03-29 16:08:54] Combined dataset: 186647 rows, 1587 columns
+INFO [2026-03-29 16:08:54] Column names: Lot, _id, _uuid, today, GPS_hh, Region, Cluster, Country, _edited, _status, endtime, count, FM_Child, Age_Child, Sex_Child, Children_seen, Care_Giver_know_AFP, Total_OPVdoses_Child, Care_Giver_Informed_SIA, count_1...
+INFO [2026-03-29 16:08:54] Step 2: Standardizing data...
+INFO [2026-03-29 16:08:55] Found 0 sex columns, 0 FM columns
+INFO [2026-03-29 16:08:56] Step 3: Calculating metrics...
+INFO [2026-03-29 16:08:56] Step 4: Aggregating by district...

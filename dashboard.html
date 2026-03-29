@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LQAS Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .metric { display: inline-block; margin: 10px; padding: 15px; background: #f0f0f0; border-radius: 5px; }
+        .metric-value { font-size: 24px; font-weight: bold; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>LQAS Dashboard</h1>
+    <div id="metrics"></div>
+    <canvas id="coverageChart" width="400" height="200"></canvas>
+    <div id="datatable"></div>
+
+    <script>
+        Papa.parse("data/final/lqas_cleaned.csv", {
+            download: true,
+            header: true,
+            complete: function(results) {
+                const data = results.data;
+                
+                // Calculate metrics
+                const totalRecords = data.length;
+                const countries = [...new Set(data.map(d => d.country))];
+                const totalSampled = data.reduce((sum, d) => sum + (parseInt(d.total_sampled) || 0), 0);
+                const totalVaccinated = data.reduce((sum, d) => sum + (parseInt(d.total_vaccinated) || 0), 0);
+                const coverage = (totalVaccinated / totalSampled * 100).toFixed(1);
+                
+                // Display metrics
+                document.getElementById("metrics").innerHTML = `
+                    <div class="metric"><div class="metric-value">${totalRecords}</div>Records</div>
+                    <div class="metric"><div class="metric-value">${countries.length}</div>Countries</div>
+                    <div class="metric"><div class="metric-value">${totalSampled.toLocaleString()}</div>Children Sampled</div>
+                    <div class="metric"><div class="metric-value">${totalVaccinated.toLocaleString()}</div>Children Vaccinated</div>
+                    <div class="metric"><div class="metric-value">${coverage}%</div>Coverage</div>
+                `;
+                
+                // Calculate coverage by country
+                const countryCoverage = {};
+                data.forEach(d => {
+                    const country = d.country;
+                    const sampled = parseInt(d.total_sampled) || 0;
+                    const vaccinated = parseInt(d.total_vaccinated) || 0;
+                    if (!countryCoverage[country]) {
+                        countryCoverage[country] = { sampled: 0, vaccinated: 0 };
+                    }
+                    countryCoverage[country].sampled += sampled;
+                    countryCoverage[country].vaccinated += vaccinated;
+                });
+                
+                const countryNames = Object.keys(countryCoverage);
+                const coverageRates = countryNames.map(c => 
+                    (countryCoverage[c].vaccinated / countryCoverage[c].sampled * 100).toFixed(1)
+                );
+                
+                // Create chart
+                new Chart(document.getElementById("coverageChart"), {
+                    type: 'bar',
+                    data: {
+                        labels: countryNames,
+                        datasets: [{
+                            label: 'Coverage (%)',
+                            data: coverageRates,
+                            backgroundColor: 'rgba(76, 175, 80, 0.6)',
+                            borderColor: 'rgba(76, 175, 80, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: { beginAtZero: true, max: 100, title: { display: true, text: 'Coverage (%)' } }
+                        },
+                        plugins: { title: { display: true, text: 'Vaccination Coverage by Country' } }
+                    }
+                });
+                
+                // Display data table (first 100 rows)
+                let tableHtml = '<h3>Data Sample (First 100 rows)</h3><table><tr><th>Country</th><th>Province</th><th>District</th><th>Response</th><th>Sampled</th><th>Vaccinated</th><th>Coverage %</th></tr>';
+                for (let i = 0; i < Math.min(100, data.length); i++) {
+                    const d = data[i];
+                    const rowCoverage = (parseInt(d.total_vaccinated) / parseInt(d.total_sampled) * 100).toFixed(1);
+                    tableHtml += `<tr>
+                        <td>${d.country}</td>
+                        <td>${d.province}</td>
+                        <td>${d.district}</td>
+                        <td>${d.response}</td>
+                        <td>${d.total_sampled}</td>
+                        <td>${d.total_vaccinated}</td>
+                        <td>${rowCoverage}</td>
+                    </tr>`;
+                }
+                tableHtml += '</table>';
+                document.getElementById("datatable").innerHTML = tableHtml;
+            }
+        });
+    </script>
+</body>
+</html>

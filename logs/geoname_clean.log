@@ -1,0 +1,169 @@
+INFO [2026-03-29 11:21:35] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:21:35] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-03-29 11:21:35] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:28] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:39:28] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-03-29 11:39:28] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:43:35] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:43:35] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-03-29 11:43:35] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:50:08] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:50:08] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-03-29 11:50:08] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:04:12] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:04:12] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-03-29 12:04:12] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:04:12] Arguments:
+INFO [2026-03-29 12:04:12]   input-file: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 12:04:12]   lookup-file: data/lookup/lqas_lookup.xlsx
+INFO [2026-03-29 12:04:12]   output-file: data/final/lqas_cleaned.parquet
+INFO [2026-03-29 12:04:12] 🚀 RUNNING GEONAMES CLEANING PIPELINE
+INFO [2026-03-29 12:04:12] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:04:12] 📁 STEP 1: Reading input file
+INFO [2026-03-29 12:04:12] Reading input file: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 12:04:12]   Read Parquet file: 5134 rows, 43 columns
+INFO [2026-03-29 12:04:12] Input has 5134 rows and 43 columns
+INFO [2026-03-29 12:04:12] 🧹 STEP 2: Basic data cleaning
+INFO [2026-03-29 12:04:12] 🌍 STEP 3: Applying AFRO block classification
+INFO [2026-03-29 12:04:12] Applying AFRO block classification...
+INFO [2026-03-29 12:04:12] 📋 STEP 4: Standardizing column names
+INFO [2026-03-29 12:04:12] Standardizing column names...
+INFO [2026-03-29 12:04:12] 🔄 STEP 5: Removing duplicates
+INFO [2026-03-29 12:04:12] After deduplication: 5134 rows
+INFO [2026-03-29 12:04:12] 📊 GENERATING SUMMARY STATISTICS
+INFO [2026-03-29 12:04:12] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:04:12]   Total records: 5,134
+INFO [2026-03-29 12:04:12]   Total countries: 2
+INFO [2026-03-29 12:04:12]   Total districts: 959
+INFO [2026-03-29 12:04:12]   Total sampled: 291,180
+INFO [2026-03-29 12:04:12]   Total vaccinated: 25,940
+INFO [2026-03-29 12:04:12]   Overall coverage: 8.9%
+INFO [2026-03-29 12:04:12] 💾 Writing output files...
+INFO [2026-03-29 12:04:12] ✅ Saved final data to data/final/lqas_cleaned.parquet
+INFO [2026-03-29 12:04:12] ✅ Saved CSV to data/final/lqas_cleaned.csv
+INFO [2026-03-29 12:04:12] ✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!
+INFO [2026-03-29 12:04:12] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:04:12] Pipeline completed with 5134 records
+INFO [2026-03-29 12:20:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:20:14] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-03-29 12:20:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:20:14] Arguments:
+INFO [2026-03-29 12:20:14]   input-file: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 12:20:14]   lookup-file: data/lookup/lqas_lookup.xlsx
+INFO [2026-03-29 12:20:14]   output-file: data/final/lqas_cleaned.parquet
+INFO [2026-03-29 12:20:14] 🚀 RUNNING GEONAMES CLEANING PIPELINE
+INFO [2026-03-29 12:20:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:20:14] 📁 STEP 1: Reading input file
+INFO [2026-03-29 12:20:14] Reading input file: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 12:20:14]   Read Parquet file: 5134 rows, 43 columns
+INFO [2026-03-29 12:20:14] Input has 5134 rows and 43 columns
+INFO [2026-03-29 12:20:15] 🧹 STEP 2: Basic data cleaning
+INFO [2026-03-29 12:20:15] 🏙️ STEP 3: Applying district name corrections
+INFO [2026-03-29 12:20:15] Applying district name corrections...
+INFO [2026-03-29 12:20:15] 🌍 STEP 4: Applying AFRO block classification
+INFO [2026-03-29 12:20:15] Applying AFRO block classification...
+INFO [2026-03-29 12:20:15] 📋 STEP 5: Standardizing column names
+INFO [2026-03-29 12:20:15] Standardizing column names...
+INFO [2026-03-29 12:20:15] 🔄 STEP 6: Removing duplicates
+INFO [2026-03-29 12:20:15] After deduplication: 5134 rows
+INFO [2026-03-29 12:20:15] 📊 GENERATING SUMMARY STATISTICS
+INFO [2026-03-29 12:20:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:20:15]   Total records: 5,134
+INFO [2026-03-29 12:20:15]   Total countries: 2
+INFO [2026-03-29 12:20:15]   Total districts: 959
+INFO [2026-03-29 12:20:15]   Date range: 2023-01-30 to 2026-02-02
+INFO [2026-03-29 12:20:15]   Total sampled: 291,180
+INFO [2026-03-29 12:20:15]   Total vaccinated: 25,940
+INFO [2026-03-29 12:20:15]   Overall coverage: 8.9%
+INFO [2026-03-29 12:20:15] Country breakdown:
+INFO [2026-03-29 12:20:15]     RDC: 4600 records, 0% coverage
+INFO [2026-03-29 12:20:15]     NIE: 534 records, 97.4% coverage
+INFO [2026-03-29 12:20:15] 💾 Writing output files...
+INFO [2026-03-29 12:20:15] ✅ Saved final data to data/final/lqas_cleaned.parquet
+INFO [2026-03-29 12:20:15] ✅ Saved CSV to data/final/lqas_cleaned.csv
+INFO [2026-03-29 12:20:15] ✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!
+INFO [2026-03-29 12:20:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:20:15] Pipeline completed with 5134 records
+INFO [2026-03-29 13:44:37] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 13:44:37] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-03-29 13:44:37] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 13:44:37] Arguments:
+INFO [2026-03-29 13:44:37]   input-file: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 13:44:37]   lookup-file: data/lookup/lqas_lookup.xlsx
+INFO [2026-03-29 13:44:37]   output-file: data/final/lqas_cleaned.parquet
+INFO [2026-03-29 13:44:37]   start-date: 2019-10-01
+INFO [2026-03-29 13:44:38] 🚀 RUNNING GEONAMES CLEANING PIPELINE
+INFO [2026-03-29 13:44:38] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 13:44:38] 📁 STEP 1: Reading input file
+INFO [2026-03-29 13:44:38] Reading input file: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 13:44:38]   Read Parquet file: 5134 rows, 43 columns
+INFO [2026-03-29 13:44:38] Input has 5134 rows and 43 columns
+INFO [2026-03-29 13:44:38] 🧹 STEP 2: Basic data cleaning
+INFO [2026-03-29 13:44:38] 🌍 STEP 3: Standardizing country names
+INFO [2026-03-29 13:44:38] Standardizing country names...
+INFO [2026-03-29 13:44:38] 🗺️ STEP 4: Applying province name corrections
+INFO [2026-03-29 13:44:39] Applying province name corrections...
+INFO [2026-03-29 13:44:39] 🏙️ STEP 5: Applying district name corrections
+INFO [2026-03-29 13:44:39] Applying district name corrections...
+INFO [2026-03-29 13:44:39] 🌍 STEP 6: Applying AFRO block classification
+INFO [2026-03-29 13:44:39] Applying AFRO block classification...
+INFO [2026-03-29 13:44:39] 📅 STEP 7: Harmonizing dates with lookup file
+INFO [2026-03-29 13:44:39] Reading and harmonizing dates with lookup file...
+INFO [2026-03-29 13:44:39] Read lookup file from data/lookup/lqas_lookup.xlsx
+INFO [2026-03-29 13:44:39] Lookup contains 359 rows
+INFO [2026-03-29 13:44:39] Lookup table has 359 entries
+INFO [2026-03-29 13:53:24] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 13:53:24] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-03-29 13:53:24] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 13:53:24] Arguments:
+INFO [2026-03-29 13:53:24]   input-file: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 13:53:24]   lookup-file: data/lookup/lqas_lookup.xlsx
+INFO [2026-03-29 13:53:24]   output-file: data/final/lqas_cleaned.parquet
+INFO [2026-03-29 13:53:24]   start-date: 2019-10-01
+INFO [2026-03-29 13:53:25] 🚀 RUNNING GEONAMES CLEANING PIPELINE
+INFO [2026-03-29 13:53:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 13:53:25] 📁 STEP 1: Reading input file
+INFO [2026-03-29 13:53:25] Reading input file: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 13:53:25]   Read Parquet file: 5134 rows, 43 columns
+INFO [2026-03-29 13:53:25] Input has 5134 rows and 43 columns
+INFO [2026-03-29 13:53:25] 🧹 STEP 2: Basic data cleaning
+INFO [2026-03-29 13:53:25] 🌍 STEP 3: Standardizing country names
+INFO [2026-03-29 13:53:25] Standardizing country names...
+INFO [2026-03-29 13:53:25] 🗺️ STEP 4: Applying province name corrections
+INFO [2026-03-29 13:53:25] Applying province name corrections...
+INFO [2026-03-29 13:53:26] 🏙️ STEP 5: Applying district name corrections
+INFO [2026-03-29 13:53:26] Applying district name corrections...
+INFO [2026-03-29 13:53:26] 🌍 STEP 6: Applying AFRO block classification
+INFO [2026-03-29 13:53:26] Applying AFRO block classification...
+INFO [2026-03-29 13:53:26] 📅 STEP 7: Harmonizing dates with lookup file
+INFO [2026-03-29 13:53:26] Reading and harmonizing dates with lookup file...
+INFO [2026-03-29 13:53:26] Read lookup file from data/lookup/lqas_lookup.xlsx
+INFO [2026-03-29 13:53:26] Lookup contains 359 rows
+INFO [2026-03-29 13:53:26] Lookup table has 359 entries
+INFO [2026-03-29 13:53:26] After date harmonization: 5134 rows
+INFO [2026-03-29 13:53:26] 🎯 STEP 8: Applying final transformations
+INFO [2026-03-29 13:53:26] Applying final transformations...
+INFO [2026-03-29 13:53:26] Final dataset: 5133 rows, 44 columns
+INFO [2026-03-29 13:53:26] 📋 STEP 9: Standardizing column names
+INFO [2026-03-29 13:53:26] Standardizing column names...
+INFO [2026-03-29 13:53:26] 🔄 STEP 10: Removing duplicates
+INFO [2026-03-29 13:53:26] After deduplication: 5133 rows
+INFO [2026-03-29 13:53:26] After date filter: 5133 rows
+INFO [2026-03-29 13:53:26] 📊 GENERATING SUMMARY STATISTICS
+INFO [2026-03-29 13:53:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 13:53:26]   Total records: 5,133
+INFO [2026-03-29 13:53:26]   Total countries: 2
+INFO [2026-03-29 13:53:26]   Total districts: 957
+INFO [2026-03-29 13:53:26]   Date range: 2023-01-30 to 2026-02-02
+INFO [2026-03-29 13:53:26]   Total sampled: 291,120
+INFO [2026-03-29 13:53:26]   Total vaccinated: 25,880
+INFO [2026-03-29 13:53:26]   Overall coverage: 8.9%
+INFO [2026-03-29 13:53:26] Country breakdown:
+INFO [2026-03-29 13:53:26]     DEMOCRATIC REPUBLIC OF THE CONGO: 4600 records, 0% coverage
+INFO [2026-03-29 13:53:26]     NIGERIA: 533 records, 97.4% coverage
+INFO [2026-03-29 13:53:26] 💾 Writing output files...
+INFO [2026-03-29 13:53:26] ✅ Saved final data to data/final/lqas_cleaned.parquet
+INFO [2026-03-29 13:53:26] ✅ Saved CSV to data/final/lqas_cleaned.csv
+INFO [2026-03-29 13:53:26] ✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!
+INFO [2026-03-29 13:53:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 13:53:26] Pipeline completed with 5133 records

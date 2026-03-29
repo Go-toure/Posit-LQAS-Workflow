@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 LQAS Data Fetcher - Optimized for Large Datasets
-Saves data as Parquet (compressed, columnar) for efficiency
+Saves data as Parquet (compressed, columnar) - readable by both Python and R
 """
 
 import os
@@ -19,8 +19,8 @@ import argparse
 ONA_API_TOKEN = os.environ.get("ONA_API_TOKEN", "48c90cee2702db978600f784a07738592fa77d60")
 BASE_URL = "https://api.whonghub.org/api/v1/data"
 
-# Output directories
-OUTPUT_DIR = Path("data/raw")  # Parquet files
+# Output directory for Parquet files
+OUTPUT_DIR = Path("data/raw")
 
 def flatten_dict(data: Dict, parent_key: str = "", sep: str = "/") -> Dict:
     """Flatten nested dictionary for ONA data structure"""
@@ -44,7 +44,7 @@ def flatten_dict(data: Dict, parent_key: str = "", sep: str = "/") -> Dict:
             flattened[new_key] = str(value) if value is not None else ""
     return flattened
 
-def fetch_page(form_id: int, page: int, page_size: int = 5000) -> List[Dict]:
+def fetch_page(form_id: int, page: int, page_size: int = 10000) -> List[Dict]:
     """Fetch a single page of data"""
     headers = {"Authorization": f"Token {ONA_API_TOKEN}"}
     params = {"page": page, "page_size": page_size}
@@ -84,7 +84,7 @@ def fetch_all_data(form_id: int) -> List[Dict]:
     """Fetch all data for a specific form"""
     all_data = []
     page = 1
-    page_size = 5000
+    page_size = 10000
     
     print(f"📡 Fetching form {form_id}...")
     
@@ -96,8 +96,11 @@ def fetch_all_data(form_id: int) -> List[Dict]:
             print("No data")
             break
         
+        # Flatten each record
+        flattened_data = [flatten_dict(datum) for datum in data]
+        
         print(f"{len(data)} records")
-        all_data.extend(data)
+        all_data.extend(flattened_data)
         
         if len(data) < page_size:
             break
@@ -109,7 +112,7 @@ def fetch_all_data(form_id: int) -> List[Dict]:
     return all_data
 
 def save_to_parquet(data: List[Dict], form_id: int) -> bool:
-    """Save data to Parquet file (compressed, efficient)"""
+    """Save data to Parquet file (readable by both Python and R)"""
     if not data:
         print(f"⚠️ No data to save for form {form_id}")
         return False
@@ -140,25 +143,41 @@ def save_to_parquet(data: List[Dict], form_id: int) -> bool:
         # Create output directory
         OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         
-        # Save as Parquet (snappy compression by default)
+        # Save as Parquet (compressed, readable by R via arrow::read_parquet)
         output_path = OUTPUT_DIR / f"{form_id}.parquet"
         
-        # Use pyarrow engine for better performance
+        # Use pyarrow (best compatibility with R)
         try:
-            df.to_parquet(output_path, engine='pyarrow', compression='snappy', index=False)
+            df.to_parquet(
+                output_path, 
+                engine='pyarrow', 
+                compression='snappy', 
+                index=False
+            )
+            print(f"✅ Saved {len(df)} rows to {output_path}")
         except ImportError:
             # Fallback to fastparquet if pyarrow not available
-            df.to_parquet(output_path, engine='fastparquet', compression='snappy', index=False)
+            try:
+                df.to_parquet(
+                    output_path, 
+                    engine='fastparquet', 
+                    compression='snappy', 
+                    index=False
+                )
+                print(f"✅ Saved {len(df)} rows to {output_path} (fastparquet)")
+            except ImportError:
+                print(f"❌ No parquet engine available. Install: pip install pyarrow")
+                return False
         
         file_size_mb = output_path.stat().st_size / (1024 * 1024)
         csv_size_estimate = df.memory_usage(deep=True).sum() / (1024 * 1024)
         
-        print(f"✅ Saved {len(df)} rows to {output_path}")
         print(f"   📦 Parquet size: {file_size_mb:.2f} MB")
         print(f"   📄 CSV would be ~{csv_size_estimate:.2f} MB")
         print(f"   💾 Compression ratio: {csv_size_estimate/file_size_mb:.1f}x")
+        print(f"   🔧 R can read with: arrow::read_parquet('{output_path}')")
         
-        # Also save metadata
+        # Save metadata for tracking
         metadata = {
             'form_id': form_id,
             'records': len(df),
@@ -167,7 +186,9 @@ def save_to_parquet(data: List[Dict], form_id: int) -> bool:
             'estimated_csv_size_mb': round(csv_size_estimate, 2),
             'compression_ratio': round(csv_size_estimate / file_size_mb, 1),
             'last_fetch': datetime.now().isoformat(),
-            'shape': f"{df.shape[0]}x{df.shape[1]}"
+            'shape': f"{df.shape[0]}x{df.shape[1]}",
+            'format': 'parquet',
+            'engine': 'pyarrow'
         }
         
         metadata_path = OUTPUT_DIR / f"{form_id}_metadata.json"
@@ -178,6 +199,8 @@ def save_to_parquet(data: List[Dict], form_id: int) -> bool:
         
     except Exception as e:
         print(f"❌ Failed to save form {form_id}: {e}")
+        import traceback
+        traceback.print_exc()
         return False
 
 def load_form_ids(config_path: str = None) -> List[int]:
@@ -187,11 +210,17 @@ def load_form_ids(config_path: str = None) -> List[int]:
             import yaml
             with open(config_path, 'r') as f:
                 config = yaml.safe_load(f)
-                return config.get('ona', {}).get('form_ids', [])
-        except:
-            pass
+                # Try different possible config structures
+                form_ids = config.get('ona', {}).get('forms', {}).get('all', [])
+                if not form_ids:
+                    form_ids = config.get('ona', {}).get('form_ids', [])
+                if not form_ids:
+                    form_ids = config.get('form_ids', [])
+                return form_ids
+        except Exception as e:
+            print(f"⚠️ Error loading config: {e}")
     
-    # Default LQAS form IDs
+    # Default ALL form IDs from your original code
     return [
         4500, 8588, 10271, 5203, 4388, 8834, 4450, 9601, 4436, 4431,
         4999, 4481, 8094, 6837, 3583, 5299, 7589, 6420, 5889, 8281,
@@ -199,12 +228,33 @@ def load_form_ids(config_path: str = None) -> List[int]:
         7614, 4419, 6769, 4351, 7983
     ]
 
+def test_api_connection():
+    """Test API connection and authentication"""
+    headers = {"Authorization": f"Token {ONA_API_TOKEN}"}
+    try:
+        # Try to fetch user info to test token
+        response = requests.get("https://api.whonghub.org/api/v1/user.json", headers=headers, timeout=30)
+        if response.status_code == 200:
+            print("✅ API connection successful")
+            return True
+        else:
+            print(f"❌ API connection failed: {response.status_code}")
+            return False
+    except Exception as e:
+        print(f"❌ API connection error: {e}")
+        return False
+
 def main():
-    parser = argparse.ArgumentParser(description='Fetch LQAS data from ONA')
+    parser = argparse.ArgumentParser(description='Fetch LQAS data from ONA and save as Parquet')
     parser.add_argument('--config', help='Config file path')
-    parser.add_argument('--force-full', action='store_true', help='Force full fetch')
+    parser.add_argument('--force-full', action='store_true', help='Force full fetch (overwrite existing)')
     parser.add_argument('--form-ids', help='Comma-separated form IDs to fetch')
+    parser.add_argument('--test', action='store_true', help='Test API connection only')
     args = parser.parse_args()
+    
+    if args.test:
+        test_api_connection()
+        return
     
     # Determine which forms to fetch
     if args.form_ids:
@@ -213,25 +263,38 @@ def main():
         form_ids = load_form_ids(args.config)
     
     print("=" * 60)
-    print("🚀 LQAS Data Fetcher for Posit Workflow (Parquet Format)")
+    print("🚀 LQAS Data Fetcher (Parquet Format)")
     print("=" * 60)
     print(f"📊 Forms to fetch: {len(form_ids)}")
-    print(f"📁 Output directory: {OUTPUT_DIR}")
+    print(f"📁 Output directory: {OUTPUT_DIR.absolute()}")
+    print(f"📄 Format: Parquet (readable by Python & R)")
     print("=" * 60)
+    
+    # Test API first
+    if not test_api_connection():
+        print("❌ Cannot proceed - API connection failed")
+        sys.exit(1)
     
     # Track results
     results = []
     total_records = 0
     total_size_mb = 0
     
-    for form_id in form_ids:
-        print(f"\n--- Processing form {form_id} ---")
+    for i, form_id in enumerate(form_ids, 1):
+        print(f"\n--- Processing form {form_id} ({i}/{len(form_ids)}) ---")
         
         # Check if file already exists and not forcing full fetch
         output_path = OUTPUT_DIR / f"{form_id}.parquet"
         if output_path.exists() and not args.force_full:
             file_size = output_path.stat().st_size / (1024 * 1024)
             print(f"⏭️  File already exists: {output_path} ({file_size:.2f} MB)")
+            # Load metadata to show info
+            metadata_path = OUTPUT_DIR / f"{form_id}_metadata.json"
+            if metadata_path.exists():
+                with open(metadata_path, 'r') as f:
+                    meta = json.load(f)
+                    print(f"   📊 Records: {meta.get('records', 'N/A')}")
+                    print(f"   📅 Last fetch: {meta.get('last_fetch', 'N/A')}")
             results.append({'form_id': form_id, 'status': 'skipped', 'records': 0})
             continue
         
@@ -254,18 +317,26 @@ def main():
     print("📊 FETCH SUMMARY")
     print("=" * 60)
     success_count = sum(1 for r in results if r['status'] == 'success')
+    skipped_count = sum(1 for r in results if r['status'] == 'skipped')
+    failed_count = sum(1 for r in results if r['status'] == 'failed')
+    
     print(f"✅ Successful: {success_count}/{len(form_ids)} forms")
-    print(f"📈 Total records: {total_records:,}")
+    print(f"⏭️  Skipped: {skipped_count} forms (already exist)")
+    print(f"❌ Failed: {failed_count} forms")
+    print(f"📈 Total records fetched: {total_records:,}")
     print(f"💾 Total size: {total_size_mb:.2f} MB")
-    print(f"📁 Data saved to: {OUTPUT_DIR}")
+    print(f"📁 Data saved to: {OUTPUT_DIR.absolute()}")
     
     # Save summary
     summary = {
         'timestamp': datetime.now().isoformat(),
-        'forms_fetched': len(form_ids),
+        'forms_total': len(form_ids),
         'successful': success_count,
+        'skipped': skipped_count,
+        'failed': failed_count,
         'total_records': total_records,
         'total_size_mb': round(total_size_mb, 2),
+        'format': 'parquet',
         'results': results
     }
     
@@ -274,7 +345,20 @@ def main():
         json.dump(summary, f, indent=2)
     
     print(f"💾 Summary saved to: {summary_path}")
-    print("🎉 Data fetch complete!")
+    
+    # List created files
+    parquet_files = list(OUTPUT_DIR.glob("*.parquet"))
+    if parquet_files:
+        print(f"\n📁 Created {len(parquet_files)} Parquet files:")
+        for f in parquet_files[:10]:  # Show first 10
+            size_mb = f.stat().st_size / (1024 * 1024)
+            print(f"   - {f.name} ({size_mb:.2f} MB)")
+        if len(parquet_files) > 10:
+            print(f"   ... and {len(parquet_files) - 10} more")
+    
+    print("\n🎉 Data fetch complete!")
+    print("\n💡 Next step: Run R script to process Parquet files")
+    print("   In R: df <- arrow::read_parquet('data/raw/4500.parquet')")
 
 if __name__ == "__main__":
     main()

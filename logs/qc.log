@@ -1,0 +1,52 @@
+INFO [2026-03-29 11:48:36] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:48:36] 🔍 Running Quality Control Checks
+INFO [2026-03-29 11:48:36] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:48:36] Loading data from: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 11:48:36] Loaded Parquet file: 5134 rows, 43 columns
+INFO [2026-03-29 11:48:36] 📊 Data Summary:
+INFO [2026-03-29 11:48:36]   Total records: 5134
+INFO [2026-03-29 11:48:36]   Total countries: 2
+INFO [2026-03-29 11:48:36]   Date range: Inf to -Inf
+INFO [2026-03-29 11:48:36]   Mean coverage: 10.1%
+INFO [2026-03-29 11:48:36]   Median coverage: 0%
+INFO [2026-03-29 11:48:36]   Pass rate: 0%
+INFO [2026-03-29 11:48:36] ✅ Quality control complete!
+INFO [2026-03-29 11:50:11] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:50:11] 🔍 Running Quality Control Checks
+INFO [2026-03-29 11:50:11] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 11:50:11] Loading data from: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 11:50:11] Loaded Parquet file: 5134 rows, 43 columns
+INFO [2026-03-29 11:50:11] 📊 Data Summary:
+INFO [2026-03-29 11:50:11]   Total records: 5134
+INFO [2026-03-29 11:50:11]   Total countries: 2
+INFO [2026-03-29 11:50:11]   Date range: Inf to -Inf
+INFO [2026-03-29 11:50:11]   Mean coverage: 10.1%
+INFO [2026-03-29 11:50:11]   Median coverage: 0%
+INFO [2026-03-29 11:50:11]   Pass rate: 0%
+INFO [2026-03-29 11:50:11] ✅ Quality control complete!
+INFO [2026-03-29 12:05:50] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:05:50] 🔍 Running Quality Control Checks
+INFO [2026-03-29 12:05:50] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:05:50] Loading data from: data/final/lqas_dashboard_input.parquet
+INFO [2026-03-29 12:05:50] Loaded Parquet file: 5134 rows, 43 columns
+INFO [2026-03-29 12:05:50] 📊 Data Summary:
+INFO [2026-03-29 12:05:50]   Total records: 5134
+INFO [2026-03-29 12:05:50]   Total countries: 2
+INFO [2026-03-29 12:05:50]   Date range: Inf to -Inf
+INFO [2026-03-29 12:05:50]   Mean coverage: 10.1%
+INFO [2026-03-29 12:05:50]   Median coverage: 0%
+INFO [2026-03-29 12:05:50]   Pass rate: 0%
+INFO [2026-03-29 12:05:50] ✅ Quality control complete!
+INFO [2026-03-29 12:06:45] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:06:45] 🔍 Running Quality Control Checks
+INFO [2026-03-29 12:06:45] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-29 12:06:45] Loading data from: data/final/lqas_cleaned.parquet
+INFO [2026-03-29 12:06:45] Loaded Parquet file: 5134 rows, 44 columns
+INFO [2026-03-29 12:06:45] 📊 Data Summary:
+INFO [2026-03-29 12:06:45]   Total records: 5134
+INFO [2026-03-29 12:06:45]   Total countries: 2
+INFO [2026-03-29 12:06:45]   Date range: 2023-01-30 to 2026-02-02
+INFO [2026-03-29 12:06:45]   Mean coverage: 10.1%
+INFO [2026-03-29 12:06:45]   Median coverage: 0%
+INFO [2026-03-29 12:06:45]   Pass rate: 0%
+INFO [2026-03-29 12:06:45] ✅ Quality control complete!

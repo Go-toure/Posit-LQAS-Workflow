@@ -1,0 +1,43 @@
+name: LQAS Pipeline
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python & R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.3.0'
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests pandas pyarrow
+          Rscript -e "install.packages(c('arrow', 'data.table', 'tidyverse', 'rmarkdown', 'flexdashboard'), repos = 'https://cloud.r-project.org/')"
+      
+      - name: Run pipeline
+        run: |
+          python fetch_ona_data.py
+          Rscript R/02_process_lqas.R
+          Rscript R/03_clean_geonames.R
+          Rscript -e "rmarkdown::render('R/04_dashboard.Rmd')"
+      
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-output
+          path: |
+            data/final/
+            R/04_dashboard.html
+            logs/

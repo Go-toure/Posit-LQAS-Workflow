@@ -1,0 +1,1184 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LQAS Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .metric { display: inline-block; margin: 10px; padding: 15px; background: #f0f0f0; border-radius: 5px; min-width: 150px; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #2c3e50; }
+        .metric-label { color: #7f8c8d; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #3498db; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .chart-container { margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>LQAS Dashboard</h1>
+    <div id="metrics">
+
+        <div class="metric">
+            <div class="metric-value">5,134</div>
+            <div class="metric-label">Total Records</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">2</div>
+            <div class="metric-label">Countries</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">959</div>
+            <div class="metric-label">Districts</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">291,180</div>
+            <div class="metric-label">Children Sampled</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">25,940</div>
+            <div class="metric-label">Children Vaccinated</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">8.9%</div>
+            <div class="metric-label">Overall Coverage</div>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <h2>Coverage by Country</h2>
+        <table>
+            <tr><th>Country</th><th>Coverage (%)</th></tr>
+
+            <tr>
+                <td>NIE</td>
+                <td>97.4%</td>
+            </tr>
+    
+            <tr>
+                <td>RDC</td>
+                <td>0%</td>
+            </tr>
+    
+        </table>
+    </div>
+
+    <div>
+        <h2>Data Sample (First 100 rows)</h2>
+        <table>
+            <tr>
+                <th>Country</th>
+                <th>Province</th>
+                <th>District</th>
+                <th>Response</th>
+                <th>Round</th>
+                <th>Sampled</th>
+                <th>Vaccinated</th>
+                <th>Coverage</th>
+            </tr>
+
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>DEMSA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>19</td>
+                <td>95%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>DEMSA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>FUFORE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>FUFORE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>39</td>
+                <td>97.5%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>GANYE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>19</td>
+                <td>95%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>GANYE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>39</td>
+                <td>97.5%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>GIREI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>GIREI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>GOMBI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>50</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>GUYUK</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>GUYUK</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>HONG</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>30</td>
+                <td>29</td>
+                <td>96.7%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>HONG</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>30</td>
+                <td>29</td>
+                <td>96.7%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>JADA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>48</td>
+                <td>96%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>LAMURDE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>LAMURDE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>MADAGALI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>44</td>
+                <td>88%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>MAIHA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>60</td>
+                <td>60</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>MAYO-BELWA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>MICHIKA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>MICHIKA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>MUBI NORTH</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>MUBI NORTH</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>MUBI SOUTH</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>MUBI SOUTH</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>39</td>
+                <td>97.5%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>NUMAN</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>19</td>
+                <td>95%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>NUMAN</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>39</td>
+                <td>97.5%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>SHELLENG</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>SHELLENG</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>37</td>
+                <td>92.5%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>SONG</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>SONG</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>TOUNGO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>TOUNGO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>YOLA NORTH</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>19</td>
+                <td>95%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>YOLA NORTH</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>39</td>
+                <td>97.5%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>YOLA SOUTH</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>ADAMAWA</td>
+                <td>YOLA SOUTH</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>ALKALERI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>ALKALERI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>BAUCHI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>BAUCHI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>BOGORO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>BOGORO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>DAMBAN</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>60</td>
+                <td>59</td>
+                <td>98.3%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>DARAZO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>DARAZO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>DASS</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>19</td>
+                <td>95%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>DASS</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>GAMAWA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>50</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>GANJUWA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>12</td>
+                <td>60%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>GANJUWA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>31</td>
+                <td>77.5%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>GIADE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>GIADE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>ITAS/GADAU</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>ITAS/GADAU</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>JAMA'ARE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>JAMA'ARE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>KATAGUM</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>50</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>KIRFI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>7</td>
+                <td>14%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>MISAU</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>MISAU</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>NINGI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>50</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>SHIRA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>50</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>TAFAWA-BALEWA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>48</td>
+                <td>96%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>TORO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>49</td>
+                <td>98%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>WARJI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>50</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>ZAKI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BAUCHI</td>
+                <td>ZAKI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>ADO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>ADO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>AGATU</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>40</td>
+                <td>39</td>
+                <td>97.5%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>AGATU</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>APA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>APA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>BURUKU</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>50</td>
+                <td>45</td>
+                <td>90%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>GBOKO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>GBOKO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>GUMA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>18</td>
+                <td>90%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>GUMA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>GWER EAST</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>GWER EAST</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>GWER WEST</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>GWER WEST</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>38</td>
+                <td>95%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>KATSINA-ALA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>KATSINA-ALA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>KONSHISHA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>17</td>
+                <td>85%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>KONSHISHA</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>38</td>
+                <td>95%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>KWANDE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>KWANDE</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>30</td>
+                <td>29</td>
+                <td>96.7%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>LOGO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>20</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>LOGO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>MAKURDI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>20</td>
+                <td>19</td>
+                <td>95%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>MAKURDI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>40</td>
+                <td>40</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>OBI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>30</td>
+                <td>28</td>
+                <td>93.3%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>OBI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>30</td>
+                <td>28</td>
+                <td>93.3%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>OGBADIBO</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>60</td>
+                <td>58</td>
+                <td>96.7%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>OHIMINI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>OHIMINI</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>30</td>
+                <td>29</td>
+                <td>96.7%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>OJU</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND10</td>
+                <td>30</td>
+                <td>28</td>
+                <td>93.3%</td>
+            </tr>
+    
+            <tr>
+                <td>NIE</td>
+                <td>BENUE</td>
+                <td>OJU</td>
+                <td>NIE-2025-10-01_nOPV_sNID</td>
+                <td>RND11</td>
+                <td>30</td>
+                <td>30</td>
+                <td>100%</td>
+            </tr>
+    
+        </table>
+    </div>
+</body>
+</html>
+

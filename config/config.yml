@@ -1,10 +1,9 @@
 # LQAS Pipeline Configuration
 ona:
+  api_token: ${ONA_API_TOKEN:-"48c90cee2702db978600f784a07738592fa77d60"}
   base_url: "https://api.whonghub.org/api/v1/data"
   form_ids:
     - 4500
-    - 8588
-    - 10271
     - 5203
     - 4388
     - 8834
@@ -38,14 +37,22 @@ ona:
     - 4351
     - 7983
 
+directories:
+  raw: "data/raw"
+  processed: "data/processed"
+  final: "data/final"
+  lookup: "data/lookup"
+  logs: "logs"
+
 processing:
-  parallel_workers: 4
-  chunk_size: 10
-  
-output:
-  format: "qs"
-  compression: "high"
-  backup: true
+  min_clusters: 3
+  min_date: "2019-10-01"
+  target_cluster_size: 60
+  pass_threshold: 3
+
+cleaning:
+  standardize_names: true
+  add_afro_block: true
 
 logging:
   level: "INFO"

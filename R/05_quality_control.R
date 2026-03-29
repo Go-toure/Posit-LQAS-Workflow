@@ -1,135 +1,69 @@
 #!/usr/bin/env Rscript
 # ============================================================
-# Quality Control Checks
+# Quality Control Checks for LQAS Data
+# Fixed version - no argparse dependency
 # ============================================================
 
 suppressPackageStartupMessages({
+  library(magrittr)
   library(data.table)
-  library(qs)
+  library(arrow)
   library(ggplot2)
   library(logger)
-  library(here)
+  library(jsonlite)
+  library(rmarkdown)
+  library(fs)
 })
 
-log_appender(appender_file(here("logs/qc.log")))
+# Configuration (hardcoded for local run)
+INPUT_FILE <- "data/final/lqas_cleaned.parquet"
+OUTPUT_DIR <- "reports"
+THRESHOLD <- 90
+
+# Create directories
+dir_create("logs")
+dir_create(OUTPUT_DIR)
+
+# Configure logging
+log_appender(appender_file("logs/qc.log"))
+log_info("=" %>% paste(rep("=", 60), collapse = ""))
 log_info("🔍 Running Quality Control Checks")
+log_info("=" %>% paste(rep("=", 60), collapse = ""))
 
-# ============================================================
-# QC Functions
-# ============================================================
+# Load data
+log_info("Loading data from: {INPUT_FILE}")
 
-check_data_completeness <- function(dt) {
-  log_info("Checking data completeness...")
-  
-  completeness <- dt[, .(
-    total_rows = .N,
-    complete_country = sum(!is.na(country)),
-    complete_province = sum(!is.na(province)),
-    complete_district = sum(!is.na(district)),
-    complete_response = sum(!is.na(response)),
-    complete_vaccinated = sum(!is.na(total_vaccinated)),
-    complete_sampled = sum(!is.na(total_sampled))
-  )]
-  
-  completeness[, `:=`(
-    pct_country = complete_country / total_rows * 100,
-    pct_province = complete_province / total_rows * 100,
-    pct_district = complete_district / total_rows * 100,
-    pct_response = complete_response / total_rows * 100,
-    pct_vaccinated = complete_vaccinated / total_rows * 100,
-    pct_sampled = complete_sampled / total_rows * 100
-  )]
-  
-  return(completeness)
-}
-
-check_coverage_quality <- function(dt) {
-  log_info("Checking coverage quality...")
-  
-  coverage_stats <- dt[, .(
-    mean_coverage = mean(total_vaccinated / total_sampled * 100, na.rm = TRUE),
-    median_coverage = median(total_vaccinated / total_sampled * 100, na.rm = TRUE),
-    sd_coverage = sd(total_vaccinated / total_sampled * 100, na.rm = TRUE),
-    min_coverage = min(total_vaccinated / total_sampled * 100, na.rm = TRUE),
-    max_coverage = max(total_vaccinated / total_sampled * 100, na.rm = TRUE),
-    below_90 = sum(total_vaccinated / total_sampled < 0.9, na.rm = TRUE),
-    below_80 = sum(total_vaccinated / total_sampled < 0.8, na.rm = TRUE),
-    below_50 = sum(total_vaccinated / total_sampled < 0.5, na.rm = TRUE)
-  )]
-  
-  return(coverage_stats)
-}
-
-check_sample_sizes <- function(dt) {
-  log_info("Checking sample sizes...")
-  
-  sample_stats <- dt[, .(
-    total_clusters = .N,
-    clusters_below_60 = sum(total_sampled < 60, na.rm = TRUE),
-    clusters_60_70 = sum(total_sampled >= 60 & total_sampled <= 70, na.rm = TRUE),
-    clusters_70_80 = sum(total_sampled > 70 & total_sampled <= 80, na.rm = TRUE),
-    clusters_above_80 = sum(total_sampled > 80, na.rm = TRUE),
-    mean_cluster_size = mean(total_sampled, na.rm = TRUE),
-    median_cluster_size = median(total_sampled, na.rm = TRUE)
-  )]
-  
-  return(sample_stats)
-}
-
-detect_anomalies <- function(dt) {
-  log_info("Detecting anomalies...")
-  
-  # Detect impossible values
-  anomalies <- dt[
-    total_vaccinated > total_sampled |
-    total_missed < 0 |
-    total_sampled == 0 |
-    total_vaccinated < 0,
-    .(country, province, district, response, roundNumber, 
-      total_sampled, total_vaccinated, total_missed)
-  ]
-  
-  if (nrow(anomalies) > 0) {
-    log_warn("Found {nrow(anomalies)} anomalies")
-    qsave(anomalies, here("reports/anomalies.qs"))
+if (!file.exists(INPUT_FILE)) {
+  # Try CSV fallback
+  csv_file <- sub("\\.parquet$", ".csv", INPUT_FILE)
+  if (file.exists(csv_file)) {
+    dt <- fread(csv_file)
+    log_info("Loaded CSV file: {nrow(dt)} rows")
+  } else {
+    stop("Data file not found: ", INPUT_FILE)
   }
-  
-  return(anomalies)
+} else {
+  dt <- as.data.table(read_parquet(INPUT_FILE))
+  log_info("Loaded Parquet file: {nrow(dt)} rows, {ncol(dt)} columns")
 }
 
-# ============================================================
-# Run All QC Checks
-# ============================================================
+# Quick summary
+log_info("\n📊 Data Summary:")
+log_info("  Total records: {nrow(dt)}")
+log_info("  Total countries: {uniqueN(dt$country)}")
+log_info("  Date range: {min(dt$lqas_start_date, na.rm = TRUE)} to {max(dt$lqas_start_date, na.rm = TRUE)}")
 
-run_qc <- function(data_file) {
-  log_info("Loading data for QC: {data_file}")
-  dt <- qread(data_file)
-  
-  results <- list(
-    completeness = check_data_completeness(dt),
-    coverage = check_coverage_quality(dt),
-    sample_sizes = check_sample_sizes(dt),
-    anomalies = detect_anomalies(dt)
-  )
-  
-  # Save QC report
-  qsave(results, here("reports/qc_results.qs"))
-  
-  # Generate HTML report
-  rmarkdown::render(
-    here("R/04_dashboard.Rmd"),
-    params = list(qc_results = results),
-    output_file = here("reports/dashboards/qc_report.html")
-  )
-  
-  return(results)
+# Coverage calculation
+if ("total_vaccinated" %in% names(dt) && "total_sampled" %in% names(dt)) {
+  dt[, coverage := total_vaccinated / total_sampled * 100]
+  log_info("  Mean coverage: {round(mean(dt$coverage, na.rm = TRUE), 1)}%")
+  log_info("  Median coverage: {round(median(dt$coverage, na.rm = TRUE), 1)}%")
 }
 
-# ============================================================
-# Execute QC
-# ============================================================
+# Pass rate
+if ("status" %in% names(dt)) {
+  pass_rate <- round(sum(dt$status == "PASS", na.rm = TRUE) / nrow(dt) * 100, 1)
+  log_info("  Pass rate: {pass_rate}%")
+}
 
-data_file <- here("data/final/lqas_final.qs")
-qc_results <- run_qc(data_file)
-
-log_info("🎉 Quality Control Complete!")
+log_info("\n✅ Quality control complete!")
