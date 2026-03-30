@@ -1,0 +1,97 @@
+name: Daily Auto Commit & Push
+
+on:
+  schedule:
+    # Run multiple times daily to catch updates
+    - cron: '0 2,8,14,20 * * *'  # At 2AM, 8AM, 2PM, 8PM UTC
+  workflow_dispatch:
+    # Manual trigger
+    inputs:
+      commit_message:
+        description: 'Commit message'
+        required: false
+        default: 'Auto-update: LQAS data and dashboard'
+        type: string
+
+jobs:
+  check-and-commit:
+    name: Check & Commit Changes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "LQAS Auto Bot"
+    
+    - name: Pull latest changes
+      run: git pull origin ${{ github.ref_name }} --rebase
+    
+    - name: Check for changes
+      id: check_changes
+      run: |
+        git add -A
+        if git diff --cached --quiet; then
+          echo "changes=false" >> $GITHUB_OUTPUT
+          echo "status=No changes to commit" >> $GITHUB_OUTPUT
+        else
+          echo "changes=true" >> $GITHUB_OUTPUT
+          echo "status=Changes detected" >> $GITHUB_OUTPUT
+          echo "files=$(git diff --cached --name-only | wc -l)" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit changes
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        # Count changed files
+        FILE_COUNT=$(git diff --cached --name-only | wc -l)
+        
+        # Get list of changed files
+        CHANGED_FILES=$(git diff --cached --name-only | head -10 | tr '\n' ', ' | sed 's/,$//')
+        
+        git commit -m "${{ github.event.inputs.commit_message || 'Auto-update: LQAS data and dashboard' }}" \
+                   -m "Generated: $(date '+%Y-%m-%d %H:%M:%S') UTC" \
+                   -m "Run ID: ${{ github.run_id }}" \
+                   -m "Files changed: $FILE_COUNT" \
+                   -m "Changed: $CHANGED_FILES"
+    
+    - name: Push changes
+      if: steps.check_changes.outputs.changes == 'true'
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref_name }}
+        force: false
+    
+    - name: Create summary report
+      run: |
+        echo "## 📊 Daily Auto-Commit Report" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+        echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+        echo "| **Time** | $(date '+%Y-%m-%d %H:%M:%S') UTC |" >> $GITHUB_STEP_SUMMARY
+        echo "| **Status** | ${{ steps.check_changes.outputs.status }} |" >> $GITHUB_STEP_SUMMARY
+        echo "| **Run ID** | ${{ github.run_id }} |" >> $GITHUB_STEP_SUMMARY
+        if [ "${{ steps.check_changes.outputs.changes }}" == "true" ]; then
+          echo "| **Files Changed** | ${{ steps.check_changes.outputs.files }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Commit SHA** | $(git rev-parse HEAD) |" >> $GITHUB_STEP_SUMMARY
+        fi
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Changed Files" >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        git diff --cached --name-status >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+    
+    - name: Send notification on changes
+      if: steps.check_changes.outputs.changes == 'true'
+      run: |
+        echo "✅ Changes committed and pushed successfully!"
+        echo "📊 Dashboard: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/latest/04_dashboard.html"
