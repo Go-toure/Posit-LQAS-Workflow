@@ -50,3 +50,68 @@ INFO [2026-03-29 12:06:45]   Mean coverage: 10.1%
 INFO [2026-03-29 12:06:45]   Median coverage: 0%
 INFO [2026-03-29 12:06:45]   Pass rate: 0%
 INFO [2026-03-29 12:06:45] ✅ Quality control complete!
+INFO [2026-03-30 07:02:37] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 07:02:37] 🔍 Running Quality Control Checks
+INFO [2026-03-30 07:02:37] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 07:02:37] Loading data from: data/final/lqas_cleaned.parquet
+INFO [2026-03-30 07:02:38] Loaded Parquet file: 31046 rows, 60 columns
+INFO [2026-03-30 07:02:38] 📊 Data Summary:
+INFO [2026-03-30 07:02:38]   Total records: 31046
+INFO [2026-03-30 07:02:38]   Total countries: 34
+INFO [2026-03-30 07:02:38]   Date range: 2020-01-04 to 2026-03-29
+INFO [2026-03-30 07:02:38]   Mean coverage: Inf%
+INFO [2026-03-30 07:02:38]   Median coverage: 96.7%
+INFO [2026-03-30 07:02:38]   Pass rate: 0%
+INFO [2026-03-30 07:02:38] ✅ Quality control complete!
+INFO [2026-03-30 07:15:54] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 07:15:54] 🔍 Running Quality Control Checks
+INFO [2026-03-30 07:15:54] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 07:15:54] Loading data from: data/final/lqas_cleaned.parquet
+INFO [2026-03-30 07:15:54] Loaded Parquet file: 31046 rows, 60 columns
+INFO [2026-03-30 07:15:54] 📊 Data Summary:
+INFO [2026-03-30 07:15:54]   Total records: 31046
+INFO [2026-03-30 07:15:54]   Total countries: 34
+INFO [2026-03-30 07:15:54]   Date range: 2020-01-04 to 2026-03-29
+INFO [2026-03-30 07:15:54]   Mean coverage: Inf%
+INFO [2026-03-30 07:15:54]   Median coverage: 96.7%
+INFO [2026-03-30 07:15:54]   Pass rate: 0%
+INFO [2026-03-30 07:15:54] ✅ Quality control complete!
+INFO [2026-03-30 15:05:46] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 15:05:46] 🔍 Running Quality Control Checks
+INFO [2026-03-30 15:05:46] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 15:05:46] Loading data from: data/final/lqas_cleaned.parquet
+INFO [2026-03-30 15:05:46] Loaded Parquet file: 31046 rows, 60 columns
+INFO [2026-03-30 15:05:46] 📊 Data Summary:
+INFO [2026-03-30 15:05:46]   Total records: 31046
+INFO [2026-03-30 15:05:46]   Total countries: 34
+INFO [2026-03-30 15:05:46]   Date range: 2020-01-04 to 2026-03-29
+INFO [2026-03-30 15:05:46]   Mean coverage: Inf%
+INFO [2026-03-30 15:05:46]   Median coverage: 96.7%
+INFO [2026-03-30 15:05:46]   Pass rate: 0%
+INFO [2026-03-30 15:05:46] ✅ Quality control complete!
+INFO [2026-03-30 15:12:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 15:12:15] 🔍 Running Quality Control Checks
+INFO [2026-03-30 15:12:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 15:12:15] Loading data from: data/final/lqas_cleaned.parquet
+INFO [2026-03-30 15:12:15] Loaded Parquet file: 31046 rows, 60 columns
+INFO [2026-03-30 15:12:15] 📊 Data Summary:
+INFO [2026-03-30 15:12:15]   Total records: 31046
+INFO [2026-03-30 15:12:15]   Total countries: 34
+INFO [2026-03-30 15:12:15]   Date range: 2020-01-04 to 2026-03-29
+INFO [2026-03-30 15:12:15]   Mean coverage: Inf%
+INFO [2026-03-30 15:12:15]   Median coverage: 96.7%
+INFO [2026-03-30 15:12:15]   Pass rate: 0%
+INFO [2026-03-30 15:12:15] ✅ Quality control complete!
+INFO [2026-03-30 15:56:45] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 15:56:45] 🔍 Running Quality Control Checks
+INFO [2026-03-30 15:56:45] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-03-30 15:56:45] Loading data from: data/final/lqas_cleaned.parquet
+INFO [2026-03-30 15:56:45] Loaded Parquet file: 31046 rows, 60 columns
+INFO [2026-03-30 15:56:45] 📊 Data Summary:
+INFO [2026-03-30 15:56:45]   Total records: 31046
+INFO [2026-03-30 15:56:45]   Total countries: 34
+INFO [2026-03-30 15:56:45]   Date range: 2020-01-04 to 2026-03-29
+INFO [2026-03-30 15:56:45]   Mean coverage: Inf%
+INFO [2026-03-30 15:56:45]   Median coverage: 96.7%
+INFO [2026-03-30 15:56:45]   Pass rate: 0%
+INFO [2026-03-30 15:56:45] ✅ Quality control complete!

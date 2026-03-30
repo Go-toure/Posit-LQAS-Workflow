@@ -1,1184 +1,901 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>LQAS Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHO AFRO | LQAS Polio Surveillance Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .metric { display: inline-block; margin: 10px; padding: 15px; background: #f0f0f0; border-radius: 5px; min-width: 150px; }
-        .metric-value { font-size: 24px; font-weight: bold; color: #2c3e50; }
-        .metric-label { color: #7f8c8d; }
-        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #3498db; color: white; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-        .chart-container { margin: 20px 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f0f4f8;
+            color: #1a2c3e;
+            line-height: 1.5;
+        }
+        
+        /* WHO Blue Color Scheme */
+        :root {
+            --who-blue: #0078a8;
+            --who-dark-blue: #005a82;
+            --who-green: #009639;
+            --who-orange: #f68b1f;
+            --who-red: #e30613;
+            --who-gray: #eef2f5;
+            --who-dark-gray: #6c7a89;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #005a82 0%, #0078a8 100%);
+            color: white;
+            padding: 35px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .header h1 i {
+            margin-right: 12px;
+            color: #f68b1f;
+        }
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .who-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .kpi-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .kpi-icon {
+            font-size: 32px;
+            color: var(--who-blue);
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+        .kpi-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a2c3e;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+        .kpi-label {
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--who-dark-gray);
+        }
+        .kpi-trend {
+            font-size: 11px;
+            margin-top: 8px;
+            color: var(--who-green);
+        }
+        
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f4f8;
+        }
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a2c3e;
+        }
+        .card-title i {
+            color: var(--who-blue);
+            margin-right: 8px;
+        }
+        .card-subtitle {
+            font-size: 12px;
+            color: var(--who-dark-gray);
+        }
+        
+        /* Table */
+        .table-wrapper {
+            overflow-x: auto;
+            margin-top: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        th {
+            text-align: left;
+            padding: 12px 10px;
+            background: #f8fafc;
+            font-weight: 600;
+            color: #1a2c3e;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eef2f5;
+        }
+        tr:hover {
+            background: #fafcff;
+        }
+        
+        /* Status Badges */
+        .badge-pass {
+            background: #e6f7e6;
+            color: var(--who-green);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .badge-fail {
+            background: #fee;
+            color: var(--who-red);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        /* Performance Colors */
+        .perf-high { color: var(--who-green); font-weight: 600; }
+        .perf-moderate { color: var(--who-orange); font-weight: 600; }
+        .perf-poor { color: var(--who-red); font-weight: 600; }
+        .perf-very-poor { color: #8b5cf6; font-weight: 600; }
+        
+        /* Coverage Bar */
+        .coverage-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .coverage-value {
+            font-weight: 600;
+            min-width: 45px;
+        }
+        .coverage-bar-container {
+            flex: 1;
+            background: #e9ecef;
+            border-radius: 20px;
+            height: 6px;
+            overflow: hidden;
+        }
+        .coverage-bar {
+            background: linear-gradient(90deg, var(--who-green), #2ecc71);
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+        
+        /* Stat Highlight */
+        .stat-highlight {
+            text-align: center;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--who-blue);
+        }
+        .stat-label-sm {
+            font-size: 11px;
+            color: var(--who-dark-gray);
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            font-size: 12px;
+            color: var(--who-dark-gray);
+        }
+        
+        @media (max-width: 1200px) {
+            .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+            .two-col { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+            .container { padding: 0 20px; }
+        }
     </style>
 </head>
 <body>
-    <h1>LQAS Dashboard</h1>
-    <div id="metrics">
-
-        <div class="metric">
-            <div class="metric-value">5,134</div>
-            <div class="metric-label">Total Records</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">2</div>
-            <div class="metric-label">Countries</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">959</div>
-            <div class="metric-label">Districts</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">291,180</div>
-            <div class="metric-label">Children Sampled</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">25,940</div>
-            <div class="metric-label">Children Vaccinated</div>
-        </div>
-        <div class="metric">
-            <div class="metric-value">8.9%</div>
-            <div class="metric-label">Overall Coverage</div>
+    <div class="header">
+        <div class="header-container">
+            <h1><i class="fas fa-chart-line"></i> LQAS Polio Surveillance Dashboard</h1>
+            <p>Lot Quality Assurance Sampling | Real-time Vaccination Coverage Monitoring</p>
+            <div class="who-badge">
+                <i class="fas fa-calendar-alt"></i> Period: janv. 2020 - mars 2026
+            </div>
         </div>
     </div>
-
-    <div class="chart-container">
-        <h2>Coverage by Country</h2>
-        <table>
-            <tr><th>Country</th><th>Coverage (%)</th></tr>
-
-            <tr>
-                <td>NIE</td>
-                <td>97.4%</td>
-            </tr>
     
-            <tr>
-                <td>RDC</td>
-                <td>0%</td>
-            </tr>
-    
-        </table>
+    <div class="container">
+        <!-- KPI Grid -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-globe-africa"></i></div>
+                <div class="kpi-value">34</div>
+                <div class="kpi-label">Countries</div>
+                <div class="kpi-trend"><i class="fas fa-flag-checkered"></i> Active Surveillance</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="kpi-value">4,813</div>
+                <div class="kpi-label">Districts</div>
+                <div class="kpi-trend"><i class="fas fa-chart-line"></i> Assessed</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-child"></i></div>
+                <div class="kpi-value">1,938,320</div>
+                <div class="kpi-label">Children Sampled</div>
+                <div class="kpi-trend"><i class="fas fa-users"></i> Target Population</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-syringe"></i></div>
+                <div class="kpi-value">1,579,475</div>
+                <div class="kpi-label">Vaccinated</div>
+                <div class="kpi-trend"><i class="fas fa-check-circle"></i> Protected</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="kpi-value">81.5%</div>
+                <div class="kpi-label">Coverage Rate</div>
+                <div class="kpi-trend"><i class="fas fa-chart-line"></i> Moderate</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon"><i class="fas fa-clipboard-check"></i></div>
+                <div class="kpi-value">61.4%</div>
+                <div class="kpi-label">Pass Rate</div>
+                <div class="kpi-trend"><i class="fas fa-arrow-down"></i> LQAS Standard</div>
+            </div>
+        </div>
+        
+        <!-- Country & AFRO Block Performance -->
+        <div class="two-col">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i class="fas fa-chart-bar"></i> Country Performance</div>
+                    <div class="card-subtitle">Vaccination Coverage by Country</div>
+                </div>
+                <canvas id="countryChart" height="280"></canvas>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"><i class="fas fa-chart-pie"></i> AFRO Block Performance</div>
+                    <div class="card-subtitle">Coverage by WHO Region</div>
+                </div>
+                <canvas id="afroChart" height="280"></canvas>
+            </div>
+        </div>
+        
+        <!-- Performance Distribution -->
+        <div class="card" style="margin-bottom: 25px;">
+            <div class="card-header">
+                <div class="card-title"><i class="fas fa-chart-simple"></i> Performance Distribution</div>
+                <div class="card-subtitle">District-Level Performance Categories</div>
+            </div>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                
+                <div style="flex: 1; text-align: center; padding: 15px; background: #f8fafc; border-radius: 12px;">
+                    <div style="font-size: 28px; font-weight: 700; color: #009639;">61.4%</div>
+                    <div style="font-size: 12px; color: #6c7a89; margin-top: 5px;">HIGH</div>
+                    <div style="font-size: 11px; color: #95a5a6;">(19,054 districts)</div>
+                </div>
+                <div style="flex: 1; text-align: center; padding: 15px; background: #f8fafc; border-radius: 12px;">
+                    <div style="font-size: 28px; font-weight: 700; color: #f68b1f;">11.2%</div>
+                    <div style="font-size: 12px; color: #6c7a89; margin-top: 5px;">MODERATE</div>
+                    <div style="font-size: 11px; color: #95a5a6;">(3,477 districts)</div>
+                </div>
+                <div style="flex: 1; text-align: center; padding: 15px; background: #f8fafc; border-radius: 12px;">
+                    <div style="font-size: 28px; font-weight: 700; color: #e30613;">7.7%</div>
+                    <div style="font-size: 12px; color: #6c7a89; margin-top: 5px;">POOR</div>
+                    <div style="font-size: 11px; color: #95a5a6;">(2,405 districts)</div>
+                </div>
+                <div style="flex: 1; text-align: center; padding: 15px; background: #f8fafc; border-radius: 12px;">
+                    <div style="font-size: 28px; font-weight: 700; color: #8b5cf6;">19.7%</div>
+                    <div style="font-size: 12px; color: #6c7a89; margin-top: 5px;">VERY POOR</div>
+                    <div style="font-size: 11px; color: #95a5a6;">(6,110 districts)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Top Performing Districts -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title"><i class="fas fa-trophy"></i> Top 25 Performing Districts</div>
+                <div class="card-subtitle">Highest Vaccination Coverage</div>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr><th>Country</th><th>Province</th><th>District</th><th>Coverage</th><th>Children</th><th>Vaccinated</th><th>Missed</th><th>Status</th><th>Performance</th></tr>
+                    </thead>
+                    <tbody> 
+        <tr>
+            <td><strong>SSUD</strong></td>
+            <td>LAKES</td>
+            <td>CUEIBET</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">Inf%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: Inf%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>0</td>
+            <td>58</td>
+            <td>60</td>
+            <td><span class="badge-fail">FAIL</span></td>
+            <td class="perf-very-poor">Very Poor</td>
+        </tr> 
+        <tr>
+            <td><strong>ZAMBIA</strong></td>
+            <td>NORTH WESTERN</td>
+            <td>MANYINGA</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>EDO</td>
+            <td>ESAN SOUTH-EAST</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>BAGWAI</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>DALA</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>FAGGE</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>GARUM MALLAM</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>GWALE</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>50</td>
+            <td>50</td>
+            <td>10</td>
+            <td><span class="badge-fail">FAIL</span></td>
+            <td class="perf-poor">Poor</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>GWARZO</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>KABO</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>KARAYE</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>KUMBOTSO</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>TAKAI</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>TUDUN WADA</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>WARAWA</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KANO</td>
+            <td>WUDIL</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>EDO</td>
+            <td>OVIA SOUTH-WEST</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>EDO</td>
+            <td>OWAN WEST</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>50</td>
+            <td>50</td>
+            <td>10</td>
+            <td><span class="badge-fail">FAIL</span></td>
+            <td class="perf-poor">Poor</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KATSINA</td>
+            <td>BAURE</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>KATSINA</td>
+            <td>BINDAWA</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>SOKOTO</td>
+            <td>DANGE-SHUNI</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>SOKOTO</td>
+            <td>ILLELA</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>SOKOTO</td>
+            <td>ISA</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>DELTA</td>
+            <td>ANIOCHA SOUTH</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr> 
+        <tr>
+            <td><strong>NIGERIA</strong></td>
+            <td>EDO</td>
+            <td>ETSAKO WEST</td>
+            <td>
+                <div class="coverage-wrapper">
+                    <span class="coverage-value">100%</span>
+                    <div class="coverage-bar-container">
+                        <div class="coverage-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>60</td>
+            <td>60</td>
+            <td>0</td>
+            <td><span class="badge-pass">PASS</span></td>
+            <td class="perf-high">High</td>
+        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><i class="fas fa-chart-line"></i> WHO AFRO LQAS Polio Surveillance System | Data updated: 2026-03-30 15:49 | Overall Coverage: 81.5% | Pass Rate: 61.4%</p>
+            <p style="margin-top: 8px; font-size: 11px;">Source: LQAS Field Data | Analysis based on Lot Quality Assurance Sampling methodology</p>
+        </div>
     </div>
-
-    <div>
-        <h2>Data Sample (First 100 rows)</h2>
-        <table>
-            <tr>
-                <th>Country</th>
-                <th>Province</th>
-                <th>District</th>
-                <th>Response</th>
-                <th>Round</th>
-                <th>Sampled</th>
-                <th>Vaccinated</th>
-                <th>Coverage</th>
-            </tr>
-
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>DEMSA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>19</td>
-                <td>95%</td>
-            </tr>
     
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>DEMSA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>FUFORE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>FUFORE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>39</td>
-                <td>97.5%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>GANYE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>19</td>
-                <td>95%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>GANYE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>39</td>
-                <td>97.5%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>GIREI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>GIREI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>GOMBI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>50</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>GUYUK</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>GUYUK</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>HONG</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>30</td>
-                <td>29</td>
-                <td>96.7%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>HONG</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>30</td>
-                <td>29</td>
-                <td>96.7%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>JADA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>48</td>
-                <td>96%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>LAMURDE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>LAMURDE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>MADAGALI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>44</td>
-                <td>88%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>MAIHA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>60</td>
-                <td>60</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>MAYO-BELWA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>MICHIKA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>MICHIKA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>MUBI NORTH</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>MUBI NORTH</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>MUBI SOUTH</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>MUBI SOUTH</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>39</td>
-                <td>97.5%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>NUMAN</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>19</td>
-                <td>95%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>NUMAN</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>39</td>
-                <td>97.5%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>SHELLENG</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>SHELLENG</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>37</td>
-                <td>92.5%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>SONG</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>SONG</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>TOUNGO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>TOUNGO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>YOLA NORTH</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>19</td>
-                <td>95%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>YOLA NORTH</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>39</td>
-                <td>97.5%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>YOLA SOUTH</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>ADAMAWA</td>
-                <td>YOLA SOUTH</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>ALKALERI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>ALKALERI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>BAUCHI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>BAUCHI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>BOGORO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>BOGORO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>DAMBAN</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>60</td>
-                <td>59</td>
-                <td>98.3%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>DARAZO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>DARAZO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>DASS</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>19</td>
-                <td>95%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>DASS</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>GAMAWA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>50</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>GANJUWA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>12</td>
-                <td>60%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>GANJUWA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>31</td>
-                <td>77.5%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>GIADE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>GIADE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>ITAS/GADAU</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>ITAS/GADAU</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>JAMA'ARE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>JAMA'ARE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>KATAGUM</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>50</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>KIRFI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>7</td>
-                <td>14%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>MISAU</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>MISAU</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>NINGI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>50</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>SHIRA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>50</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>TAFAWA-BALEWA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>48</td>
-                <td>96%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>TORO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>49</td>
-                <td>98%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>WARJI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>50</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>ZAKI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BAUCHI</td>
-                <td>ZAKI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>ADO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>ADO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>AGATU</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>40</td>
-                <td>39</td>
-                <td>97.5%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>AGATU</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>APA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>APA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>BURUKU</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>50</td>
-                <td>45</td>
-                <td>90%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>GBOKO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>GBOKO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>GUMA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>18</td>
-                <td>90%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>GUMA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>GWER EAST</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>GWER EAST</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>GWER WEST</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>GWER WEST</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>38</td>
-                <td>95%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>KATSINA-ALA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>KATSINA-ALA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>KONSHISHA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>17</td>
-                <td>85%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>KONSHISHA</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>38</td>
-                <td>95%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>KWANDE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>KWANDE</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>30</td>
-                <td>29</td>
-                <td>96.7%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>LOGO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>20</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>LOGO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>MAKURDI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>20</td>
-                <td>19</td>
-                <td>95%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>MAKURDI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>40</td>
-                <td>40</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>OBI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>30</td>
-                <td>28</td>
-                <td>93.3%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>OBI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>30</td>
-                <td>28</td>
-                <td>93.3%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>OGBADIBO</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>60</td>
-                <td>58</td>
-                <td>96.7%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>OHIMINI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>OHIMINI</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>30</td>
-                <td>29</td>
-                <td>96.7%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>OJU</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND10</td>
-                <td>30</td>
-                <td>28</td>
-                <td>93.3%</td>
-            </tr>
-    
-            <tr>
-                <td>NIE</td>
-                <td>BENUE</td>
-                <td>OJU</td>
-                <td>NIE-2025-10-01_nOPV_sNID</td>
-                <td>RND11</td>
-                <td>30</td>
-                <td>30</td>
-                <td>100%</td>
-            </tr>
-    
-        </table>
-    </div>
+    <script>
+        // Country Chart
+        const countries = ["BURKINA FASO","TNZ","NIGERIA","NIGER","RWANDA","ALGERIA","ZAMBIA","TOGO","CENTRAL AFRICAN REPUBLIC","COTE D IVOIRE","LIB","MADAGASCAR","ETHIOPIA","ZIMBABWE","BUI","BENIN","KENYA","CHD","GHANA","CAMEROON","MOZAMBIQUE","GUINEA","NAMIBIA","SIERRA LEONE","MLW","SENEGAL","SSUD","BOTSWANA","UGANDA","ANGOLA","CONGO","MAURITANIA","GUINEA-BISSAU","DEMOCRATIC REPUBLIC OF THE CONGO"];
+        const countryCoverage = [98.1,97.6,97.1,97.1,97.1,96.5,96,95.8,95.8,95.7,95.3,95,94.9,94.8,94.6,93.9,93.6,93.5,93.3,92.2,92,91.9,91.9,91.1,91,90.3,89.7,89.1,88.5,88.5,88.2,81.5,0,0];
+        new Chart(document.getElementById("countryChart"), {
+            type: "bar",
+            data: {
+                labels: countries,
+                datasets: [{
+                    label: "Coverage (%)",
+                    data: countryCoverage,
+                    backgroundColor: "rgba(0, 120, 168, 0.7)",
+                    borderColor: "#0078a8",
+                    borderWidth: 1,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: { legend: { position: "top" } },
+                scales: {
+                    y: { beginAtZero: true, max: 100, title: { display: true, text: "Coverage (%)", font: { weight: "bold" } }, grid: { color: "#eef2f5" } },
+                    x: { ticks: { autoSkip: false, maxRotation: 45, minRotation: 45 }, grid: { display: false } }
+                }
+            }
+        });
+        
+        // AFRO Block Chart
+        const afroBlocks = ["LCB","OTHER","ESA","WA","CEA","DRC"];
+        const afroCoverage = [96.2,94.1,93.9,93.1,88.2,22];
+        new Chart(document.getElementById("afroChart"), {
+            type: "bar",
+            data: {
+                labels: afroBlocks,
+                datasets: [{
+                    label: "Coverage (%)",
+                    data: afroCoverage,
+                    backgroundColor: "rgba(0, 150, 57, 0.7)",
+                    borderColor: "#009639",
+                    borderWidth: 1,
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: "Coverage (%)" } } }
+            }
+        });
+    </script>
 </body>
 </html>
-
