@@ -1,0 +1,104 @@
+name: Smart Auto Commit
+
+on:
+  schedule:
+    # Check every 3 hours
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+
+jobs:
+  smart-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Check data freshness
+      id: data_check
+      run: |
+        python -c "
+import pandas as pd
+from datetime import datetime, timedelta
+import sys
+
+try:
+    df = pd.read_parquet('data/final/lqas_cleaned.parquet')
+    if 'lqas_start_date' in df.columns:
+        latest = pd.to_datetime(df['lqas_start_date']).max()
+        days_old = (datetime.now() - latest).days
+        print(f'latest_date={latest.date()}')
+        print(f'days_old={days_old}')
+        if days_old > 7:
+            print('needs_update=true')
+            print('reason=Data older than 7 days')
+        else:
+            print('needs_update=false')
+            print('reason=Data fresh')
+    else:
+        print('needs_update=true')
+        print('reason=No date column found')
+except Exception as e:
+    print(f'needs_update=true')
+    print(f'reason=Error: {str(e)[:50]}')
+"
+    
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "LQAS Auto Bot"
+    
+    - name: Pull changes
+      run: git pull origin ${{ github.ref_name }} --rebase
+    
+    - name: Check for changes
+      id: changes
+      run: |
+        git add -A
+        if git diff --cached --quiet; then
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+          echo "files=$(git diff --cached --name-only | wc -l)" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit
+      if: steps.changes.outputs.has_changes == 'true' || steps.data_check.outputs.needs_update == 'true'
+      run: |
+        TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+        
+        if [ "${{ steps.data_check.outputs.needs_update }}" == "true" ]; then
+          REASON="${{ steps.data_check.outputs.reason }}"
+        else
+          REASON="Data files updated"
+        fi
+        
+        git commit -m "Auto-update: $TIMESTAMP" \
+                   -m "Reason: $REASON" \
+                   -m "Run ID: ${{ github.run_id }}" \
+                   -m "Files: ${{ steps.changes.outputs.files || 0 }} changed"
+    
+    - name: Push
+      if: steps.changes.outputs.has_changes == 'true' || steps.data_check.outputs.needs_update == 'true'
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref_name }}
+    
+    - name: Create summary
+      run: |
+        echo "## 🤖 Auto-Commit Report" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Time:** $(date '+%Y-%m-%d %H:%M:%S') UTC" >> $GITHUB_STEP_SUMMARY
+        echo "**Data Freshness:** ${{ steps.data_check.outputs.days_old }} days old" >> $GITHUB_STEP_SUMMARY
+        echo "**Changes:** ${{ steps.changes.outputs.has_changes }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Status:** ${{ steps.changes.outputs.has_changes == 'true' && '✅ Committed' || '⏭️ No changes' }}" >> $GITHUB_STEP_SUMMARY
