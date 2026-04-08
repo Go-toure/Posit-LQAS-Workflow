@@ -1037,3 +1037,351 @@ INFO [2026-04-07 10:10:18] ✅ Saved CSV to data/final/lqas_cleaned.csv
 INFO [2026-04-07 10:10:18] ✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!
 INFO [2026-04-07 10:10:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
 INFO [2026-04-07 10:10:18] Pipeline completed with 31046 records
+INFO [2026-04-08 07:39:17] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:17] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-04-08 07:39:17] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:17] Arguments:
+INFO [2026-04-08 07:39:17]   input-file: data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:39:17]   lookup-file: data/lookup/lqas_lookup.xlsx
+INFO [2026-04-08 07:39:17]   output-file: data/final/lqas_cleaned.parquet
+INFO [2026-04-08 07:39:17]   start-date: 2019-10-01
+INFO [2026-04-08 07:39:18] 🚀 RUNNING GEONAMES CLEANING PIPELINE
+INFO [2026-04-08 07:39:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:18] 📁 STEP 1: Reading input file
+INFO [2026-04-08 07:39:18] Reading input file: data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:39:18]   Read Parquet file: 31075 rows, 59 columns
+INFO [2026-04-08 07:39:18] Input has 31075 rows and 59 columns
+INFO [2026-04-08 07:39:18] 🧹 STEP 2: Basic data cleaning
+INFO [2026-04-08 07:39:18] 🌍 STEP 3: Standardizing country names
+INFO [2026-04-08 07:39:18] Standardizing country names...
+INFO [2026-04-08 07:39:19] 🗺️ STEP 4: Applying province name corrections
+INFO [2026-04-08 07:39:19] Applying province name corrections...
+INFO [2026-04-08 07:39:20] 🏙️ STEP 5: Applying district name corrections
+INFO [2026-04-08 07:39:21] Applying district name corrections...
+INFO [2026-04-08 07:39:22] 🌍 STEP 6: Applying AFRO block classification
+INFO [2026-04-08 07:39:22] Applying AFRO block classification...
+INFO [2026-04-08 07:39:22] 📅 STEP 7: Harmonizing dates with lookup file
+INFO [2026-04-08 07:39:22] Reading and harmonizing dates with lookup file...
+INFO [2026-04-08 07:39:22] Read lookup file from data/lookup/lqas_lookup.xlsx
+INFO [2026-04-08 07:39:22] Lookup contains 359 rows
+INFO [2026-04-08 07:39:22] Lookup table has 359 entries
+INFO [2026-04-08 07:39:22] After date harmonization: 31075 rows
+INFO [2026-04-08 07:39:22] 🎯 STEP 8: Applying final transformations
+INFO [2026-04-08 07:39:22] Applying final transformations...
+INFO [2026-04-08 07:39:22] Final dataset: 31021 rows, 60 columns
+INFO [2026-04-08 07:39:22] 📋 STEP 9: Standardizing column names
+INFO [2026-04-08 07:39:22] Standardizing column names...
+INFO [2026-04-08 07:39:22] 🔄 STEP 10: Removing duplicates
+INFO [2026-04-08 07:39:22] After deduplication: 31021 rows
+INFO [2026-04-08 07:39:22] After date filter: 31021 rows
+INFO [2026-04-08 07:39:22] 📊 GENERATING SUMMARY STATISTICS
+INFO [2026-04-08 07:39:23] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:23]   Total records: 31,021
+INFO [2026-04-08 07:39:23]   Total countries: 34
+INFO [2026-04-08 07:39:23]   Total districts: 4807
+INFO [2026-04-08 07:39:23]   Date range: 2020-01-04 to 2026-03-29
+INFO [2026-04-08 07:39:23]   Total sampled: 1,936,820
+INFO [2026-04-08 07:39:23]   Total vaccinated: 1,578,191
+INFO [2026-04-08 07:39:23]   Overall coverage: 81.5%
+INFO [2026-04-08 07:39:23] Country breakdown:
+INFO [2026-04-08 07:39:23]     NIGERIA: 7774 records, 97.1% coverage
+INFO [2026-04-08 07:39:23]     DEMOCRATIC REPUBLIC OF THE CONGO: 4600 records, 0% coverage
+INFO [2026-04-08 07:39:23]     CAMEROON: 2128 records, 92.2% coverage
+INFO [2026-04-08 07:39:23]     CHAD: 1855 records, 93.6% coverage
+INFO [2026-04-08 07:39:23]     ANGOLA: 1467 records, 88.5% coverage
+INFO [2026-04-08 07:39:23]     MOZAMBIQUE: 1452 records, 92% coverage
+INFO [2026-04-08 07:39:23]     GHANA: 1436 records, 93.3% coverage
+INFO [2026-04-08 07:39:23]     COTE D IVOIRE: 905 records, 95.7% coverage
+INFO [2026-04-08 07:39:23]     ZAMBIA: 812 records, 96% coverage
+INFO [2026-04-08 07:39:23]     ALGERIA: 781 records, 96.5% coverage
+INFO [2026-04-08 07:39:23]     MADAGASCAR: 779 records, 95% coverage
+INFO [2026-04-08 07:39:24]     NIGER: 745 records, 97.1% coverage
+INFO [2026-04-08 07:39:24]     UNITED REPUBLIC OF TANZANIA: 709 records, 97.6% coverage
+INFO [2026-04-08 07:39:24]     ZIMBABWE: 585 records, 94.8% coverage
+INFO [2026-04-08 07:39:24]     ETHIOPIA: 514 records, 94.9% coverage
+INFO [2026-04-08 07:39:24]     KENYA: 502 records, 93.6% coverage
+INFO [2026-04-08 07:39:24]     BURKINA FASO: 418 records, 98.1% coverage
+INFO [2026-04-08 07:39:24]     BENIN: 392 records, 93.9% coverage
+INFO [2026-04-08 07:39:24]     CONGO: 361 records, 88.2% coverage
+INFO [2026-04-08 07:39:24]     CENTRAL AFRICAN REPUBLIC: 334 records, 95.8% coverage
+INFO [2026-04-08 07:39:24]     LIB: 331 records, 95.3% coverage
+INFO [2026-04-08 07:39:24]     GUINEA: 330 records, 91.9% coverage
+INFO [2026-04-08 07:39:24]     UGANDA: 320 records, 88.5% coverage
+INFO [2026-04-08 07:39:24]     SOUTH SUDAN: 285 records, 89.7% coverage
+INFO [2026-04-08 07:39:24]     MAURITANIA: 254 records, 81.5% coverage
+INFO [2026-04-08 07:39:24]     MALAWI: 182 records, 91% coverage
+INFO [2026-04-08 07:39:24]     SENEGAL: 158 records, 90.3% coverage
+INFO [2026-04-08 07:39:24]     TOGO: 155 records, 95.8% coverage
+INFO [2026-04-08 07:39:24]     BUI: 147 records, 94.6% coverage
+INFO [2026-04-08 07:39:24]     NAMIBIA: 77 records, 91.9% coverage
+INFO [2026-04-08 07:39:24]     SIERRA LEONE: 76 records, 91.1% coverage
+INFO [2026-04-08 07:39:24]     RWANDA: 60 records, 97.1% coverage
+INFO [2026-04-08 07:39:24]     BOTSWANA: 54 records, 89.1% coverage
+INFO [2026-04-08 07:39:24]     GUINEA-BISSAU: 43 records, 0% coverage
+INFO [2026-04-08 07:39:24] 💾 Writing output files...
+INFO [2026-04-08 07:39:24] ✅ Saved final data to data/final/lqas_cleaned.parquet
+INFO [2026-04-08 07:39:25] ✅ Saved CSV to data/final/lqas_cleaned.csv
+INFO [2026-04-08 07:39:25] ✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!
+INFO [2026-04-08 07:39:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:25] Pipeline completed with 31021 records
+INFO [2026-04-08 07:44:20] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:20] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-04-08 07:44:20] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:20] Arguments:
+INFO [2026-04-08 07:44:20]   input-file: data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:44:20]   lookup-file: data/lookup/lqas_lookup.xlsx
+INFO [2026-04-08 07:44:20]   output-file: data/final/lqas_cleaned.parquet
+INFO [2026-04-08 07:44:20]   start-date: 2019-10-01
+INFO [2026-04-08 07:44:21] 🚀 RUNNING GEONAMES CLEANING PIPELINE
+INFO [2026-04-08 07:44:21] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:21] 📁 STEP 1: Reading input file
+INFO [2026-04-08 07:44:21] Reading input file: data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:44:21]   Read Parquet file: 31075 rows, 59 columns
+INFO [2026-04-08 07:44:21] Input has 31075 rows and 59 columns
+INFO [2026-04-08 07:44:21] 🧹 STEP 2: Basic data cleaning
+INFO [2026-04-08 07:44:22] 🌍 STEP 3: Standardizing country names
+INFO [2026-04-08 07:44:22] Standardizing country names...
+INFO [2026-04-08 07:44:22] 🗺️ STEP 4: Applying province name corrections
+INFO [2026-04-08 07:44:22] Applying province name corrections...
+INFO [2026-04-08 07:44:23] 🏙️ STEP 5: Applying district name corrections
+INFO [2026-04-08 07:44:23] Applying district name corrections...
+INFO [2026-04-08 07:44:24] 🌍 STEP 6: Applying AFRO block classification
+INFO [2026-04-08 07:44:24] Applying AFRO block classification...
+INFO [2026-04-08 07:44:24] 📅 STEP 7: Harmonizing dates with lookup file
+INFO [2026-04-08 07:44:24] Reading and harmonizing dates with lookup file...
+INFO [2026-04-08 07:44:24] Read lookup file from data/lookup/lqas_lookup.xlsx
+INFO [2026-04-08 07:44:24] Lookup contains 359 rows
+INFO [2026-04-08 07:44:24] Lookup table has 359 entries
+INFO [2026-04-08 07:44:24] After date harmonization: 31075 rows
+INFO [2026-04-08 07:44:24] 🎯 STEP 8: Applying final transformations
+INFO [2026-04-08 07:44:24] Applying final transformations...
+INFO [2026-04-08 07:44:24] Final dataset: 31021 rows, 60 columns
+INFO [2026-04-08 07:44:24] 📋 STEP 9: Standardizing column names
+INFO [2026-04-08 07:44:24] Standardizing column names...
+INFO [2026-04-08 07:44:24] 🔄 STEP 10: Removing duplicates
+INFO [2026-04-08 07:44:24] After deduplication: 31021 rows
+INFO [2026-04-08 07:44:24] After date filter: 31021 rows
+INFO [2026-04-08 07:44:24] 📊 GENERATING SUMMARY STATISTICS
+INFO [2026-04-08 07:44:24] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:24]   Total records: 31,021
+INFO [2026-04-08 07:44:24]   Total countries: 34
+INFO [2026-04-08 07:44:24]   Total districts: 4807
+INFO [2026-04-08 07:44:24]   Date range: 2020-01-04 to 2026-03-29
+INFO [2026-04-08 07:44:24]   Total sampled: 1,936,820
+INFO [2026-04-08 07:44:24]   Total vaccinated: 1,578,191
+INFO [2026-04-08 07:44:24]   Overall coverage: 81.5%
+INFO [2026-04-08 07:44:24] Country breakdown:
+INFO [2026-04-08 07:44:24]     NIGERIA: 7774 records, 97.1% coverage
+INFO [2026-04-08 07:44:24]     DEMOCRATIC REPUBLIC OF THE CONGO: 4600 records, 0% coverage
+INFO [2026-04-08 07:44:24]     CAMEROON: 2128 records, 92.2% coverage
+INFO [2026-04-08 07:44:24]     CHAD: 1855 records, 93.6% coverage
+INFO [2026-04-08 07:44:24]     ANGOLA: 1467 records, 88.5% coverage
+INFO [2026-04-08 07:44:24]     MOZAMBIQUE: 1452 records, 92% coverage
+INFO [2026-04-08 07:44:24]     GHANA: 1436 records, 93.3% coverage
+INFO [2026-04-08 07:44:24]     COTE D IVOIRE: 905 records, 95.7% coverage
+INFO [2026-04-08 07:44:24]     ZAMBIA: 812 records, 96% coverage
+INFO [2026-04-08 07:44:24]     ALGERIA: 781 records, 96.5% coverage
+INFO [2026-04-08 07:44:24]     MADAGASCAR: 779 records, 95% coverage
+INFO [2026-04-08 07:44:24]     NIGER: 745 records, 97.1% coverage
+INFO [2026-04-08 07:44:24]     UNITED REPUBLIC OF TANZANIA: 709 records, 97.6% coverage
+INFO [2026-04-08 07:44:24]     ZIMBABWE: 585 records, 94.8% coverage
+INFO [2026-04-08 07:44:24]     ETHIOPIA: 514 records, 94.9% coverage
+INFO [2026-04-08 07:44:24]     KENYA: 502 records, 93.6% coverage
+INFO [2026-04-08 07:44:24]     BURKINA FASO: 418 records, 98.1% coverage
+INFO [2026-04-08 07:44:24]     BENIN: 392 records, 93.9% coverage
+INFO [2026-04-08 07:44:24]     CONGO: 361 records, 88.2% coverage
+INFO [2026-04-08 07:44:24]     CENTRAL AFRICAN REPUBLIC: 334 records, 95.8% coverage
+INFO [2026-04-08 07:44:24]     LIB: 331 records, 95.3% coverage
+INFO [2026-04-08 07:44:24]     GUINEA: 330 records, 91.9% coverage
+INFO [2026-04-08 07:44:24]     UGANDA: 320 records, 88.5% coverage
+INFO [2026-04-08 07:44:24]     SOUTH SUDAN: 285 records, 89.7% coverage
+INFO [2026-04-08 07:44:24]     MAURITANIA: 254 records, 81.5% coverage
+INFO [2026-04-08 07:44:24]     MALAWI: 182 records, 91% coverage
+INFO [2026-04-08 07:44:24]     SENEGAL: 158 records, 90.3% coverage
+INFO [2026-04-08 07:44:24]     TOGO: 155 records, 95.8% coverage
+INFO [2026-04-08 07:44:24]     BUI: 147 records, 94.6% coverage
+INFO [2026-04-08 07:44:24]     NAMIBIA: 77 records, 91.9% coverage
+INFO [2026-04-08 07:44:24]     SIERRA LEONE: 76 records, 91.1% coverage
+INFO [2026-04-08 07:44:24]     RWANDA: 60 records, 97.1% coverage
+INFO [2026-04-08 07:44:24]     BOTSWANA: 54 records, 89.1% coverage
+INFO [2026-04-08 07:44:24]     GUINEA-BISSAU: 43 records, 0% coverage
+INFO [2026-04-08 07:44:24] 💾 Writing output files...
+INFO [2026-04-08 07:44:24] ✅ Saved final data to data/final/lqas_cleaned.parquet
+INFO [2026-04-08 07:44:25] ✅ Saved CSV to data/final/lqas_cleaned.csv
+INFO [2026-04-08 07:44:25] ✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!
+INFO [2026-04-08 07:44:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:25] Pipeline completed with 31021 records
+INFO [2026-04-08 07:49:09] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:49:09] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-04-08 07:49:09] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:49:09] Arguments:
+INFO [2026-04-08 07:49:09]   input-file: data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:49:09]   lookup-file: data/lookup/lqas_lookup.xlsx
+INFO [2026-04-08 07:49:09]   output-file: data/final/lqas_cleaned.parquet
+INFO [2026-04-08 07:49:09]   start-date: 2019-10-01
+INFO [2026-04-08 07:49:11] 🚀 RUNNING GEONAMES CLEANING PIPELINE
+INFO [2026-04-08 07:49:11] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:49:11] 📁 STEP 1: Reading input file
+INFO [2026-04-08 07:49:11] Reading input file: data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:49:11]   Read Parquet file: 31075 rows, 59 columns
+INFO [2026-04-08 07:49:11] Input has 31075 rows and 59 columns
+INFO [2026-04-08 07:49:11] 🧹 STEP 2: Basic data cleaning
+INFO [2026-04-08 07:49:11] 🌍 STEP 3: Standardizing country names
+INFO [2026-04-08 07:49:11] Standardizing country names...
+INFO [2026-04-08 07:49:11] 🗺️ STEP 4: Applying province name corrections
+INFO [2026-04-08 07:49:12] Applying province name corrections...
+INFO [2026-04-08 07:49:13] 🏙️ STEP 5: Applying district name corrections
+INFO [2026-04-08 07:49:13] Applying district name corrections...
+INFO [2026-04-08 07:49:14] 🌍 STEP 6: Applying AFRO block classification
+INFO [2026-04-08 07:49:14] Applying AFRO block classification...
+INFO [2026-04-08 07:49:14] 📅 STEP 7: Harmonizing dates with lookup file
+INFO [2026-04-08 07:49:14] Reading and harmonizing dates with lookup file...
+INFO [2026-04-08 07:49:14] Read lookup file from data/lookup/lqas_lookup.xlsx
+INFO [2026-04-08 07:49:14] Lookup contains 359 rows
+INFO [2026-04-08 07:49:14] Lookup table has 359 entries
+INFO [2026-04-08 07:49:14] After date harmonization: 31075 rows
+INFO [2026-04-08 07:49:14] 🎯 STEP 8: Applying final transformations
+INFO [2026-04-08 07:49:14] Applying final transformations...
+INFO [2026-04-08 07:49:14] Final dataset: 31021 rows, 60 columns
+INFO [2026-04-08 07:49:14] 📋 STEP 9: Standardizing column names
+INFO [2026-04-08 07:49:14] Standardizing column names...
+INFO [2026-04-08 07:49:14] 🔄 STEP 10: Removing duplicates
+INFO [2026-04-08 07:49:14] After deduplication: 31021 rows
+INFO [2026-04-08 07:49:14] After date filter: 31021 rows
+INFO [2026-04-08 07:49:14] 📊 GENERATING SUMMARY STATISTICS
+INFO [2026-04-08 07:49:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:49:14]   Total records: 31,021
+INFO [2026-04-08 07:49:14]   Total countries: 34
+INFO [2026-04-08 07:49:14]   Total districts: 4807
+INFO [2026-04-08 07:49:14]   Date range: 2020-01-04 to 2026-03-29
+INFO [2026-04-08 07:49:14]   Total sampled: 1,936,820
+INFO [2026-04-08 07:49:14]   Total vaccinated: 1,578,191
+INFO [2026-04-08 07:49:14]   Overall coverage: 81.5%
+INFO [2026-04-08 07:49:14] Country breakdown:
+INFO [2026-04-08 07:49:14]     NIGERIA: 7774 records, 97.1% coverage
+INFO [2026-04-08 07:49:14]     DEMOCRATIC REPUBLIC OF THE CONGO: 4600 records, 0% coverage
+INFO [2026-04-08 07:49:14]     CAMEROON: 2128 records, 92.2% coverage
+INFO [2026-04-08 07:49:14]     CHAD: 1855 records, 93.6% coverage
+INFO [2026-04-08 07:49:14]     ANGOLA: 1467 records, 88.5% coverage
+INFO [2026-04-08 07:49:14]     MOZAMBIQUE: 1452 records, 92% coverage
+INFO [2026-04-08 07:49:14]     GHANA: 1436 records, 93.3% coverage
+INFO [2026-04-08 07:49:14]     COTE D IVOIRE: 905 records, 95.7% coverage
+INFO [2026-04-08 07:49:14]     ZAMBIA: 812 records, 96% coverage
+INFO [2026-04-08 07:49:14]     ALGERIA: 781 records, 96.5% coverage
+INFO [2026-04-08 07:49:14]     MADAGASCAR: 779 records, 95% coverage
+INFO [2026-04-08 07:49:14]     NIGER: 745 records, 97.1% coverage
+INFO [2026-04-08 07:49:14]     UNITED REPUBLIC OF TANZANIA: 709 records, 97.6% coverage
+INFO [2026-04-08 07:49:14]     ZIMBABWE: 585 records, 94.8% coverage
+INFO [2026-04-08 07:49:14]     ETHIOPIA: 514 records, 94.9% coverage
+INFO [2026-04-08 07:49:14]     KENYA: 502 records, 93.6% coverage
+INFO [2026-04-08 07:49:14]     BURKINA FASO: 418 records, 98.1% coverage
+INFO [2026-04-08 07:49:14]     BENIN: 392 records, 93.9% coverage
+INFO [2026-04-08 07:49:14]     CONGO: 361 records, 88.2% coverage
+INFO [2026-04-08 07:49:14]     CENTRAL AFRICAN REPUBLIC: 334 records, 95.8% coverage
+INFO [2026-04-08 07:49:14]     LIB: 331 records, 95.3% coverage
+INFO [2026-04-08 07:49:14]     GUINEA: 330 records, 91.9% coverage
+INFO [2026-04-08 07:49:14]     UGANDA: 320 records, 88.5% coverage
+INFO [2026-04-08 07:49:14]     SOUTH SUDAN: 285 records, 89.7% coverage
+INFO [2026-04-08 07:49:14]     MAURITANIA: 254 records, 81.5% coverage
+INFO [2026-04-08 07:49:14]     MALAWI: 182 records, 91% coverage
+INFO [2026-04-08 07:49:14]     SENEGAL: 158 records, 90.3% coverage
+INFO [2026-04-08 07:49:14]     TOGO: 155 records, 95.8% coverage
+INFO [2026-04-08 07:49:14]     BUI: 147 records, 94.6% coverage
+INFO [2026-04-08 07:49:14]     NAMIBIA: 77 records, 91.9% coverage
+INFO [2026-04-08 07:49:14]     SIERRA LEONE: 76 records, 91.1% coverage
+INFO [2026-04-08 07:49:14]     RWANDA: 60 records, 97.1% coverage
+INFO [2026-04-08 07:49:14]     BOTSWANA: 54 records, 89.1% coverage
+INFO [2026-04-08 07:49:14]     GUINEA-BISSAU: 43 records, 0% coverage
+INFO [2026-04-08 07:49:14] 💾 Writing output files...
+INFO [2026-04-08 07:49:14] ✅ Saved final data to data/final/lqas_cleaned.parquet
+INFO [2026-04-08 07:49:15] ✅ Saved CSV to data/final/lqas_cleaned.csv
+INFO [2026-04-08 07:49:15] ✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!
+INFO [2026-04-08 07:49:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:49:15] Pipeline completed with 31021 records
+INFO [2026-04-08 08:05:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 08:05:31] Starting AFRO LQAS Data Cleaning Pipeline
+INFO [2026-04-08 08:05:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 08:05:31] Arguments:
+INFO [2026-04-08 08:05:31]   input-file: data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 08:05:31]   lookup-file: data/lookup/lqas_lookup.xlsx
+INFO [2026-04-08 08:05:31]   output-file: data/final/lqas_cleaned.parquet
+INFO [2026-04-08 08:05:31]   start-date: 2019-10-01
+INFO [2026-04-08 08:05:32] 🚀 RUNNING GEONAMES CLEANING PIPELINE
+INFO [2026-04-08 08:05:32] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 08:05:32] 📁 STEP 1: Reading input file
+INFO [2026-04-08 08:05:32] Reading input file: data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 08:05:32]   Read Parquet file: 31075 rows, 59 columns
+INFO [2026-04-08 08:05:33] Input has 31075 rows and 59 columns
+INFO [2026-04-08 08:05:33] 🧹 STEP 2: Basic data cleaning
+INFO [2026-04-08 08:05:33] 🌍 STEP 3: Standardizing country names
+INFO [2026-04-08 08:05:33] Standardizing country names...
+INFO [2026-04-08 08:05:33] 🗺️ STEP 4: Applying province name corrections
+INFO [2026-04-08 08:05:33] Applying province name corrections...
+INFO [2026-04-08 08:05:34] 🏙️ STEP 5: Applying district name corrections
+INFO [2026-04-08 08:05:34] Applying district name corrections...
+INFO [2026-04-08 08:05:35] 🌍 STEP 6: Applying AFRO block classification
+INFO [2026-04-08 08:05:35] Applying AFRO block classification...
+INFO [2026-04-08 08:05:35] 📅 STEP 7: Harmonizing dates with lookup file
+INFO [2026-04-08 08:05:35] Reading and harmonizing dates with lookup file...
+INFO [2026-04-08 08:05:35] Read lookup file from data/lookup/lqas_lookup.xlsx
+INFO [2026-04-08 08:05:35] Lookup contains 359 rows
+INFO [2026-04-08 08:05:35] Lookup table has 359 entries
+INFO [2026-04-08 08:05:35] After date harmonization: 31075 rows
+INFO [2026-04-08 08:05:35] 🎯 STEP 8: Applying final transformations
+INFO [2026-04-08 08:05:35] Applying final transformations...
+INFO [2026-04-08 08:05:35] Final dataset: 31021 rows, 60 columns
+INFO [2026-04-08 08:05:35] 📋 STEP 9: Standardizing column names
+INFO [2026-04-08 08:05:35] Standardizing column names...
+INFO [2026-04-08 08:05:35] 🔄 STEP 10: Removing duplicates
+INFO [2026-04-08 08:05:35] After deduplication: 31021 rows
+INFO [2026-04-08 08:05:35] After date filter: 31021 rows
+INFO [2026-04-08 08:05:35] 📊 GENERATING SUMMARY STATISTICS
+INFO [2026-04-08 08:05:35] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 08:05:35]   Total records: 31,021
+INFO [2026-04-08 08:05:36]   Total countries: 34
+INFO [2026-04-08 08:05:36]   Total districts: 4807
+INFO [2026-04-08 08:05:36]   Date range: 2020-01-04 to 2026-03-29
+INFO [2026-04-08 08:05:36]   Total sampled: 1,936,820
+INFO [2026-04-08 08:05:36]   Total vaccinated: 1,578,191
+INFO [2026-04-08 08:05:36]   Overall coverage: 81.5%
+INFO [2026-04-08 08:05:36] Country breakdown:
+INFO [2026-04-08 08:05:36]     NIGERIA: 7774 records, 97.1% coverage
+INFO [2026-04-08 08:05:36]     DEMOCRATIC REPUBLIC OF THE CONGO: 4600 records, 0% coverage
+INFO [2026-04-08 08:05:36]     CAMEROON: 2128 records, 92.2% coverage
+INFO [2026-04-08 08:05:36]     CHAD: 1855 records, 93.6% coverage
+INFO [2026-04-08 08:05:36]     ANGOLA: 1467 records, 88.5% coverage
+INFO [2026-04-08 08:05:36]     MOZAMBIQUE: 1452 records, 92% coverage
+INFO [2026-04-08 08:05:36]     GHANA: 1436 records, 93.3% coverage
+INFO [2026-04-08 08:05:36]     COTE D IVOIRE: 905 records, 95.7% coverage
+INFO [2026-04-08 08:05:36]     ZAMBIA: 812 records, 96% coverage
+INFO [2026-04-08 08:05:36]     ALGERIA: 781 records, 96.5% coverage
+INFO [2026-04-08 08:05:36]     MADAGASCAR: 779 records, 95% coverage
+INFO [2026-04-08 08:05:36]     NIGER: 745 records, 97.1% coverage
+INFO [2026-04-08 08:05:36]     UNITED REPUBLIC OF TANZANIA: 709 records, 97.6% coverage
+INFO [2026-04-08 08:05:36]     ZIMBABWE: 585 records, 94.8% coverage
+INFO [2026-04-08 08:05:36]     ETHIOPIA: 514 records, 94.9% coverage
+INFO [2026-04-08 08:05:36]     KENYA: 502 records, 93.6% coverage
+INFO [2026-04-08 08:05:36]     BURKINA FASO: 418 records, 98.1% coverage
+INFO [2026-04-08 08:05:36]     BENIN: 392 records, 93.9% coverage
+INFO [2026-04-08 08:05:36]     CONGO: 361 records, 88.2% coverage
+INFO [2026-04-08 08:05:36]     CENTRAL AFRICAN REPUBLIC: 334 records, 95.8% coverage
+INFO [2026-04-08 08:05:36]     LIBERIA: 331 records, 95.3% coverage
+INFO [2026-04-08 08:05:36]     GUINEA: 330 records, 91.9% coverage
+INFO [2026-04-08 08:05:36]     UGANDA: 320 records, 88.5% coverage
+INFO [2026-04-08 08:05:36]     SOUTH SUDAN: 285 records, 89.7% coverage
+INFO [2026-04-08 08:05:36]     MAURITANIA: 254 records, 81.5% coverage
+INFO [2026-04-08 08:05:36]     MALAWI: 182 records, 91% coverage
+INFO [2026-04-08 08:05:36]     SENEGAL: 158 records, 90.3% coverage
+INFO [2026-04-08 08:05:36]     TOGO: 155 records, 95.8% coverage
+INFO [2026-04-08 08:05:36]     BURUNDI: 147 records, 94.6% coverage
+INFO [2026-04-08 08:05:36]     NAMIBIA: 77 records, 91.9% coverage
+INFO [2026-04-08 08:05:36]     SIERRA LEONE: 76 records, 91.1% coverage
+INFO [2026-04-08 08:05:36]     RWANDA: 60 records, 97.1% coverage
+INFO [2026-04-08 08:05:36]     BOTSWANA: 54 records, 89.1% coverage
+INFO [2026-04-08 08:05:36]     GUINEA-BISSAU: 43 records, 0% coverage
+INFO [2026-04-08 08:05:36] 💾 Writing output files...
+INFO [2026-04-08 08:05:36] ✅ Saved final data to data/final/lqas_cleaned.parquet
+INFO [2026-04-08 08:05:36] ✅ Saved CSV to data/final/lqas_cleaned.csv
+INFO [2026-04-08 08:05:36] ✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!
+INFO [2026-04-08 08:05:36] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 08:05:36] Pipeline completed with 31021 records

@@ -7380,3 +7380,1973 @@ INFO [2026-04-07 10:10:09] =
 INFO [2026-04-07 10:10:09] PROCESSING COMPLETE!
 INFO [2026-04-07 10:10:09] Total records: 31075
 INFO [2026-04-07 10:10:09] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:33:47] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:33:47] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-08 07:33:47] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:33:47] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:33:47] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-08 07:33:47] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:33:47] Found special case: Nigeria CSV
+INFO [2026-04-08 07:33:47] Found special case: 272.parquet
+INFO [2026-04-08 07:33:47] Found 38 total files to process
+INFO [2026-04-08 07:33:47] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-08 07:33:48]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-08 07:33:49]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-08 07:33:49]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-08 07:33:49]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-08 07:33:49] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-08 07:33:49]     Initial data: 36 rows, 167 columns
+INFO [2026-04-08 07:33:49]     Processed regular file: 6 aggregated rows
+INFO [2026-04-08 07:33:49]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-08 07:33:49]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-08 07:33:49] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-08 07:33:49]     Initial data: 462 rows, 179 columns
+INFO [2026-04-08 07:33:49]     Processed regular file: 77 aggregated rows
+INFO [2026-04-08 07:33:49]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-08 07:33:49]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-08 07:33:49] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-08 07:33:50]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 07:33:54]     Read 96470 rows
+INFO [2026-04-08 07:36:19]     Processed 272: 7854 rows
+INFO [2026-04-08 07:36:19]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 07:36:19]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 07:36:19] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-08 07:36:19]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-08 07:36:20]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-08 07:36:20]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-08 07:36:20]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-08 07:36:20] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-08 07:36:20]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-08 07:36:20]     Processed regular file: 812 aggregated rows
+INFO [2026-04-08 07:36:20]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-08 07:36:20]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-08 07:36:20] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-08 07:36:20]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-08 07:36:21]     Processed regular file: 392 aggregated rows
+INFO [2026-04-08 07:36:21]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-08 07:36:21]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-08 07:36:21] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-08 07:36:21]     Initial data: 928 rows, 195 columns
+INFO [2026-04-08 07:36:21]     Processed regular file: 155 aggregated rows
+INFO [2026-04-08 07:36:21]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-08 07:36:21]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-08 07:36:21] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-08 07:36:21]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-08 07:36:23]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-08 07:36:23]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-08 07:36:23]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-08 07:36:23] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-08 07:36:23]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-08 07:36:23]     Processed regular file: 334 aggregated rows
+INFO [2026-04-08 07:36:23]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-08 07:36:23]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-08 07:36:23] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-08 07:36:23]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-08 07:36:24]     Processed regular file: 418 aggregated rows
+INFO [2026-04-08 07:36:24]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-08 07:36:24]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-08 07:36:24] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-08 07:36:24]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-08 07:36:25]     Processed regular file: 907 aggregated rows
+INFO [2026-04-08 07:36:25]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-08 07:36:25]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-08 07:36:25] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-08 07:36:25]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-08 07:36:26]     Processed regular file: 4600 aggregated rows
+INFO [2026-04-08 07:36:26]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-04-08 07:36:26]     ✅ Successfully processed 4500.parquet
+INFO [2026-04-08 07:36:26] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-08 07:36:30]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-08 07:36:30]     Regular file failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-04-08 07:36:30]     ❌ Failed to process 4987.parquet
+INFO [2026-04-08 07:36:30] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-08 07:36:30]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-08 07:36:31]     Processed regular file: 361 aggregated rows
+INFO [2026-04-08 07:36:31]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-08 07:36:31]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-08 07:36:31] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-08 07:36:31]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-08 07:36:33]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-08 07:36:33]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-08 07:36:33]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-08 07:36:33] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-08 07:36:33]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-08 07:36:34]     Processed regular file: 745 aggregated rows
+INFO [2026-04-08 07:36:34]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-08 07:36:34]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-08 07:36:34] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-08 07:36:34]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-08 07:36:35]     Processed regular file: 324 aggregated rows
+INFO [2026-04-08 07:36:35]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-08 07:36:35]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-08 07:36:35] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-08 07:36:35]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-08 07:36:35]     Processed regular file: 285 aggregated rows
+INFO [2026-04-08 07:36:35]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-08 07:36:35]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-08 07:36:35] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-08 07:36:35]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-08 07:36:36]     Processed regular file: 331 aggregated rows
+INFO [2026-04-08 07:36:36]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-08 07:36:36]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-08 07:36:36] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-08 07:36:36]     Initial data: 453 rows, 334 columns
+INFO [2026-04-08 07:36:36]     Processed regular file: 76 aggregated rows
+INFO [2026-04-08 07:36:36]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-08 07:36:36]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-08 07:36:36] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-08 07:36:36]     Initial data: 944 rows, 335 columns
+INFO [2026-04-08 07:36:37]     Processed regular file: 158 aggregated rows
+INFO [2026-04-08 07:36:37]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-08 07:36:37]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-08 07:36:37] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-08 07:36:37]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-08 07:36:37]     Processed regular file: 502 aggregated rows
+INFO [2026-04-08 07:36:37]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-08 07:36:37]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-08 07:36:37] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-08 07:36:37]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-08 07:36:38]     Processed regular file: 254 aggregated rows
+INFO [2026-04-08 07:36:38]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-08 07:36:38]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-08 07:36:38] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-08 07:36:38]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-08 07:36:38]     Processed regular file: 328 aggregated rows
+INFO [2026-04-08 07:36:38]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-08 07:36:38]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-08 07:36:38] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-08 07:36:39]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-08 07:36:40]     Processed regular file: 514 aggregated rows
+INFO [2026-04-08 07:36:40]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-08 07:36:40]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-08 07:36:40] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-08 07:36:40]     Initial data: 258 rows, 341 columns
+INFO [2026-04-08 07:36:40]     Processed regular file: 43 aggregated rows
+INFO [2026-04-08 07:36:40]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-08 07:36:40]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-08 07:36:40] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-08 07:36:40]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-08 07:36:41]     Processed regular file: 182 aggregated rows
+INFO [2026-04-08 07:36:41]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-08 07:36:41]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-08 07:36:41] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-08 07:36:41]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-08 07:36:42]     Processed regular file: 709 aggregated rows
+INFO [2026-04-08 07:36:42]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-08 07:36:42]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-08 07:36:42] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-08 07:36:42]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-08 07:36:44]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-08 07:36:44]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-08 07:36:44]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-08 07:36:44] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-08 07:36:44]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-08 07:36:45]     Processed regular file: 586 aggregated rows
+INFO [2026-04-08 07:36:45]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-08 07:36:45]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-08 07:36:45] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-08 07:36:45]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-08 07:36:46]     Processed regular file: 779 aggregated rows
+INFO [2026-04-08 07:36:46]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-08 07:36:46]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-08 07:36:46] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-08 07:36:46]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-08 07:36:47]     Processed regular file: 781 aggregated rows
+INFO [2026-04-08 07:36:47]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-08 07:36:47]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-08 07:36:47] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-08 07:36:47]     Initial data: 324 rows, 256 columns
+INFO [2026-04-08 07:36:47]     Processed regular file: 54 aggregated rows
+INFO [2026-04-08 07:36:47]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-08 07:36:47]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-08 07:36:47] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-08 07:36:47]     Initial data: 882 rows, 182 columns
+INFO [2026-04-08 07:36:47]     Processed regular file: 147 aggregated rows
+INFO [2026-04-08 07:36:48]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-08 07:36:48]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-08 07:36:48] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-08 07:36:48]     Initial data: 552 rows, 255 columns
+INFO [2026-04-08 07:36:48]     Processed regular file: 60 aggregated rows
+INFO [2026-04-08 07:36:48]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-08 07:36:48]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-08 07:36:48] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-08 07:36:48]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-08 07:36:48]     Read 2687 rows
+INFO [2026-04-08 07:36:55]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-08 07:36:55]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 07:36:55]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 07:36:55] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-08 07:36:55]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 07:36:59]     Read 96470 rows
+INFO [2026-04-08 07:39:14]     Processed 272: 7854 rows
+INFO [2026-04-08 07:39:14]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 07:39:14]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 07:39:14] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:39:14] COMBINING RESULTS
+INFO [2026-04-08 07:39:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:15] Combined 31590 rows from 36 files
+INFO [2026-04-08 07:39:15] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-04-08 07:39:15] After deduplication: 31075 rows
+INFO [2026-04-08 07:39:15] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:39:15] SAVING OUTPUTS
+INFO [2026-04-08 07:39:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:15] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-08 07:39:15] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:39:15] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-08 07:39:15] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:39:15] PROCESSING COMPLETE!
+INFO [2026-04-08 07:39:15] Total records: 31075
+INFO [2026-04-08 07:39:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:39] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:39] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-08 07:39:39] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:39] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:39] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-08 07:39:39] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:39:39] Found special case: Nigeria CSV
+INFO [2026-04-08 07:39:39] Found special case: 272.parquet
+INFO [2026-04-08 07:39:39] Found 38 total files to process
+INFO [2026-04-08 07:39:39] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-08 07:39:40]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-08 07:39:40]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-08 07:39:40]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-08 07:39:40]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-08 07:39:41] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-08 07:39:41]     Initial data: 36 rows, 167 columns
+INFO [2026-04-08 07:39:41]     Processed regular file: 6 aggregated rows
+INFO [2026-04-08 07:39:41]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-08 07:39:41]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-08 07:39:41] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-08 07:39:41]     Initial data: 462 rows, 179 columns
+INFO [2026-04-08 07:39:41]     Processed regular file: 77 aggregated rows
+INFO [2026-04-08 07:39:41]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-08 07:39:41]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-08 07:39:41] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-08 07:39:41]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 07:39:45]     Read 96470 rows
+INFO [2026-04-08 07:41:44]     Processed 272: 7854 rows
+INFO [2026-04-08 07:41:44]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 07:41:44]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 07:41:44] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-08 07:41:45]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-08 07:41:46]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-08 07:41:46]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-08 07:41:46]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-08 07:41:46] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-08 07:41:46]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-08 07:41:46]     Processed regular file: 812 aggregated rows
+INFO [2026-04-08 07:41:46]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-08 07:41:46]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-08 07:41:46] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-08 07:41:46]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-08 07:41:47]     Processed regular file: 392 aggregated rows
+INFO [2026-04-08 07:41:47]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-08 07:41:47]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-08 07:41:47] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-08 07:41:47]     Initial data: 928 rows, 195 columns
+INFO [2026-04-08 07:41:47]     Processed regular file: 155 aggregated rows
+INFO [2026-04-08 07:41:47]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-08 07:41:47]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-08 07:41:47] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-08 07:41:47]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-08 07:41:49]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-08 07:41:49]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-08 07:41:49]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-08 07:41:49] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-08 07:41:49]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-08 07:41:49]     Processed regular file: 334 aggregated rows
+INFO [2026-04-08 07:41:49]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-08 07:41:49]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-08 07:41:49] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-08 07:41:49]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-08 07:41:50]     Processed regular file: 418 aggregated rows
+INFO [2026-04-08 07:41:50]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-08 07:41:50]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-08 07:41:50] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-08 07:41:50]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-08 07:41:50]     Processed regular file: 907 aggregated rows
+INFO [2026-04-08 07:41:50]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-08 07:41:50]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-08 07:41:50] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-08 07:41:51]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-08 07:41:52]     Processed regular file: 4600 aggregated rows
+INFO [2026-04-08 07:41:52]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-04-08 07:41:52]     ✅ Successfully processed 4500.parquet
+INFO [2026-04-08 07:41:52] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-08 07:41:54]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-08 07:41:54]     Regular file failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-04-08 07:41:54]     ❌ Failed to process 4987.parquet
+INFO [2026-04-08 07:41:54] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-08 07:41:54]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-08 07:41:55]     Processed regular file: 361 aggregated rows
+INFO [2026-04-08 07:41:55]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-08 07:41:55]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-08 07:41:55] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-08 07:41:55]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-08 07:41:57]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-08 07:41:57]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-08 07:41:57]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-08 07:41:57] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-08 07:41:57]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-08 07:41:57]     Processed regular file: 745 aggregated rows
+INFO [2026-04-08 07:41:57]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-08 07:41:57]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-08 07:41:57] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-08 07:41:57]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-08 07:41:58]     Processed regular file: 324 aggregated rows
+INFO [2026-04-08 07:41:58]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-08 07:41:58]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-08 07:41:58] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-08 07:41:58]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-08 07:41:58]     Processed regular file: 285 aggregated rows
+INFO [2026-04-08 07:41:58]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-08 07:41:58]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-08 07:41:58] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-08 07:41:58]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-08 07:41:58]     Processed regular file: 331 aggregated rows
+INFO [2026-04-08 07:41:59]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-08 07:41:59]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-08 07:41:59] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-08 07:41:59]     Initial data: 453 rows, 334 columns
+INFO [2026-04-08 07:41:59]     Processed regular file: 76 aggregated rows
+INFO [2026-04-08 07:41:59]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-08 07:41:59]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-08 07:41:59] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-08 07:41:59]     Initial data: 944 rows, 335 columns
+INFO [2026-04-08 07:41:59]     Processed regular file: 158 aggregated rows
+INFO [2026-04-08 07:41:59]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-08 07:41:59]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-08 07:41:59] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-08 07:41:59]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-08 07:42:00]     Processed regular file: 502 aggregated rows
+INFO [2026-04-08 07:42:00]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-08 07:42:00]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-08 07:42:00] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-08 07:42:00]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-08 07:42:00]     Processed regular file: 254 aggregated rows
+INFO [2026-04-08 07:42:00]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-08 07:42:00]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-08 07:42:00] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-08 07:42:00]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-08 07:42:00]     Processed regular file: 328 aggregated rows
+INFO [2026-04-08 07:42:01]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-08 07:42:01]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-08 07:42:01] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-08 07:42:01]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-08 07:42:02]     Processed regular file: 514 aggregated rows
+INFO [2026-04-08 07:42:02]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-08 07:42:02]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-08 07:42:02] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-08 07:42:02]     Initial data: 258 rows, 341 columns
+INFO [2026-04-08 07:42:02]     Processed regular file: 43 aggregated rows
+INFO [2026-04-08 07:42:02]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-08 07:42:02]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-08 07:42:02] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-08 07:42:02]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-08 07:42:03]     Processed regular file: 182 aggregated rows
+INFO [2026-04-08 07:42:03]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-08 07:42:03]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-08 07:42:03] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-08 07:42:03]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-08 07:42:03]     Processed regular file: 709 aggregated rows
+INFO [2026-04-08 07:42:03]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-08 07:42:03]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-08 07:42:03] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-08 07:42:04]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-08 07:42:04]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-08 07:42:05]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-08 07:42:05]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-08 07:42:05] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-08 07:42:05]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-08 07:42:05]     Processed regular file: 586 aggregated rows
+INFO [2026-04-08 07:42:05]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-08 07:42:05]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-08 07:42:05] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-08 07:42:05]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-08 07:42:06]     Processed regular file: 779 aggregated rows
+INFO [2026-04-08 07:42:06]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-08 07:42:06]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-08 07:42:06] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-08 07:42:06]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-08 07:42:07]     Processed regular file: 781 aggregated rows
+INFO [2026-04-08 07:42:07]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-08 07:42:07]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-08 07:42:07] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-08 07:42:07]     Initial data: 324 rows, 256 columns
+INFO [2026-04-08 07:42:07]     Processed regular file: 54 aggregated rows
+INFO [2026-04-08 07:42:07]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-08 07:42:07]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-08 07:42:07] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-08 07:42:07]     Initial data: 882 rows, 182 columns
+INFO [2026-04-08 07:42:07]     Processed regular file: 147 aggregated rows
+INFO [2026-04-08 07:42:07]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-08 07:42:07]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-08 07:42:07] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-08 07:42:07]     Initial data: 552 rows, 255 columns
+INFO [2026-04-08 07:42:08]     Processed regular file: 60 aggregated rows
+INFO [2026-04-08 07:42:08]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-08 07:42:08]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-08 07:42:08] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-08 07:42:08]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-08 07:42:08]     Read 2687 rows
+INFO [2026-04-08 07:42:12]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-08 07:42:12]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 07:42:12]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 07:42:12] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-08 07:42:12]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 07:42:15]     Read 96470 rows
+INFO [2026-04-08 07:44:18]     Processed 272: 7854 rows
+INFO [2026-04-08 07:44:18]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 07:44:18]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 07:44:18] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:44:18] COMBINING RESULTS
+INFO [2026-04-08 07:44:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:18] Combined 31590 rows from 36 files
+INFO [2026-04-08 07:44:18] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-04-08 07:44:18] After deduplication: 31075 rows
+INFO [2026-04-08 07:44:18] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:44:18] SAVING OUTPUTS
+INFO [2026-04-08 07:44:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:18] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-08 07:44:18] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:44:18] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-08 07:44:18] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:44:18] PROCESSING COMPLETE!
+INFO [2026-04-08 07:44:18] Total records: 31075
+INFO [2026-04-08 07:44:18] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:33] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:33] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-08 07:44:33] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:33] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:33] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-08 07:44:33] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:44:33] Found special case: Nigeria CSV
+INFO [2026-04-08 07:44:33] Found special case: 272.parquet
+INFO [2026-04-08 07:44:33] Found 38 total files to process
+INFO [2026-04-08 07:44:33] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-08 07:44:34]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-08 07:44:35]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-08 07:44:35]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-08 07:44:35]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-08 07:44:35] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-08 07:44:35]     Initial data: 36 rows, 167 columns
+INFO [2026-04-08 07:44:35]     Processed regular file: 6 aggregated rows
+INFO [2026-04-08 07:44:35]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-08 07:44:35]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-08 07:44:35] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-08 07:44:35]     Initial data: 462 rows, 179 columns
+INFO [2026-04-08 07:44:35]     Processed regular file: 77 aggregated rows
+INFO [2026-04-08 07:44:35]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-08 07:44:35]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-08 07:44:35] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-08 07:44:35]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 07:44:39]     Read 96470 rows
+INFO [2026-04-08 07:46:37]     Processed 272: 7854 rows
+INFO [2026-04-08 07:46:37]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 07:46:37]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 07:46:37] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-08 07:46:37]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-08 07:46:38]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-08 07:46:38]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-08 07:46:38]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-08 07:46:38] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-08 07:46:38]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-08 07:46:39]     Processed regular file: 812 aggregated rows
+INFO [2026-04-08 07:46:39]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-08 07:46:39]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-08 07:46:39] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-08 07:46:39]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-08 07:46:39]     Processed regular file: 392 aggregated rows
+INFO [2026-04-08 07:46:39]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-08 07:46:39]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-08 07:46:39] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-08 07:46:39]     Initial data: 928 rows, 195 columns
+INFO [2026-04-08 07:46:40]     Processed regular file: 155 aggregated rows
+INFO [2026-04-08 07:46:40]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-08 07:46:40]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-08 07:46:40] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-08 07:46:40]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-08 07:46:41]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-08 07:46:41]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-08 07:46:41]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-08 07:46:41] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-08 07:46:41]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-08 07:46:42]     Processed regular file: 334 aggregated rows
+INFO [2026-04-08 07:46:42]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-08 07:46:42]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-08 07:46:42] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-08 07:46:42]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-08 07:46:42]     Processed regular file: 418 aggregated rows
+INFO [2026-04-08 07:46:42]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-08 07:46:42]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-08 07:46:42] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-08 07:46:42]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-08 07:46:43]     Processed regular file: 907 aggregated rows
+INFO [2026-04-08 07:46:43]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-08 07:46:43]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-08 07:46:43] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-08 07:46:43]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-08 07:46:44]     Processed regular file: 4600 aggregated rows
+INFO [2026-04-08 07:46:44]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-04-08 07:46:44]     ✅ Successfully processed 4500.parquet
+INFO [2026-04-08 07:46:44] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-08 07:46:47]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-08 07:46:47]     Regular file failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-04-08 07:46:47]     ❌ Failed to process 4987.parquet
+INFO [2026-04-08 07:46:47] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-08 07:46:47]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-08 07:46:47]     Processed regular file: 361 aggregated rows
+INFO [2026-04-08 07:46:47]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-08 07:46:47]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-08 07:46:47] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-08 07:46:48]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-08 07:46:49]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-08 07:46:49]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-08 07:46:49]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-08 07:46:49] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-08 07:46:49]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-08 07:46:50]     Processed regular file: 745 aggregated rows
+INFO [2026-04-08 07:46:50]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-08 07:46:50]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-08 07:46:50] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-08 07:46:50]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-08 07:46:50]     Processed regular file: 324 aggregated rows
+INFO [2026-04-08 07:46:50]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-08 07:46:50]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-08 07:46:50] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-08 07:46:50]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-08 07:46:51]     Processed regular file: 285 aggregated rows
+INFO [2026-04-08 07:46:51]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-08 07:46:51]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-08 07:46:51] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-08 07:46:51]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-08 07:46:51]     Processed regular file: 331 aggregated rows
+INFO [2026-04-08 07:46:51]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-08 07:46:51]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-08 07:46:51] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-08 07:46:51]     Initial data: 453 rows, 334 columns
+INFO [2026-04-08 07:46:51]     Processed regular file: 76 aggregated rows
+INFO [2026-04-08 07:46:51]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-08 07:46:51]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-08 07:46:51] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-08 07:46:51]     Initial data: 944 rows, 335 columns
+INFO [2026-04-08 07:46:52]     Processed regular file: 158 aggregated rows
+INFO [2026-04-08 07:46:52]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-08 07:46:52]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-08 07:46:52] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-08 07:46:52]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-08 07:46:52]     Processed regular file: 502 aggregated rows
+INFO [2026-04-08 07:46:52]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-08 07:46:52]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-08 07:46:52] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-08 07:46:52]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-08 07:46:53]     Processed regular file: 254 aggregated rows
+INFO [2026-04-08 07:46:53]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-08 07:46:53]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-08 07:46:53] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-08 07:46:53]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-08 07:46:53]     Processed regular file: 328 aggregated rows
+INFO [2026-04-08 07:46:53]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-08 07:46:53]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-08 07:46:53] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-08 07:46:53]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-08 07:46:54]     Processed regular file: 514 aggregated rows
+INFO [2026-04-08 07:46:54]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-08 07:46:54]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-08 07:46:54] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-08 07:46:54]     Initial data: 258 rows, 341 columns
+INFO [2026-04-08 07:46:54]     Processed regular file: 43 aggregated rows
+INFO [2026-04-08 07:46:54]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-08 07:46:54]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-08 07:46:54] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-08 07:46:54]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-08 07:46:55]     Processed regular file: 182 aggregated rows
+INFO [2026-04-08 07:46:55]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-08 07:46:55]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-08 07:46:55] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-08 07:46:55]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-08 07:46:55]     Processed regular file: 709 aggregated rows
+INFO [2026-04-08 07:46:55]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-08 07:46:55]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-08 07:46:55] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-08 07:46:56]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-08 07:46:57]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-08 07:46:57]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-08 07:46:57]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-08 07:46:57] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-08 07:46:57]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-08 07:46:57]     Processed regular file: 586 aggregated rows
+INFO [2026-04-08 07:46:57]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-08 07:46:57]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-08 07:46:57] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-08 07:46:57]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-08 07:46:58]     Processed regular file: 779 aggregated rows
+INFO [2026-04-08 07:46:58]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-08 07:46:58]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-08 07:46:58] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-08 07:46:58]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-08 07:46:59]     Processed regular file: 781 aggregated rows
+INFO [2026-04-08 07:46:59]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-08 07:46:59]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-08 07:46:59] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-08 07:46:59]     Initial data: 324 rows, 256 columns
+INFO [2026-04-08 07:46:59]     Processed regular file: 54 aggregated rows
+INFO [2026-04-08 07:46:59]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-08 07:46:59]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-08 07:46:59] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-08 07:46:59]     Initial data: 882 rows, 182 columns
+INFO [2026-04-08 07:46:59]     Processed regular file: 147 aggregated rows
+INFO [2026-04-08 07:46:59]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-08 07:46:59]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-08 07:46:59] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-08 07:46:59]     Initial data: 552 rows, 255 columns
+INFO [2026-04-08 07:47:00]     Processed regular file: 60 aggregated rows
+INFO [2026-04-08 07:47:00]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-08 07:47:00]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-08 07:47:00] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-08 07:47:00]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-08 07:47:00]     Read 2687 rows
+INFO [2026-04-08 07:47:04]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-08 07:47:04]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 07:47:04]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 07:47:04] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-08 07:47:04]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 07:47:07]     Read 96470 rows
+INFO [2026-04-08 07:49:07]     Processed 272: 7854 rows
+INFO [2026-04-08 07:49:07]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 07:49:07]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 07:49:07] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:49:07] COMBINING RESULTS
+INFO [2026-04-08 07:49:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:49:07] Combined 31590 rows from 36 files
+INFO [2026-04-08 07:49:07] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-04-08 07:49:07] After deduplication: 31075 rows
+INFO [2026-04-08 07:49:07] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:49:07] SAVING OUTPUTS
+INFO [2026-04-08 07:49:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:49:07] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-08 07:49:07] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:49:07] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-08 07:49:07] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:49:07] PROCESSING COMPLETE!
+INFO [2026-04-08 07:49:07] Total records: 31075
+INFO [2026-04-08 07:49:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:52:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:52:26] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-08 07:52:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:52:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:52:26] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-08 07:52:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:52:26] Found special case: Nigeria CSV
+INFO [2026-04-08 07:52:26] Found special case: 272.parquet
+INFO [2026-04-08 07:52:26] Found 38 total files to process
+INFO [2026-04-08 07:52:26] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-08 07:52:27]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-08 07:52:28]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-08 07:52:28]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-08 07:52:28]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-08 07:52:28] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-08 07:52:28]     Initial data: 36 rows, 167 columns
+INFO [2026-04-08 07:52:28]     Processed regular file: 6 aggregated rows
+INFO [2026-04-08 07:52:28]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-08 07:52:28]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-08 07:52:28] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-08 07:52:28]     Initial data: 462 rows, 179 columns
+INFO [2026-04-08 07:52:28]     Processed regular file: 77 aggregated rows
+INFO [2026-04-08 07:52:28]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-08 07:52:28]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-08 07:52:28] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-08 07:52:28]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 07:52:32]     Read 96470 rows
+INFO [2026-04-08 07:54:48]     Processed 272: 7854 rows
+INFO [2026-04-08 07:54:48]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 07:54:48]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 07:54:48] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-08 07:54:48]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-08 07:54:49]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-08 07:54:49]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-08 07:54:49]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-08 07:54:49] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-08 07:54:49]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-08 07:54:50]     Processed regular file: 812 aggregated rows
+INFO [2026-04-08 07:54:50]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-08 07:54:50]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-08 07:54:50] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-08 07:54:50]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-08 07:54:50]     Processed regular file: 392 aggregated rows
+INFO [2026-04-08 07:54:50]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-08 07:54:50]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-08 07:54:50] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-08 07:54:50]     Initial data: 928 rows, 195 columns
+INFO [2026-04-08 07:54:51]     Processed regular file: 155 aggregated rows
+INFO [2026-04-08 07:54:51]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-08 07:54:51]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-08 07:54:51] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-08 07:54:51]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-08 07:54:52]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-08 07:54:52]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-08 07:54:52]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-08 07:54:52] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-08 07:54:53]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-08 07:54:53]     Processed regular file: 334 aggregated rows
+INFO [2026-04-08 07:54:53]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-08 07:54:53]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-08 07:54:53] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-08 07:54:53]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-08 07:54:53]     Processed regular file: 418 aggregated rows
+INFO [2026-04-08 07:54:54]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-08 07:54:54]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-08 07:54:54] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-08 07:54:54]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-08 07:54:54]     Processed regular file: 907 aggregated rows
+INFO [2026-04-08 07:54:54]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-08 07:54:54]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-08 07:54:54] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-08 07:54:55]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-08 07:54:56]     Processed regular file: 4600 aggregated rows
+INFO [2026-04-08 07:54:56]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-04-08 07:54:56]     ✅ Successfully processed 4500.parquet
+INFO [2026-04-08 07:54:56] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-08 07:54:59]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-08 07:54:59]     Regular file failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-04-08 07:54:59]     ❌ Failed to process 4987.parquet
+INFO [2026-04-08 07:54:59] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-08 07:54:59]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-08 07:54:59]     Processed regular file: 361 aggregated rows
+INFO [2026-04-08 07:54:59]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-08 07:55:00]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-08 07:55:00] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-08 07:55:00]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-08 07:55:01]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-08 07:55:01]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-08 07:55:01]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-08 07:55:01] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-08 07:55:01]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-08 07:55:02]     Processed regular file: 745 aggregated rows
+INFO [2026-04-08 07:55:02]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-08 07:55:02]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-08 07:55:02] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-08 07:55:02]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-08 07:55:03]     Processed regular file: 324 aggregated rows
+INFO [2026-04-08 07:55:03]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-08 07:55:03]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-08 07:55:03] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-08 07:55:03]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-08 07:55:03]     Processed regular file: 285 aggregated rows
+INFO [2026-04-08 07:55:03]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-08 07:55:03]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-08 07:55:03] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-08 07:55:03]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-08 07:55:03]     Processed regular file: 331 aggregated rows
+INFO [2026-04-08 07:55:03]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-08 07:55:03]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-08 07:55:03] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-08 07:55:03]     Initial data: 453 rows, 334 columns
+INFO [2026-04-08 07:55:04]     Processed regular file: 76 aggregated rows
+INFO [2026-04-08 07:55:04]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-08 07:55:04]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-08 07:55:04] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-08 07:55:04]     Initial data: 944 rows, 335 columns
+INFO [2026-04-08 07:55:04]     Processed regular file: 158 aggregated rows
+INFO [2026-04-08 07:55:04]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-08 07:55:04]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-08 07:55:04] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-08 07:55:04]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-08 07:55:05]     Processed regular file: 502 aggregated rows
+INFO [2026-04-08 07:55:05]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-08 07:55:05]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-08 07:55:05] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-08 07:55:05]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-08 07:55:05]     Processed regular file: 254 aggregated rows
+INFO [2026-04-08 07:55:05]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-08 07:55:05]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-08 07:55:05] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-08 07:55:05]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-08 07:55:06]     Processed regular file: 328 aggregated rows
+INFO [2026-04-08 07:55:06]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-08 07:55:06]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-08 07:55:06] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-08 07:55:06]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-08 07:55:07]     Processed regular file: 514 aggregated rows
+INFO [2026-04-08 07:55:07]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-08 07:55:07]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-08 07:55:07] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-08 07:55:07]     Initial data: 258 rows, 341 columns
+INFO [2026-04-08 07:55:07]     Processed regular file: 43 aggregated rows
+INFO [2026-04-08 07:55:07]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-08 07:55:07]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-08 07:55:07] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-08 07:55:07]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-08 07:55:07]     Processed regular file: 182 aggregated rows
+INFO [2026-04-08 07:55:07]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-08 07:55:07]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-08 07:55:07] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-08 07:55:07]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-08 07:55:08]     Processed regular file: 709 aggregated rows
+INFO [2026-04-08 07:55:08]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-08 07:55:08]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-08 07:55:08] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-08 07:55:08]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-08 07:55:09]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-08 07:55:09]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-08 07:55:09]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-08 07:55:09] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-08 07:55:09]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-08 07:55:10]     Processed regular file: 586 aggregated rows
+INFO [2026-04-08 07:55:10]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-08 07:55:10]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-08 07:55:10] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-08 07:55:10]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-08 07:55:11]     Processed regular file: 779 aggregated rows
+INFO [2026-04-08 07:55:11]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-08 07:55:11]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-08 07:55:11] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-08 07:55:11]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-08 07:55:11]     Processed regular file: 781 aggregated rows
+INFO [2026-04-08 07:55:12]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-08 07:55:12]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-08 07:55:12] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-08 07:55:12]     Initial data: 324 rows, 256 columns
+INFO [2026-04-08 07:55:12]     Processed regular file: 54 aggregated rows
+INFO [2026-04-08 07:55:12]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-08 07:55:12]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-08 07:55:12] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-08 07:55:12]     Initial data: 882 rows, 182 columns
+INFO [2026-04-08 07:55:12]     Processed regular file: 147 aggregated rows
+INFO [2026-04-08 07:55:12]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-08 07:55:12]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-08 07:55:12] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-08 07:55:12]     Initial data: 552 rows, 255 columns
+INFO [2026-04-08 07:55:12]     Processed regular file: 60 aggregated rows
+INFO [2026-04-08 07:55:12]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-08 07:55:13]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-08 07:55:13] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-08 07:55:13]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-08 07:55:13]     Read 2687 rows
+INFO [2026-04-08 07:55:18]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-08 07:55:18]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 07:55:18]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 07:55:18] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-08 07:55:18]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 07:55:21]     Read 96470 rows
+INFO [2026-04-08 07:56:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:56:07] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-08 07:56:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:56:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:56:07] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-08 07:56:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:56:07] Found special case: Nigeria CSV
+INFO [2026-04-08 07:56:07] Found special case: 272.parquet
+INFO [2026-04-08 07:56:07] Found 38 total files to process
+INFO [2026-04-08 07:56:07] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-08 07:56:08]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-08 07:56:09]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-08 07:56:09]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-08 07:56:09]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-08 07:56:09] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-08 07:56:09]     Initial data: 36 rows, 167 columns
+INFO [2026-04-08 07:56:09]     Processed regular file: 6 aggregated rows
+INFO [2026-04-08 07:56:09]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-08 07:56:09]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-08 07:56:09] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-08 07:56:09]     Initial data: 462 rows, 179 columns
+INFO [2026-04-08 07:56:10]     Processed regular file: 77 aggregated rows
+INFO [2026-04-08 07:56:10]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-08 07:56:10]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-08 07:56:10] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-08 07:56:10]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 07:56:15]     Read 96470 rows
+INFO [2026-04-08 07:57:49]     Processed 272: 7854 rows
+INFO [2026-04-08 07:57:49]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 07:57:49]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 07:57:49] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:57:49] COMBINING RESULTS
+INFO [2026-04-08 07:57:49] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:57:49] Combined 31590 rows from 36 files
+INFO [2026-04-08 07:57:49] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-04-08 07:57:49] After deduplication: 31075 rows
+INFO [2026-04-08 07:57:49] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:57:49] SAVING OUTPUTS
+INFO [2026-04-08 07:57:49] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:57:49] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-08 07:57:49] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 07:57:49] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-08 07:57:49] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 07:57:49] PROCESSING COMPLETE!
+INFO [2026-04-08 07:57:49] Total records: 31075
+INFO [2026-04-08 07:57:49] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 07:59:24]     Processed 272: 7854 rows
+INFO [2026-04-08 07:59:24]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 07:59:24]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 07:59:24] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-08 07:59:25]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-08 07:59:26]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-08 07:59:26]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-08 07:59:26]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-08 07:59:26] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-08 07:59:26]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-08 07:59:27]     Processed regular file: 812 aggregated rows
+INFO [2026-04-08 07:59:27]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-08 07:59:27]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-08 07:59:27] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-08 07:59:27]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-08 07:59:28]     Processed regular file: 392 aggregated rows
+INFO [2026-04-08 07:59:28]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-08 07:59:28]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-08 07:59:28] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-08 07:59:28]     Initial data: 928 rows, 195 columns
+INFO [2026-04-08 07:59:29]     Processed regular file: 155 aggregated rows
+INFO [2026-04-08 07:59:29]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-08 07:59:29]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-08 07:59:29] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-08 07:59:29]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-08 07:59:31]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-08 07:59:31]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-08 07:59:31]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-08 07:59:31] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-08 07:59:31]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-08 07:59:31]     Processed regular file: 334 aggregated rows
+INFO [2026-04-08 07:59:31]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-08 07:59:31]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-08 07:59:31] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-08 07:59:32]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-08 07:59:32]     Processed regular file: 418 aggregated rows
+INFO [2026-04-08 07:59:32]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-08 07:59:32]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-08 07:59:32] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-08 07:59:32]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-08 07:59:33]     Processed regular file: 907 aggregated rows
+INFO [2026-04-08 07:59:33]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-08 07:59:33]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-08 07:59:33] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-08 07:59:34]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-08 07:59:35]     Processed regular file: 4600 aggregated rows
+INFO [2026-04-08 07:59:35]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-04-08 07:59:35]     ✅ Successfully processed 4500.parquet
+INFO [2026-04-08 07:59:35] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-08 07:59:38]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-08 07:59:38]     Regular file failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-04-08 07:59:38]     ❌ Failed to process 4987.parquet
+INFO [2026-04-08 07:59:38] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-08 07:59:38]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-08 07:59:39]     Processed regular file: 361 aggregated rows
+INFO [2026-04-08 07:59:39]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-08 07:59:39]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-08 07:59:39] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-08 07:59:39]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-08 07:59:41]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-08 07:59:41]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-08 07:59:41]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-08 07:59:41] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-08 07:59:41]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-08 07:59:42]     Processed regular file: 745 aggregated rows
+INFO [2026-04-08 07:59:42]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-08 07:59:42]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-08 07:59:42] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-08 07:59:42]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-08 07:59:42]     Processed regular file: 324 aggregated rows
+INFO [2026-04-08 07:59:42]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-08 07:59:42]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-08 07:59:42] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-08 07:59:42]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-08 07:59:43]     Processed regular file: 285 aggregated rows
+INFO [2026-04-08 07:59:43]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-08 07:59:43]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-08 07:59:43] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-08 07:59:43]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-08 07:59:43]     Processed regular file: 331 aggregated rows
+INFO [2026-04-08 07:59:43]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-08 07:59:43]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-08 07:59:43] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-08 07:59:43]     Initial data: 453 rows, 334 columns
+INFO [2026-04-08 07:59:44]     Processed regular file: 76 aggregated rows
+INFO [2026-04-08 07:59:44]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-08 07:59:44]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-08 07:59:44] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-08 07:59:44]     Initial data: 944 rows, 335 columns
+INFO [2026-04-08 07:59:44]     Processed regular file: 158 aggregated rows
+INFO [2026-04-08 07:59:44]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-08 07:59:44]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-08 07:59:44] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-08 07:59:44]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-08 07:59:45]     Processed regular file: 502 aggregated rows
+INFO [2026-04-08 07:59:45]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-08 07:59:45]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-08 07:59:45] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-08 07:59:45]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-08 07:59:45]     Processed regular file: 254 aggregated rows
+INFO [2026-04-08 07:59:45]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-08 07:59:45]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-08 07:59:45] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-08 07:59:45]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-08 07:59:46]     Processed regular file: 328 aggregated rows
+INFO [2026-04-08 07:59:46]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-08 07:59:46]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-08 07:59:46] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-08 07:59:46]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-08 07:59:47]     Processed regular file: 514 aggregated rows
+INFO [2026-04-08 07:59:47]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-08 07:59:47]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-08 07:59:47] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-08 07:59:47]     Initial data: 258 rows, 341 columns
+INFO [2026-04-08 07:59:48]     Processed regular file: 43 aggregated rows
+INFO [2026-04-08 07:59:48]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-08 07:59:48]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-08 07:59:48] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-08 07:59:48]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-08 07:59:48]     Processed regular file: 182 aggregated rows
+INFO [2026-04-08 07:59:48]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-08 07:59:48]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-08 07:59:48] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-08 07:59:48]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-08 07:59:49]     Processed regular file: 709 aggregated rows
+INFO [2026-04-08 07:59:49]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-08 07:59:49]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-08 07:59:49] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-08 07:59:49]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-08 07:59:50]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-08 07:59:50]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-08 07:59:50]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-08 07:59:50] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-08 07:59:50]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-08 07:59:51]     Processed regular file: 586 aggregated rows
+INFO [2026-04-08 07:59:51]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-08 07:59:51]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-08 07:59:51] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-08 07:59:51]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-08 07:59:52]     Processed regular file: 779 aggregated rows
+INFO [2026-04-08 07:59:52]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-08 07:59:52]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-08 07:59:52] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-08 07:59:52]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-08 07:59:53]     Processed regular file: 781 aggregated rows
+INFO [2026-04-08 07:59:53]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-08 07:59:53]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-08 07:59:53] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-08 07:59:53]     Initial data: 324 rows, 256 columns
+INFO [2026-04-08 07:59:54]     Processed regular file: 54 aggregated rows
+INFO [2026-04-08 07:59:54]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-08 07:59:54]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-08 07:59:54] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-08 07:59:54]     Initial data: 882 rows, 182 columns
+INFO [2026-04-08 07:59:54]     Processed regular file: 147 aggregated rows
+INFO [2026-04-08 07:59:54]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-08 07:59:54]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-08 07:59:54] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-08 07:59:54]     Initial data: 552 rows, 255 columns
+INFO [2026-04-08 07:59:55]     Processed regular file: 60 aggregated rows
+INFO [2026-04-08 07:59:55]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-08 07:59:55]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-08 07:59:55] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-08 07:59:55]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-08 07:59:55]     Read 2687 rows
+INFO [2026-04-08 08:00:00]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-08 08:00:00]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 08:00:00]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-08 08:00:00] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-08 08:00:00]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-08 08:00:03]     Read 96470 rows
+INFO [2026-04-08 08:02:28]     Processed 272: 7854 rows
+INFO [2026-04-08 08:02:28]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-08 08:02:28]     ✅ Successfully processed 272.parquet
+INFO [2026-04-08 08:02:28] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 08:02:28] COMBINING RESULTS
+INFO [2026-04-08 08:02:28] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 08:02:28] Combined 31590 rows from 36 files
+INFO [2026-04-08 08:02:28] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-04-08 08:02:28] After deduplication: 31075 rows
+INFO [2026-04-08 08:02:28] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 08:02:28] SAVING OUTPUTS
+INFO [2026-04-08 08:02:28] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-08 08:02:28] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-08 08:02:28] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-08 08:02:28] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-08 08:02:28] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-08 08:02:28] PROCESSING COMPLETE!
+INFO [2026-04-08 08:02:28] Total records: 31075
+INFO [2026-04-08 08:02:28] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =

@@ -46,7 +46,7 @@ log_info("  start-date: {START_DATE}")
 
 read_input_data <- function(input_file) {
   log_info("Reading input file: {input_file}")
-  
+
   if (!file.exists(input_file)) {
     alt_file <- sub("\\.parquet$", ".csv", input_file)
     if (file.exists(alt_file)) {
@@ -57,7 +57,7 @@ read_input_data <- function(input_file) {
       return(NULL)
     }
   }
-  
+
   if (grepl("\\.parquet$", input_file)) {
     data <- read_parquet(input_file)
     log_info("  Read Parquet file: {nrow(data)} rows, {ncol(data)} columns")
@@ -65,7 +65,7 @@ read_input_data <- function(input_file) {
     data <- read_csv(input_file, show_col_types = FALSE)
     log_info("  Read CSV file: {nrow(data)} rows, {ncol(data)} columns")
   }
-  
+
   return(data)
 }
 
@@ -75,11 +75,13 @@ read_input_data <- function(input_file) {
 
 standardize_country_names <- function(data) {
   log_info("Standardizing country names...")
-  
+
   data %>%
     mutate(
       country = toupper(trimws(as.character(country))),
       country = case_when(
+        country %in% c("CHD", "CONGO") ~ "CHAD",
+        country %in% c("MLW", "MALAWI") ~ "MALAWI",
         country %in% c("NAM", "NAMIBIA") ~ "NAMIBIA",
         country %in% c("GAM", "GAMBIA") ~ "GAMBIA",
         country %in% c("GHA", "GHANA") ~ "GHANA",
@@ -100,15 +102,18 @@ standardize_country_names <- function(data) {
         country %in% c("RCA", "CENTRAL AFRICAN REPUBLIC") ~ "CENTRAL AFRICAN REPUBLIC",
         country %in% c("RDC", "DRC", "DEMOCRATIC REPUBLIC OF THE CONGO") ~ "DEMOCRATIC REPUBLIC OF THE CONGO",
         country %in% c("SEN", "SENEGAL") ~ "SENEGAL",
+        country %in% c("LIB", "LIBERIA") ~ "LIBERIA",
         country %in% c("SIL", "SIERRA LEONE") ~ "SIERRA LEONE",
         country %in% c("TOG", "TOGO") ~ "TOGO",
         country %in% c("UGA", "UGANDA") ~ "UGANDA",
         country %in% c("ZMB", "ZAMBIA") ~ "ZAMBIA",
         country %in% c("ZIM", "ZIMBABWE") ~ "ZIMBABWE",
         country %in% c("BDI", "BURUNDI") ~ "BURUNDI",
+        country %in% c("BUI", "BURUNDI") ~ "BURUNDI",
         country %in% c("RWA", "RWANDA") ~ "RWANDA",
         country %in% c("SSD", "SOUTH SUDAN") ~ "SOUTH SUDAN",
-        country %in% c("TZA", "TANZANIA") ~  "UNITED REPUBLIC OF TANZANIA",
+        country %in% c("SSUD", "SOUTH SUDAN") ~ "SOUTH SUDAN",
+        country %in% c("TNZ", "TANZANIA") ~  "UNITED REPUBLIC OF TANZANIA",
         country %in% c("MWI", "MALAWI") ~ "MALAWI",
         country %in% c("BWA", "BOTSWANA") ~ "BOTSWANA",
         country %in% c("SWZ", "ESWATINI") ~ "ESWATINI",
@@ -136,7 +141,7 @@ standardize_country_names <- function(data) {
 
 apply_province_mappings <- function(data) {
   log_info("Applying province name corrections...")
-  
+
   data %>%
     mutate(
       province = toupper(trimws(as.character(province))),
@@ -156,7 +161,7 @@ apply_province_mappings <- function(data) {
         country == "MOZAMBIQUE" & province == "SOFALA" & district == "MARÃNGUE" ~ "MARÍNGUE",
         country == "MOZAMBIQUE" & province == "GAZA" & district == "GUIJÃ" ~ "GUIJÁ",
         country == "MOZAMBIQUE" & province == "NIASSA" & district == "NGAÃŠMA" ~ "NGAÚMA",
-        
+
         # ============================================================
         # ZAMBIA PROVINCE CORRECTIONS
         # ============================================================
@@ -165,13 +170,13 @@ apply_province_mappings <- function(data) {
         country == "ZAMBIA" & province == "NORTH WESTERN" & district == "MUSHINDAMO" ~ "MUSHINDANO",
         country == "ZAMBIA" & province == "MUCHINGA" & district == "KANCHIBYA" ~ "KANCHIBIYA",
         country == "ZAMBIA" & province == "MUCHINGA" & district == "SHIWANGANDU" ~ "SHIWANG'ANDU",
-        
+
         # ============================================================
         # UGANDA PROVINCE CORRECTIONS
         # ============================================================
         country == "UGANDA" & province == "KAMPALA CITY AUTHORITY" & district == "KAMPALA CITY AUTHORITY" ~ "KAMPALA",
         country == "UGANDA" & province == "SSEMBABULE" & district == "SSEMBABULE" ~ "SEMBABULE",
-        
+
         # ============================================================
         # ANGOLA PROVINCE CORRECTIONS
         # ============================================================
@@ -194,7 +199,7 @@ apply_province_mappings <- function(data) {
         country == "ANGOLA" & province == "UÍGE" & district == "ALTO CAUALE (CANGOLA)" ~ "CANGOLA",
         country == "ANGOLA" & province == "UÍGE" & district == "UÍGE" ~ "UIGE",
         country == "ANGOLA" & province == "ZAIRE" & district == "MBANZA KONGO" ~ "MBANZA CONGO",
-        
+
         # ============================================================
         # DRC PROVINCE CORRECTIONS
         # ============================================================
@@ -232,7 +237,7 @@ apply_province_mappings <- function(data) {
         country == "DEMOCRATIC REPUBLIC OF THE CONGO" & province == "SANKURU" & district == "VANGAKETE" ~ "VANGA-KETE",
         country == "DEMOCRATIC REPUBLIC OF THE CONGO" & province == "SUD KIVU" & district == "HAUT PLATEAUX D'UVIRA" ~ "HAUTS PLATEAUX UVIRA",
         country == "DEMOCRATIC REPUBLIC OF THE CONGO" & province == "TSHOPO" & district == "WANIERUKULA" ~ "WANIE-RUKULA",
-        
+
         # ============================================================
         # BENIN PROVINCE CORRECTIONS
         # ============================================================
@@ -258,7 +263,7 @@ apply_province_mappings <- function(data) {
         country == "BENIN" & province == "OUEME" & district == "PORTO-NOVO 2" ~ "OUEME",
         country == "BENIN" & province == "OUEME" & district == "PORTO-NOVO 3" ~ "OUEME",
         country == "BENIN" & province == "OUEME" & district == "SEME-KPODJI" ~ "OUEME",
-        
+
         # ============================================================
         # COTE D IVOIRE PROVINCE CORRECTIONS
         # ============================================================
@@ -381,7 +386,7 @@ apply_province_mappings <- function(data) {
         country == "COTE D IVOIRE" & province == "SAN PEDRO" & district == "TABOU" ~ "SAN-PEDRO",
         country == "COTE D IVOIRE" & province == "ME" & district == "ALEPE" ~ "ME",
         country == "COTE D IVOIRE" & province == "SAN PEDRO" & district == "SAN PEDRO" ~ "SAN-PEDRO",
-        
+
         # ============================================================
         # GUINEA PROVINCE CORRECTIONS
         # ============================================================
@@ -423,7 +428,7 @@ apply_province_mappings <- function(data) {
         country == "GUINEA" & province == "MAMOU" & district == "DALABA" ~ "MAMOU",
         country == "GUINEA" & province == "MAMOU" & district == "MAMOU" ~ "MAMOU",
         country == "GUINEA" & province == "MAMOU" & district == "PITA" ~ "MAMOU",
-        
+
         # ============================================================
         # BURKINA FASO PROVINCE CORRECTIONS
         # ============================================================
@@ -440,7 +445,7 @@ apply_province_mappings <- function(data) {
         country == "BURKINA FASO" & province == "CENTRE-EST" ~ "TENKODOGO",
         country == "BURKINA FASO" & province == "CASCADES" ~ "BANFORA",
         country == "BURKINA FASO" & province == "EST" ~ "FADA",
-        
+
         # ============================================================
         # MAURITANIA PROVINCE CORRECTIONS
         # ============================================================
@@ -507,7 +512,7 @@ apply_province_mappings <- function(data) {
         country == "MAURITANIA" & province == "TRARZA" & district == "TEIKANE" ~ "TRARZA",
         country == "MAURITANIA" & province == "HODH ECHARGHI" & district == "D'HAR" ~ "HODH ECHARGUI",
         country == "MAURITANIA" & province == "HODH ECHARGHI" & district == "OUALATA" ~ "HODH ECHARGUI",
-        
+
         # ============================================================
         # MALI PROVINCE CORRECTIONS
         # ============================================================
@@ -586,7 +591,7 @@ apply_province_mappings <- function(data) {
         country == "MALI" & province == "TAOUDENIT" & district == "FOUM-ALBA" ~ "TAOUDENIT",
         country == "MALI" & province == "KIDAL" & district == "TESSALIT" ~ "KIDAL",
         country == "MALI" & province == "KIDAL" & district == "TINESSAKO" ~ "KIDAL",
-        
+
         # ============================================================
         # NIGER PROVINCE CORRECTIONS
         # ============================================================
@@ -655,7 +660,7 @@ apply_province_mappings <- function(data) {
         country == "NIGER" & province == "DIFFA" & district == "NGUIGMI" ~ "DIFFA",
         country == "NIGER" & province == "TAHOUA" & district == "BIRNI NKONNI" ~ "TAHOUA",
         country == "NIGER" & province == "DIFFA" & district == "BOSSO" ~ "DIFFA",
-        
+
         # Keep original if no match
         TRUE ~ province
       )
@@ -668,7 +673,7 @@ apply_province_mappings <- function(data) {
 
 apply_district_mappings <- function(data) {
   log_info("Applying district name corrections...")
-  
+
   data %>%
     mutate(
       district = toupper(trimws(as.character(district))),
@@ -739,7 +744,7 @@ apply_district_mappings <- function(data) {
         country == "MAURITANIA" & district == "NEMA" ~ "NÉMA",
         country == "MAURITANIA" & district == "MOUDJERIA" ~ "MOUDJÉRIA",
         country == "MAURITANIA" & district == "ZOUERATE" ~ "ZOUÉRAT",
-        
+
         # ============================================================
         # GAMBIA DISTRICT CORRECTIONS
         # ============================================================
@@ -748,7 +753,7 @@ apply_district_mappings <- function(data) {
         country == "GAMBIA" & district == "SABAKH SANJAL" ~ "SABACH",
         country == "GAMBIA" & district == "FULLADU EAST" ~ "BASSE",
         country == "GAMBIA" & district == "LOWER FULLADU WEST" ~ "CENTRAL RIVER province",
-        
+
         # ============================================================
         # BURKINA FASO DISTRICT CORRECTIONS
         # ============================================================
@@ -758,7 +763,7 @@ apply_district_mappings <- function(data) {
         country == "BURKINA FASO" & district == "SIGH-NOGHIN" ~ "SIG NOGHIN",
         country == "BURKINA FASO" & district == "NDOROLA" ~ "N'DOROLA",
         country == "BURKINA FASO" & district == "PO" ~ "PÔ",
-        
+
         # ============================================================
         # GUINEA DISTRICT CORRECTIONS
         # ============================================================
@@ -778,7 +783,7 @@ apply_district_mappings <- function(data) {
         country == "GUINEA" & district == "LABE" ~ "LABÉ",
         country == "GUINEA" & district == "TOUGUE" ~ "TOUGUÉ",
         country == "GUINEA" & district == "N'ZÃ‰RÃ‰KORÃ‰" ~ "N'ZÉRÉKORÉ",
-        
+
         # ============================================================
         # SIERRA LEONE DISTRICT CORRECTIONS
         # ============================================================
@@ -787,7 +792,7 @@ apply_district_mappings <- function(data) {
         country == "SIERRA LEONE" & district == "WESTERN AREA URBAN" ~ "WESTERN URBAN",
         country == "SIERRA LEONE" & district == "WESTERN RUR" ~ "WESTERN RURAL",
         country == "SIERRA LEONE" & district == "WESTERN URB" ~ "WESTERN URBAN",
-        
+
         # ============================================================
         # GHANA DISTRICT CORRECTIONS
         # ============================================================
@@ -797,7 +802,7 @@ apply_district_mappings <- function(data) {
         country == "GHANA" & district == "ABUAKWA SOUTH" ~ "EAST AKIM - ABUAKWA SOUTH",
         country == "GHANA" & district == "TWIFO ATI MORKWA" ~ "TWIFO ATI-MORKWA",
         country == "GHANA" & district == "LOWER MANYA-KROBO" ~ "LOWER-MANYA-KROBO",
-        
+
         # ============================================================
         # TOGO DISTRICT CORRECTIONS
         # ============================================================
@@ -816,7 +821,7 @@ apply_district_mappings <- function(data) {
         country == "TOGO" & district == "AGOE NYIVE" ~ "AGOE",
         country == "TOGO" & district == "EST MONO" ~ "EST-MONO",
         country == "TOGO" & district == "MOYEN MONO" ~ "MOYEN-MONO",
-        
+
         # ============================================================
         # BENIN DISTRICT CORRECTIONS
         # ============================================================
@@ -839,7 +844,7 @@ apply_district_mappings <- function(data) {
         country == "BENIN" & district == "PORTO-NOVO" ~ "PORTO-NOVO 1",
         country == "BENIN" & district == "PORTO-NOVO 1" ~ "PORTO-NOVO 1",
         country == "BENIN" & district == "BEINI" ~ "BENIN",
-        
+
         # ============================================================
         # SENEGAL DISTRICT CORRECTIONS
         # ============================================================
@@ -855,7 +860,7 @@ apply_district_mappings <- function(data) {
         country == "SENEGAL" & district == "DIANKHE MAKHAN" ~ "DIANKE MAKHA",
         country == "SENEGAL" & district == "MAKACOLIBANTANG" ~ "MAKA COLIBANTANG",
         country == "SENEGAL" & district == "THIONCK-ESSYL" ~ "THIONCK ESSYL",
-        
+
         # ============================================================
         # MALI DISTRICT CORRECTIONS
         # ============================================================
@@ -881,7 +886,7 @@ apply_district_mappings <- function(data) {
         country == "MALI" & district == "DJENNE" ~ "DJENNÉ",
         country == "MALI" & district == "SAGABARY" ~ "SAGABARI",
         country == "MALI" & district == "OUSSOUBIDIAGNIA" ~ "OUSSOUBIDIAGNA",
-        
+
         # ============================================================
         # NIGER DISTRICT CORRECTIONS
         # ============================================================
@@ -926,7 +931,7 @@ apply_district_mappings <- function(data) {
         country == "NIGER" & district == "FILINGUÃ‰" ~ "FILINGUE",
         country == "NIGER" & district == "KANTCHÃ‰" ~ "KANTCHÉ",
         country == "NIGER" & district == "GOTHÃˆYE" ~ "GOTHÈYE",
-        
+
         # ============================================================
         # CAMEROON DISTRICT CORRECTIONS
         # ============================================================
@@ -962,7 +967,7 @@ apply_district_mappings <- function(data) {
         country == "CAMEROON" & district == "KUMBA NORTH" ~ "KUMBA",
         country == "CAMEROON" & district == "KUMBA SOUTH" ~ "KUMBA",
         country == "CAMEROON" & district == "MOZOGO" ~ "MOZONGO",
-        
+
         # ============================================================
         # CHAD DISTRICT CORRECTIONS
         # ============================================================
@@ -1022,7 +1027,7 @@ apply_district_mappings <- function(data) {
         country == "CHAD" & district == "AM-TIMAN" ~ "AM TIMAN",
         country == "CHAD" & district == "BAKTCHORO" ~ "BAKCTCHORO",
         country == "CHAD" & district == "BAGA SOLA" ~ "BAGASSOLA",
-        
+
         # ============================================================
         # CENTRAL AFRICAN REPUBLIC DISTRICT CORRECTIONS
         # ============================================================
@@ -1039,7 +1044,7 @@ apply_district_mappings <- function(data) {
         country == "CENTRAL AFRICAN REPUBLIC" & district == "OUANGO" ~ "OUANGO-GAMBO",
         country == "CENTRAL AFRICAN REPUBLIC" & district == "NANGHA-BOGUILA" ~ "NANGA-BOGUILA",
         country == "CENTRAL AFRICAN REPUBLIC" & district == "NANA-GRIBIZI" ~ "NANA-GREBIZI",
-        
+
         # ============================================================
         # ANGOLA DISTRICT CORRECTIONS
         # ============================================================
@@ -1089,7 +1094,7 @@ apply_district_mappings <- function(data) {
         country == "ANGOLA" & district == "CACULAMA" ~ "CACULAMA (MUCARI)",
         country == "ANGOLA" & district == "BUNDAS" ~ "BUENGAS",
         country == "ANGOLA" & district == "LUMBALA NGUIMBO" ~ "LUMBALA NGUIMBO (BUNDAS)",
-        
+
         # ============================================================
         # MOZAMBIQUE DISTRICT CORRECTIONS
         # ============================================================
@@ -1108,7 +1113,7 @@ apply_district_mappings <- function(data) {
         country == "MOZAMBIQUE" & district == "NACALA PORTO" ~ "NACALA PORTO",
         country == "MOZAMBIQUE" & district == "GORONGOZA" ~ "GORONGOSA",
         country == "MOZAMBIQUE" & district == "TETE" ~ "CIDADE DE TETE",
-        
+
         # ============================================================
         # ALGERIA DISTRICT CORRECTIONS
         # ============================================================
@@ -1163,7 +1168,7 @@ apply_district_mappings <- function(data) {
         country == "ALGERIA" & district == "EPSP TIN ZAOUATINE" ~ "Tin Zaouatine",
         country == "ALGERIA" & district == "EPSP OUM EL ASSEL" ~ "Oum El Assel",
         country == "ALGERIA" & district == "EPSP TINDOUF" ~ "Tindouf",
-        
+
         # ============================================================
         # ETHIOPIA DISTRICT CORRECTIONS
         # ============================================================
@@ -1199,7 +1204,7 @@ apply_district_mappings <- function(data) {
         country == "ETHIOPIA" & district == "Endamekoni" ~ "Endamehoni",
         country == "ETHIOPIA" & district == "Maichew Town" ~ "Maychew Town",
         country == "ETHIOPIA" & district == "Raya Azebo" ~ "Raya Azebo",
-        
+
         # ============================================================
         # COTE D IVOIRE DISTRICT CORRECTIONS
         # ============================================================
@@ -1245,7 +1250,7 @@ apply_district_mappings <- function(data) {
         country == "COTE D IVOIRE" & district == "COCODY BINGERVILLE" ~ "COCODY-BINGERVILLE",
         country == "COTE D IVOIRE" & district == "PORT-BOUET-VRIDI" ~ "PORT BOUET-VRIDI",
         country == "COTE D IVOIRE" & district == "SAN-PEDRO" ~ "SAN PEDRO",
-        
+
         # ============================================================
         # KENYA DISTRICT CORRECTIONS
         # ============================================================
@@ -1256,7 +1261,7 @@ apply_district_mappings <- function(data) {
         country == "KENYA" & province == "KAJIADO" & district == "KAJIADO NORTH" ~ "KAJIADO NORTH",
         country == "KENYA" & province == "KITUI" & district == "KITUI CENTAL" ~ "KITUI CENTRAL",
         country == "KENYA" & province == "MANDERA" & district == "KOTULO" ~ "KUTULO",
-        
+
         # ============================================================
         # UGANDA DISTRICT CORRECTIONS
         # ============================================================
@@ -1418,12 +1423,12 @@ apply_district_mappings <- function(data) {
         country == "UGANDA" & district == "KYANKWANZI" ~ "KYAKWANZI",
         country == "UGANDA" & district == "AGAGO district" ~ "AGAGO",
         country == "UGANDA" & district == "KASSANDA" ~ "KASANDA",
-        
+
         # ============================================================
         # ZAMBIA DISTRICT CORRECTIONS
         # ============================================================
         country == "ZAMBIA" & district == "LAVUSHI" ~ "LAVUSHI MANDA",
-        
+
         # ============================================================
         # NIGERIA DISTRICT CORRECTIONS
         # ============================================================
@@ -1447,7 +1452,7 @@ apply_district_mappings <- function(data) {
         country == "NIGERIA" & district == "BADE" ~ "BARDE",
         country == "NIGERIA" & district == "BURSARI" ~ "BORSARI",
         country == "NIGERIA" & district == "TARMUWA" ~ "TARMUA",
-        
+
         # ============================================================
         # ZIMBABWE DISTRICT CORRECTIONS
         # ============================================================
@@ -1455,7 +1460,7 @@ apply_district_mappings <- function(data) {
         country == "ZIMBABWE" & district == "MT DARWIN" ~ "MOUNT DARWIN",
         country == "ZIMBABWE" & district == "MHONDORO" ~ "MHONDORO NGEZI",
         country == "ZIMBABWE" & district == "MUREWA" ~ "MUREHWA",
-        
+
         # Keep original if no match
         TRUE ~ district
       )
@@ -1468,7 +1473,7 @@ apply_district_mappings <- function(data) {
 
 apply_afro_block <- function(data) {
   log_info("Applying AFRO block classification...")
-  
+
   data %>%
     mutate(
       afro_block = case_when(
@@ -1493,21 +1498,21 @@ apply_afro_block <- function(data) {
 # ============================================================
 
 harmonize_dates <- function(data, lookup_file) {
-  
+
   log_info("Reading and harmonizing dates with lookup file...")
-  
+
   # Check if lookup file exists
   if (!file.exists(lookup_file)) {
     log_warn("Lookup file not found: {lookup_file}")
     log_info("Using dates as-is from data")
     return(data)
   }
-  
+
   # Read the Excel file
   date_lookup <- read_excel(lookup_file)
   log_info("Read lookup file from {lookup_file}")
   log_info("Lookup contains {nrow(date_lookup)} rows")
-  
+
   # Transform the "Round Number" column
   date_lookup <- date_lookup %>%
     mutate(`Round Number` = case_when(
@@ -1520,7 +1525,7 @@ harmonize_dates <- function(data, lookup_file) {
       `Round Number` == "Round 6" ~ "Rnd6",
       TRUE ~ `Round Number`
     ))
-  
+
   # Prepare the lookup table
   lookup_data <- date_lookup %>%
     rename(
@@ -1535,9 +1540,9 @@ harmonize_dates <- function(data, lookup_file) {
       lookup_end_date = lookup_start_date + 1
     ) %>%
     select(response, vaccine.type, roundNumber, lookup_round_start_date, lookup_start_date, lookup_end_date)
-  
+
   log_info("Lookup table has {nrow(lookup_data)} entries")
-  
+
   # Join with main data
   result <- data %>%
     left_join(lookup_data, by = c("response", "vaccine.type", "roundNumber")) %>%
@@ -1548,9 +1553,9 @@ harmonize_dates <- function(data, lookup_file) {
     ) %>%
     select(-lookup_round_start_date, -lookup_start_date, -lookup_end_date, -start_date, -end_date) %>%
     filter(!is.na(district))
-  
+
   log_info("After date harmonization: {nrow(result)} rows")
-  
+
   return(result)
 }
 
@@ -1559,24 +1564,24 @@ harmonize_dates <- function(data, lookup_file) {
 # ============================================================
 
 apply_final_transformations <- function(data) {
-  
+
   log_info("Applying final transformations...")
-  
+
   result <- data %>%
     mutate(
       lqas_start_date = as_date(lqas_start_date),
       year = year(lqas_start_date)
     ) %>%
     arrange(lqas_start_date)
-  
+
   # Add distinct key and remove duplicates
   result <- result %>%
     mutate(rnd_distinct = paste(country, province, district, response, roundNumber, sep = "_")) %>%
     distinct(rnd_distinct, .keep_all = TRUE) %>%
     select(-rnd_distinct)
-  
+
   log_info("Final dataset: {nrow(result)} rows, {ncol(result)} columns")
-  
+
   return(result)
 }
 
@@ -1586,11 +1591,11 @@ apply_final_transformations <- function(data) {
 
 standardize_columns <- function(data) {
   log_info("Standardizing column names...")
-  
+
   if ("numbercluster" %in% names(data)) {
     data <- data %>% rename(number_clusters = numbercluster)
   }
-  
+
   return(data)
 }
 
@@ -1601,13 +1606,13 @@ standardize_columns <- function(data) {
 generate_summary_stats <- function(data) {
   log_info("\n📊 GENERATING SUMMARY STATISTICS")
   log_info("=" %>% paste(rep("=", 50), collapse = ""))
-  
+
   if ("lqas_start_date" %in% names(data)) {
     date_range <- paste(min(data$lqas_start_date, na.rm = TRUE), "to", max(data$lqas_start_date, na.rm = TRUE))
   } else {
     date_range <- "Not available"
   }
-  
+
   summary_stats <- data %>%
     summarise(
       total_records = n(),
@@ -1618,7 +1623,7 @@ generate_summary_stats <- function(data) {
       total_vaccinated = sum(total_vaccinated, na.rm = TRUE),
       coverage = round(total_vaccinated / total_sampled * 100, 1)
     )
-  
+
   log_info("  Total records: {format(summary_stats$total_records, big.mark = ',')}")
   log_info("  Total countries: {summary_stats$total_countries}")
   log_info("  Total districts: {summary_stats$total_districts}")
@@ -1626,7 +1631,7 @@ generate_summary_stats <- function(data) {
   log_info("  Total sampled: {format(summary_stats$total_sampled, big.mark = ',')}")
   log_info("  Total vaccinated: {format(summary_stats$total_vaccinated, big.mark = ',')}")
   log_info("  Overall coverage: {summary_stats$coverage}%")
-  
+
   if (nrow(summary_stats) > 0) {
     log_info("\n  Country breakdown:")
     country_summary <- data %>%
@@ -1636,12 +1641,12 @@ generate_summary_stats <- function(data) {
         coverage = round(sum(total_vaccinated, na.rm = TRUE) / sum(total_sampled, na.rm = TRUE) * 100, 1)
       ) %>%
       arrange(desc(records))
-    
+
     for (i in 1:nrow(country_summary)) {
       log_info("    {country_summary$country[i]}: {country_summary$records[i]} records, {country_summary$coverage[i]}% coverage")
     }
   }
-  
+
   return(summary_stats)
 }
 
@@ -1651,15 +1656,15 @@ generate_summary_stats <- function(data) {
 
 write_output_files <- function(data, output_file) {
   log_info("\n💾 Writing output files...")
-  
+
   dir_create(dirname(output_file))
   write_parquet(data, output_file)
   log_info("✅ Saved final data to {output_file}")
-  
+
   output_csv <- sub("\\.parquet$", ".csv", output_file)
   write_csv(data, output_csv)
   log_info("✅ Saved CSV to {output_csv}")
-  
+
   return(invisible(TRUE))
 }
 
@@ -1668,21 +1673,21 @@ write_output_files <- function(data, output_file) {
 # ============================================================
 
 run_cleaning_pipeline <- function(input_file, lookup_file, output_file, start_date) {
-  
+
   log_info("\n🚀 RUNNING GEONAMES CLEANING PIPELINE")
   log_info("=" %>% paste(rep("=", 60), collapse = ""))
-  
+
   # STEP 1: Read input file
   log_info("\n📁 STEP 1: Reading input file")
   data <- read_input_data(input_file)
-  
+
   if (is.null(data)) {
     log_error("Failed to read input file")
     return(NULL)
   }
-  
+
   log_info("Input has {nrow(data)} rows and {ncol(data)} columns")
-  
+
   # STEP 2: Basic data cleaning
   log_info("\n🧹 STEP 2: Basic data cleaning")
   data <- data %>%
@@ -1692,57 +1697,57 @@ run_cleaning_pipeline <- function(input_file, lookup_file, output_file, start_da
       response = as.character(response),
       roundNumber = toupper(trimws(as.character(roundNumber)))
     )
-  
+
   # STEP 3: Standardize country names
   log_info("\n🌍 STEP 3: Standardizing country names")
   data <- standardize_country_names(data)
-  
+
   # STEP 4: Apply province mappings
   log_info("\n🗺️ STEP 4: Applying province name corrections")
   data <- apply_province_mappings(data)
-  
+
   # STEP 5: Apply district mappings
   log_info("\n🏙️ STEP 5: Applying district name corrections")
   data <- apply_district_mappings(data)
-  
+
   # STEP 6: Apply AFRO block classification
   log_info("\n🌍 STEP 6: Applying AFRO block classification")
   data <- apply_afro_block(data)
-  
+
   # STEP 7: Harmonize dates with lookup table
   log_info("\n📅 STEP 7: Harmonizing dates with lookup file")
   data <- harmonize_dates(data, lookup_file)
-  
+
   # STEP 8: Apply final transformations
   log_info("\n🎯 STEP 8: Applying final transformations")
   data <- apply_final_transformations(data)
-  
+
   # STEP 9: Standardize column names
   log_info("\n📋 STEP 9: Standardizing column names")
   data <- standardize_columns(data)
-  
+
   # STEP 10: Remove duplicates
   log_info("\n🔄 STEP 10: Removing duplicates")
   data <- data %>%
     distinct(country, province, district, response, roundNumber, .keep_all = TRUE)
-  
+
   log_info("After deduplication: {nrow(data)} rows")
-  
+
   # STEP 11: Filter by start date
   if ("lqas_start_date" %in% names(data)) {
     data <- data %>% filter(lqas_start_date >= as_date(start_date))
     log_info("After date filter: {nrow(data)} rows")
   }
-  
+
   # STEP 12: Generate summary statistics
   summary_stats <- generate_summary_stats(data)
-  
+
   # STEP 13: Write output files
   write_output_files(data, output_file)
-  
+
   log_info("\n✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!")
   log_info("=" %>% paste(rep("=", 60), collapse = ""))
-  
+
   return(data)
 }
 
