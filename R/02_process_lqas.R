@@ -145,10 +145,11 @@ build_reason_wide <- function(data, reason_cols, names_prefix) {
 }
 
 # ============================================================
-# Smart FM_Child Harmonizer (dynamic) - EXACT from original
+# Smart FM_Child Harmonizer (Handles all form types dynamically)
 # ============================================================
 
 update_fm_child_dynamic <- function(AC) {
+  # Find all child indices from any FM_Child related columns
   idx_from_any <- names(AC) |>
     str_match("^Count_HH\\[(\\d+)\\]/FM_Child(R|L)?$") |>
     (\(m) m[, 2])() |>
@@ -159,33 +160,97 @@ update_fm_child_dynamic <- function(AC) {
 
   if (length(idx_from_any) == 0) return(AC)
 
+  # Check what columns exist in the dataset
   has_R <- any(str_detect(names(AC), "^Count_HH\\[\\d+\\]/FM_ChildR$"))
   has_L <- any(str_detect(names(AC), "^Count_HH\\[\\d+\\]/FM_ChildL$"))
+  has_FM <- any(str_detect(names(AC), "^Count_HH\\[\\d+\\]/FM_Child$"))
+
   has_RL <- has_R && has_L
-  if (!has_RL) return(AC)
+
+  # Log the form type
+  if (has_RL && has_FM) {
+    log_info("    Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority")
+  } else if (has_RL && !has_FM) {
+    log_info("    New form dataset: Only FM_ChildR/L - will create FM_Child from nOPV2 (L)")
+  } else if (!has_RL && has_FM) {
+    log_info("    Old form dataset: Only FM_Child - using as is")
+  }
 
   mutate_list <- list()
 
   for (ii in idx_from_any) {
-    col_FM <- sprintf("Count_HH[%d]/FM_Child",  ii)
+    col_FM <- sprintf("Count_HH[%d]/FM_Child", ii)
     col_R  <- sprintf("Count_HH[%d]/FM_ChildR", ii)
     col_L  <- sprintf("Count_HH[%d]/FM_ChildL", ii)
 
-    if (!(col_R %in% names(AC) && col_L %in% names(AC))) next
+    # Case 1: We have R/L columns (new data)
+    if (has_RL && all(c(col_R, col_L) %in% names(AC))) {
 
-    if (col_FM %in% names(AC)) {
-      mutate_list[[col_FM]] <- expr(
-        ifelse((!!sym(col_R) + !!sym(col_L)) >= 1 | !!sym(col_FM) == 1, 1, 0)
+      # Ensure R and L are numeric (0/1)
+      if (!is.numeric(AC[[col_R]])) {
+        AC[[col_R]] <- as.numeric(as.character(AC[[col_R]]) %in% c("1", "yes", "Yes", "YES", "Y", TRUE))
+      }
+      if (!is.numeric(AC[[col_L]])) {
+        AC[[col_L]] <- as.numeric(as.character(AC[[col_L]]) %in% c("1", "yes", "Yes", "YES", "Y", TRUE))
+      }
+
+      # Replace NA with 0 (since NA means the field wasn't used in old records)
+      AC[[col_R]] <- ifelse(is.na(AC[[col_R]]), 0, AC[[col_R]])
+      AC[[col_L]] <- ifelse(is.na(AC[[col_L]]), 0, AC[[col_L]])
+
+      # Create unified FM_Child: nOPV2 priority (L), fallback to bOPV (R)
+      unified_value <- expr(
+        case_when(
+          !!sym(col_L) == 1 ~ 1,      # Received nOPV2 (priority)
+          !!sym(col_R) == 1 ~ 1,      # Received bOPV only
+          TRUE ~ 0
+        )
       )
-    } else {
-      mutate_list[[col_FM]] <- expr(
-        ifelse((!!sym(col_R) + !!sym(col_L)) >= 1, 1, 0)
-      )
+
+      # If FM_Child column exists (old data), replace it with unified value
+      if (col_FM %in% names(AC)) {
+        # Ensure old FM_Child is numeric
+        if (!is.numeric(AC[[col_FM]])) {
+          AC[[col_FM]] <- as.numeric(as.character(AC[[col_FM]]) %in% c("1", "yes", "Yes", "YES", "Y", TRUE))
+        }
+        AC[[col_FM]] <- ifelse(is.na(AC[[col_FM]]), 0, AC[[col_FM]])
+
+        # Replace with unified value that prioritizes R/L data
+        mutate_list[[col_FM]] <- unified_value
+      } else {
+        # Create new FM_Child column
+        mutate_list[[col_FM]] <- unified_value
+      }
+    }
+
+    # Case 2: Only old FM_Child exists (no R/L columns)
+    else if (!has_RL && (col_FM %in% names(AC))) {
+      # Ensure FM_Child is numeric and NA becomes 0
+      if (!is.numeric(AC[[col_FM]])) {
+        AC[[col_FM]] <- as.numeric(as.character(AC[[col_FM]]) %in% c("1", "yes", "Yes", "YES", "Y", TRUE))
+      }
+      AC[[col_FM]] <- ifelse(is.na(AC[[col_FM]]), 0, AC[[col_FM]])
+      # No mutation needed, column already exists with correct values
+      next
     }
   }
 
-  if (length(mutate_list) == 0) return(AC)
-  AC %>% mutate(!!!mutate_list)
+  if (length(mutate_list) == 0) {
+    return(AC)
+  }
+
+  result <- AC %>% mutate(!!!mutate_list)
+
+  # Log sample of unified values
+  if (length(mutate_list) > 0) {
+    sample_col <- names(mutate_list)[1]
+    if (nrow(result) > 0) {
+      sample_vals <- head(result[[sample_col]], 5)
+      log_info("    Unified FM_Child sample (nOPV2 priority): {paste(sample_vals, collapse=', ')}")
+    }
+  }
+
+  return(result)
 }
 
 # ============================================================
@@ -930,10 +995,10 @@ process_regular_file <- function(file_path, file_name) {
       across(matches("^Count_HH\\[\\d+\\]/Reason_NC_NFM$"), map_nc_reason)
     )
 
-  # Apply FM Child harmonizer
+  # Apply FM Child harmonizer (handles all form types dynamically)
   data <- update_fm_child_dynamic(data)
 
-  # Get child indices
+  # Get actual child indices from the data (don't assume 1-10)
   child_idx <- names(data) |>
     str_match("^Count_HH\\[(\\d+)\\]/") |>
     (\(m) m[, 2])() |>
@@ -942,6 +1007,27 @@ process_regular_file <- function(file_path, file_name) {
     as.integer() |>
     sort()
 
+  log_info("    Detected child indices: {paste(child_idx, collapse=', ')}")
+
+  # If no indices found, try alternative pattern (some forms use underscores)
+  if (length(child_idx) == 0) {
+    child_idx <- names(data) |>
+      str_match("^Count_HH_(\\d+)_") |>
+      (\(m) m[, 2])() |>
+      na.omit() |>
+      unique() |>
+      as.integer() |>
+      sort()
+    log_info("    Alternative pattern detected child indices: {paste(child_idx, collapse=', ')}")
+  }
+
+  # If still no indices, log warning and return
+  if (length(child_idx) == 0) {
+    log_warn("    No child indices found in column names!")
+    return(NULL)
+  }
+
+  # Build column lists using detected indices
   sex_cols <- intersect(sprintf("Count_HH[%d]/Sex_Child", child_idx), names(data))
   fm_cols <- intersect(sprintf("Count_HH[%d]/FM_Child", child_idx), names(data))
   fmr_cols <- intersect(sprintf("Count_HH[%d]/FM_ChildR", child_idx), names(data))
@@ -949,6 +1035,13 @@ process_regular_file <- function(file_path, file_name) {
   cgs_cols <- intersect(sprintf("Count_HH[%d]/Care_Giver_Informed_SIA", child_idx), names(data))
   abs_reason_cols <- intersect(sprintf("Count_HH[%d]/Reason_ABS_NFM", child_idx), names(data))
   nc_reason_cols <- intersect(sprintf("Count_HH[%d]/Reason_NC_NFM", child_idx), names(data))
+
+  log_info("    Found {length(sex_cols)} sex columns, {length(fm_cols)} FM_Child columns")
+
+  # If no FM_Child columns found, log warning
+  if (length(fm_cols) == 0) {
+    log_warn("    No FM_Child columns found! Vaccination data will be missing.")
+  }
 
   # Reason_Not_FM logic
   data <- data %>%
@@ -997,31 +1090,52 @@ process_regular_file <- function(file_path, file_name) {
   absent_reason_wide <- build_reason_wide(data, abs_reason_cols, "abs_reason_")
   noncomp_reason_wide <- build_reason_wide(data, nc_reason_cols, "nc_reason_")
 
-  # Calculate metrics (EXACT from original)
-  AF <- data %>%
-    relocate(all_of(sex_cols), .after = "_GPS_hh_altitude") %>%
-    relocate(all_of(fm_cols), .after = tail(sex_cols, 1)) %>%
-    mutate(
-      female_sampled = rowSums(across(all_of(sex_cols)), na.rm = TRUE),
-      male_sampled = Count_HH_count - female_sampled,
-      total_vaccinated = rowSums(across(all_of(fm_cols)), na.rm = TRUE),
-      missed_child = Count_HH_count - total_vaccinated
-    )
+  # Calculate metrics using detected columns
+  if (length(sex_cols) > 0 && length(fm_cols) > 0) {
+    AF <- data %>%
+      relocate(all_of(sex_cols), .after = "_GPS_hh_altitude") %>%
+      relocate(all_of(fm_cols), .after = last(sex_cols)) %>%
+      mutate(
+        female_sampled = rowSums(across(all_of(sex_cols)), na.rm = TRUE),
+        male_sampled = Count_HH_count - female_sampled,
+        total_vaccinated = rowSums(across(all_of(fm_cols)), na.rm = TRUE),
+        missed_child = Count_HH_count - total_vaccinated
+      )
+  } else {
+    # Handle case where columns are missing
+    AF <- data %>%
+      mutate(
+        female_sampled = 0,
+        male_sampled = Count_HH_count,
+        total_vaccinated = 0,
+        missed_child = Count_HH_count
+      )
+    log_warn("    Missing sex or FM_Child columns - using defaults")
+  }
 
-  AG <- AF %>%
-    mutate(
-      across(
-        .cols = all_of(sex_cols),
-        .fns = ~ ifelse(
-          . + get(str_replace(cur_column(), "Sex_Child", "FM_Child")) >= 2,
-          1,
-          0
+  # Calculate female vaccinated
+  if (length(sex_cols) > 0 && length(fm_cols) > 0) {
+    AG <- AF %>%
+      mutate(
+        across(
+          .cols = all_of(sex_cols),
+          .fns = ~ ifelse(
+            . + get(str_replace(cur_column(), "Sex_Child", "FM_Child")) >= 2,
+            1,
+            0
+          ),
+          .names = "FV{gsub('[^0-9]', '', .col)}"
         ),
-        .names = "FV{gsub('[^0-9]', '', .col)}"
-      ),
-      female_vaccinated = rowSums(across(starts_with("FV")), na.rm = TRUE),
-      male_vaccinated = total_vaccinated - female_vaccinated
-    )
+        female_vaccinated = rowSums(across(starts_with("FV")), na.rm = TRUE),
+        male_vaccinated = total_vaccinated - female_vaccinated
+      )
+  } else {
+    AG <- AF %>%
+      mutate(
+        female_vaccinated = 0,
+        male_vaccinated = 0
+      )
+  }
 
   AG <- AG %>% mutate(across(starts_with("R_"), as.numeric))
 
@@ -1224,6 +1338,15 @@ process_regular_file <- function(file_path, file_name) {
     )
 
   log_info("    Processed regular file: {nrow(F4)} aggregated rows")
+
+  # Debug: Log sample of results
+  if (nrow(F4) > 0) {
+    log_info("    Sample output - first 3 districts:")
+    sample_out <- F4[1:min(3, nrow(F4)), c("country", "province", "district", "total_sampled", "total_vaccinated", "total_missed")]
+    for (j in 1:nrow(sample_out)) {
+      log_info("      {sample_out$district[j]}: sampled={sample_out$total_sampled[j]}, vaccinated={sample_out$total_vaccinated[j]}, missed={sample_out$total_missed[j]}")
+    }
+  }
 
   return(F4)
 }

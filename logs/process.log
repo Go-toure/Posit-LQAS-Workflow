@@ -9350,3 +9350,3906 @@ INFO [2026-04-08 08:02:28] =
 INFO [2026-04-08 08:02:28] PROCESSING COMPLETE!
 INFO [2026-04-08 08:02:28] Total records: 31075
 INFO [2026-04-08 08:02:28] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:19:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:19:07] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-17 11:19:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:19:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:19:07] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-17 11:19:07] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:19:07] Found special case: Nigeria CSV
+INFO [2026-04-17 11:19:07] Found special case: 272.parquet
+INFO [2026-04-17 11:19:07] Found 38 total files to process
+INFO [2026-04-17 11:19:07] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-17 11:19:08]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-17 11:19:09]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-17 11:19:09]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-17 11:19:09]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-17 11:19:09] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-17 11:19:09]     Initial data: 36 rows, 167 columns
+INFO [2026-04-17 11:19:09]     Processed regular file: 6 aggregated rows
+INFO [2026-04-17 11:19:09]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-17 11:19:09]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-17 11:19:09] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-17 11:19:09]     Initial data: 462 rows, 179 columns
+INFO [2026-04-17 11:19:10]     Processed regular file: 77 aggregated rows
+INFO [2026-04-17 11:19:10]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-17 11:19:10]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-17 11:19:10] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-17 11:19:10]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 11:19:14]     Read 96470 rows
+INFO [2026-04-17 11:21:19]     Processed 272: 7854 rows
+INFO [2026-04-17 11:21:19]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 11:21:19]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 11:21:19] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-17 11:21:19]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-17 11:21:20]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-17 11:21:20]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-17 11:21:20]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-17 11:21:20] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-17 11:21:20]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-17 11:21:21]     Processed regular file: 812 aggregated rows
+INFO [2026-04-17 11:21:21]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-17 11:21:21]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-17 11:21:21] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-17 11:21:21]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-17 11:21:21]     Processed regular file: 392 aggregated rows
+INFO [2026-04-17 11:21:21]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-17 11:21:21]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-17 11:21:21] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-17 11:21:21]     Initial data: 928 rows, 195 columns
+INFO [2026-04-17 11:21:22]     Processed regular file: 155 aggregated rows
+INFO [2026-04-17 11:21:22]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-17 11:21:22]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-17 11:21:22] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-17 11:21:22]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-17 11:21:23]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-17 11:21:23]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-17 11:21:23]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-17 11:21:23] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-17 11:21:23]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-17 11:21:24]     Processed regular file: 334 aggregated rows
+INFO [2026-04-17 11:21:24]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-17 11:21:24]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-17 11:21:24] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-17 11:21:24]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-17 11:21:24]     Processed regular file: 418 aggregated rows
+INFO [2026-04-17 11:21:24]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-17 11:21:24]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-17 11:21:24] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-17 11:21:24]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-17 11:21:25]     Processed regular file: 907 aggregated rows
+INFO [2026-04-17 11:21:25]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-17 11:21:25]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-17 11:21:25] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-17 11:21:26]     Initial data: 26553 rows, 51 columns
+ERROR [2026-04-17 11:21:26]     Regular file failed: No FM child columns found in file: 4500.parquet
+WARN [2026-04-17 11:21:26]     ❌ Failed to process 4500.parquet
+INFO [2026-04-17 11:21:26] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-17 11:21:29]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-17 11:21:29]     Regular file failed: No FM child columns found in file: 4987.parquet
+WARN [2026-04-17 11:21:29]     ❌ Failed to process 4987.parquet
+INFO [2026-04-17 11:21:29] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-17 11:21:29]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-17 11:21:30]     Processed regular file: 361 aggregated rows
+INFO [2026-04-17 11:21:30]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-17 11:21:30]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-17 11:21:30] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-17 11:21:31]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-17 11:21:32]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-17 11:21:32]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-17 11:21:32]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-17 11:21:32] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-17 11:21:32]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-17 11:21:32]     Processed regular file: 745 aggregated rows
+INFO [2026-04-17 11:21:32]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-17 11:21:32]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-17 11:21:32] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-17 11:21:33]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-17 11:21:33]     Processed regular file: 324 aggregated rows
+INFO [2026-04-17 11:21:33]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-17 11:21:33]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-17 11:21:33] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-17 11:21:33]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-17 11:21:33]     Processed regular file: 285 aggregated rows
+INFO [2026-04-17 11:21:33]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-17 11:21:33]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-17 11:21:33] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-17 11:21:34]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-17 11:21:34]     Processed regular file: 331 aggregated rows
+INFO [2026-04-17 11:21:34]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-17 11:21:34]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-17 11:21:34] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-17 11:21:34]     Initial data: 453 rows, 334 columns
+INFO [2026-04-17 11:21:34]     Processed regular file: 76 aggregated rows
+INFO [2026-04-17 11:21:34]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-17 11:21:34]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-17 11:21:34] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-17 11:21:34]     Initial data: 944 rows, 335 columns
+INFO [2026-04-17 11:21:35]     Processed regular file: 158 aggregated rows
+INFO [2026-04-17 11:21:35]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-17 11:21:35]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-17 11:21:35] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-17 11:21:35]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-17 11:21:35]     Processed regular file: 502 aggregated rows
+INFO [2026-04-17 11:21:35]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-17 11:21:35]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-17 11:21:35] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-17 11:21:35]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-17 11:21:36]     Processed regular file: 254 aggregated rows
+INFO [2026-04-17 11:21:36]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-17 11:21:36]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-17 11:21:36] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-17 11:21:36]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-17 11:21:36]     Processed regular file: 328 aggregated rows
+INFO [2026-04-17 11:21:36]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-17 11:21:36]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-17 11:21:36] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-17 11:21:37]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-17 11:21:38]     Processed regular file: 514 aggregated rows
+INFO [2026-04-17 11:21:38]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-17 11:21:38]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-17 11:21:38] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-17 11:21:38]     Initial data: 258 rows, 341 columns
+INFO [2026-04-17 11:21:38]     Processed regular file: 43 aggregated rows
+INFO [2026-04-17 11:21:38]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-17 11:21:38]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-17 11:21:38] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-17 11:21:38]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-17 11:21:38]     Processed regular file: 182 aggregated rows
+INFO [2026-04-17 11:21:38]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-17 11:21:38]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-17 11:21:38] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-17 11:21:39]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-17 11:21:39]     Processed regular file: 709 aggregated rows
+INFO [2026-04-17 11:21:39]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-17 11:21:39]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-17 11:21:39] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-17 11:21:39]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-17 11:21:40]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-17 11:21:40]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-17 11:21:40]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-17 11:21:40] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-17 11:21:41]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-17 11:21:41]     Processed regular file: 586 aggregated rows
+INFO [2026-04-17 11:21:41]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-17 11:21:41]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-17 11:21:41] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-17 11:21:41]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-17 11:21:42]     Processed regular file: 779 aggregated rows
+INFO [2026-04-17 11:21:42]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-17 11:21:42]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-17 11:21:42] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-17 11:21:42]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-17 11:21:43]     Processed regular file: 781 aggregated rows
+INFO [2026-04-17 11:21:43]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-17 11:21:43]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-17 11:21:43] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-17 11:21:43]     Initial data: 324 rows, 256 columns
+INFO [2026-04-17 11:21:43]     Processed regular file: 54 aggregated rows
+INFO [2026-04-17 11:21:43]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-17 11:21:43]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-17 11:21:43] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-17 11:21:43]     Initial data: 882 rows, 182 columns
+INFO [2026-04-17 11:21:44]     Processed regular file: 147 aggregated rows
+INFO [2026-04-17 11:21:44]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-17 11:21:44]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-17 11:21:44] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-17 11:21:44]     Initial data: 552 rows, 255 columns
+INFO [2026-04-17 11:21:44]     Processed regular file: 60 aggregated rows
+INFO [2026-04-17 11:21:44]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-17 11:21:44]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-17 11:21:44] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-17 11:21:44]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-17 11:21:44]     Read 2687 rows
+INFO [2026-04-17 11:21:49]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-17 11:21:49]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 11:21:49]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 11:21:49] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-17 11:21:49]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 11:21:52]     Read 96470 rows
+INFO [2026-04-17 11:23:59]     Processed 272: 7854 rows
+INFO [2026-04-17 11:23:59]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 11:23:59]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 11:23:59] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 11:23:59] COMBINING RESULTS
+INFO [2026-04-17 11:23:59] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:23:59] Combined 26990 rows from 35 files
+INFO [2026-04-17 11:23:59] Regular files: 33, Special cases: 3, Failed: 2
+INFO [2026-04-17 11:23:59] After deduplication: 26475 rows
+INFO [2026-04-17 11:23:59] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 11:23:59] SAVING OUTPUTS
+INFO [2026-04-17 11:23:59] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:23:59] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-17 11:24:00] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-17 11:24:00] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-17 11:24:00] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 11:24:00] PROCESSING COMPLETE!
+INFO [2026-04-17 11:24:00] Total records: 26475
+INFO [2026-04-17 11:24:00] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:28:41] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:28:41] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-17 11:28:41] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:28:41] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:28:41] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-17 11:28:41] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:28:41] Found special case: Nigeria CSV
+INFO [2026-04-17 11:28:41] Found special case: 272.parquet
+INFO [2026-04-17 11:28:41] Found 38 total files to process
+INFO [2026-04-17 11:28:41] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-17 11:28:42]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-17 11:28:43]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-17 11:28:43]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-17 11:28:43]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-17 11:28:43] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-17 11:28:43]     Initial data: 36 rows, 167 columns
+INFO [2026-04-17 11:28:43]     Processed regular file: 6 aggregated rows
+INFO [2026-04-17 11:28:43]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-17 11:28:43]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-17 11:28:43] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-17 11:28:43]     Initial data: 462 rows, 179 columns
+INFO [2026-04-17 11:28:43]     Processed regular file: 77 aggregated rows
+INFO [2026-04-17 11:28:43]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-17 11:28:43]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-17 11:28:43] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-17 11:28:43]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 11:28:47]     Read 96470 rows
+INFO [2026-04-17 11:31:14]     Processed 272: 7854 rows
+INFO [2026-04-17 11:31:14]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 11:31:14]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 11:31:14] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-17 11:31:14]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-17 11:31:15]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-17 11:31:15]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-17 11:31:15]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-17 11:31:15] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-17 11:31:16]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-17 11:31:16]     Processed regular file: 812 aggregated rows
+INFO [2026-04-17 11:31:16]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-17 11:31:16]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-17 11:31:16] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-17 11:31:16]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-17 11:31:17]     Processed regular file: 392 aggregated rows
+INFO [2026-04-17 11:31:17]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-17 11:31:17]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-17 11:31:17] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-17 11:31:17]     Initial data: 928 rows, 195 columns
+INFO [2026-04-17 11:31:17]     Processed regular file: 155 aggregated rows
+INFO [2026-04-17 11:31:17]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-17 11:31:17]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-17 11:31:17] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-17 11:31:18]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-17 11:31:19]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-17 11:31:19]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-17 11:31:19]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-17 11:31:19] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-17 11:31:19]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-17 11:31:20]     Processed regular file: 334 aggregated rows
+INFO [2026-04-17 11:31:20]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-17 11:31:20]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-17 11:31:20] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-17 11:31:20]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-17 11:31:21]     Processed regular file: 418 aggregated rows
+INFO [2026-04-17 11:31:21]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-17 11:31:21]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-17 11:31:21] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-17 11:31:21]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-17 11:31:22]     Processed regular file: 907 aggregated rows
+INFO [2026-04-17 11:31:22]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-17 11:31:22]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-17 11:31:22] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-17 11:31:22]     Initial data: 26553 rows, 51 columns
+ERROR [2026-04-17 11:31:22]     Regular file failed: No FM child columns found in file: 4500.parquet
+WARN [2026-04-17 11:31:22]     ❌ Failed to process 4500.parquet
+INFO [2026-04-17 11:31:22] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-17 11:31:26]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-17 11:31:26]     Regular file failed: No FM child columns found in file: 4987.parquet
+WARN [2026-04-17 11:31:26]     ❌ Failed to process 4987.parquet
+INFO [2026-04-17 11:31:26] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-17 11:31:26]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-17 11:31:27]     Processed regular file: 361 aggregated rows
+INFO [2026-04-17 11:31:27]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-17 11:31:27]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-17 11:31:27] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-17 11:31:28]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-17 11:31:29]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-17 11:31:29]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-17 11:31:29]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-17 11:31:29] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-17 11:31:29]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-17 11:31:30]     Processed regular file: 745 aggregated rows
+INFO [2026-04-17 11:31:30]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-17 11:31:30]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-17 11:31:30] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-17 11:31:30]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-17 11:31:31]     Processed regular file: 324 aggregated rows
+INFO [2026-04-17 11:31:31]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-17 11:31:31]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-17 11:31:31] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-17 11:31:31]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-17 11:31:31]     Processed regular file: 285 aggregated rows
+INFO [2026-04-17 11:31:31]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-17 11:31:31]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-17 11:31:31] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-17 11:31:31]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-17 11:31:32]     Processed regular file: 331 aggregated rows
+INFO [2026-04-17 11:31:32]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-17 11:31:32]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-17 11:31:32] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-17 11:31:32]     Initial data: 453 rows, 334 columns
+INFO [2026-04-17 11:31:32]     Processed regular file: 76 aggregated rows
+INFO [2026-04-17 11:31:32]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-17 11:31:32]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-17 11:31:32] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-17 11:31:32]     Initial data: 944 rows, 335 columns
+INFO [2026-04-17 11:31:32]     Processed regular file: 158 aggregated rows
+INFO [2026-04-17 11:31:32]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-17 11:31:32]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-17 11:31:32] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-17 11:31:32]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-17 11:31:33]     Processed regular file: 502 aggregated rows
+INFO [2026-04-17 11:31:33]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-17 11:31:33]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-17 11:31:33] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-17 11:31:33]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-17 11:31:33]     Processed regular file: 254 aggregated rows
+INFO [2026-04-17 11:31:33]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-17 11:31:33]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-17 11:31:33] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-17 11:31:34]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-17 11:31:34]     Processed regular file: 328 aggregated rows
+INFO [2026-04-17 11:31:34]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-17 11:31:34]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-17 11:31:34] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-17 11:31:34]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-17 11:31:35]     Processed regular file: 514 aggregated rows
+INFO [2026-04-17 11:31:35]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-17 11:31:35]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-17 11:31:35] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-17 11:31:35]     Initial data: 258 rows, 341 columns
+INFO [2026-04-17 11:31:36]     Processed regular file: 43 aggregated rows
+INFO [2026-04-17 11:31:36]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-17 11:31:36]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-17 11:31:36] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-17 11:31:36]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-17 11:31:36]     Processed regular file: 182 aggregated rows
+INFO [2026-04-17 11:31:36]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-17 11:31:36]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-17 11:31:36] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-17 11:31:36]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-17 11:31:37]     Processed regular file: 709 aggregated rows
+INFO [2026-04-17 11:31:37]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-17 11:31:37]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-17 11:31:37] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-17 11:31:37]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-17 11:31:38]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-17 11:31:38]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-17 11:31:38]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-17 11:31:38] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-17 11:31:39]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-17 11:31:39]     Processed regular file: 586 aggregated rows
+INFO [2026-04-17 11:31:39]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-17 11:31:39]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-17 11:31:39] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-17 11:31:39]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-17 11:31:40]     Processed regular file: 779 aggregated rows
+INFO [2026-04-17 11:31:40]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-17 11:31:40]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-17 11:31:40] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-17 11:31:40]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-17 11:31:41]     Processed regular file: 781 aggregated rows
+INFO [2026-04-17 11:31:41]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-17 11:31:41]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-17 11:31:41] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-17 11:31:41]     Initial data: 324 rows, 256 columns
+INFO [2026-04-17 11:31:42]     Processed regular file: 54 aggregated rows
+INFO [2026-04-17 11:31:42]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-17 11:31:42]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-17 11:31:42] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-17 11:31:42]     Initial data: 882 rows, 182 columns
+INFO [2026-04-17 11:31:42]     Processed regular file: 147 aggregated rows
+INFO [2026-04-17 11:31:42]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-17 11:31:42]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-17 11:31:42] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-17 11:31:42]     Initial data: 552 rows, 255 columns
+INFO [2026-04-17 11:31:42]     Processed regular file: 60 aggregated rows
+INFO [2026-04-17 11:31:42]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-17 11:31:42]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-17 11:31:42] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-17 11:31:43]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-17 11:31:43]     Read 2687 rows
+INFO [2026-04-17 11:31:48]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-17 11:31:48]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 11:31:48]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 11:31:48] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-17 11:31:48]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 11:31:52]     Read 96470 rows
+INFO [2026-04-17 11:34:25]     Processed 272: 7854 rows
+INFO [2026-04-17 11:34:25]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 11:34:25]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 11:34:25] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 11:34:25] COMBINING RESULTS
+INFO [2026-04-17 11:34:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:34:25] Combined 26990 rows from 35 files
+INFO [2026-04-17 11:34:25] Regular files: 33, Special cases: 3, Failed: 2
+INFO [2026-04-17 11:34:25] After deduplication: 26475 rows
+INFO [2026-04-17 11:34:25] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 11:34:25] SAVING OUTPUTS
+INFO [2026-04-17 11:34:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 11:34:26] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-17 11:34:26] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-17 11:34:26] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-17 11:34:26] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 11:34:26] PROCESSING COMPLETE!
+INFO [2026-04-17 11:34:26] Total records: 26475
+INFO [2026-04-17 11:34:26] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 13:56:49] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 13:56:49] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-17 13:56:49] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 13:56:50] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 13:56:50] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-17 13:56:50] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 13:56:50] Found special case: Nigeria CSV
+INFO [2026-04-17 13:56:50] Found special case: 272.parquet
+INFO [2026-04-17 13:56:50] Found 38 total files to process
+INFO [2026-04-17 13:56:50] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-17 13:56:50]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-17 13:56:51]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-17 13:56:51]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-17 13:56:51]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-17 13:56:51] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-17 13:56:51]     Initial data: 36 rows, 167 columns
+INFO [2026-04-17 13:56:52]     Processed regular file: 6 aggregated rows
+INFO [2026-04-17 13:56:52]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-17 13:56:52]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-17 13:56:52] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-17 13:56:52]     Initial data: 462 rows, 179 columns
+INFO [2026-04-17 13:56:52]     Processed regular file: 77 aggregated rows
+INFO [2026-04-17 13:56:52]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-17 13:56:52]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-17 13:56:52] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-17 13:56:52]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 13:56:57]     Read 96470 rows
+INFO [2026-04-17 13:59:32]     Processed 272: 7854 rows
+INFO [2026-04-17 13:59:32]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 13:59:32]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 13:59:32] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-17 13:59:33]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-17 13:59:34]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-17 13:59:34]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-17 13:59:34]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-17 13:59:34] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-17 13:59:34]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-17 13:59:35]     Processed regular file: 812 aggregated rows
+INFO [2026-04-17 13:59:35]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-17 13:59:35]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-17 13:59:35] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-17 13:59:35]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-17 13:59:35]     Processed regular file: 392 aggregated rows
+INFO [2026-04-17 13:59:35]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-17 13:59:35]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-17 13:59:35] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-17 13:59:35]     Initial data: 928 rows, 195 columns
+INFO [2026-04-17 13:59:36]     Processed regular file: 155 aggregated rows
+INFO [2026-04-17 13:59:36]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-17 13:59:36]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-17 13:59:36] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-17 13:59:36]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-17 13:59:38]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-17 13:59:38]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-17 13:59:38]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-17 13:59:38] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-17 13:59:38]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-17 13:59:39]     Processed regular file: 334 aggregated rows
+INFO [2026-04-17 13:59:39]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-17 13:59:39]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-17 13:59:39] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-17 13:59:39]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-17 13:59:39]     Processed regular file: 418 aggregated rows
+INFO [2026-04-17 13:59:39]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-17 13:59:39]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-17 13:59:39] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-17 13:59:39]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-17 13:59:40]     Processed regular file: 907 aggregated rows
+INFO [2026-04-17 13:59:40]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-17 13:59:40]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-17 13:59:40] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-17 13:59:41]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-17 13:59:42]     Processed regular file: 4600 aggregated rows
+INFO [2026-04-17 13:59:42]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-04-17 13:59:42]     ✅ Successfully processed 4500.parquet
+INFO [2026-04-17 13:59:42] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-17 13:59:45]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-17 13:59:46]     Regular file failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-04-17 13:59:46]     ❌ Failed to process 4987.parquet
+INFO [2026-04-17 13:59:46] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-17 13:59:46]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-17 13:59:46]     Processed regular file: 361 aggregated rows
+INFO [2026-04-17 13:59:46]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-17 13:59:46]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-17 13:59:46] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-17 13:59:47]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-17 13:59:49]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-17 13:59:49]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-17 13:59:49]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-17 13:59:49] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-17 13:59:49]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-17 13:59:49]     Processed regular file: 745 aggregated rows
+INFO [2026-04-17 13:59:49]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-17 13:59:49]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-17 13:59:49] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-17 13:59:50]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-17 13:59:50]     Processed regular file: 324 aggregated rows
+INFO [2026-04-17 13:59:50]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-17 13:59:50]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-17 13:59:50] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-17 13:59:50]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-17 13:59:51]     Processed regular file: 285 aggregated rows
+INFO [2026-04-17 13:59:51]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-17 13:59:51]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-17 13:59:51] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-17 13:59:51]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-17 13:59:51]     Processed regular file: 331 aggregated rows
+INFO [2026-04-17 13:59:51]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-17 13:59:51]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-17 13:59:51] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-17 13:59:51]     Initial data: 453 rows, 334 columns
+INFO [2026-04-17 13:59:52]     Processed regular file: 76 aggregated rows
+INFO [2026-04-17 13:59:52]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-17 13:59:52]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-17 13:59:52] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-17 13:59:52]     Initial data: 944 rows, 335 columns
+INFO [2026-04-17 13:59:52]     Processed regular file: 158 aggregated rows
+INFO [2026-04-17 13:59:52]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-17 13:59:52]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-17 13:59:52] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-17 13:59:52]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-17 13:59:53]     Processed regular file: 502 aggregated rows
+INFO [2026-04-17 13:59:53]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-17 13:59:53]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-17 13:59:53] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-17 13:59:53]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-17 13:59:54]     Processed regular file: 254 aggregated rows
+INFO [2026-04-17 13:59:54]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-17 13:59:54]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-17 13:59:54] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-17 13:59:54]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-17 13:59:54]     Processed regular file: 328 aggregated rows
+INFO [2026-04-17 13:59:54]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-17 13:59:54]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-17 13:59:54] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-17 13:59:55]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-17 13:59:56]     Processed regular file: 514 aggregated rows
+INFO [2026-04-17 13:59:56]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-17 13:59:56]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-17 13:59:56] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-17 13:59:56]     Initial data: 258 rows, 341 columns
+INFO [2026-04-17 13:59:56]     Processed regular file: 43 aggregated rows
+INFO [2026-04-17 13:59:56]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-17 13:59:56]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-17 13:59:56] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-17 13:59:56]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-17 13:59:57]     Processed regular file: 182 aggregated rows
+INFO [2026-04-17 13:59:57]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-17 13:59:57]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-17 13:59:57] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-17 13:59:57]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-17 13:59:57]     Processed regular file: 709 aggregated rows
+INFO [2026-04-17 13:59:57]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-17 13:59:57]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-17 13:59:57] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-17 13:59:58]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-17 13:59:59]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-17 13:59:59]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-17 13:59:59]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-17 13:59:59] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-17 13:59:59]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-17 14:00:00]     Processed regular file: 586 aggregated rows
+INFO [2026-04-17 14:00:00]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-17 14:00:00]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-17 14:00:00] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-17 14:00:00]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-17 14:00:01]     Processed regular file: 779 aggregated rows
+INFO [2026-04-17 14:00:01]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-17 14:00:01]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-17 14:00:01] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-17 14:00:01]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-17 14:00:02]     Processed regular file: 781 aggregated rows
+INFO [2026-04-17 14:00:02]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-17 14:00:02]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-17 14:00:02] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-17 14:00:02]     Initial data: 324 rows, 256 columns
+INFO [2026-04-17 14:00:02]     Processed regular file: 54 aggregated rows
+INFO [2026-04-17 14:00:02]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-17 14:00:02]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-17 14:00:02] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-17 14:00:02]     Initial data: 882 rows, 182 columns
+INFO [2026-04-17 14:00:02]     Processed regular file: 147 aggregated rows
+INFO [2026-04-17 14:00:02]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-17 14:00:02]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-17 14:00:02] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-17 14:00:02]     Initial data: 552 rows, 255 columns
+INFO [2026-04-17 14:00:03]     Processed regular file: 60 aggregated rows
+INFO [2026-04-17 14:00:03]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-17 14:00:03]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-17 14:00:03] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-17 14:00:03]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-17 14:00:03]     Read 2687 rows
+INFO [2026-04-17 14:00:08]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-17 14:00:08]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 14:00:08]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 14:00:08] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-17 14:00:08]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 14:00:12]     Read 96470 rows
+INFO [2026-04-17 14:02:39]     Processed 272: 7854 rows
+INFO [2026-04-17 14:02:39]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 14:02:39]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 14:02:39] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 14:02:39] COMBINING RESULTS
+INFO [2026-04-17 14:02:39] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 14:02:39] Combined 31590 rows from 36 files
+INFO [2026-04-17 14:02:39] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-04-17 14:02:39] After deduplication: 31075 rows
+INFO [2026-04-17 14:02:39] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 14:02:39] SAVING OUTPUTS
+INFO [2026-04-17 14:02:39] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 14:02:39] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-17 14:02:39] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-17 14:02:39] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-17 14:02:39] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 14:02:39] PROCESSING COMPLETE!
+INFO [2026-04-17 14:02:39] Total records: 31075
+INFO [2026-04-17 14:02:39] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 14:47:47] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 14:47:47] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-17 14:47:47] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 14:47:48] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 14:47:48] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-17 14:47:48] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 14:47:48] Found special case: Nigeria CSV
+INFO [2026-04-17 14:47:48] Found special case: 272.parquet
+INFO [2026-04-17 14:47:48] Found 38 total files to process
+INFO [2026-04-17 14:47:48] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-17 14:47:48]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-17 14:47:49]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-17 14:47:49]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-17 14:47:49]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-17 14:47:49] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-17 14:47:49]     Initial data: 36 rows, 167 columns
+INFO [2026-04-17 14:47:49]     Detected FM_ChildL (nOPV2) and FM_ChildR (bOPV) - prioritizing nOPV2
+INFO [2026-04-17 14:47:49]     Harmonized FM_Child sample (nOPV2 priority): 1, 1, 1, 1, 1
+INFO [2026-04-17 14:47:49]     Processed regular file: 6 aggregated rows
+INFO [2026-04-17 14:47:49]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-17 14:47:49]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-17 14:47:49] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-17 14:47:49]     Initial data: 462 rows, 179 columns
+INFO [2026-04-17 14:47:49]     Processed regular file: 77 aggregated rows
+INFO [2026-04-17 14:47:49]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-17 14:47:49]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-17 14:47:49] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-17 14:47:50]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 14:47:54]     Read 96470 rows
+INFO [2026-04-17 14:50:11]     Processed 272: 7854 rows
+INFO [2026-04-17 14:50:11]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 14:50:11]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 14:50:11] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-17 14:50:11]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-17 14:50:12]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-17 14:50:12]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-17 14:50:12]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-17 14:50:12] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-17 14:50:13]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-17 14:50:13]     Processed regular file: 812 aggregated rows
+INFO [2026-04-17 14:50:13]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-17 14:50:13]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-17 14:50:13] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-17 14:50:13]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-17 14:50:14]     Processed regular file: 392 aggregated rows
+INFO [2026-04-17 14:50:14]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-17 14:50:14]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-17 14:50:14] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-17 14:50:14]     Initial data: 928 rows, 195 columns
+INFO [2026-04-17 14:50:14]     Processed regular file: 155 aggregated rows
+INFO [2026-04-17 14:50:14]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-17 14:50:14]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-17 14:50:14] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-17 14:50:14]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-17 14:50:15]     Detected FM_ChildL (nOPV2) and FM_ChildR (bOPV) - prioritizing nOPV2
+INFO [2026-04-17 14:50:15]     Harmonized FM_Child sample (nOPV2 priority): 1, 1, 1, 1, 1
+INFO [2026-04-17 14:50:16]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-17 14:50:16]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-17 14:50:16]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-17 14:50:16] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-17 14:50:16]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-17 14:50:16]     Processed regular file: 334 aggregated rows
+INFO [2026-04-17 14:50:16]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-17 14:50:16]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-17 14:50:16] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-17 14:50:16]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-17 14:50:16]     Processed regular file: 418 aggregated rows
+INFO [2026-04-17 14:50:17]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-17 14:50:17]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-17 14:50:17] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-17 14:50:17]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-17 14:50:17]     Processed regular file: 907 aggregated rows
+INFO [2026-04-17 14:50:17]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-17 14:50:17]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-17 14:50:17] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-17 14:50:18]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-17 14:50:19]     Processed regular file: 4600 aggregated rows
+INFO [2026-04-17 14:50:19]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-04-17 14:50:19]     ✅ Successfully processed 4500.parquet
+INFO [2026-04-17 14:50:19] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-17 14:50:22]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-17 14:50:22]     Regular file failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-04-17 14:50:22]     ❌ Failed to process 4987.parquet
+INFO [2026-04-17 14:50:22] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-17 14:50:22]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-17 14:50:23]     Processed regular file: 361 aggregated rows
+INFO [2026-04-17 14:50:23]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-17 14:50:23]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-17 14:50:23] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-17 14:50:23]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-17 14:50:24]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-17 14:50:25]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-17 14:50:25]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-17 14:50:25] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-17 14:50:25]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-17 14:50:25]     Processed regular file: 745 aggregated rows
+INFO [2026-04-17 14:50:25]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-17 14:50:25]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-17 14:50:25] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-17 14:50:25]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-17 14:50:25]     Detected FM_ChildL (nOPV2) and FM_ChildR (bOPV) - prioritizing nOPV2
+INFO [2026-04-17 14:50:25]     Harmonized FM_Child sample (nOPV2 priority): 0, 1, 1, 1, 1
+INFO [2026-04-17 14:50:26]     Processed regular file: 324 aggregated rows
+INFO [2026-04-17 14:50:26]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-17 14:50:26]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-17 14:50:26] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-17 14:50:26]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-17 14:50:26]     Processed regular file: 285 aggregated rows
+INFO [2026-04-17 14:50:26]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-17 14:50:26]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-17 14:50:26] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-17 14:50:26]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-17 14:50:27]     Processed regular file: 331 aggregated rows
+INFO [2026-04-17 14:50:27]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-17 14:50:27]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-17 14:50:27] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-17 14:50:27]     Initial data: 453 rows, 334 columns
+INFO [2026-04-17 14:50:27]     Processed regular file: 76 aggregated rows
+INFO [2026-04-17 14:50:27]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-17 14:50:27]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-17 14:50:27] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-17 14:50:27]     Initial data: 944 rows, 335 columns
+INFO [2026-04-17 14:50:27]     Processed regular file: 158 aggregated rows
+INFO [2026-04-17 14:50:27]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-17 14:50:27]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-17 14:50:27] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-17 14:50:27]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-17 14:50:28]     Processed regular file: 502 aggregated rows
+INFO [2026-04-17 14:50:28]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-17 14:50:28]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-17 14:50:28] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-17 14:50:28]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-17 14:50:28]     Processed regular file: 254 aggregated rows
+INFO [2026-04-17 14:50:28]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-17 14:50:28]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-17 14:50:28] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-17 14:50:28]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-17 14:50:29]     Processed regular file: 328 aggregated rows
+INFO [2026-04-17 14:50:29]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-17 14:50:29]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-17 14:50:29] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-17 14:50:29]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-17 14:50:30]     Processed regular file: 514 aggregated rows
+INFO [2026-04-17 14:50:30]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-17 14:50:30]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-17 14:50:30] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-17 14:50:30]     Initial data: 258 rows, 341 columns
+INFO [2026-04-17 14:50:30]     Processed regular file: 43 aggregated rows
+INFO [2026-04-17 14:50:30]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-17 14:50:30]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-17 14:50:30] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-17 14:50:30]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-17 14:50:30]     Processed regular file: 182 aggregated rows
+INFO [2026-04-17 14:50:30]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-17 14:50:30]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-17 14:50:30] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-17 14:50:31]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-17 14:50:31]     Processed regular file: 709 aggregated rows
+INFO [2026-04-17 14:50:31]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-17 14:50:31]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-17 14:50:31] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-17 14:50:31]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-17 14:50:32]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-17 14:50:32]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-17 14:50:32]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-17 14:50:32] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-17 14:50:32]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-17 14:50:33]     Processed regular file: 586 aggregated rows
+INFO [2026-04-17 14:50:33]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-17 14:50:33]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-17 14:50:33] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-17 14:50:33]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-17 14:50:34]     Processed regular file: 779 aggregated rows
+INFO [2026-04-17 14:50:34]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-17 14:50:34]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-17 14:50:34] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-17 14:50:34]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-17 14:50:35]     Processed regular file: 781 aggregated rows
+INFO [2026-04-17 14:50:35]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-17 14:50:35]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-17 14:50:35] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-17 14:50:35]     Initial data: 324 rows, 256 columns
+INFO [2026-04-17 14:50:35]     Processed regular file: 54 aggregated rows
+INFO [2026-04-17 14:50:35]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-17 14:50:35]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-17 14:50:35] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-17 14:50:35]     Initial data: 882 rows, 182 columns
+INFO [2026-04-17 14:50:35]     Processed regular file: 147 aggregated rows
+INFO [2026-04-17 14:50:35]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-17 14:50:35]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-17 14:50:35] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-17 14:50:35]     Initial data: 552 rows, 255 columns
+INFO [2026-04-17 14:50:36]     Processed regular file: 60 aggregated rows
+INFO [2026-04-17 14:50:36]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-17 14:50:36]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-17 14:50:36] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-17 14:50:36]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-17 14:50:36]     Read 2687 rows
+INFO [2026-04-17 14:50:41]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-17 14:50:41]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 14:50:41]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 14:50:41] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-17 14:50:41]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 14:50:44]     Read 96470 rows
+INFO [2026-04-17 14:52:51]     Processed 272: 7854 rows
+INFO [2026-04-17 14:52:51]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 14:52:51]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 14:52:51] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 14:52:51] COMBINING RESULTS
+INFO [2026-04-17 14:52:51] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 14:52:52] Combined 31590 rows from 36 files
+INFO [2026-04-17 14:52:52] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-04-17 14:52:52] After deduplication: 31075 rows
+INFO [2026-04-17 14:52:52] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 14:52:52] SAVING OUTPUTS
+INFO [2026-04-17 14:52:52] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 14:52:52] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-17 14:52:52] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-17 14:52:52] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-17 14:52:52] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 14:52:52] PROCESSING COMPLETE!
+INFO [2026-04-17 14:52:52] Total records: 31075
+INFO [2026-04-17 14:52:52] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:29:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:29:14] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-17 15:29:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:29:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:29:15] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-17 15:29:15] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:29:15] Found special case: Nigeria CSV
+INFO [2026-04-17 15:29:15] Found special case: 272.parquet
+INFO [2026-04-17 15:29:15] Found 38 total files to process
+INFO [2026-04-17 15:29:15] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-17 15:29:15]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-17 15:29:16]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:29:16]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-17 15:29:16]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-17 15:29:16]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-17 15:29:16] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-17 15:29:16]     Initial data: 36 rows, 167 columns
+INFO [2026-04-17 15:29:16]     New form dataset: Only FM_ChildR/L - will create FM_Child from nOPV2 (L)
+INFO [2026-04-17 15:29:16]     Unified FM_Child sample (nOPV2 priority): 1, 1, 1, 1, 1
+INFO [2026-04-17 15:29:16]     Processed regular file: 6 aggregated rows
+INFO [2026-04-17 15:29:16]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-17 15:29:16]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-17 15:29:16] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-17 15:29:17]     Initial data: 462 rows, 179 columns
+INFO [2026-04-17 15:29:17]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:29:17]     Processed regular file: 77 aggregated rows
+INFO [2026-04-17 15:29:17]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-17 15:29:17]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-17 15:29:17] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-17 15:29:17]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 15:29:21]     Read 96470 rows
+INFO [2026-04-17 15:31:24]     Processed 272: 7854 rows
+INFO [2026-04-17 15:31:24]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 15:31:24]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 15:31:24] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-17 15:31:24]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-17 15:31:24]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:25]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-17 15:31:25]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-17 15:31:25]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-17 15:31:25] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-17 15:31:25]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-17 15:31:26]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:26]     Processed regular file: 812 aggregated rows
+INFO [2026-04-17 15:31:26]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-17 15:31:26]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-17 15:31:26] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-17 15:31:26]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-17 15:31:26]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:27]     Processed regular file: 392 aggregated rows
+INFO [2026-04-17 15:31:27]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-17 15:31:27]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-17 15:31:27] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-17 15:31:27]     Initial data: 928 rows, 195 columns
+INFO [2026-04-17 15:31:27]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:27]     Processed regular file: 155 aggregated rows
+INFO [2026-04-17 15:31:27]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-17 15:31:27]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-17 15:31:27] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-17 15:31:27]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-17 15:31:28]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-04-17 15:31:28]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-04-17 15:31:28]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-17 15:31:28]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-17 15:31:28]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-17 15:31:28] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-17 15:31:28]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-17 15:31:29]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:29]     Processed regular file: 334 aggregated rows
+INFO [2026-04-17 15:31:29]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-17 15:31:29]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-17 15:31:29] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-17 15:31:29]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-17 15:31:29]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:29]     Processed regular file: 418 aggregated rows
+INFO [2026-04-17 15:31:29]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-17 15:31:29]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-17 15:31:29] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-17 15:31:30]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-17 15:31:30]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:30]     Processed regular file: 907 aggregated rows
+INFO [2026-04-17 15:31:30]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-17 15:31:30]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-17 15:31:30] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-17 15:31:31]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-17 15:31:32]     Processed regular file: 4600 aggregated rows
+INFO [2026-04-17 15:31:32]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-04-17 15:31:32]     ✅ Successfully processed 4500.parquet
+INFO [2026-04-17 15:31:32] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-17 15:31:35]     Initial data: 42534 rows, 578 columns
+ERROR [2026-04-17 15:31:35]     Regular file failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-04-17 15:31:35]     ❌ Failed to process 4987.parquet
+INFO [2026-04-17 15:31:35] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-17 15:31:35]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-17 15:31:35]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:35]     Processed regular file: 361 aggregated rows
+INFO [2026-04-17 15:31:35]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-17 15:31:35]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-17 15:31:35] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-17 15:31:36]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-17 15:31:36]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:37]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-17 15:31:37]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-17 15:31:37]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-17 15:31:37] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-17 15:31:37]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-17 15:31:38]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:38]     Processed regular file: 745 aggregated rows
+INFO [2026-04-17 15:31:38]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-17 15:31:38]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-17 15:31:38] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-17 15:31:38]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-17 15:31:38]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-04-17 15:31:38]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-04-17 15:31:38]     Processed regular file: 324 aggregated rows
+INFO [2026-04-17 15:31:38]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-17 15:31:38]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-17 15:31:38] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-17 15:31:39]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-17 15:31:39]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:39]     Processed regular file: 285 aggregated rows
+INFO [2026-04-17 15:31:39]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-17 15:31:39]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-17 15:31:39] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-17 15:31:39]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-17 15:31:39]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:39]     Processed regular file: 331 aggregated rows
+INFO [2026-04-17 15:31:39]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-17 15:31:39]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-17 15:31:39] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-17 15:31:39]     Initial data: 453 rows, 334 columns
+INFO [2026-04-17 15:31:39]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:40]     Processed regular file: 76 aggregated rows
+INFO [2026-04-17 15:31:40]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-17 15:31:40]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-17 15:31:40] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-17 15:31:40]     Initial data: 944 rows, 335 columns
+INFO [2026-04-17 15:31:40]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:40]     Processed regular file: 158 aggregated rows
+INFO [2026-04-17 15:31:40]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-17 15:31:40]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-17 15:31:40] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-17 15:31:40]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-17 15:31:40]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:41]     Processed regular file: 502 aggregated rows
+INFO [2026-04-17 15:31:41]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-17 15:31:41]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-17 15:31:41] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-17 15:31:41]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-17 15:31:41]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:41]     Processed regular file: 254 aggregated rows
+INFO [2026-04-17 15:31:41]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-17 15:31:41]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-17 15:31:41] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-17 15:31:41]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-17 15:31:41]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:42]     Processed regular file: 328 aggregated rows
+INFO [2026-04-17 15:31:42]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-17 15:31:42]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-17 15:31:42] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-17 15:31:42]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-17 15:31:42]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:43]     Processed regular file: 514 aggregated rows
+INFO [2026-04-17 15:31:43]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-17 15:31:43]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-17 15:31:43] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-17 15:31:43]     Initial data: 258 rows, 341 columns
+INFO [2026-04-17 15:31:43]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:43]     Processed regular file: 43 aggregated rows
+INFO [2026-04-17 15:31:43]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-17 15:31:43]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-17 15:31:43] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-17 15:31:43]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-17 15:31:43]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:43]     Processed regular file: 182 aggregated rows
+INFO [2026-04-17 15:31:43]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-17 15:31:43]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-17 15:31:43] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-17 15:31:44]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-17 15:31:44]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:44]     Processed regular file: 709 aggregated rows
+INFO [2026-04-17 15:31:44]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-17 15:31:44]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-17 15:31:44] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-17 15:31:44]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-17 15:31:45]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:45]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-17 15:31:45]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-17 15:31:45]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-17 15:31:45] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-17 15:31:46]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-17 15:31:46]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:46]     Processed regular file: 586 aggregated rows
+INFO [2026-04-17 15:31:46]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-17 15:31:46]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-17 15:31:46] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-17 15:31:46]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-17 15:31:47]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:47]     Processed regular file: 779 aggregated rows
+INFO [2026-04-17 15:31:47]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-17 15:31:47]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-17 15:31:47] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-17 15:31:48]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-17 15:31:48]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:48]     Processed regular file: 781 aggregated rows
+INFO [2026-04-17 15:31:48]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-17 15:31:48]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-17 15:31:48] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-17 15:31:48]     Initial data: 324 rows, 256 columns
+INFO [2026-04-17 15:31:48]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:48]     Processed regular file: 54 aggregated rows
+INFO [2026-04-17 15:31:48]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-17 15:31:48]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-17 15:31:48] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-17 15:31:49]     Initial data: 882 rows, 182 columns
+INFO [2026-04-17 15:31:49]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:49]     Processed regular file: 147 aggregated rows
+INFO [2026-04-17 15:31:49]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-17 15:31:49]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-17 15:31:49] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-17 15:31:49]     Initial data: 552 rows, 255 columns
+INFO [2026-04-17 15:31:49]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:31:49]     Processed regular file: 60 aggregated rows
+INFO [2026-04-17 15:31:49]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-17 15:31:49]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-17 15:31:49] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-17 15:31:49]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-17 15:31:49]     Read 2687 rows
+INFO [2026-04-17 15:31:54]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-17 15:31:54]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 15:31:54]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 15:31:54] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-17 15:31:54]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 15:31:57]     Read 96470 rows
+INFO [2026-04-17 15:34:04]     Processed 272: 7854 rows
+INFO [2026-04-17 15:34:04]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 15:34:04]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 15:34:04] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 15:34:04] COMBINING RESULTS
+INFO [2026-04-17 15:34:04] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:34:04] Combined 31590 rows from 36 files
+INFO [2026-04-17 15:34:04] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-04-17 15:34:04] After deduplication: 31075 rows
+INFO [2026-04-17 15:34:04] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 15:34:04] SAVING OUTPUTS
+INFO [2026-04-17 15:34:04] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:34:04] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-17 15:34:04] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-17 15:34:04] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-17 15:34:04] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 15:34:04] PROCESSING COMPLETE!
+INFO [2026-04-17 15:34:04] Total records: 31075
+INFO [2026-04-17 15:34:04] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:54:49] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:54:49] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-17 15:54:49] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:54:50] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:54:50] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-17 15:54:50] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:54:50] Found special case: Nigeria CSV
+INFO [2026-04-17 15:54:50] Found special case: 272.parquet
+INFO [2026-04-17 15:54:50] Found 38 total files to process
+INFO [2026-04-17 15:54:50] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-17 15:54:50]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-17 15:54:50]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:54:50]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:54:50]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:54:51]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-17 15:54:51]     Sample output - first 3 districts:
+INFO [2026-04-17 15:54:51]       AMBRIZ: sampled=60, vaccinated=38, missed=22
+INFO [2026-04-17 15:54:51]       AMBRIZ: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:54:51]       AMBRIZ: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:54:51]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-17 15:54:51]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-17 15:54:51] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-17 15:54:51]     Initial data: 36 rows, 167 columns
+INFO [2026-04-17 15:54:51]     New form dataset: Only FM_ChildR/L - will create FM_Child from nOPV2 (L)
+INFO [2026-04-17 15:54:51]     Unified FM_Child sample (nOPV2 priority): 1, 1, 1, 1, 1
+INFO [2026-04-17 15:54:51]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:54:51]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:54:51]     Processed regular file: 6 aggregated rows
+INFO [2026-04-17 15:54:51]     Sample output - first 3 districts:
+INFO [2026-04-17 15:54:51]       DINGUIRAYE: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:54:51]       KANKAN: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:54:51]       KEROUANE: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:54:51]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-17 15:54:51]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-17 15:54:51] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-17 15:54:51]     Initial data: 462 rows, 179 columns
+INFO [2026-04-17 15:54:51]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:54:51]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:54:51]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:54:51]     Processed regular file: 77 aggregated rows
+INFO [2026-04-17 15:54:51]     Sample output - first 3 districts:
+INFO [2026-04-17 15:54:51]       OMARURU: sampled=60, vaccinated=50, missed=10
+INFO [2026-04-17 15:54:52]       OMARURU: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:54:52]       SWAKOPMUND: sampled=60, vaccinated=29, missed=31
+INFO [2026-04-17 15:54:52]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-17 15:54:52]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-17 15:54:52] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-17 15:54:52]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 15:54:56]     Read 96470 rows
+INFO [2026-04-17 15:57:03]     Processed 272: 7854 rows
+INFO [2026-04-17 15:57:03]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 15:57:03]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 15:57:03] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-17 15:57:03]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-17 15:57:04]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:04]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:04]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:04]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-17 15:57:04]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:04]       ASUNAFO NORTH: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:04]       ASUNAFO NORTH: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:04]       ASUNAFO NORTH: sampled=60, vaccinated=54, missed=6
+INFO [2026-04-17 15:57:04]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-17 15:57:04]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-17 15:57:04] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-17 15:57:04]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-17 15:57:05]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:05]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:05]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:05]     Processed regular file: 812 aggregated rows
+INFO [2026-04-17 15:57:05]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:05]       CHIBOMBO: sampled=60, vaccinated=48, missed=12
+INFO [2026-04-17 15:57:05]       CHIBOMBO: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:05]       CHIBOMBO: sampled=60, vaccinated=56, missed=4
+INFO [2026-04-17 15:57:05]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-17 15:57:05]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-17 15:57:05] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-17 15:57:05]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-17 15:57:06]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:06]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:06]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:06]     Processed regular file: 392 aggregated rows
+INFO [2026-04-17 15:57:06]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:06]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:06]       BANIKOARA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:06]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:06]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-17 15:57:06]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-17 15:57:06] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-17 15:57:06]     Initial data: 928 rows, 195 columns
+INFO [2026-04-17 15:57:06]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:06]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:06]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:06]     Processed regular file: 155 aggregated rows
+INFO [2026-04-17 15:57:06]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:06]       BLITTA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:06]       BLITTA: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 15:57:06]       BLITTA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:06]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-17 15:57:06]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-17 15:57:06] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-17 15:57:06]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-17 15:57:07]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-04-17 15:57:07]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-04-17 15:57:07]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:07]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:08]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-17 15:57:08]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:08]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 15:57:08]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 15:57:08]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 15:57:08]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-17 15:57:08]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-17 15:57:08] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-17 15:57:08]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-17 15:57:08]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:08]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:08]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:08]     Processed regular file: 334 aggregated rows
+INFO [2026-04-17 15:57:08]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:08]       BEGOUA: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 15:57:08]       BEGOUA: sampled=60, vaccinated=56, missed=4
+INFO [2026-04-17 15:57:08]       BEGOUA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:08]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-17 15:57:08]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-17 15:57:08] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-17 15:57:08]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-17 15:57:09]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:09]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:09]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:09]     Processed regular file: 418 aggregated rows
+INFO [2026-04-17 15:57:09]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:09]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:09]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:09]       DEDOUGOU: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:09]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-17 15:57:09]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-17 15:57:09] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-17 15:57:09]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-17 15:57:09]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:09]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:09]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:10]     Processed regular file: 907 aggregated rows
+INFO [2026-04-17 15:57:10]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:10]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 15:57:10]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 15:57:10]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 15:57:10]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-17 15:57:10]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-17 15:57:10] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-17 15:57:10]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-17 15:57:10]     Detected child indices: 
+INFO [2026-04-17 15:57:10]     Alternative pattern detected child indices: 
+WARN [2026-04-17 15:57:10]     No child indices found in column names!
+WARN [2026-04-17 15:57:10]     ❌ Failed to process 4500.parquet
+INFO [2026-04-17 15:57:10] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-17 15:57:14]     Initial data: 42534 rows, 578 columns
+INFO [2026-04-17 15:57:14]     Detected child indices: 
+INFO [2026-04-17 15:57:14]     Alternative pattern detected child indices: 
+WARN [2026-04-17 15:57:14]     No child indices found in column names!
+WARN [2026-04-17 15:57:14]     ❌ Failed to process 4987.parquet
+INFO [2026-04-17 15:57:14] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-17 15:57:14]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-17 15:57:14]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:14]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:14]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:14]     Processed regular file: 361 aggregated rows
+INFO [2026-04-17 15:57:14]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:14]       LOUDIMA: sampled=60, vaccinated=54, missed=6
+INFO [2026-04-17 15:57:14]       LOUDIMA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:14]       LOUDIMA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:14]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-17 15:57:14]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-17 15:57:14] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-17 15:57:15]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-17 15:57:16]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:16]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:16]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:16]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-17 15:57:16]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:16]       BANKIM: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:16]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:16]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:16]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-17 15:57:16]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-17 15:57:16] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-17 15:57:17]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-17 15:57:17]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:17]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:17]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:17]     Processed regular file: 745 aggregated rows
+INFO [2026-04-17 15:57:17]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:17]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:17]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:17]       ADERBISSANAT: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 15:57:17]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-17 15:57:17]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-17 15:57:17] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-17 15:57:17]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-17 15:57:17]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-04-17 15:57:17]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-04-17 15:57:17]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:17]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:18]     Processed regular file: 324 aggregated rows
+INFO [2026-04-17 15:57:18]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:18]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 15:57:18]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 15:57:18]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 15:57:18]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-17 15:57:18]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-17 15:57:18] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-17 15:57:18]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-17 15:57:18]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:18]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:18]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:18]     Processed regular file: 285 aggregated rows
+INFO [2026-04-17 15:57:18]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:18]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:18]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:18]       JUBA: sampled=60, vaccinated=55, missed=5
+INFO [2026-04-17 15:57:18]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-17 15:57:18]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-17 15:57:18] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-17 15:57:18]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-17 15:57:18]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:18]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:18]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:19]     Processed regular file: 331 aggregated rows
+INFO [2026-04-17 15:57:19]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:19]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:19]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:19]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:19]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-17 15:57:19]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-17 15:57:19] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-17 15:57:19]     Initial data: 453 rows, 334 columns
+INFO [2026-04-17 15:57:19]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:19]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:19]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:19]     Processed regular file: 76 aggregated rows
+INFO [2026-04-17 15:57:19]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:19]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:19]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:19]       KAILAHUN: sampled=60, vaccinated=49, missed=11
+INFO [2026-04-17 15:57:19]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-17 15:57:19]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-17 15:57:19] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-17 15:57:19]     Initial data: 944 rows, 335 columns
+INFO [2026-04-17 15:57:19]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:19]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:19]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:19]     Processed regular file: 158 aggregated rows
+INFO [2026-04-17 15:57:19]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:19]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-04-17 15:57:19]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-04-17 15:57:19]       DAKAR NORD: sampled=60, vaccinated=43, missed=17
+INFO [2026-04-17 15:57:19]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-17 15:57:19]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-17 15:57:19] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-17 15:57:20]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-17 15:57:20]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:20]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:20]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:20]     Processed regular file: 502 aggregated rows
+INFO [2026-04-17 15:57:20]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:20]       BUMULA: sampled=60, vaccinated=43, missed=17
+INFO [2026-04-17 15:57:20]       BUMULA: sampled=60, vaccinated=46, missed=14
+INFO [2026-04-17 15:57:20]       CHEPTAIS: sampled=60, vaccinated=53, missed=7
+INFO [2026-04-17 15:57:20]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-17 15:57:20]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-17 15:57:20] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-17 15:57:20]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-17 15:57:20]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:20]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:20]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:20]     Processed regular file: 254 aggregated rows
+INFO [2026-04-17 15:57:21]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:21]       AOUJEFT: sampled=60, vaccinated=46, missed=14
+INFO [2026-04-17 15:57:21]       AOUJEFT: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 15:57:21]       AOUJEFT: sampled=60, vaccinated=3, missed=57
+INFO [2026-04-17 15:57:21]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-17 15:57:21]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-17 15:57:21] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-17 15:57:21]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-17 15:57:21]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:21]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:21]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:21]     Processed regular file: 328 aggregated rows
+INFO [2026-04-17 15:57:21]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:21]       ADJUMANI DISTRICT: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:21]       ADJUMANI DISTRICT: sampled=60, vaccinated=46, missed=14
+INFO [2026-04-17 15:57:21]       ARUA CITY: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 15:57:21]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-17 15:57:21]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-17 15:57:21] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-17 15:57:21]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-17 15:57:22]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:22]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:22]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:22]     Processed regular file: 514 aggregated rows
+INFO [2026-04-17 15:57:22]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:22]       ADDIS ABABA: sampled=1410, vaccinated=1336, missed=74
+INFO [2026-04-17 15:57:22]       ADDIS ABABA: sampled=1640, vaccinated=1549, missed=91
+INFO [2026-04-17 15:57:22]       ADDIS ABABA: sampled=1480, vaccinated=1442, missed=38
+INFO [2026-04-17 15:57:22]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-17 15:57:22]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-17 15:57:22] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-17 15:57:22]     Initial data: 258 rows, 341 columns
+INFO [2026-04-17 15:57:22]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:22]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:22]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:23]     Processed regular file: 43 aggregated rows
+INFO [2026-04-17 15:57:23]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:23]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 15:57:23]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 15:57:23]       LOTE 2: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 15:57:23]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-17 15:57:23]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-17 15:57:23] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-17 15:57:23]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-17 15:57:23]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:23]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:23]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:23]     Processed regular file: 182 aggregated rows
+INFO [2026-04-17 15:57:23]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:23]       DOWA: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:23]       DOWA: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 15:57:23]       DOWA: sampled=60, vaccinated=49, missed=11
+INFO [2026-04-17 15:57:23]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-17 15:57:23]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-17 15:57:23] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-17 15:57:23]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-17 15:57:23]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:23]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:23]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:24]     Processed regular file: 709 aggregated rows
+INFO [2026-04-17 15:57:24]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:24]       ARUSHA CC: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:24]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:24]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:24]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-17 15:57:24]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-17 15:57:24] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-17 15:57:24]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-17 15:57:24]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:24]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:24]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:25]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-17 15:57:25]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:25]       ANCUABE: sampled=60, vaccinated=53, missed=7
+INFO [2026-04-17 15:57:25]       ANCUABE: sampled=60, vaccinated=50, missed=10
+INFO [2026-04-17 15:57:25]       ANCUABE: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:25]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-17 15:57:25]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-17 15:57:25] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-17 15:57:25]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-17 15:57:25]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:25]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:25]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:26]     Processed regular file: 586 aggregated rows
+INFO [2026-04-17 15:57:26]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:26]       EMAKHANDENI: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 15:57:26]       EMAKHANDENI: sampled=60, vaccinated=50, missed=10
+INFO [2026-04-17 15:57:26]       EMAKHANDENI: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:26]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-17 15:57:26]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-17 15:57:26] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-17 15:57:26]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-17 15:57:26]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:26]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:26]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:26]     Processed regular file: 779 aggregated rows
+INFO [2026-04-17 15:57:26]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:26]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:26]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:26]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:26]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-17 15:57:26]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-17 15:57:26] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-17 15:57:27]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-17 15:57:27]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:27]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:27]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:27]     Processed regular file: 781 aggregated rows
+INFO [2026-04-17 15:57:27]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:27]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:27]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:27]       AOULEF: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:27]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-17 15:57:27]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-17 15:57:27] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-17 15:57:27]     Initial data: 324 rows, 256 columns
+INFO [2026-04-17 15:57:28]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:28]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:28]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:28]     Processed regular file: 54 aggregated rows
+INFO [2026-04-17 15:57:28]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:28]       BOBIRWA: sampled=60, vaccinated=45, missed=15
+INFO [2026-04-17 15:57:28]       BOBIRWA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:28]       BOTETI: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:28]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-17 15:57:28]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-17 15:57:28] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-17 15:57:28]     Initial data: 882 rows, 182 columns
+INFO [2026-04-17 15:57:28]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:28]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:28]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:28]     Processed regular file: 147 aggregated rows
+INFO [2026-04-17 15:57:28]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:28]       BUBANZA: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:28]       BUBANZA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:28]       BUBANZA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 15:57:28]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-17 15:57:28]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-17 15:57:28] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-17 15:57:28]     Initial data: 552 rows, 255 columns
+INFO [2026-04-17 15:57:28]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 15:57:28]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 15:57:28]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 15:57:28]     Processed regular file: 60 aggregated rows
+INFO [2026-04-17 15:57:28]     Sample output - first 3 districts:
+INFO [2026-04-17 15:57:28]       BUGESERA: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 15:57:28]       BUGESERA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 15:57:28]       GATSIBO: sampled=120, vaccinated=120, missed=0
+INFO [2026-04-17 15:57:29]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-17 15:57:29]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-17 15:57:29] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-17 15:57:29]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-17 15:57:29]     Read 2687 rows
+INFO [2026-04-17 15:57:33]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-17 15:57:33]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 15:57:33]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 15:57:33] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-17 15:57:33]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 15:57:36]     Read 96470 rows
+INFO [2026-04-17 15:59:43]     Processed 272: 7854 rows
+INFO [2026-04-17 15:59:43]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 15:59:43]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 15:59:43] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 15:59:43] COMBINING RESULTS
+INFO [2026-04-17 15:59:43] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:59:43] Combined 26990 rows from 35 files
+INFO [2026-04-17 15:59:43] Regular files: 33, Special cases: 3, Failed: 2
+INFO [2026-04-17 15:59:43] After deduplication: 26475 rows
+INFO [2026-04-17 15:59:43] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 15:59:43] SAVING OUTPUTS
+INFO [2026-04-17 15:59:43] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 15:59:43] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-17 15:59:43] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-17 15:59:43] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-17 15:59:43] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 15:59:43] PROCESSING COMPLETE!
+INFO [2026-04-17 15:59:43] Total records: 26475
+INFO [2026-04-17 15:59:43] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:03:24] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:03:24] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-17 16:03:24] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:03:24] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:03:24] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-17 16:03:24] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:03:24] Found special case: Nigeria CSV
+INFO [2026-04-17 16:03:24] Found special case: 272.parquet
+INFO [2026-04-17 16:03:24] Found 38 total files to process
+INFO [2026-04-17 16:03:24] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-17 16:03:25]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-17 16:03:25]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:03:25]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:03:25]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:03:26]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-17 16:03:26]     Sample output - first 3 districts:
+INFO [2026-04-17 16:03:26]       AMBRIZ: sampled=60, vaccinated=38, missed=22
+INFO [2026-04-17 16:03:26]       AMBRIZ: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:03:26]       AMBRIZ: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:03:26]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-17 16:03:26]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-17 16:03:26] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-17 16:03:26]     Initial data: 36 rows, 167 columns
+INFO [2026-04-17 16:03:26]     New form dataset: Only FM_ChildR/L - will create FM_Child from nOPV2 (L)
+INFO [2026-04-17 16:03:26]     Unified FM_Child sample (nOPV2 priority): 1, 1, 1, 1, 1
+INFO [2026-04-17 16:03:26]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:03:26]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:03:26]     Processed regular file: 6 aggregated rows
+INFO [2026-04-17 16:03:26]     Sample output - first 3 districts:
+INFO [2026-04-17 16:03:26]       DINGUIRAYE: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:03:26]       KANKAN: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:03:26]       KEROUANE: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:03:26]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-17 16:03:26]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-17 16:03:26] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-17 16:03:26]     Initial data: 462 rows, 179 columns
+INFO [2026-04-17 16:03:26]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:03:26]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:03:26]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:03:26]     Processed regular file: 77 aggregated rows
+INFO [2026-04-17 16:03:26]     Sample output - first 3 districts:
+INFO [2026-04-17 16:03:26]       OMARURU: sampled=60, vaccinated=50, missed=10
+INFO [2026-04-17 16:03:26]       OMARURU: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:03:26]       SWAKOPMUND: sampled=60, vaccinated=29, missed=31
+INFO [2026-04-17 16:03:26]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-17 16:03:26]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-17 16:03:26] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-17 16:03:26]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 16:03:30]     Read 96470 rows
+INFO [2026-04-17 16:05:36]     Processed 272: 7854 rows
+INFO [2026-04-17 16:05:36]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 16:05:36]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 16:05:36] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-17 16:05:36]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-17 16:05:36]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:36]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:36]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:37]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-17 16:05:37]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:37]       ASUNAFO NORTH: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:05:37]       ASUNAFO NORTH: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:05:37]       ASUNAFO NORTH: sampled=60, vaccinated=54, missed=6
+INFO [2026-04-17 16:05:37]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-17 16:05:37]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-17 16:05:37] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-17 16:05:37]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-17 16:05:37]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:37]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:37]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:38]     Processed regular file: 812 aggregated rows
+INFO [2026-04-17 16:05:38]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:38]       CHIBOMBO: sampled=60, vaccinated=48, missed=12
+INFO [2026-04-17 16:05:38]       CHIBOMBO: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:38]       CHIBOMBO: sampled=60, vaccinated=56, missed=4
+INFO [2026-04-17 16:05:38]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-17 16:05:38]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-17 16:05:38] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-17 16:05:38]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-17 16:05:38]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:38]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:38]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:38]     Processed regular file: 392 aggregated rows
+INFO [2026-04-17 16:05:38]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:38]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:05:38]       BANIKOARA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:38]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:05:38]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-17 16:05:38]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-17 16:05:38] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-17 16:05:38]     Initial data: 928 rows, 195 columns
+INFO [2026-04-17 16:05:38]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:38]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:38]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:39]     Processed regular file: 155 aggregated rows
+INFO [2026-04-17 16:05:39]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:39]       BLITTA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:39]       BLITTA: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:05:39]       BLITTA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:05:39]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-17 16:05:39]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-17 16:05:39] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-17 16:05:39]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-17 16:05:39]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-04-17 16:05:39]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-04-17 16:05:39]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:39]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:40]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-17 16:05:40]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:40]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:05:40]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:05:40]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:05:40]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-17 16:05:40]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-17 16:05:40] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-17 16:05:40]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-17 16:05:40]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:40]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:40]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:41]     Processed regular file: 334 aggregated rows
+INFO [2026-04-17 16:05:41]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:41]       BEGOUA: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 16:05:41]       BEGOUA: sampled=60, vaccinated=56, missed=4
+INFO [2026-04-17 16:05:41]       BEGOUA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:05:41]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-17 16:05:41]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-17 16:05:41] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-17 16:05:41]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-17 16:05:41]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:41]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:41]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:41]     Processed regular file: 418 aggregated rows
+INFO [2026-04-17 16:05:41]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:41]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:41]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:41]       DEDOUGOU: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:41]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-17 16:05:41]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-17 16:05:41] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-17 16:05:42]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-17 16:05:42]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:42]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:42]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:42]     Processed regular file: 907 aggregated rows
+INFO [2026-04-17 16:05:42]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:42]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:05:42]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:05:42]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:05:42]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-17 16:05:42]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-17 16:05:42] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-17 16:05:43]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-17 16:05:43]     Detected child indices: 
+INFO [2026-04-17 16:05:43]     Alternative pattern detected child indices: 
+WARN [2026-04-17 16:05:43]     No child indices found in column names!
+WARN [2026-04-17 16:05:43]     ❌ Failed to process 4500.parquet
+INFO [2026-04-17 16:05:43] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-17 16:05:46]     Initial data: 42534 rows, 578 columns
+INFO [2026-04-17 16:05:46]     Detected child indices: 
+INFO [2026-04-17 16:05:46]     Alternative pattern detected child indices: 
+WARN [2026-04-17 16:05:46]     No child indices found in column names!
+WARN [2026-04-17 16:05:46]     ❌ Failed to process 4987.parquet
+INFO [2026-04-17 16:05:46] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-17 16:05:46]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-17 16:05:46]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:46]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:46]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:47]     Processed regular file: 361 aggregated rows
+INFO [2026-04-17 16:05:47]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:47]       LOUDIMA: sampled=60, vaccinated=54, missed=6
+INFO [2026-04-17 16:05:47]       LOUDIMA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:05:47]       LOUDIMA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:47]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-17 16:05:47]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-17 16:05:47] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-17 16:05:47]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-17 16:05:48]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:48]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:48]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:49]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-17 16:05:49]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:49]       BANKIM: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:05:49]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:49]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:49]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-17 16:05:49]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-17 16:05:49] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-17 16:05:49]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-17 16:05:49]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:49]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:49]     Processed regular file: 745 aggregated rows
+INFO [2026-04-17 16:05:49]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:49]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:05:49]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:05:49]       ADERBISSANAT: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:05:49]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-17 16:05:49]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-17 16:05:49] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-17 16:05:49]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-17 16:05:49]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-04-17 16:05:49]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-04-17 16:05:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:50]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:50]     Processed regular file: 324 aggregated rows
+INFO [2026-04-17 16:05:50]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:50]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:05:50]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:05:50]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:05:50]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-17 16:05:50]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-17 16:05:50] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-17 16:05:50]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-17 16:05:50]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:50]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:50]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:50]     Processed regular file: 285 aggregated rows
+INFO [2026-04-17 16:05:50]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:50]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:05:50]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:05:50]       JUBA: sampled=60, vaccinated=55, missed=5
+INFO [2026-04-17 16:05:50]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-17 16:05:50]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-17 16:05:50] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-17 16:05:50]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-17 16:05:50]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:50]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:50]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:51]     Processed regular file: 331 aggregated rows
+INFO [2026-04-17 16:05:51]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:51]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:51]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:51]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:51]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-17 16:05:51]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-17 16:05:51] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-17 16:05:51]     Initial data: 453 rows, 334 columns
+INFO [2026-04-17 16:05:51]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:51]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:51]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:51]     Processed regular file: 76 aggregated rows
+INFO [2026-04-17 16:05:51]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:51]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:51]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:51]       KAILAHUN: sampled=60, vaccinated=49, missed=11
+INFO [2026-04-17 16:05:51]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-17 16:05:51]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-17 16:05:51] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-17 16:05:51]     Initial data: 944 rows, 335 columns
+INFO [2026-04-17 16:05:51]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:51]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:51]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:52]     Processed regular file: 158 aggregated rows
+INFO [2026-04-17 16:05:52]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:52]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-04-17 16:05:52]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-04-17 16:05:52]       DAKAR NORD: sampled=60, vaccinated=43, missed=17
+INFO [2026-04-17 16:05:52]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-17 16:05:52]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-17 16:05:52] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-17 16:05:52]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-17 16:05:52]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:52]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:52]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:52]     Processed regular file: 502 aggregated rows
+INFO [2026-04-17 16:05:52]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:52]       BUMULA: sampled=60, vaccinated=43, missed=17
+INFO [2026-04-17 16:05:52]       BUMULA: sampled=60, vaccinated=46, missed=14
+INFO [2026-04-17 16:05:52]       CHEPTAIS: sampled=60, vaccinated=53, missed=7
+INFO [2026-04-17 16:05:52]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-17 16:05:52]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-17 16:05:52] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-17 16:05:52]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-17 16:05:52]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:52]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:52]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:53]     Processed regular file: 254 aggregated rows
+INFO [2026-04-17 16:05:53]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:53]       AOUJEFT: sampled=60, vaccinated=46, missed=14
+INFO [2026-04-17 16:05:53]       AOUJEFT: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:05:53]       AOUJEFT: sampled=60, vaccinated=3, missed=57
+INFO [2026-04-17 16:05:53]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-17 16:05:53]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-17 16:05:53] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-17 16:05:53]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-17 16:05:53]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:53]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:53]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:53]     Processed regular file: 328 aggregated rows
+INFO [2026-04-17 16:05:53]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:53]       ADJUMANI DISTRICT: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:05:53]       ADJUMANI DISTRICT: sampled=60, vaccinated=46, missed=14
+INFO [2026-04-17 16:05:53]       ARUA CITY: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 16:05:53]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-17 16:05:53]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-17 16:05:53] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-17 16:05:54]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-17 16:05:54]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:54]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:54]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:54]     Processed regular file: 514 aggregated rows
+INFO [2026-04-17 16:05:54]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:54]       ADDIS ABABA: sampled=1410, vaccinated=1336, missed=74
+INFO [2026-04-17 16:05:54]       ADDIS ABABA: sampled=1640, vaccinated=1549, missed=91
+INFO [2026-04-17 16:05:54]       ADDIS ABABA: sampled=1480, vaccinated=1442, missed=38
+INFO [2026-04-17 16:05:54]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-17 16:05:54]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-17 16:05:54] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-17 16:05:54]     Initial data: 258 rows, 341 columns
+INFO [2026-04-17 16:05:54]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:54]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:54]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:55]     Processed regular file: 43 aggregated rows
+INFO [2026-04-17 16:05:55]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:55]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:05:55]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:05:55]       LOTE 2: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:05:55]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-17 16:05:55]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-17 16:05:55] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-17 16:05:55]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-17 16:05:55]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:55]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:55]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:55]     Processed regular file: 182 aggregated rows
+INFO [2026-04-17 16:05:55]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:55]       DOWA: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:05:55]       DOWA: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 16:05:55]       DOWA: sampled=60, vaccinated=49, missed=11
+INFO [2026-04-17 16:05:55]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-17 16:05:55]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-17 16:05:55] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-17 16:05:55]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-17 16:05:56]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:56]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:56]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:56]     Processed regular file: 709 aggregated rows
+INFO [2026-04-17 16:05:56]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:56]       ARUSHA CC: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:05:56]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:56]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:56]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-17 16:05:56]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-17 16:05:56] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-17 16:05:56]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-17 16:05:57]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:57]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:57]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:57]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-17 16:05:57]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:57]       ANCUABE: sampled=60, vaccinated=53, missed=7
+INFO [2026-04-17 16:05:57]       ANCUABE: sampled=60, vaccinated=50, missed=10
+INFO [2026-04-17 16:05:57]       ANCUABE: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:58]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-17 16:05:58]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-17 16:05:58] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-17 16:05:58]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-17 16:05:58]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:58]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:58]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:58]     Processed regular file: 586 aggregated rows
+INFO [2026-04-17 16:05:58]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:58]       EMAKHANDENI: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 16:05:58]       EMAKHANDENI: sampled=60, vaccinated=50, missed=10
+INFO [2026-04-17 16:05:58]       EMAKHANDENI: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:05:58]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-17 16:05:58]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-17 16:05:58] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-17 16:05:58]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-17 16:05:59]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:59]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:59]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:05:59]     Processed regular file: 779 aggregated rows
+INFO [2026-04-17 16:05:59]     Sample output - first 3 districts:
+INFO [2026-04-17 16:05:59]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:59]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:59]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:05:59]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-17 16:05:59]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-17 16:05:59] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-17 16:05:59]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-17 16:05:59]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:05:59]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:05:59]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:06:00]     Processed regular file: 781 aggregated rows
+INFO [2026-04-17 16:06:00]     Sample output - first 3 districts:
+INFO [2026-04-17 16:06:00]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:06:00]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:06:00]       AOULEF: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:06:00]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-17 16:06:00]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-17 16:06:00] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-17 16:06:00]     Initial data: 324 rows, 256 columns
+INFO [2026-04-17 16:06:00]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:06:00]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:06:00]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:06:00]     Processed regular file: 54 aggregated rows
+INFO [2026-04-17 16:06:00]     Sample output - first 3 districts:
+INFO [2026-04-17 16:06:00]       BOBIRWA: sampled=60, vaccinated=45, missed=15
+INFO [2026-04-17 16:06:00]       BOBIRWA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:06:00]       BOTETI: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:06:00]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-17 16:06:00]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-17 16:06:00] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-17 16:06:00]     Initial data: 882 rows, 182 columns
+INFO [2026-04-17 16:06:00]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:06:00]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:06:00]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:06:00]     Processed regular file: 147 aggregated rows
+INFO [2026-04-17 16:06:00]     Sample output - first 3 districts:
+INFO [2026-04-17 16:06:00]       BUBANZA: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:06:00]       BUBANZA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:06:00]       BUBANZA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:06:00]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-17 16:06:00]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-17 16:06:00] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-17 16:06:00]     Initial data: 552 rows, 255 columns
+INFO [2026-04-17 16:06:01]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:06:01]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:06:01]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:06:01]     Processed regular file: 60 aggregated rows
+INFO [2026-04-17 16:06:01]     Sample output - first 3 districts:
+INFO [2026-04-17 16:06:01]       BUGESERA: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:06:01]       BUGESERA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:06:01]       GATSIBO: sampled=120, vaccinated=120, missed=0
+INFO [2026-04-17 16:06:01]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-17 16:06:01]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-17 16:06:01] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-17 16:06:01]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-17 16:06:01]     Read 2687 rows
+INFO [2026-04-17 16:06:05]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-17 16:06:05]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 16:06:05]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 16:06:05] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-17 16:06:05]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 16:06:08]     Read 96470 rows
+INFO [2026-04-17 16:08:14]     Processed 272: 7854 rows
+INFO [2026-04-17 16:08:14]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 16:08:14]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 16:08:14] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 16:08:14] COMBINING RESULTS
+INFO [2026-04-17 16:08:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:08:14] Combined 26990 rows from 35 files
+INFO [2026-04-17 16:08:14] Regular files: 33, Special cases: 3, Failed: 2
+INFO [2026-04-17 16:08:14] After deduplication: 26475 rows
+INFO [2026-04-17 16:08:14] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 16:08:14] SAVING OUTPUTS
+INFO [2026-04-17 16:08:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:08:14] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-17 16:08:14] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-17 16:08:14] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-17 16:08:14] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 16:08:14] PROCESSING COMPLETE!
+INFO [2026-04-17 16:08:14] Total records: 26475
+INFO [2026-04-17 16:08:14] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:20:52] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:20:52] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-04-17 16:20:52] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:20:52] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:20:52] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-04-17 16:20:52] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:20:52] Found special case: Nigeria CSV
+INFO [2026-04-17 16:20:52] Found special case: 272.parquet
+INFO [2026-04-17 16:20:53] Found 38 total files to process
+INFO [2026-04-17 16:20:53] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-04-17 16:20:53]     Initial data: 8781 rows, 218 columns
+INFO [2026-04-17 16:20:53]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:20:53]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:20:53]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:20:54]     Processed regular file: 1467 aggregated rows
+INFO [2026-04-17 16:20:54]     Sample output - first 3 districts:
+INFO [2026-04-17 16:20:54]       AMBRIZ: sampled=60, vaccinated=38, missed=22
+INFO [2026-04-17 16:20:54]       AMBRIZ: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:20:54]       AMBRIZ: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:20:54]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-04-17 16:20:54]     ✅ Successfully processed 10271.parquet
+INFO [2026-04-17 16:20:54] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-04-17 16:20:54]     Initial data: 36 rows, 167 columns
+INFO [2026-04-17 16:20:54]     New form dataset: Only FM_ChildR/L - will create FM_Child from nOPV2 (L)
+INFO [2026-04-17 16:20:54]     Unified FM_Child sample (nOPV2 priority): 1, 1, 1, 1, 1
+INFO [2026-04-17 16:20:54]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:20:54]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:20:54]     Processed regular file: 6 aggregated rows
+INFO [2026-04-17 16:20:54]     Sample output - first 3 districts:
+INFO [2026-04-17 16:20:54]       DINGUIRAYE: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:20:54]       KANKAN: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:20:54]       KEROUANE: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:20:54]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-04-17 16:20:54]     ✅ Successfully processed 13593.parquet
+INFO [2026-04-17 16:20:54] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-04-17 16:20:54]     Initial data: 462 rows, 179 columns
+INFO [2026-04-17 16:20:54]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:20:54]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:20:54]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:20:54]     Processed regular file: 77 aggregated rows
+INFO [2026-04-17 16:20:54]     Sample output - first 3 districts:
+INFO [2026-04-17 16:20:54]       OMARURU: sampled=60, vaccinated=50, missed=10
+INFO [2026-04-17 16:20:54]       OMARURU: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:20:54]       SWAKOPMUND: sampled=60, vaccinated=29, missed=31
+INFO [2026-04-17 16:20:54]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-04-17 16:20:54]     ✅ Successfully processed 15782.parquet
+INFO [2026-04-17 16:20:54] --- Processing file 4/38: 272.parquet ---
+INFO [2026-04-17 16:20:55]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 16:20:59]     Read 96470 rows
+INFO [2026-04-17 16:23:38]     Processed 272: 7854 rows
+INFO [2026-04-17 16:23:38]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 16:23:38]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 16:23:38] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-04-17 16:23:39]     Initial data: 8597 rows, 188 columns
+INFO [2026-04-17 16:23:39]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:39]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:39]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:40]     Processed regular file: 1436 aggregated rows
+INFO [2026-04-17 16:23:40]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:40]       ASUNAFO NORTH: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:23:40]       ASUNAFO NORTH: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:23:40]       ASUNAFO NORTH: sampled=60, vaccinated=54, missed=6
+INFO [2026-04-17 16:23:40]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-04-17 16:23:40]     ✅ Successfully processed 3583.parquet
+INFO [2026-04-17 16:23:40] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-04-17 16:23:40]     Initial data: 4845 rows, 198 columns
+INFO [2026-04-17 16:23:40]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:40]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:40]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:41]     Processed regular file: 812 aggregated rows
+INFO [2026-04-17 16:23:41]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:41]       CHIBOMBO: sampled=60, vaccinated=48, missed=12
+INFO [2026-04-17 16:23:41]       CHIBOMBO: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:41]       CHIBOMBO: sampled=60, vaccinated=56, missed=4
+INFO [2026-04-17 16:23:41]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-04-17 16:23:41]     ✅ Successfully processed 4351.parquet
+INFO [2026-04-17 16:23:41] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-04-17 16:23:41]     Initial data: 2327 rows, 308 columns
+INFO [2026-04-17 16:23:41]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:41]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:41]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:41]     Processed regular file: 392 aggregated rows
+INFO [2026-04-17 16:23:41]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:41]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:23:41]       BANIKOARA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:41]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:23:41]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-04-17 16:23:41]     ✅ Successfully processed 4388.parquet
+INFO [2026-04-17 16:23:41] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-04-17 16:23:41]     Initial data: 928 rows, 195 columns
+INFO [2026-04-17 16:23:42]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:42]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:42]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:42]     Processed regular file: 155 aggregated rows
+INFO [2026-04-17 16:23:42]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:42]       BLITTA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:42]       BLITTA: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:23:42]       BLITTA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:23:42]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-04-17 16:23:42]     ✅ Successfully processed 4419.parquet
+INFO [2026-04-17 16:23:42] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-04-17 16:23:42]     Initial data: 11271 rows, 219 columns
+INFO [2026-04-17 16:23:43]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-04-17 16:23:43]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-04-17 16:23:43]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:43]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:44]     Processed regular file: 1880 aggregated rows
+INFO [2026-04-17 16:23:44]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:44]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:23:44]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:23:44]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:23:44]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-04-17 16:23:44]     ✅ Successfully processed 4431.parquet
+INFO [2026-04-17 16:23:44] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-04-17 16:23:44]     Initial data: 1971 rows, 307 columns
+INFO [2026-04-17 16:23:44]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:44]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:44]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:44]     Processed regular file: 334 aggregated rows
+INFO [2026-04-17 16:23:44]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:44]       BEGOUA: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 16:23:44]       BEGOUA: sampled=60, vaccinated=56, missed=4
+INFO [2026-04-17 16:23:44]       BEGOUA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:23:44]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-04-17 16:23:44]     ✅ Successfully processed 4436.parquet
+INFO [2026-04-17 16:23:44] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-04-17 16:23:45]     Initial data: 2502 rows, 294 columns
+INFO [2026-04-17 16:23:45]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:45]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:45]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:45]     Processed regular file: 418 aggregated rows
+INFO [2026-04-17 16:23:45]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:45]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:45]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:45]       DEDOUGOU: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:45]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-04-17 16:23:45]     ✅ Successfully processed 4450.parquet
+INFO [2026-04-17 16:23:45] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-04-17 16:23:45]     Initial data: 5404 rows, 311 columns
+INFO [2026-04-17 16:23:46]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:46]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:46]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:46]     Processed regular file: 907 aggregated rows
+INFO [2026-04-17 16:23:46]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:46]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:23:46]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:23:46]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:23:46]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-04-17 16:23:46]     ✅ Successfully processed 4481.parquet
+INFO [2026-04-17 16:23:46] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-04-17 16:23:47]     Initial data: 26553 rows, 51 columns
+INFO [2026-04-17 16:23:47]     Detected child indices: 
+INFO [2026-04-17 16:23:47]     Alternative pattern detected child indices: 
+WARN [2026-04-17 16:23:47]     No child indices found in column names!
+WARN [2026-04-17 16:23:47]     ❌ Failed to process 4500.parquet
+INFO [2026-04-17 16:23:47] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-04-17 16:23:51]     Initial data: 42534 rows, 578 columns
+INFO [2026-04-17 16:23:51]     Detected child indices: 
+INFO [2026-04-17 16:23:51]     Alternative pattern detected child indices: 
+WARN [2026-04-17 16:23:51]     No child indices found in column names!
+WARN [2026-04-17 16:23:51]     ❌ Failed to process 4987.parquet
+INFO [2026-04-17 16:23:51] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-04-17 16:23:51]     Initial data: 2147 rows, 313 columns
+INFO [2026-04-17 16:23:51]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:51]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:51]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:51]     Processed regular file: 361 aggregated rows
+INFO [2026-04-17 16:23:51]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:51]       LOUDIMA: sampled=60, vaccinated=54, missed=6
+INFO [2026-04-17 16:23:51]       LOUDIMA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:23:51]       LOUDIMA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:51]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-04-17 16:23:51]     ✅ Successfully processed 4999.parquet
+INFO [2026-04-17 16:23:51] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-04-17 16:23:52]     Initial data: 12803 rows, 297 columns
+INFO [2026-04-17 16:23:53]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:53]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:53]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:54]     Processed regular file: 2136 aggregated rows
+INFO [2026-04-17 16:23:54]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:54]       BANKIM: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:23:54]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:54]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:54]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-04-17 16:23:54]     ✅ Successfully processed 5203.parquet
+INFO [2026-04-17 16:23:54] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-04-17 16:23:54]     Initial data: 4458 rows, 188 columns
+INFO [2026-04-17 16:23:54]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:54]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:54]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:54]     Processed regular file: 745 aggregated rows
+INFO [2026-04-17 16:23:54]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:54]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:23:54]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:23:54]       ADERBISSANAT: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:23:54]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-04-17 16:23:54]     ✅ Successfully processed 5214.parquet
+INFO [2026-04-17 16:23:54] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-04-17 16:23:55]     Initial data: 1939 rows, 489 columns
+INFO [2026-04-17 16:23:55]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-04-17 16:23:55]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-04-17 16:23:55]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:55]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:55]     Processed regular file: 324 aggregated rows
+INFO [2026-04-17 16:23:55]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:55]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:23:55]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:23:55]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:23:55]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-04-17 16:23:55]     ✅ Successfully processed 5299.parquet
+INFO [2026-04-17 16:23:55] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-04-17 16:23:55]     Initial data: 1699 rows, 225 columns
+INFO [2026-04-17 16:23:55]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:55]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:55]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:56]     Processed regular file: 285 aggregated rows
+INFO [2026-04-17 16:23:56]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:56]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:23:56]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:23:56]       JUBA: sampled=60, vaccinated=55, missed=5
+INFO [2026-04-17 16:23:56]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-04-17 16:23:56]     ✅ Successfully processed 5777.parquet
+INFO [2026-04-17 16:23:56] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-04-17 16:23:56]     Initial data: 1924 rows, 192 columns
+INFO [2026-04-17 16:23:56]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:56]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:56]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:56]     Processed regular file: 331 aggregated rows
+INFO [2026-04-17 16:23:56]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:56]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:56]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:56]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:56]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-04-17 16:23:56]     ✅ Successfully processed 5889.parquet
+INFO [2026-04-17 16:23:56] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-04-17 16:23:56]     Initial data: 453 rows, 334 columns
+INFO [2026-04-17 16:23:56]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:56]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:56]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:56]     Processed regular file: 76 aggregated rows
+INFO [2026-04-17 16:23:56]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:56]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:56]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:23:56]       KAILAHUN: sampled=60, vaccinated=49, missed=11
+INFO [2026-04-17 16:23:56]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-04-17 16:23:56]     ✅ Successfully processed 6104.parquet
+INFO [2026-04-17 16:23:56] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-04-17 16:23:57]     Initial data: 944 rows, 335 columns
+INFO [2026-04-17 16:23:57]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:57]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:57]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:57]     Processed regular file: 158 aggregated rows
+INFO [2026-04-17 16:23:57]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:57]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-04-17 16:23:57]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-04-17 16:23:57]       DAKAR NORD: sampled=60, vaccinated=43, missed=17
+INFO [2026-04-17 16:23:57]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-04-17 16:23:57]     ✅ Successfully processed 6350.parquet
+INFO [2026-04-17 16:23:57] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-04-17 16:23:57]     Initial data: 3012 rows, 213 columns
+INFO [2026-04-17 16:23:57]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:57]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:57]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:58]     Processed regular file: 502 aggregated rows
+INFO [2026-04-17 16:23:58]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:58]       BUMULA: sampled=60, vaccinated=43, missed=17
+INFO [2026-04-17 16:23:58]       BUMULA: sampled=60, vaccinated=46, missed=14
+INFO [2026-04-17 16:23:58]       CHEPTAIS: sampled=60, vaccinated=53, missed=7
+INFO [2026-04-17 16:23:58]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-04-17 16:23:58]     ✅ Successfully processed 6420.parquet
+INFO [2026-04-17 16:23:58] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-04-17 16:23:58]     Initial data: 1516 rows, 345 columns
+INFO [2026-04-17 16:23:58]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:58]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:58]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:58]     Processed regular file: 254 aggregated rows
+INFO [2026-04-17 16:23:58]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:58]       AOUJEFT: sampled=60, vaccinated=46, missed=14
+INFO [2026-04-17 16:23:58]       AOUJEFT: sampled=60, vaccinated=57, missed=3
+INFO [2026-04-17 16:23:58]       AOUJEFT: sampled=60, vaccinated=3, missed=57
+INFO [2026-04-17 16:23:58]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-04-17 16:23:58]     ✅ Successfully processed 6429.parquet
+INFO [2026-04-17 16:23:58] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-04-17 16:23:58]     Initial data: 1968 rows, 366 columns
+INFO [2026-04-17 16:23:58]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:58]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:58]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:23:59]     Processed regular file: 328 aggregated rows
+INFO [2026-04-17 16:23:59]     Sample output - first 3 districts:
+INFO [2026-04-17 16:23:59]       ADJUMANI DISTRICT: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:23:59]       ADJUMANI DISTRICT: sampled=60, vaccinated=46, missed=14
+INFO [2026-04-17 16:23:59]       ARUA CITY: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 16:23:59]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-04-17 16:23:59]     ✅ Successfully processed 6769.parquet
+INFO [2026-04-17 16:23:59] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-04-17 16:23:59]     Initial data: 8831 rows, 289 columns
+INFO [2026-04-17 16:23:59]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:23:59]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:23:59]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:00]     Processed regular file: 514 aggregated rows
+INFO [2026-04-17 16:24:00]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:00]       ADDIS ABABA: sampled=1410, vaccinated=1336, missed=74
+INFO [2026-04-17 16:24:00]       ADDIS ABABA: sampled=1640, vaccinated=1549, missed=91
+INFO [2026-04-17 16:24:00]       ADDIS ABABA: sampled=1480, vaccinated=1442, missed=38
+INFO [2026-04-17 16:24:00]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-04-17 16:24:00]     ✅ Successfully processed 6837.parquet
+INFO [2026-04-17 16:24:00] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-04-17 16:24:00]     Initial data: 258 rows, 341 columns
+INFO [2026-04-17 16:24:00]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:00]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:00]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:00]     Processed regular file: 43 aggregated rows
+INFO [2026-04-17 16:24:00]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:00]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:24:00]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:24:00]       LOTE 2: sampled=60, vaccinated=0, missed=60
+INFO [2026-04-17 16:24:01]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-04-17 16:24:01]     ✅ Successfully processed 7589.parquet
+INFO [2026-04-17 16:24:01] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-04-17 16:24:01]     Initial data: 1093 rows, 356 columns
+INFO [2026-04-17 16:24:01]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:01]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:01]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:01]     Processed regular file: 182 aggregated rows
+INFO [2026-04-17 16:24:01]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:01]       DOWA: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:24:01]       DOWA: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 16:24:01]       DOWA: sampled=60, vaccinated=49, missed=11
+INFO [2026-04-17 16:24:01]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-04-17 16:24:01]     ✅ Successfully processed 7602.parquet
+INFO [2026-04-17 16:24:01] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-04-17 16:24:01]     Initial data: 4135 rows, 182 columns
+INFO [2026-04-17 16:24:01]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:01]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:01]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:02]     Processed regular file: 709 aggregated rows
+INFO [2026-04-17 16:24:02]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:02]       ARUSHA CC: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:24:02]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:02]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:02]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-04-17 16:24:02]     ✅ Successfully processed 7614.parquet
+INFO [2026-04-17 16:24:02] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-04-17 16:24:02]     Initial data: 8689 rows, 506 columns
+INFO [2026-04-17 16:24:03]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:03]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:03]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:03]     Processed regular file: 1452 aggregated rows
+INFO [2026-04-17 16:24:03]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:03]       ANCUABE: sampled=60, vaccinated=53, missed=7
+INFO [2026-04-17 16:24:03]       ANCUABE: sampled=60, vaccinated=50, missed=10
+INFO [2026-04-17 16:24:03]       ANCUABE: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:03]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-04-17 16:24:03]     ✅ Successfully processed 7623.parquet
+INFO [2026-04-17 16:24:03] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-04-17 16:24:03]     Initial data: 3495 rows, 345 columns
+INFO [2026-04-17 16:24:04]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:04]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:04]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:04]     Processed regular file: 586 aggregated rows
+INFO [2026-04-17 16:24:04]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:04]       EMAKHANDENI: sampled=60, vaccinated=52, missed=8
+INFO [2026-04-17 16:24:04]       EMAKHANDENI: sampled=60, vaccinated=50, missed=10
+INFO [2026-04-17 16:24:04]       EMAKHANDENI: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:24:04]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-04-17 16:24:04]     ✅ Successfully processed 7983.parquet
+INFO [2026-04-17 16:24:04] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-04-17 16:24:04]     Initial data: 4603 rows, 238 columns
+INFO [2026-04-17 16:24:05]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:05]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:05]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:05]     Processed regular file: 779 aggregated rows
+INFO [2026-04-17 16:24:05]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:05]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:05]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:05]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:05]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-04-17 16:24:05]     ✅ Successfully processed 8281.parquet
+INFO [2026-04-17 16:24:05] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-04-17 16:24:05]     Initial data: 4747 rows, 193 columns
+INFO [2026-04-17 16:24:05]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:05]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:05]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:06]     Processed regular file: 781 aggregated rows
+INFO [2026-04-17 16:24:06]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:06]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:06]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:06]       AOULEF: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:06]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-04-17 16:24:06]     ✅ Successfully processed 8588.parquet
+INFO [2026-04-17 16:24:06] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-04-17 16:24:06]     Initial data: 324 rows, 256 columns
+INFO [2026-04-17 16:24:06]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:06]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:06]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:07]     Processed regular file: 54 aggregated rows
+INFO [2026-04-17 16:24:07]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:07]       BOBIRWA: sampled=60, vaccinated=45, missed=15
+INFO [2026-04-17 16:24:07]       BOBIRWA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:07]       BOTETI: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:07]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-04-17 16:24:07]     ✅ Successfully processed 8834.parquet
+INFO [2026-04-17 16:24:07] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-04-17 16:24:07]     Initial data: 882 rows, 182 columns
+INFO [2026-04-17 16:24:07]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:07]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:07]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:07]     Processed regular file: 147 aggregated rows
+INFO [2026-04-17 16:24:07]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:07]       BUBANZA: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:24:07]       BUBANZA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:24:07]       BUBANZA: sampled=60, vaccinated=60, missed=0
+INFO [2026-04-17 16:24:07]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-04-17 16:24:07]     ✅ Successfully processed 9601.parquet
+INFO [2026-04-17 16:24:07] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-04-17 16:24:07]     Initial data: 552 rows, 255 columns
+INFO [2026-04-17 16:24:07]     Old form dataset: Only FM_Child - using as is
+INFO [2026-04-17 16:24:07]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-04-17 16:24:07]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-04-17 16:24:07]     Processed regular file: 60 aggregated rows
+INFO [2026-04-17 16:24:07]     Sample output - first 3 districts:
+INFO [2026-04-17 16:24:07]       BUGESERA: sampled=60, vaccinated=58, missed=2
+INFO [2026-04-17 16:24:07]       BUGESERA: sampled=60, vaccinated=59, missed=1
+INFO [2026-04-17 16:24:07]       GATSIBO: sampled=120, vaccinated=120, missed=0
+INFO [2026-04-17 16:24:07]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-04-17 16:24:07]     ✅ Successfully processed 9794.parquet
+INFO [2026-04-17 16:24:07] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-04-17 16:24:08]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-04-17 16:24:08]     Read 2687 rows
+INFO [2026-04-17 16:24:13]     Processed Nigeria CSV: 445 rows
+INFO [2026-04-17 16:24:13]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 16:24:13]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-04-17 16:24:13] --- Processing file 38/38: 272.parquet ---
+INFO [2026-04-17 16:24:13]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-04-17 16:24:16]     Read 96470 rows
+INFO [2026-04-17 16:26:48]     Processed 272: 7854 rows
+INFO [2026-04-17 16:26:48]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-04-17 16:26:48]     ✅ Successfully processed 272.parquet
+INFO [2026-04-17 16:26:48] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 16:26:48] COMBINING RESULTS
+INFO [2026-04-17 16:26:48] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:26:48] Combined 26990 rows from 35 files
+INFO [2026-04-17 16:26:48] Regular files: 33, Special cases: 3, Failed: 2
+INFO [2026-04-17 16:26:48] After deduplication: 26475 rows
+INFO [2026-04-17 16:26:48] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 16:26:48] SAVING OUTPUTS
+INFO [2026-04-17 16:26:48] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-04-17 16:26:48] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-04-17 16:26:48] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-04-17 16:26:48] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-04-17 16:26:48] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-04-17 16:26:48] PROCESSING COMPLETE!
+INFO [2026-04-17 16:26:48] Total records: 26475
+INFO [2026-04-17 16:26:48] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
