@@ -1,0 +1,63 @@
+---
+title: "LQAS Monitoring Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: flatly
+    source_code: embed
+    self_contained: true
+    navbar:
+      - { title: "Overview", icon: "fa-dashboard" }
+      - { title: "District Analysis", icon: "fa-map-marker" }
+      - { title: "Performance", icon: "fa-chart-line" }
+      - { title: "Data Explorer", icon: "fa-table" }
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(data.table)
+library(ggplot2)
+library(DT)
+library(dplyr)
+library(lubridate)
+
+# Load data from CSV (no arrow, no crashes)
+dt <- fread("../data/final/lqas_dashboard_input.csv")
+data_available <- nrow(dt) > 0
+
+if (data_available) {
+  # Convert date if exists
+  if ("start_date" %in% names(dt)) {
+    dt[, survey_date := as.Date(start_date)]
+  }
+  
+  # Calculate coverage
+  dt[, coverage_pct := round(total_vaccinated / total_sampled * 100, 1)]
+  dt[, pass_status := ifelse(total_missed <= 3, "PASS", "FAIL")]
+  
+  # Create AFRO blocks
+  dt[, afro_block := fcase(
+    country %in% c("BEN", "BFA", "CIV", "GHA", "GUI", "MLI", "NER", "NGA", "SEN", "TGO"), "West Africa",
+    country %in% c("CMR", "CAF", "TCD", "COD", "COG", "GAB"), "Central Africa",
+    country %in% c("BDI", "ETH", "KEN", "RWA", "SOM", "SSD", "SDN", "TZA", "UGA"), "East Africa",
+    country %in% c("AGO", "MOZ", "ZAF", "ZMB", "ZWE"), "Southern Africa",
+    default = "Other"
+  )]
+  
+  # Metrics
+  total_records <- nrow(dt)
+  pass_count <- sum(dt$pass_status == "PASS", na.rm = TRUE)
+  fail_count <- sum(dt$pass_status == "FAIL", na.rm = TRUE)
+  pass_rate <- round(pass_count / total_records * 100, 1)
+  mean_coverage <- round(mean(dt$coverage_pct, na.rm = TRUE), 1)
+  total_districts <- uniqueN(dt$district)
+  total_sampled <- sum(dt$total_sampled, na.rm = TRUE)
+  
+  # Get unique values for filters
+  countries <- sort(unique(dt$country))
+  vaccine_types <- sort(unique(na.omit(dt$vaccine.type)))
+  afro_blocks <- sort(unique(na.omit(dt$afro_block)))
+  
+  latest_date <- if("survey_date" %in% names(dt)) max(dt$survey_date, na.rm = TRUE) else Sys.Date()
+}

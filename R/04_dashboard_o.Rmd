@@ -1,0 +1,301 @@
+---
+title: "LQAS Monitoring Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: flatly
+    source_code: embed
+    self_contained: true
+    navbar:
+      - { title: "Overview", icon: "fa-dashboard" }
+      - { title: "District Analysis", icon: "fa-map-marker" }
+      - { title: "Performance", icon: "fa-chart-line" }
+      - { title: "Data Explorer", icon: "fa-table" }
+params:
+  data_file: "data/final/afro_lqas_repositorty.parquet"
+  run_date: !r Sys.Date()
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(arrow)
+library(data.table)
+library(ggplot2)
+library(plotly)
+library(DT)
+library(dplyr)
+library(lubridate)
+library(scales)
+
+load_data <- function(file_path) {
+  if (file.exists(file_path)) {
+    dt <- tryCatch({
+      as.data.table(read_parquet(file_path))
+    }, error = function(e) {
+      csv_file <- sub("\\\\.parquet$", ".csv", file_path)
+      if (file.exists(csv_file)) {
+        fread(csv_file)
+      } else {
+        NULL
+      }
+    })
+    return(dt)
+  }
+  return(NULL)
+}
+
+dt <- load_data(params$data_file)
+data_available <- !is.null(dt) && nrow(dt) > 0
+
+if (data_available) {
+  if ("lqas_start_date" %in% names(dt)) {
+    dt[, lqas_start_date := as.Date(lqas_start_date)]
+  } else if ("start_date" %in% names(dt)) {
+    dt[, lqas_start_date := as.Date(start_date)]
+  }
+  
+  dt[, coverage_pct := round(total_vaccinated / total_sampled * 100, 1)]
+  dt[, pass_status := ifelse(total_missed <= 3, "PASS", "FAIL")]
+  
+  countries <- unique(dt$country) %>% sort()
+  vaccine_types <- unique(dt$vaccine.type) %>% na.omit() %>% sort()
+  afro_blocks <- unique(dt$afro_block) %>% na.omit() %>% sort()
+  
+  global_metrics <- dt[, .(
+    total_districts = uniqueN(district),
+    total_clusters = sum(number_clusters, na.rm = TRUE),
+    total_sampled = sum(total_sampled, na.rm = TRUE),
+    total_vaccinated = sum(total_vaccinated, na.rm = TRUE),
+    pass_rate = round(sum(pass_status == "PASS", na.rm = TRUE) / .N * 100, 1),
+    mean_coverage = round(mean(coverage_pct, na.rm = TRUE), 1)
+  )]
+  
+  latest_date <- max(dt$lqas_start_date, na.rm = TRUE)
+}
+```
+
+Sidebar {.sidebar}
+=====================================
+
+### **LQAS Dashboard**
+*Polio Vaccination Monitoring*
+
+```{r sidebar-info, echo=FALSE}
+if (data_available) {
+  cat(paste0("**Data as of:** ", format(params$run_date, "%B %d, %Y")))
+  cat("\n\n")
+  cat(paste0("**Latest LQAS:** ", format(latest_date, "%B %d, %Y")))
+  cat("\n\n")
+  cat(paste0("**Records:** ", format(nrow(dt), big.mark = ",")))
+  cat("\n\n---\n\n")
+  cat("### Key Metrics\n\n")
+  cat(paste0("- **Coverage:** ", global_metrics$mean_coverage, "%"))
+  cat("\n")
+  cat(paste0("- **Pass Rate:** ", global_metrics$pass_rate, "%"))
+  cat("\n")
+  cat(paste0("- **Districts:** ", format(global_metrics$total_districts, big.mark = ",")))
+}
+```
+
+### Filters
+
+```{r filters, echo=FALSE}
+if (data_available) {
+  selectInput("country_filter", "Country:", choices = c("All", countries), selected = "All")
+  selectInput("afro_block_filter", "AFRO Block:", choices = c("All", afro_blocks), selected = "All")
+  selectInput("vaccine_filter", "Vaccine Type:", choices = c("All", vaccine_types), selected = "All")
+  dateRangeInput("date_range", "Date Range:",
+                 start = min(dt$lqas_start_date, na.rm = TRUE),
+                 end = max(dt$lqas_start_date, na.rm = TRUE))
+}
+```
+
+Overview
+=====================================
+
+Row {.value-boxes}
+-----------------------------------------------------------------------
+
+### Coverage
+```{r coverage-value, echo=FALSE}
+if (data_available) {
+  valueBox(paste0(global_metrics$mean_coverage, "%"), icon = "fa-heartbeat",
+           color = ifelse(global_metrics$mean_coverage >= 90, "success", 
+                          ifelse(global_metrics$mean_coverage >= 75, "warning", "danger")))
+} else { valueBox("N/A", icon = "fa-heartbeat") }
+```
+
+### Pass Rate
+```{r pass-rate, echo=FALSE}
+if (data_available) {
+  valueBox(paste0(global_metrics$pass_rate, "%"), icon = "fa-check-circle",
+           color = ifelse(global_metrics$pass_rate >= 80, "success",
+                          ifelse(global_metrics$pass_rate >= 60, "warning", "danger")))
+} else { valueBox("N/A", icon = "fa-check-circle") }
+```
+
+### Districts
+```{r districts-count, echo=FALSE}
+if (data_available) {
+  valueBox(format(global_metrics$total_districts, big.mark = ","), icon = "fa-map-marker", color = "info")
+} else { valueBox("N/A", icon = "fa-map-marker") }
+```
+
+### Children Sampled
+```{r sampled-count, echo=FALSE}
+if (data_available) {
+  valueBox(format(global_metrics$total_sampled, big.mark = ","), icon = "fa-child", color = "primary")
+} else { valueBox("N/A", icon = "fa-child") }
+```
+
+Row
+-----------------------------------------------------------------------
+
+### Coverage by Country
+```{r coverage-plot, echo=FALSE, fig.height=6}
+if (data_available) {
+  filtered <- dt
+  if (input$country_filter != "All") filtered <- filtered[country == input$country_filter]
+  if (input$afro_block_filter != "All") filtered <- filtered[afro_block == input$afro_block_filter]
+  if (input$vaccine_filter != "All") filtered <- filtered[vaccine.type == input$vaccine_filter]
+  
+  country_sum <- filtered[, .(coverage = mean(coverage_pct, na.rm = TRUE)), by = country][order(-coverage)]
+  
+  ggplot(country_sum, aes(x = reorder(country, coverage), y = coverage, fill = coverage)) +
+    geom_bar(stat = "identity") + coord_flip() +
+    scale_fill_gradient2(low = "red", mid = "orange", high = "green", midpoint = 75) +
+    labs(x = "", y = "Coverage (%)") + theme_minimal() + theme(legend.position = "none")
+} else { cat("No data available") }
+```
+
+### AFRO Block Performance
+```{r block-plot, echo=FALSE, fig.height=6}
+if (data_available) {
+  filtered <- dt
+  if (input$country_filter != "All") filtered <- filtered[country == input$country_filter]
+  if (input$vaccine_filter != "All") filtered <- filtered[vaccine.type == input$vaccine_filter]
+  
+  block_sum <- filtered[, .(coverage = mean(coverage_pct, na.rm = TRUE)), by = afro_block][order(-coverage)]
+  
+  ggplot(block_sum, aes(x = afro_block, y = coverage, fill = afro_block)) +
+    geom_bar(stat = "identity") + geom_text(aes(label = paste0(round(coverage, 1), "%")), vjust = -0.5) +
+    scale_fill_brewer(palette = "Set2") + labs(x = "AFRO Block", y = "Coverage (%)") +
+    theme_minimal() + theme(legend.position = "none")
+} else { cat("No data available") }
+```
+
+District Analysis
+=====================================
+
+Row
+-----------------------------------------------------------------------
+
+### Coverage Trend Over Time
+```{r trend-plot, echo=FALSE, fig.height=5}
+if (data_available) {
+  filtered <- dt
+  if (input$country_filter != "All") filtered <- filtered[country == input$country_filter]
+  if (input$afro_block_filter != "All") filtered <- filtered[afro_block == input$afro_block_filter]
+  if (input$vaccine_filter != "All") filtered <- filtered[vaccine.type == input$vaccine_filter]
+  
+  filtered[, month := floor_date(lqas_start_date, "month")]
+  monthly <- filtered[, .(coverage = mean(coverage_pct, na.rm = TRUE)), by = month][order(month)]
+  
+  ggplot(monthly, aes(x = month, y = coverage)) +
+    geom_line(size = 1.2, color = "#3498db") + geom_point(size = 2) +
+    geom_smooth(method = "loess", se = TRUE, alpha = 0.2) +
+    geom_hline(yintercept = 90, linetype = "dashed", color = "green") +
+    geom_hline(yintercept = 75, linetype = "dashed", color = "orange") +
+    scale_y_continuous(limits = c(0, 100)) + labs(x = "Month", y = "Coverage (%)") +
+    theme_minimal()
+} else { cat("No data available") }
+```
+
+### Reasons for Missed Children
+```{r reasons-plot, echo=FALSE, fig.height=5}
+if (data_available) {
+  filtered <- dt
+  if (input$country_filter != "All") filtered <- filtered[country == input$country_filter]
+  if (input$afro_block_filter != "All") filtered <- filtered[afro_block == input$afro_block_filter]
+  
+  reason_cols <- c("r_Non_Compliance", "r_House_not_visited", "r_childabsent", "r_Child_was_asleep")
+  reason_cols <- reason_cols[reason_cols %in% names(filtered)]
+  
+  if (length(reason_cols) > 0) {
+    reasons <- filtered[, lapply(.SD, sum, na.rm = TRUE), .SDcols = reason_cols]
+    reasons <- data.table(Reason = c("Non-Compliance", "House Not Visited", "Child Absent", "Child Asleep")[1:length(reason_cols)],
+                          Count = as.numeric(reasons[1, ]))[Count > 0]
+    
+    ggplot(reasons, aes(x = reorder(Reason, Count), y = Count, fill = Count)) +
+      geom_bar(stat = "identity") + coord_flip() + labs(x = "", y = "Count") +
+      theme_minimal() + geom_text(aes(label = Count), hjust = -0.2) + theme(legend.position = "none")
+  } else { cat("Reason data not available") }
+} else { cat("No data available") }
+```
+
+Performance
+=====================================
+
+Row
+-----------------------------------------------------------------------
+
+### Top Performing Districts
+```{r top-districts, echo=FALSE, fig.height=6}
+if (data_available) {
+  filtered <- dt
+  if (input$country_filter != "All") filtered <- filtered[country == input$country_filter]
+  if (input$afro_block_filter != "All") filtered <- filtered[afro_block == input$afro_block_filter]
+  
+  top10 <- filtered[order(-coverage_pct)][1:10, .(district, coverage_pct, pass_status)]
+  
+  ggplot(top10, aes(x = reorder(district, coverage_pct), y = coverage_pct, fill = pass_status)) +
+    geom_bar(stat = "identity") + coord_flip() +
+    scale_fill_manual(values = c("PASS" = "#2ecc71", "FAIL" = "#e74c3c")) +
+    labs(x = "", y = "Coverage (%)") + theme_minimal() +
+    geom_text(aes(label = paste0(coverage_pct, "%")), hjust = -0.2)
+} else { cat("No data available") }
+```
+
+### Districts Needing Attention
+```{r bottom-districts, echo=FALSE, fig.height=6}
+if (data_available) {
+  filtered <- dt
+  if (input$country_filter != "All") filtered <- filtered[country == input$country_filter]
+  if (input$afro_block_filter != "All") filtered <- filtered[afro_block == input$afro_block_filter]
+  
+  bottom10 <- filtered[order(coverage_pct)][1:10, .(district, coverage_pct, pass_status)]
+  
+  ggplot(bottom10, aes(x = reorder(district, -coverage_pct), y = coverage_pct, fill = pass_status)) +
+    geom_bar(stat = "identity") + coord_flip() +
+    scale_fill_manual(values = c("PASS" = "#2ecc71", "FAIL" = "#e74c3c")) +
+    labs(x = "", y = "Coverage (%)") + theme_minimal() +
+    geom_text(aes(label = paste0(coverage_pct, "%")), hjust = -0.2)
+} else { cat("No data available") }
+```
+
+Data Explorer
+=====================================
+
+### District-Level Data Explorer
+```{r data-table, echo=FALSE}
+if (data_available) {
+  filtered <- dt
+  if (input$country_filter != "All") filtered <- filtered[country == input$country_filter]
+  if (input$afro_block_filter != "All") filtered <- filtered[afro_block == input$afro_block_filter]
+  if (input$vaccine_filter != "All") filtered <- filtered[vaccine.type == input$vaccine_filter]
+  
+  display <- filtered[, .(
+    Country = country, `AFRO Block` = afro_block, Province = province, District = district,
+    Campaign = response, Round = roundNumber, `Start Date` = as.Date(lqas_start_date),
+    `Clusters` = number_clusters, `Sampled` = total_sampled, `Vaccinated` = total_vaccinated,
+    `Missed` = total_missed, `Coverage` = paste0(round(coverage_pct, 1), "%"), `Status` = pass_status
+  )][order(`Start Date`, decreasing = TRUE)]
+  
+  datatable(display, extensions = "Buttons",
+            options = list(pageLength = 15, scrollX = TRUE, dom = "Bfrtip",
+                           buttons = c("copy", "csv", "excel", "pdf"))) %>%
+    formatStyle("Coverage", background = styleColorBar(c(0, 100), "lightgreen")) %>%
+    formatStyle("Status", backgroundColor = styleEqual(c("PASS", "FAIL"), c("#d4edda", "#f8d7da")))
+} else { cat("No data available") }
+```

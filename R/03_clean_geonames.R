@@ -31,7 +31,7 @@ log_info("=" %>% paste(rep("=", 60), collapse = ""))
 # Configuration
 INPUT_FILE <- "data/final/lqas_dashboard_input.parquet"
 LOOKUP_FILE <- "data/lookup/lqas_lookup.xlsx"
-OUTPUT_FILE <- "data/final/lqas_cleaned.parquet"
+OUTPUT_FILE <- "data/final/afro_lqas_repositorty.parquet"
 START_DATE <- "2019-10-01"
 
 log_info("Arguments:")

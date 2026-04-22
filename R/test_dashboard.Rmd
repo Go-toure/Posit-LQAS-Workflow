@@ -1,0 +1,13 @@
+---
+title: "Test Dashboard"
+output: flexdashboard::flex_dashboard
+---
+
+```{r}
+library(flexdashboard)
+library(ggplot2)
+
+# Simple test
+data(mtcars)
+ggplot(mtcars, aes(x=cyl)) + geom_bar()
+```

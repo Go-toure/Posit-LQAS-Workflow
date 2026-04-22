@@ -1,0 +1,45 @@
+---
+title: "LQAS Monitoring Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: flatly
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(data.table)
+library(ggplot2)
+library(DT)
+library(dplyr)
+
+# Load data
+dt <- fread("../data/final/lqas_dashboard_input.csv")
+
+# Calculate enhanced metrics
+total_records <- nrow(dt)
+pass_count <- sum(dt$status == "Pass", na.rm = TRUE)
+fail_count <- sum(dt$status == "Fail", na.rm = TRUE)
+pass_rate <- round(pass_count / total_records * 100, 1)
+
+# Calculate coverage statistics
+dt[, coverage := round(total_vaccinated / total_sampled * 100, 1)]
+mean_coverage <- round(mean(dt$coverage, na.rm = TRUE), 1)
+median_coverage <- round(median(dt$coverage, na.rm = TRUE), 1)
+min_coverage <- min(dt$coverage, na.rm = TRUE)
+max_coverage <- max(dt$coverage, na.rm = TRUE)
+
+# Calculate missed children stats
+total_missed <- sum(dt$total_missed, na.rm = TRUE)
+avg_missed <- round(mean(dt$total_missed, na.rm = TRUE), 1)
+
+# Get date range
+if("start_date" %in% names(dt)) {
+  dt[, survey_date := as.Date(start_date)]
+  min_date <- min(dt$survey_date, na.rm = TRUE)
+  max_date <- max(dt$survey_date, na.rm = TRUE)
+} else {
+  min_date <- max_date <- NA
+}
