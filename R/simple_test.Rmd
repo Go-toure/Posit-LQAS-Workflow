@@ -1,8 +1,0 @@
----
-title: "Simple Test"
-output: html_document
----
-
-```{r}
-library(ggplot2)
-ggplot(mtcars, aes(x=cyl)) + geom_bar()
