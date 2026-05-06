@@ -18916,3 +18916,1445 @@ INFO [2026-05-04 08:12:10] =
 INFO [2026-05-04 08:12:10] PROCESSING COMPLETE!
 INFO [2026-05-04 08:12:10] Total records: 31088
 INFO [2026-05-04 08:12:10] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:48:21] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:48:21] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-05-06 08:48:21] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:48:21] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:48:21] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-05-06 08:48:21] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:48:21] Found special case: Nigeria CSV
+INFO [2026-05-06 08:48:21] Found special case: 272.parquet
+INFO [2026-05-06 08:48:21] Found 38 total files to process
+INFO [2026-05-06 08:48:21] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-05-06 08:48:21]   Detecting format for: 10271.parquet
+INFO [2026-05-06 08:48:22]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:48:22]     Initial data: 8781 rows, 218 columns
+INFO [2026-05-06 08:48:22]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:48:22]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:48:22]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:48:23]     Processed regular file: 1467 aggregated rows
+INFO [2026-05-06 08:48:23]     Sample output - first 3 districts:
+INFO [2026-05-06 08:48:23]       AMBRIZ: sampled=60, vaccinated=38, missed=22
+INFO [2026-05-06 08:48:23]       AMBRIZ: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:48:23]       AMBRIZ: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:48:23]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-05-06 08:48:23]     ✅ Successfully processed 10271.parquet
+INFO [2026-05-06 08:48:23] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-05-06 08:48:23]   Detecting format for: 13593.parquet
+INFO [2026-05-06 08:48:23]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:48:23]     Initial data: 36 rows, 167 columns
+INFO [2026-05-06 08:48:23]     New form dataset: Only FM_ChildR/L - will create FM_Child from nOPV2 (L)
+INFO [2026-05-06 08:48:23]     Unified FM_Child sample (nOPV2 priority): 1, 1, 1, 1, 1
+INFO [2026-05-06 08:48:23]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:48:23]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:48:23]     Processed regular file: 6 aggregated rows
+INFO [2026-05-06 08:48:23]     Sample output - first 3 districts:
+INFO [2026-05-06 08:48:23]       DINGUIRAYE: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:48:23]       KANKAN: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:48:23]       KEROUANE: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:48:23]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-05-06 08:48:23]     ✅ Successfully processed 13593.parquet
+INFO [2026-05-06 08:48:23] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-05-06 08:48:23]   Detecting format for: 15782.parquet
+INFO [2026-05-06 08:48:23]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:48:23]     Initial data: 462 rows, 179 columns
+INFO [2026-05-06 08:48:23]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:48:23]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:48:23]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:48:24]     Processed regular file: 77 aggregated rows
+INFO [2026-05-06 08:48:24]     Sample output - first 3 districts:
+INFO [2026-05-06 08:48:24]       OMARURU: sampled=60, vaccinated=50, missed=10
+INFO [2026-05-06 08:48:24]       OMARURU: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:48:24]       SWAKOPMUND: sampled=60, vaccinated=29, missed=31
+INFO [2026-05-06 08:48:24]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-05-06 08:48:24]     ✅ Successfully processed 15782.parquet
+INFO [2026-05-06 08:48:24] --- Processing file 4/38: 272.parquet ---
+INFO [2026-05-06 08:48:24]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-05-06 08:48:28]     Read 96470 rows
+INFO [2026-05-06 08:50:28]     Processed 272: 7854 rows
+INFO [2026-05-06 08:50:28]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-05-06 08:50:28]     ✅ Successfully processed 272.parquet
+INFO [2026-05-06 08:50:28] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-05-06 08:50:28]   Detecting format for: 3583.parquet
+INFO [2026-05-06 08:50:28]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:29]     Initial data: 8597 rows, 188 columns
+INFO [2026-05-06 08:50:29]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:29]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:29]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:29]     Processed regular file: 1436 aggregated rows
+INFO [2026-05-06 08:50:29]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:29]       ASUNAFO NORTH: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:50:29]       ASUNAFO NORTH: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:50:29]       ASUNAFO NORTH: sampled=60, vaccinated=54, missed=6
+INFO [2026-05-06 08:50:30]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-05-06 08:50:30]     ✅ Successfully processed 3583.parquet
+INFO [2026-05-06 08:50:30] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-05-06 08:50:30]   Detecting format for: 4351.parquet
+INFO [2026-05-06 08:50:30]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:30]     Initial data: 4845 rows, 198 columns
+INFO [2026-05-06 08:50:30]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:30]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:30]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:30]     Processed regular file: 812 aggregated rows
+INFO [2026-05-06 08:50:30]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:30]       CHIBOMBO: sampled=60, vaccinated=48, missed=12
+INFO [2026-05-06 08:50:30]       CHIBOMBO: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:30]       CHIBOMBO: sampled=60, vaccinated=56, missed=4
+INFO [2026-05-06 08:50:30]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-05-06 08:50:30]     ✅ Successfully processed 4351.parquet
+INFO [2026-05-06 08:50:30] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-05-06 08:50:30]   Detecting format for: 4388.parquet
+INFO [2026-05-06 08:50:30]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:30]     Initial data: 2327 rows, 308 columns
+INFO [2026-05-06 08:50:31]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:31]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:31]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:31]     Processed regular file: 392 aggregated rows
+INFO [2026-05-06 08:50:31]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:31]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:50:31]       BANIKOARA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:31]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:50:31]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-05-06 08:50:31]     ✅ Successfully processed 4388.parquet
+INFO [2026-05-06 08:50:31] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-05-06 08:50:31]   Detecting format for: 4419.parquet
+INFO [2026-05-06 08:50:31]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:31]     Initial data: 928 rows, 195 columns
+INFO [2026-05-06 08:50:31]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:31]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:31]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:31]     Processed regular file: 155 aggregated rows
+INFO [2026-05-06 08:50:31]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:31]       BLITTA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:31]       BLITTA: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:50:31]       BLITTA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:50:31]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-05-06 08:50:31]     ✅ Successfully processed 4419.parquet
+INFO [2026-05-06 08:50:31] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-05-06 08:50:31]   Detecting format for: 4431.parquet
+INFO [2026-05-06 08:50:31]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:32]     Initial data: 11271 rows, 219 columns
+INFO [2026-05-06 08:50:32]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-05-06 08:50:32]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-05-06 08:50:32]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:32]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:33]     Processed regular file: 1880 aggregated rows
+INFO [2026-05-06 08:50:33]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:33]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:50:33]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:50:33]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:50:33]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-05-06 08:50:33]     ✅ Successfully processed 4431.parquet
+INFO [2026-05-06 08:50:33] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-05-06 08:50:33]   Detecting format for: 4436.parquet
+INFO [2026-05-06 08:50:33]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:33]     Initial data: 1971 rows, 307 columns
+INFO [2026-05-06 08:50:33]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:33]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:33]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:33]     Processed regular file: 334 aggregated rows
+INFO [2026-05-06 08:50:33]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:33]       BEGOUA: sampled=60, vaccinated=52, missed=8
+INFO [2026-05-06 08:50:33]       BEGOUA: sampled=60, vaccinated=56, missed=4
+INFO [2026-05-06 08:50:33]       BEGOUA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:50:34]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-05-06 08:50:34]     ✅ Successfully processed 4436.parquet
+INFO [2026-05-06 08:50:34] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-05-06 08:50:34]   Detecting format for: 4450.parquet
+INFO [2026-05-06 08:50:34]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:34]     Initial data: 2502 rows, 294 columns
+INFO [2026-05-06 08:50:34]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:34]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:34]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:34]     Processed regular file: 418 aggregated rows
+INFO [2026-05-06 08:50:34]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:34]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:34]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:34]       DEDOUGOU: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:34]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-05-06 08:50:34]     ✅ Successfully processed 4450.parquet
+INFO [2026-05-06 08:50:34] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-05-06 08:50:34]   Detecting format for: 4481.parquet
+INFO [2026-05-06 08:50:34]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:34]     Initial data: 5404 rows, 311 columns
+INFO [2026-05-06 08:50:35]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:35]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:35]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:35]     Processed regular file: 907 aggregated rows
+INFO [2026-05-06 08:50:35]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:35]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:50:35]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:50:35]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:50:35]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-05-06 08:50:35]     ✅ Successfully processed 4481.parquet
+INFO [2026-05-06 08:50:35] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-05-06 08:50:35]   Detecting format for: 4500.parquet
+INFO [2026-05-06 08:50:35]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:36]     Initial data: 26635 rows, 249 columns
+INFO [2026-05-06 08:50:37]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:37]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:37]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:38]     Processed regular file: 4613 aggregated rows
+INFO [2026-05-06 08:50:38]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:38]       AKETI: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:38]       AKETI: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:50:38]       AKETI: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:38]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-05-06 08:50:39]     ✅ Successfully processed 4500.parquet
+INFO [2026-05-06 08:50:39] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-05-06 08:50:39]   Detecting format for: 4987.parquet
+INFO [2026-05-06 08:50:39]     ✅ Detected HH bracket format - converting to standard
+INFO [2026-05-06 08:50:39]   🔸 Converting HH bracket format to standard
+INFO [2026-05-06 08:50:42]     Read 42534 rows with 578 columns
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[1]/U5_Vac_FM_HH -> Count_HH[1]/FM_Child
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[2]/U5_Vac_FM_HH -> Count_HH[2]/FM_Child
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[3]/U5_Vac_FM_HH -> Count_HH[3]/FM_Child
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[4]/U5_Vac_FM_HH -> Count_HH[4]/FM_Child
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[5]/U5_Vac_FM_HH -> Count_HH[5]/FM_Child
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[6]/U5_Vac_FM_HH -> Count_HH[6]/FM_Child
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[7]/U5_Vac_FM_HH -> Count_HH[7]/FM_Child
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[8]/U5_Vac_FM_HH -> Count_HH[8]/FM_Child
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[9]/U5_Vac_FM_HH -> Count_HH[9]/FM_Child
+INFO [2026-05-06 08:50:42]     Mapped column: Count_HH[10]/U5_Vac_FM_HH -> Count_HH[10]/FM_Child
+INFO [2026-05-06 08:50:42]     Converted to standard format with 578 columns
+INFO [2026-05-06 08:50:46]     Initial data: 42534 rows, 578 columns
+INFO [2026-05-06 08:50:46]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:46]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:46]     Found 0 sex columns, 10 FM_Child columns
+ERROR [2026-05-06 08:50:46]     Processing failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-05-06 08:50:46]     ❌ Failed to process 4987.parquet
+INFO [2026-05-06 08:50:46] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-05-06 08:50:46]   Detecting format for: 4999.parquet
+INFO [2026-05-06 08:50:46]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:46]     Initial data: 2147 rows, 313 columns
+INFO [2026-05-06 08:50:46]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:46]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:46]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:47]     Processed regular file: 361 aggregated rows
+INFO [2026-05-06 08:50:47]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:47]       LOUDIMA: sampled=60, vaccinated=54, missed=6
+INFO [2026-05-06 08:50:47]       LOUDIMA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:50:47]       LOUDIMA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:47]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-05-06 08:50:47]     ✅ Successfully processed 4999.parquet
+INFO [2026-05-06 08:50:47] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-05-06 08:50:47]   Detecting format for: 5203.parquet
+INFO [2026-05-06 08:50:47]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:47]     Initial data: 12803 rows, 297 columns
+INFO [2026-05-06 08:50:48]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:48]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:48]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:48]     Processed regular file: 2136 aggregated rows
+INFO [2026-05-06 08:50:48]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:48]       BANKIM: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:50:48]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:48]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:49]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-05-06 08:50:49]     ✅ Successfully processed 5203.parquet
+INFO [2026-05-06 08:50:49] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-05-06 08:50:49]   Detecting format for: 5214.parquet
+INFO [2026-05-06 08:50:49]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:49]     Initial data: 4458 rows, 188 columns
+INFO [2026-05-06 08:50:49]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:49]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:49]     Processed regular file: 745 aggregated rows
+INFO [2026-05-06 08:50:49]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:49]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:50:49]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:50:49]       ADERBISSANAT: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:50:49]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-05-06 08:50:49]     ✅ Successfully processed 5214.parquet
+INFO [2026-05-06 08:50:49] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-05-06 08:50:49]   Detecting format for: 5299.parquet
+INFO [2026-05-06 08:50:49]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:49]     Initial data: 1939 rows, 489 columns
+INFO [2026-05-06 08:50:50]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-05-06 08:50:50]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-05-06 08:50:50]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:50]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:50]     Processed regular file: 324 aggregated rows
+INFO [2026-05-06 08:50:50]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:50]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:50:50]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:50:50]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:50:50]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-05-06 08:50:50]     ✅ Successfully processed 5299.parquet
+INFO [2026-05-06 08:50:50] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-05-06 08:50:50]   Detecting format for: 5777.parquet
+INFO [2026-05-06 08:50:50]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:50]     Initial data: 1699 rows, 225 columns
+INFO [2026-05-06 08:50:50]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:50]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:50]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:50]     Processed regular file: 285 aggregated rows
+INFO [2026-05-06 08:50:50]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:50]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:50:50]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:50:50]       JUBA: sampled=60, vaccinated=55, missed=5
+INFO [2026-05-06 08:50:50]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-05-06 08:50:50]     ✅ Successfully processed 5777.parquet
+INFO [2026-05-06 08:50:50] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-05-06 08:50:50]   Detecting format for: 5889.parquet
+INFO [2026-05-06 08:50:50]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:50]     Initial data: 1924 rows, 192 columns
+INFO [2026-05-06 08:50:51]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:51]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:51]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:51]     Processed regular file: 331 aggregated rows
+INFO [2026-05-06 08:50:51]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:51]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:51]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:51]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:51]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-05-06 08:50:51]     ✅ Successfully processed 5889.parquet
+INFO [2026-05-06 08:50:51] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-05-06 08:50:51]   Detecting format for: 6104.parquet
+INFO [2026-05-06 08:50:51]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:51]     Initial data: 453 rows, 334 columns
+INFO [2026-05-06 08:50:51]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:51]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:51]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:51]     Processed regular file: 76 aggregated rows
+INFO [2026-05-06 08:50:51]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:51]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:51]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:51]       KAILAHUN: sampled=60, vaccinated=49, missed=11
+INFO [2026-05-06 08:50:51]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-05-06 08:50:51]     ✅ Successfully processed 6104.parquet
+INFO [2026-05-06 08:50:51] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-05-06 08:50:51]   Detecting format for: 6350.parquet
+INFO [2026-05-06 08:50:51]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:51]     Initial data: 944 rows, 335 columns
+INFO [2026-05-06 08:50:52]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:52]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:52]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:52]     Processed regular file: 158 aggregated rows
+INFO [2026-05-06 08:50:52]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:52]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-05-06 08:50:52]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-05-06 08:50:52]       DAKAR NORD: sampled=60, vaccinated=43, missed=17
+INFO [2026-05-06 08:50:52]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-05-06 08:50:52]     ✅ Successfully processed 6350.parquet
+INFO [2026-05-06 08:50:52] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-05-06 08:50:52]   Detecting format for: 6420.parquet
+INFO [2026-05-06 08:50:52]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:52]     Initial data: 3012 rows, 213 columns
+INFO [2026-05-06 08:50:52]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:52]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:52]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:52]     Processed regular file: 502 aggregated rows
+INFO [2026-05-06 08:50:52]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:52]       BUMULA: sampled=60, vaccinated=43, missed=17
+INFO [2026-05-06 08:50:52]       BUMULA: sampled=60, vaccinated=46, missed=14
+INFO [2026-05-06 08:50:52]       CHEPTAIS: sampled=60, vaccinated=53, missed=7
+INFO [2026-05-06 08:50:52]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-05-06 08:50:52]     ✅ Successfully processed 6420.parquet
+INFO [2026-05-06 08:50:52] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-05-06 08:50:52]   Detecting format for: 6429.parquet
+INFO [2026-05-06 08:50:52]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:53]     Initial data: 1516 rows, 345 columns
+INFO [2026-05-06 08:50:53]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:53]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:53]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:53]     Processed regular file: 254 aggregated rows
+INFO [2026-05-06 08:50:53]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:53]       AOUJEFT: sampled=60, vaccinated=46, missed=14
+INFO [2026-05-06 08:50:53]       AOUJEFT: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:50:53]       AOUJEFT: sampled=60, vaccinated=3, missed=57
+INFO [2026-05-06 08:50:53]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-05-06 08:50:53]     ✅ Successfully processed 6429.parquet
+INFO [2026-05-06 08:50:53] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-05-06 08:50:53]   Detecting format for: 6769.parquet
+INFO [2026-05-06 08:50:53]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:53]     Initial data: 1968 rows, 366 columns
+INFO [2026-05-06 08:50:53]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:53]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:53]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:53]     Processed regular file: 328 aggregated rows
+INFO [2026-05-06 08:50:53]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:53]       ADJUMANI DISTRICT: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:50:53]       ADJUMANI DISTRICT: sampled=60, vaccinated=46, missed=14
+INFO [2026-05-06 08:50:53]       ARUA CITY: sampled=60, vaccinated=52, missed=8
+INFO [2026-05-06 08:50:54]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-05-06 08:50:54]     ✅ Successfully processed 6769.parquet
+INFO [2026-05-06 08:50:54] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-05-06 08:50:54]   Detecting format for: 6837.parquet
+INFO [2026-05-06 08:50:54]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:54]     Initial data: 8831 rows, 289 columns
+INFO [2026-05-06 08:50:54]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:54]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:54]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:55]     Processed regular file: 514 aggregated rows
+INFO [2026-05-06 08:50:55]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:55]       ADDIS ABABA: sampled=1410, vaccinated=1336, missed=74
+INFO [2026-05-06 08:50:55]       ADDIS ABABA: sampled=1640, vaccinated=1549, missed=91
+INFO [2026-05-06 08:50:55]       ADDIS ABABA: sampled=1480, vaccinated=1442, missed=38
+INFO [2026-05-06 08:50:55]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-05-06 08:50:55]     ✅ Successfully processed 6837.parquet
+INFO [2026-05-06 08:50:55] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-05-06 08:50:55]   Detecting format for: 7589.parquet
+INFO [2026-05-06 08:50:55]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:55]     Initial data: 258 rows, 341 columns
+INFO [2026-05-06 08:50:55]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:55]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:55]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:55]     Processed regular file: 43 aggregated rows
+INFO [2026-05-06 08:50:55]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:55]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:50:55]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:50:55]       LOTE 2: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:50:55]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-05-06 08:50:55]     ✅ Successfully processed 7589.parquet
+INFO [2026-05-06 08:50:55] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-05-06 08:50:55]   Detecting format for: 7602.parquet
+INFO [2026-05-06 08:50:55]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:55]     Initial data: 1093 rows, 356 columns
+INFO [2026-05-06 08:50:55]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:55]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:55]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:56]     Processed regular file: 182 aggregated rows
+INFO [2026-05-06 08:50:56]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:56]       DOWA: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:50:56]       DOWA: sampled=60, vaccinated=52, missed=8
+INFO [2026-05-06 08:50:56]       DOWA: sampled=60, vaccinated=49, missed=11
+INFO [2026-05-06 08:50:56]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-05-06 08:50:56]     ✅ Successfully processed 7602.parquet
+INFO [2026-05-06 08:50:56] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-05-06 08:50:56]   Detecting format for: 7614.parquet
+INFO [2026-05-06 08:50:56]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:56]     Initial data: 4135 rows, 182 columns
+INFO [2026-05-06 08:50:56]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:56]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:56]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:56]     Processed regular file: 709 aggregated rows
+INFO [2026-05-06 08:50:56]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:56]       ARUSHA CC: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:50:56]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:56]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:56]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-05-06 08:50:56]     ✅ Successfully processed 7614.parquet
+INFO [2026-05-06 08:50:56] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-05-06 08:50:56]   Detecting format for: 7623.parquet
+INFO [2026-05-06 08:50:57]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:57]     Initial data: 8689 rows, 506 columns
+INFO [2026-05-06 08:50:57]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:57]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:57]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:58]     Processed regular file: 1452 aggregated rows
+INFO [2026-05-06 08:50:58]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:58]       ANCUABE: sampled=60, vaccinated=53, missed=7
+INFO [2026-05-06 08:50:58]       ANCUABE: sampled=60, vaccinated=50, missed=10
+INFO [2026-05-06 08:50:58]       ANCUABE: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:58]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-05-06 08:50:58]     ✅ Successfully processed 7623.parquet
+INFO [2026-05-06 08:50:58] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-05-06 08:50:58]   Detecting format for: 7983.parquet
+INFO [2026-05-06 08:50:58]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:58]     Initial data: 3495 rows, 345 columns
+INFO [2026-05-06 08:50:58]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:58]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:58]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:58]     Processed regular file: 586 aggregated rows
+INFO [2026-05-06 08:50:59]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:59]       EMAKHANDENI: sampled=60, vaccinated=52, missed=8
+INFO [2026-05-06 08:50:59]       EMAKHANDENI: sampled=60, vaccinated=50, missed=10
+INFO [2026-05-06 08:50:59]       EMAKHANDENI: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:50:59]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-05-06 08:50:59]     ✅ Successfully processed 7983.parquet
+INFO [2026-05-06 08:50:59] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-05-06 08:50:59]   Detecting format for: 8281.parquet
+INFO [2026-05-06 08:50:59]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:50:59]     Initial data: 4603 rows, 238 columns
+INFO [2026-05-06 08:50:59]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:50:59]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:50:59]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:50:59]     Processed regular file: 779 aggregated rows
+INFO [2026-05-06 08:50:59]     Sample output - first 3 districts:
+INFO [2026-05-06 08:50:59]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:59]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:59]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:50:59]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-05-06 08:50:59]     ✅ Successfully processed 8281.parquet
+INFO [2026-05-06 08:50:59] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-05-06 08:50:59]   Detecting format for: 8588.parquet
+INFO [2026-05-06 08:51:00]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:51:00]     Initial data: 4747 rows, 193 columns
+INFO [2026-05-06 08:51:00]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:51:00]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:51:00]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:51:00]     Processed regular file: 781 aggregated rows
+INFO [2026-05-06 08:51:00]     Sample output - first 3 districts:
+INFO [2026-05-06 08:51:00]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:51:00]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:51:00]       AOULEF: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:51:00]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-05-06 08:51:00]     ✅ Successfully processed 8588.parquet
+INFO [2026-05-06 08:51:00] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-05-06 08:51:00]   Detecting format for: 8834.parquet
+INFO [2026-05-06 08:51:00]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:51:00]     Initial data: 324 rows, 256 columns
+INFO [2026-05-06 08:51:00]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:51:00]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:51:00]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:51:01]     Processed regular file: 54 aggregated rows
+INFO [2026-05-06 08:51:01]     Sample output - first 3 districts:
+INFO [2026-05-06 08:51:01]       BOBIRWA: sampled=60, vaccinated=45, missed=15
+INFO [2026-05-06 08:51:01]       BOBIRWA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:51:01]       BOTETI: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:51:01]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-05-06 08:51:01]     ✅ Successfully processed 8834.parquet
+INFO [2026-05-06 08:51:01] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-05-06 08:51:01]   Detecting format for: 9601.parquet
+INFO [2026-05-06 08:51:01]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:51:01]     Initial data: 882 rows, 182 columns
+INFO [2026-05-06 08:51:01]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:51:01]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:51:01]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:51:01]     Processed regular file: 147 aggregated rows
+INFO [2026-05-06 08:51:01]     Sample output - first 3 districts:
+INFO [2026-05-06 08:51:01]       BUBANZA: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:51:01]       BUBANZA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:51:01]       BUBANZA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:51:01]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-05-06 08:51:01]     ✅ Successfully processed 9601.parquet
+INFO [2026-05-06 08:51:01] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-05-06 08:51:01]   Detecting format for: 9794.parquet
+INFO [2026-05-06 08:51:01]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:51:01]     Initial data: 552 rows, 255 columns
+INFO [2026-05-06 08:51:01]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:51:01]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:51:01]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:51:02]     Processed regular file: 60 aggregated rows
+INFO [2026-05-06 08:51:02]     Sample output - first 3 districts:
+INFO [2026-05-06 08:51:02]       BUGESERA: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:51:02]       BUGESERA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:51:02]       GATSIBO: sampled=120, vaccinated=120, missed=0
+INFO [2026-05-06 08:51:02]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-05-06 08:51:02]     ✅ Successfully processed 9794.parquet
+INFO [2026-05-06 08:51:02] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-05-06 08:51:02]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-05-06 08:51:02]     Read 2687 rows
+INFO [2026-05-06 08:51:07]     Processed Nigeria CSV: 445 rows
+INFO [2026-05-06 08:51:07]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-05-06 08:51:07]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-05-06 08:51:07] --- Processing file 38/38: 272.parquet ---
+INFO [2026-05-06 08:51:07]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-05-06 08:51:09]     Read 96470 rows
+INFO [2026-05-06 08:53:31]     Processed 272: 7854 rows
+INFO [2026-05-06 08:53:31]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-05-06 08:53:31]     ✅ Successfully processed 272.parquet
+INFO [2026-05-06 08:53:31] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-05-06 08:53:31] COMBINING RESULTS
+INFO [2026-05-06 08:53:31] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:53:32] Combined 31603 rows from 36 files
+INFO [2026-05-06 08:53:32] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-05-06 08:53:32] After deduplication: 31088 rows
+INFO [2026-05-06 08:53:32] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-05-06 08:53:32] SAVING OUTPUTS
+INFO [2026-05-06 08:53:32] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:53:32] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-05-06 08:53:32] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-05-06 08:53:32] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-05-06 08:53:32] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-05-06 08:53:32] PROCESSING COMPLETE!
+INFO [2026-05-06 08:53:32] Total records: 31088
+INFO [2026-05-06 08:53:32] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:54:46] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:54:46] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-05-06 08:54:46] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:54:47] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:54:47] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-05-06 08:54:47] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 08:54:47] Found special case: Nigeria CSV
+INFO [2026-05-06 08:54:47] Found special case: 272.parquet
+INFO [2026-05-06 08:54:47] Found 38 total files to process
+INFO [2026-05-06 08:54:47] --- Processing file 1/38: 10271.parquet ---
+INFO [2026-05-06 08:54:47]   Detecting format for: 10271.parquet
+INFO [2026-05-06 08:54:47]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:54:47]     Initial data: 8781 rows, 218 columns
+INFO [2026-05-06 08:54:48]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:54:48]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:54:48]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:54:48]     Processed regular file: 1467 aggregated rows
+INFO [2026-05-06 08:54:48]     Sample output - first 3 districts:
+INFO [2026-05-06 08:54:48]       AMBRIZ: sampled=60, vaccinated=38, missed=22
+INFO [2026-05-06 08:54:48]       AMBRIZ: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:54:48]       AMBRIZ: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:54:48]     ✅ Saved individual output to data/processed/10271.csv
+INFO [2026-05-06 08:54:48]     ✅ Successfully processed 10271.parquet
+INFO [2026-05-06 08:54:48] --- Processing file 2/38: 13593.parquet ---
+INFO [2026-05-06 08:54:48]   Detecting format for: 13593.parquet
+INFO [2026-05-06 08:54:48]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:54:48]     Initial data: 36 rows, 167 columns
+INFO [2026-05-06 08:54:49]     New form dataset: Only FM_ChildR/L - will create FM_Child from nOPV2 (L)
+INFO [2026-05-06 08:54:49]     Unified FM_Child sample (nOPV2 priority): 1, 1, 1, 1, 1
+INFO [2026-05-06 08:54:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:54:49]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:54:49]     Processed regular file: 6 aggregated rows
+INFO [2026-05-06 08:54:49]     Sample output - first 3 districts:
+INFO [2026-05-06 08:54:49]       DINGUIRAYE: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:54:49]       KANKAN: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:54:49]       KEROUANE: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:54:49]     ✅ Saved individual output to data/processed/13593.csv
+INFO [2026-05-06 08:54:49]     ✅ Successfully processed 13593.parquet
+INFO [2026-05-06 08:54:49] --- Processing file 3/38: 15782.parquet ---
+INFO [2026-05-06 08:54:49]   Detecting format for: 15782.parquet
+INFO [2026-05-06 08:54:49]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:54:49]     Initial data: 462 rows, 179 columns
+INFO [2026-05-06 08:54:49]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:54:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:54:49]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:54:49]     Processed regular file: 77 aggregated rows
+INFO [2026-05-06 08:54:49]     Sample output - first 3 districts:
+INFO [2026-05-06 08:54:49]       OMARURU: sampled=60, vaccinated=50, missed=10
+INFO [2026-05-06 08:54:49]       OMARURU: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:54:49]       SWAKOPMUND: sampled=60, vaccinated=29, missed=31
+INFO [2026-05-06 08:54:49]     ✅ Saved individual output to data/processed/15782.csv
+INFO [2026-05-06 08:54:49]     ✅ Successfully processed 15782.parquet
+INFO [2026-05-06 08:54:49] --- Processing file 4/38: 272.parquet ---
+INFO [2026-05-06 08:54:49]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-05-06 08:54:54]     Read 96470 rows
+INFO [2026-05-06 08:57:24]     Processed 272: 7854 rows
+INFO [2026-05-06 08:57:24]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-05-06 08:57:24]     ✅ Successfully processed 272.parquet
+INFO [2026-05-06 08:57:24] --- Processing file 5/38: 3583.parquet ---
+INFO [2026-05-06 08:57:24]   Detecting format for: 3583.parquet
+INFO [2026-05-06 08:57:24]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:24]     Initial data: 8597 rows, 188 columns
+INFO [2026-05-06 08:57:24]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:24]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:24]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:25]     Processed regular file: 1436 aggregated rows
+INFO [2026-05-06 08:57:25]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:25]       ASUNAFO NORTH: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:25]       ASUNAFO NORTH: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:25]       ASUNAFO NORTH: sampled=60, vaccinated=54, missed=6
+INFO [2026-05-06 08:57:25]     ✅ Saved individual output to data/processed/3583.csv
+INFO [2026-05-06 08:57:25]     ✅ Successfully processed 3583.parquet
+INFO [2026-05-06 08:57:25] --- Processing file 6/38: 4351.parquet ---
+INFO [2026-05-06 08:57:25]   Detecting format for: 4351.parquet
+INFO [2026-05-06 08:57:25]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:25]     Initial data: 4845 rows, 198 columns
+INFO [2026-05-06 08:57:25]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:25]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:25]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:26]     Processed regular file: 812 aggregated rows
+INFO [2026-05-06 08:57:26]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:26]       CHIBOMBO: sampled=60, vaccinated=48, missed=12
+INFO [2026-05-06 08:57:26]       CHIBOMBO: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:26]       CHIBOMBO: sampled=60, vaccinated=56, missed=4
+INFO [2026-05-06 08:57:26]     ✅ Saved individual output to data/processed/4351.csv
+INFO [2026-05-06 08:57:26]     ✅ Successfully processed 4351.parquet
+INFO [2026-05-06 08:57:26] --- Processing file 7/38: 4388.parquet ---
+INFO [2026-05-06 08:57:26]   Detecting format for: 4388.parquet
+INFO [2026-05-06 08:57:26]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:26]     Initial data: 2327 rows, 308 columns
+INFO [2026-05-06 08:57:26]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:26]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:26]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:26]     Processed regular file: 392 aggregated rows
+INFO [2026-05-06 08:57:26]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:26]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:26]       BANIKOARA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:26]       BANIKOARA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:26]     ✅ Saved individual output to data/processed/4388.csv
+INFO [2026-05-06 08:57:26]     ✅ Successfully processed 4388.parquet
+INFO [2026-05-06 08:57:26] --- Processing file 8/38: 4419.parquet ---
+INFO [2026-05-06 08:57:26]   Detecting format for: 4419.parquet
+INFO [2026-05-06 08:57:26]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:26]     Initial data: 928 rows, 195 columns
+INFO [2026-05-06 08:57:26]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:26]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:26]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:27]     Processed regular file: 155 aggregated rows
+INFO [2026-05-06 08:57:27]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:27]       BLITTA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:27]       BLITTA: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:57:27]       BLITTA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:27]     ✅ Saved individual output to data/processed/4419.csv
+INFO [2026-05-06 08:57:27]     ✅ Successfully processed 4419.parquet
+INFO [2026-05-06 08:57:27] --- Processing file 9/38: 4431.parquet ---
+INFO [2026-05-06 08:57:27]   Detecting format for: 4431.parquet
+INFO [2026-05-06 08:57:27]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:27]     Initial data: 11271 rows, 219 columns
+INFO [2026-05-06 08:57:28]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-05-06 08:57:28]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-05-06 08:57:28]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:28]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:28]     Processed regular file: 1880 aggregated rows
+INFO [2026-05-06 08:57:28]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:28]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:57:28]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:57:28]       CHADRA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:57:28]     ✅ Saved individual output to data/processed/4431.csv
+INFO [2026-05-06 08:57:28]     ✅ Successfully processed 4431.parquet
+INFO [2026-05-06 08:57:28] --- Processing file 10/38: 4436.parquet ---
+INFO [2026-05-06 08:57:28]   Detecting format for: 4436.parquet
+INFO [2026-05-06 08:57:29]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:29]     Initial data: 1971 rows, 307 columns
+INFO [2026-05-06 08:57:29]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:29]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:29]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:29]     Processed regular file: 334 aggregated rows
+INFO [2026-05-06 08:57:29]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:29]       BEGOUA: sampled=60, vaccinated=52, missed=8
+INFO [2026-05-06 08:57:29]       BEGOUA: sampled=60, vaccinated=56, missed=4
+INFO [2026-05-06 08:57:29]       BEGOUA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:29]     ✅ Saved individual output to data/processed/4436.csv
+INFO [2026-05-06 08:57:29]     ✅ Successfully processed 4436.parquet
+INFO [2026-05-06 08:57:29] --- Processing file 11/38: 4450.parquet ---
+INFO [2026-05-06 08:57:29]   Detecting format for: 4450.parquet
+INFO [2026-05-06 08:57:29]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:29]     Initial data: 2502 rows, 294 columns
+INFO [2026-05-06 08:57:29]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:29]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:29]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:30]     Processed regular file: 418 aggregated rows
+INFO [2026-05-06 08:57:30]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:30]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:30]       BOROMO: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:30]       DEDOUGOU: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:30]     ✅ Saved individual output to data/processed/4450.csv
+INFO [2026-05-06 08:57:30]     ✅ Successfully processed 4450.parquet
+INFO [2026-05-06 08:57:30] --- Processing file 12/38: 4481.parquet ---
+INFO [2026-05-06 08:57:30]   Detecting format for: 4481.parquet
+INFO [2026-05-06 08:57:30]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:30]     Initial data: 5404 rows, 311 columns
+INFO [2026-05-06 08:57:30]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:30]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:30]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:30]     Processed regular file: 907 aggregated rows
+INFO [2026-05-06 08:57:30]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:30]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:57:30]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:57:30]       ABOBO EST: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:57:31]     ✅ Saved individual output to data/processed/4481.csv
+INFO [2026-05-06 08:57:31]     ✅ Successfully processed 4481.parquet
+INFO [2026-05-06 08:57:31] --- Processing file 13/38: 4500.parquet ---
+INFO [2026-05-06 08:57:31]   Detecting format for: 4500.parquet
+INFO [2026-05-06 08:57:31]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:32]     Initial data: 26635 rows, 249 columns
+INFO [2026-05-06 08:57:33]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:33]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:33]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:34]     Processed regular file: 4613 aggregated rows
+INFO [2026-05-06 08:57:34]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:34]       AKETI: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:34]       AKETI: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:34]       AKETI: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:34]     ✅ Saved individual output to data/processed/4500.csv
+INFO [2026-05-06 08:57:34]     ✅ Successfully processed 4500.parquet
+INFO [2026-05-06 08:57:34] --- Processing file 14/38: 4987.parquet ---
+INFO [2026-05-06 08:57:34]   Detecting format for: 4987.parquet
+INFO [2026-05-06 08:57:35]     ✅ Detected HH bracket format - converting to standard
+INFO [2026-05-06 08:57:35]   🔸 Converting HH bracket format to standard
+INFO [2026-05-06 08:57:37]     Read 42534 rows with 578 columns
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[1]/U5_Vac_FM_HH -> Count_HH[1]/FM_Child
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[2]/U5_Vac_FM_HH -> Count_HH[2]/FM_Child
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[3]/U5_Vac_FM_HH -> Count_HH[3]/FM_Child
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[4]/U5_Vac_FM_HH -> Count_HH[4]/FM_Child
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[5]/U5_Vac_FM_HH -> Count_HH[5]/FM_Child
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[6]/U5_Vac_FM_HH -> Count_HH[6]/FM_Child
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[7]/U5_Vac_FM_HH -> Count_HH[7]/FM_Child
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[8]/U5_Vac_FM_HH -> Count_HH[8]/FM_Child
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[9]/U5_Vac_FM_HH -> Count_HH[9]/FM_Child
+INFO [2026-05-06 08:57:37]     Mapped column: Count_HH[10]/U5_Vac_FM_HH -> Count_HH[10]/FM_Child
+INFO [2026-05-06 08:57:37]     Converted to standard format with 578 columns
+INFO [2026-05-06 08:57:41]     Initial data: 42534 rows, 578 columns
+INFO [2026-05-06 08:57:42]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:42]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:42]     Found 0 sex columns, 10 FM_Child columns
+ERROR [2026-05-06 08:57:42]     Processing failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-05-06 08:57:42]     ❌ Failed to process 4987.parquet
+INFO [2026-05-06 08:57:42] --- Processing file 15/38: 4999.parquet ---
+INFO [2026-05-06 08:57:42]   Detecting format for: 4999.parquet
+INFO [2026-05-06 08:57:42]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:42]     Initial data: 2147 rows, 313 columns
+INFO [2026-05-06 08:57:42]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:42]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:42]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:42]     Processed regular file: 361 aggregated rows
+INFO [2026-05-06 08:57:42]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:42]       LOUDIMA: sampled=60, vaccinated=54, missed=6
+INFO [2026-05-06 08:57:42]       LOUDIMA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:42]       LOUDIMA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:42]     ✅ Saved individual output to data/processed/4999.csv
+INFO [2026-05-06 08:57:42]     ✅ Successfully processed 4999.parquet
+INFO [2026-05-06 08:57:42] --- Processing file 16/38: 5203.parquet ---
+INFO [2026-05-06 08:57:42]   Detecting format for: 5203.parquet
+INFO [2026-05-06 08:57:43]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:43]     Initial data: 12803 rows, 297 columns
+INFO [2026-05-06 08:57:44]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:44]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:44]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:44]     Processed regular file: 2136 aggregated rows
+INFO [2026-05-06 08:57:44]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:44]       BANKIM: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:44]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:44]       BANKIM: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:44]     ✅ Saved individual output to data/processed/5203.csv
+INFO [2026-05-06 08:57:44]     ✅ Successfully processed 5203.parquet
+INFO [2026-05-06 08:57:44] --- Processing file 17/38: 5214.parquet ---
+INFO [2026-05-06 08:57:44]   Detecting format for: 5214.parquet
+INFO [2026-05-06 08:57:44]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:44]     Initial data: 4458 rows, 188 columns
+INFO [2026-05-06 08:57:45]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:45]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:45]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:45]     Processed regular file: 745 aggregated rows
+INFO [2026-05-06 08:57:45]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:45]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:45]       ADERBISSANAT: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:45]       ADERBISSANAT: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:57:45]     ✅ Saved individual output to data/processed/5214.csv
+INFO [2026-05-06 08:57:45]     ✅ Successfully processed 5214.parquet
+INFO [2026-05-06 08:57:45] --- Processing file 18/38: 5299.parquet ---
+INFO [2026-05-06 08:57:45]   Detecting format for: 5299.parquet
+INFO [2026-05-06 08:57:45]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:45]     Initial data: 1939 rows, 489 columns
+INFO [2026-05-06 08:57:45]     Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority
+INFO [2026-05-06 08:57:45]     Unified FM_Child sample (nOPV2 priority): 0, 0, 0, 0, 0
+INFO [2026-05-06 08:57:45]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:45]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:46]     Processed regular file: 324 aggregated rows
+INFO [2026-05-06 08:57:46]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:46]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:57:46]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:57:46]       BOFFA: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:57:46]     ✅ Saved individual output to data/processed/5299.csv
+INFO [2026-05-06 08:57:46]     ✅ Successfully processed 5299.parquet
+INFO [2026-05-06 08:57:46] --- Processing file 19/38: 5777.parquet ---
+INFO [2026-05-06 08:57:46]   Detecting format for: 5777.parquet
+INFO [2026-05-06 08:57:46]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:46]     Initial data: 1699 rows, 225 columns
+INFO [2026-05-06 08:57:46]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:46]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:46]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:46]     Processed regular file: 285 aggregated rows
+INFO [2026-05-06 08:57:46]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:46]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:46]       ABYEI: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:46]       JUBA: sampled=60, vaccinated=55, missed=5
+INFO [2026-05-06 08:57:46]     ✅ Saved individual output to data/processed/5777.csv
+INFO [2026-05-06 08:57:46]     ✅ Successfully processed 5777.parquet
+INFO [2026-05-06 08:57:46] --- Processing file 20/38: 5889.parquet ---
+INFO [2026-05-06 08:57:46]   Detecting format for: 5889.parquet
+INFO [2026-05-06 08:57:46]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:46]     Initial data: 1924 rows, 192 columns
+INFO [2026-05-06 08:57:46]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:46]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:46]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:47]     Processed regular file: 331 aggregated rows
+INFO [2026-05-06 08:57:47]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:47]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:47]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:47]       DOWEIN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:47]     ✅ Saved individual output to data/processed/5889.csv
+INFO [2026-05-06 08:57:47]     ✅ Successfully processed 5889.parquet
+INFO [2026-05-06 08:57:47] --- Processing file 21/38: 6104.parquet ---
+INFO [2026-05-06 08:57:47]   Detecting format for: 6104.parquet
+INFO [2026-05-06 08:57:47]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:47]     Initial data: 453 rows, 334 columns
+INFO [2026-05-06 08:57:47]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:47]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:47]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:47]     Processed regular file: 76 aggregated rows
+INFO [2026-05-06 08:57:47]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:47]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:47]       KAILAHUN: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:47]       KAILAHUN: sampled=60, vaccinated=49, missed=11
+INFO [2026-05-06 08:57:47]     ✅ Saved individual output to data/processed/6104.csv
+INFO [2026-05-06 08:57:47]     ✅ Successfully processed 6104.parquet
+INFO [2026-05-06 08:57:47] --- Processing file 22/38: 6350.parquet ---
+INFO [2026-05-06 08:57:47]   Detecting format for: 6350.parquet
+INFO [2026-05-06 08:57:47]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:47]     Initial data: 944 rows, 335 columns
+INFO [2026-05-06 08:57:47]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:47]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:47]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:47]     Processed regular file: 158 aggregated rows
+INFO [2026-05-06 08:57:47]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:47]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-05-06 08:57:47]       DAKAR CENTRE: sampled=60, vaccinated=38, missed=22
+INFO [2026-05-06 08:57:47]       DAKAR NORD: sampled=60, vaccinated=43, missed=17
+INFO [2026-05-06 08:57:48]     ✅ Saved individual output to data/processed/6350.csv
+INFO [2026-05-06 08:57:48]     ✅ Successfully processed 6350.parquet
+INFO [2026-05-06 08:57:48] --- Processing file 23/38: 6420.parquet ---
+INFO [2026-05-06 08:57:48]   Detecting format for: 6420.parquet
+INFO [2026-05-06 08:57:48]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:48]     Initial data: 3012 rows, 213 columns
+INFO [2026-05-06 08:57:48]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:48]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:48]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:48]     Processed regular file: 502 aggregated rows
+INFO [2026-05-06 08:57:48]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:48]       BUMULA: sampled=60, vaccinated=43, missed=17
+INFO [2026-05-06 08:57:48]       BUMULA: sampled=60, vaccinated=46, missed=14
+INFO [2026-05-06 08:57:48]       CHEPTAIS: sampled=60, vaccinated=53, missed=7
+INFO [2026-05-06 08:57:48]     ✅ Saved individual output to data/processed/6420.csv
+INFO [2026-05-06 08:57:48]     ✅ Successfully processed 6420.parquet
+INFO [2026-05-06 08:57:48] --- Processing file 24/38: 6429.parquet ---
+INFO [2026-05-06 08:57:48]   Detecting format for: 6429.parquet
+INFO [2026-05-06 08:57:48]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:48]     Initial data: 1516 rows, 345 columns
+INFO [2026-05-06 08:57:49]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:49]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:49]     Processed regular file: 254 aggregated rows
+INFO [2026-05-06 08:57:49]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:49]       AOUJEFT: sampled=60, vaccinated=46, missed=14
+INFO [2026-05-06 08:57:49]       AOUJEFT: sampled=60, vaccinated=57, missed=3
+INFO [2026-05-06 08:57:49]       AOUJEFT: sampled=60, vaccinated=3, missed=57
+INFO [2026-05-06 08:57:49]     ✅ Saved individual output to data/processed/6429.csv
+INFO [2026-05-06 08:57:49]     ✅ Successfully processed 6429.parquet
+INFO [2026-05-06 08:57:49] --- Processing file 25/38: 6769.parquet ---
+INFO [2026-05-06 08:57:49]   Detecting format for: 6769.parquet
+INFO [2026-05-06 08:57:49]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:49]     Initial data: 1968 rows, 366 columns
+INFO [2026-05-06 08:57:49]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:49]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:49]     Processed regular file: 328 aggregated rows
+INFO [2026-05-06 08:57:49]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:49]       ADJUMANI DISTRICT: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:49]       ADJUMANI DISTRICT: sampled=60, vaccinated=46, missed=14
+INFO [2026-05-06 08:57:49]       ARUA CITY: sampled=60, vaccinated=52, missed=8
+INFO [2026-05-06 08:57:49]     ✅ Saved individual output to data/processed/6769.csv
+INFO [2026-05-06 08:57:49]     ✅ Successfully processed 6769.parquet
+INFO [2026-05-06 08:57:49] --- Processing file 26/38: 6837.parquet ---
+INFO [2026-05-06 08:57:49]   Detecting format for: 6837.parquet
+INFO [2026-05-06 08:57:50]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:50]     Initial data: 8831 rows, 289 columns
+INFO [2026-05-06 08:57:50]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:50]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:50]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:51]     Processed regular file: 514 aggregated rows
+INFO [2026-05-06 08:57:51]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:51]       ADDIS ABABA: sampled=1410, vaccinated=1336, missed=74
+INFO [2026-05-06 08:57:51]       ADDIS ABABA: sampled=1640, vaccinated=1549, missed=91
+INFO [2026-05-06 08:57:51]       ADDIS ABABA: sampled=1480, vaccinated=1442, missed=38
+INFO [2026-05-06 08:57:51]     ✅ Saved individual output to data/processed/6837.csv
+INFO [2026-05-06 08:57:51]     ✅ Successfully processed 6837.parquet
+INFO [2026-05-06 08:57:51] --- Processing file 27/38: 7589.parquet ---
+INFO [2026-05-06 08:57:51]   Detecting format for: 7589.parquet
+INFO [2026-05-06 08:57:51]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:51]     Initial data: 258 rows, 341 columns
+INFO [2026-05-06 08:57:51]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:51]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:51]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:51]     Processed regular file: 43 aggregated rows
+INFO [2026-05-06 08:57:51]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:51]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:57:51]       LOTE 1: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:57:51]       LOTE 2: sampled=60, vaccinated=0, missed=60
+INFO [2026-05-06 08:57:51]     ✅ Saved individual output to data/processed/7589.csv
+INFO [2026-05-06 08:57:51]     ✅ Successfully processed 7589.parquet
+INFO [2026-05-06 08:57:51] --- Processing file 28/38: 7602.parquet ---
+INFO [2026-05-06 08:57:51]   Detecting format for: 7602.parquet
+INFO [2026-05-06 08:57:51]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:51]     Initial data: 1093 rows, 356 columns
+INFO [2026-05-06 08:57:51]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:51]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:52]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:52]     Processed regular file: 182 aggregated rows
+INFO [2026-05-06 08:57:52]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:52]       DOWA: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:52]       DOWA: sampled=60, vaccinated=52, missed=8
+INFO [2026-05-06 08:57:52]       DOWA: sampled=60, vaccinated=49, missed=11
+INFO [2026-05-06 08:57:52]     ✅ Saved individual output to data/processed/7602.csv
+INFO [2026-05-06 08:57:52]     ✅ Successfully processed 7602.parquet
+INFO [2026-05-06 08:57:52] --- Processing file 29/38: 7614.parquet ---
+INFO [2026-05-06 08:57:52]   Detecting format for: 7614.parquet
+INFO [2026-05-06 08:57:52]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:52]     Initial data: 4135 rows, 182 columns
+INFO [2026-05-06 08:57:52]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:52]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:52]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:52]     Processed regular file: 709 aggregated rows
+INFO [2026-05-06 08:57:52]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:52]       ARUSHA CC: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:52]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:52]       ARUSHA CC: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:52]     ✅ Saved individual output to data/processed/7614.csv
+INFO [2026-05-06 08:57:52]     ✅ Successfully processed 7614.parquet
+INFO [2026-05-06 08:57:52] --- Processing file 30/38: 7623.parquet ---
+INFO [2026-05-06 08:57:53]   Detecting format for: 7623.parquet
+INFO [2026-05-06 08:57:53]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:53]     Initial data: 8689 rows, 506 columns
+INFO [2026-05-06 08:57:53]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:53]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:53]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:54]     Processed regular file: 1452 aggregated rows
+INFO [2026-05-06 08:57:54]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:54]       ANCUABE: sampled=60, vaccinated=53, missed=7
+INFO [2026-05-06 08:57:54]       ANCUABE: sampled=60, vaccinated=50, missed=10
+INFO [2026-05-06 08:57:54]       ANCUABE: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:54]     ✅ Saved individual output to data/processed/7623.csv
+INFO [2026-05-06 08:57:54]     ✅ Successfully processed 7623.parquet
+INFO [2026-05-06 08:57:54] --- Processing file 31/38: 7983.parquet ---
+INFO [2026-05-06 08:57:54]   Detecting format for: 7983.parquet
+INFO [2026-05-06 08:57:54]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:54]     Initial data: 3495 rows, 345 columns
+INFO [2026-05-06 08:57:54]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:54]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:54]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:54]     Processed regular file: 586 aggregated rows
+INFO [2026-05-06 08:57:54]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:54]       EMAKHANDENI: sampled=60, vaccinated=52, missed=8
+INFO [2026-05-06 08:57:54]       EMAKHANDENI: sampled=60, vaccinated=50, missed=10
+INFO [2026-05-06 08:57:54]       EMAKHANDENI: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:55]     ✅ Saved individual output to data/processed/7983.csv
+INFO [2026-05-06 08:57:55]     ✅ Successfully processed 7983.parquet
+INFO [2026-05-06 08:57:55] --- Processing file 32/38: 8281.parquet ---
+INFO [2026-05-06 08:57:55]   Detecting format for: 8281.parquet
+INFO [2026-05-06 08:57:55]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:55]     Initial data: 4603 rows, 238 columns
+INFO [2026-05-06 08:57:55]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:55]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:55]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:55]     Processed regular file: 779 aggregated rows
+INFO [2026-05-06 08:57:55]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:55]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:55]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:55]       AMBATONDRAZAKA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:55]     ✅ Saved individual output to data/processed/8281.csv
+INFO [2026-05-06 08:57:55]     ✅ Successfully processed 8281.parquet
+INFO [2026-05-06 08:57:55] --- Processing file 33/38: 8588.parquet ---
+INFO [2026-05-06 08:57:55]   Detecting format for: 8588.parquet
+INFO [2026-05-06 08:57:55]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:55]     Initial data: 4747 rows, 193 columns
+INFO [2026-05-06 08:57:56]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:56]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:56]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:56]     Processed regular file: 781 aggregated rows
+INFO [2026-05-06 08:57:56]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:56]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:56]       ADRAR: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:56]       AOULEF: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:56]     ✅ Saved individual output to data/processed/8588.csv
+INFO [2026-05-06 08:57:56]     ✅ Successfully processed 8588.parquet
+INFO [2026-05-06 08:57:56] --- Processing file 34/38: 8834.parquet ---
+INFO [2026-05-06 08:57:56]   Detecting format for: 8834.parquet
+INFO [2026-05-06 08:57:56]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:56]     Initial data: 324 rows, 256 columns
+INFO [2026-05-06 08:57:56]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:56]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:56]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:56]     Processed regular file: 54 aggregated rows
+INFO [2026-05-06 08:57:56]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:56]       BOBIRWA: sampled=60, vaccinated=45, missed=15
+INFO [2026-05-06 08:57:56]       BOBIRWA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:56]       BOTETI: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:56]     ✅ Saved individual output to data/processed/8834.csv
+INFO [2026-05-06 08:57:56]     ✅ Successfully processed 8834.parquet
+INFO [2026-05-06 08:57:56] --- Processing file 35/38: 9601.parquet ---
+INFO [2026-05-06 08:57:56]   Detecting format for: 9601.parquet
+INFO [2026-05-06 08:57:57]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:57]     Initial data: 882 rows, 182 columns
+INFO [2026-05-06 08:57:57]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:57]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:57]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:57]     Processed regular file: 147 aggregated rows
+INFO [2026-05-06 08:57:57]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:57]       BUBANZA: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:57]       BUBANZA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:57]       BUBANZA: sampled=60, vaccinated=60, missed=0
+INFO [2026-05-06 08:57:57]     ✅ Saved individual output to data/processed/9601.csv
+INFO [2026-05-06 08:57:57]     ✅ Successfully processed 9601.parquet
+INFO [2026-05-06 08:57:57] --- Processing file 36/38: 9794.parquet ---
+INFO [2026-05-06 08:57:57]   Detecting format for: 9794.parquet
+INFO [2026-05-06 08:57:57]     ✅ Detected standard Count_HH bracket format
+INFO [2026-05-06 08:57:57]     Initial data: 552 rows, 255 columns
+INFO [2026-05-06 08:57:57]     Old form dataset: Only FM_Child - using as is
+INFO [2026-05-06 08:57:57]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-05-06 08:57:57]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-05-06 08:57:57]     Processed regular file: 60 aggregated rows
+INFO [2026-05-06 08:57:57]     Sample output - first 3 districts:
+INFO [2026-05-06 08:57:57]       BUGESERA: sampled=60, vaccinated=58, missed=2
+INFO [2026-05-06 08:57:57]       BUGESERA: sampled=60, vaccinated=59, missed=1
+INFO [2026-05-06 08:57:57]       GATSIBO: sampled=120, vaccinated=120, missed=0
+INFO [2026-05-06 08:57:57]     ✅ Saved individual output to data/processed/9794.csv
+INFO [2026-05-06 08:57:57]     ✅ Successfully processed 9794.parquet
+INFO [2026-05-06 08:57:57] --- Processing file 37/38: Nigeria_LQAS_int_oct_2025.csv ---
+INFO [2026-05-06 08:57:57]   🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original
+INFO [2026-05-06 08:57:58]     Read 2687 rows
+INFO [2026-05-06 08:58:02]     Processed Nigeria CSV: 445 rows
+INFO [2026-05-06 08:58:02]     ✅ Saved individual output to data/processed/Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-05-06 08:58:02]     ✅ Successfully processed Nigeria_LQAS_int_oct_2025.csv
+INFO [2026-05-06 08:58:02] --- Processing file 38/38: 272.parquet ---
+INFO [2026-05-06 08:58:02]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-05-06 08:58:05]     Read 96470 rows
+INFO [2026-05-06 09:00:33]     Processed 272: 7854 rows
+INFO [2026-05-06 09:00:33]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-05-06 09:00:33]     ✅ Successfully processed 272.parquet
+INFO [2026-05-06 09:00:33] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-05-06 09:00:33] COMBINING RESULTS
+INFO [2026-05-06 09:00:33] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 09:00:33] Combined 31603 rows from 36 files
+INFO [2026-05-06 09:00:33] Regular files: 34, Special cases: 3, Failed: 1
+INFO [2026-05-06 09:00:33] After deduplication: 31088 rows
+INFO [2026-05-06 09:00:33] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-05-06 09:00:33] SAVING OUTPUTS
+INFO [2026-05-06 09:00:33] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-05-06 09:00:34] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-05-06 09:00:34] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-05-06 09:00:34] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-05-06 09:00:34] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-05-06 09:00:34] PROCESSING COMPLETE!
+INFO [2026-05-06 09:00:34] Total records: 31088
+INFO [2026-05-06 09:00:34] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =

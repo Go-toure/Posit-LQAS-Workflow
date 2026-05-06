@@ -71,17 +71,17 @@ normalize_reason_text <- function(x) {
   x <- stringr::str_replace_all(x, "[^a-z0-9]+", "_")
   x <- stringr::str_replace_all(x, "_+", "_")
   x <- stringr::str_replace_all(x, "^_|_$", "")
-  
+
   x[x %in% c(
     "", "na", "n_a", "n/a", "null", "none", "missing", "unknown", ".", "-", "--"
   )] <- NA
-  
+
   x
 }
 
 map_abs_reason <- function(x) {
   x <- normalize_reason_text(x)
-  
+
   dplyr::case_when(
     is.na(x) ~ NA_character_,
     x %in% c("farm") ~ "Farm",
@@ -95,7 +95,7 @@ map_abs_reason <- function(x) {
 
 map_nc_reason <- function(x) {
   x <- normalize_reason_text(x)
-  
+
   dplyr::case_when(
     is.na(x) ~ NA_character_,
     x %in% c("religious_cultural", "religious", "cultural", "religious_and_cultural") ~ "Religious_Cultural",
@@ -126,7 +126,7 @@ build_reason_wide <- function(data, reason_cols, names_prefix) {
         dplyr::distinct(Country, Region, District, Response, roundNumber)
     )
   }
-  
+
   data %>%
     dplyr::select(Country, Region, District, Response, roundNumber, dplyr::all_of(reason_cols)) %>%
     tidyr::pivot_longer(
@@ -146,13 +146,13 @@ build_reason_wide <- function(data, reason_cols, names_prefix) {
 }
 
 # ============================================================
-# GENERIC HANDLER: Process JSON Nested Structure 
+# GENERIC HANDLER: Process JSON Nested Structure
 # Detects and expands any file with JSON nested data in Count_HH column
 # ============================================================
 
 process_json_nested_format <- function(file_path, file_name) {
   log_info("  🔸 JSON NESTED FORMAT: Processing {file_name} (detected JSON structure)")
-  
+
   # Read the parquet file
   data <- tryCatch({
     as.data.table(read_parquet(file_path))
@@ -160,30 +160,30 @@ process_json_nested_format <- function(file_path, file_name) {
     log_error("    Failed to read file: {e$message}")
     return(NULL)
   })
-  
+
   if (is.null(data) || nrow(data) == 0) {
     return(NULL)
   }
-  
+
   log_info("    Read {nrow(data)} rows with {ncol(data)} columns")
-  
+
   # Check if this is the JSON nested structure
   if (!"Count_HH" %in% names(data)) {
     log_warn("    No Count_HH column found - cannot process as JSON nested format")
     return(NULL)
   }
-  
+
   # Function to safely parse JSON
   parse_json_column <- function(json_str) {
     if (is.na(json_str) || json_str == "" || json_str == "[]") return(list())
-    
+
     # Clean the JSON string
     json_str <- as.character(json_str)
     json_str <- gsub("'", '"', json_str)  # Replace single quotes with double quotes
     json_str <- gsub("None", 'null', json_str)
     json_str <- gsub("True", 'true', json_str)
     json_str <- gsub("False", 'false', json_str)
-    
+
     # Parse
     tryCatch({
       result <- jsonlite::fromJSON(json_str, simplifyVector = FALSE)
@@ -194,7 +194,7 @@ process_json_nested_format <- function(file_path, file_name) {
       return(list())
     })
   }
-  
+
   # Detect what fields are in the JSON structure by examining first non-empty entry
   detected_fields <- c()
   for (i in 1:min(10, nrow(data))) {
@@ -207,15 +207,15 @@ process_json_nested_format <- function(file_path, file_name) {
       }
     }
   }
-  
+
   # Expand each row's Count_HH JSON into multiple columns
   expanded_rows <- list()
   rows_with_children <- 0
   total_children <- 0
-  
+
   for (i in 1:nrow(data)) {
     json_data <- parse_json_column(data$Count_HH[i])
-    
+
     if (length(json_data) == 0) {
       # No child data - create a single row with NA values for child fields
       new_row <- as.list(data[i, ])
@@ -228,20 +228,20 @@ process_json_nested_format <- function(file_path, file_name) {
       expanded_rows[[length(expanded_rows) + 1]] <- new_row
       next
     }
-    
+
     rows_with_children <- rows_with_children + 1
     total_children <- total_children + length(json_data)
-    
+
     # Each element in json_data is a child
     for (child_idx in seq_along(json_data)) {
       child <- json_data[[child_idx]]
-      
+
       # Create a new row combining metadata + child data
       new_row <- as.list(data[i, ])
-      
+
       # Add child-specific fields with proper naming
       new_row[["Count_HH_count"]] <- length(json_data)
-      
+
       # Map each field to the expected naming convention
       for (field_name in names(child)) {
         # Remove "Count_HH/" prefix if present
@@ -249,7 +249,7 @@ process_json_nested_format <- function(file_path, file_name) {
         col_name <- paste0("Count_HH[", child_idx, "]/", clean_field)
         new_row[[col_name]] <- child[[field_name]]
       }
-      
+
       # Also check for any fields that might be in the JSON but not detected
       for (field_name in detected_fields) {
         clean_field <- gsub("^Count_HH/", "", field_name)
@@ -258,31 +258,31 @@ process_json_nested_format <- function(file_path, file_name) {
           new_row[[col_name]] <- child[[field_name]] %||% NA
         }
       }
-      
+
       expanded_rows[[length(expanded_rows) + 1]] <- new_row
     }
   }
-  
+
   if (length(expanded_rows) == 0) {
     log_warn("    No valid records found after expansion")
     return(NULL)
   }
-  
+
   # Combine expanded rows
   expanded_data <- rbindlist(lapply(expanded_rows, as.data.table), fill = TRUE)
-  
+
   # Remove the original Count_HH column
   expanded_data[, Count_HH := NULL]
-  
+
   log_info("    Expanded: {nrow(data)} rows -> {nrow(expanded_data)} child records")
   log_info("    Rows with children: {rows_with_children}, Total children: {total_children}")
-  
+
   # Save temp file and process regularly
   temp_file <- tempfile(fileext = ".parquet")
   write_parquet(expanded_data, temp_file)
   result <- process_regular_file(temp_file, file_name)
   unlink(temp_file)
-  
+
   return(result)
 }
 
@@ -292,31 +292,31 @@ process_json_nested_format <- function(file_path, file_name) {
 
 convert_hh_format <- function(file_path, file_name) {
   log_info("  🔸 Converting HH bracket format to standard")
-  
+
   data <- tryCatch({
     as.data.table(read_parquet(file_path))
   }, error = function(e) {
     log_error("    Failed to read: {e$message}")
     return(NULL)
   })
-  
+
   if (is.null(data) || nrow(data) == 0) {
     return(NULL)
   }
-  
+
   log_info("    Read {nrow(data)} rows with {ncol(data)} columns")
-  
+
   # Rename columns from HH[1]/HH/... to Count_HH[1]/...
   old_names <- names(data)
   new_names <- old_names
-  
+
   # Pattern: HH[1]/HH/count -> Count_HH[1]/count
   new_names <- gsub("^HH\\[(\\d+)\\]/HH/", "Count_HH[\\1]/", new_names)
   # Handle nested groups: HH[1]/HH/group1/Tot_child_NC_HH -> Count_HH[1]/group1/Tot_child_NC_HH
   new_names <- gsub("^HH\\[(\\d+)\\]/HH/", "Count_HH[\\1]/", new_names)
-  
+
   setnames(data, old_names, new_names)
-  
+
   # Map field names to expected ones
   # U5_Vac_FM_HH -> FM_Child
   fm_cols <- grep("U5_Vac_FM_HH", names(data), value = TRUE)
@@ -325,15 +325,15 @@ convert_hh_format <- function(file_path, file_name) {
     setnames(data, col, new_col)
     log_info("    Mapped column: {col} -> {new_col}")
   }
-  
+
   log_info("    Converted to standard format with {ncol(data)} columns")
-  
+
   # Process as regular file
   temp_file <- tempfile(fileext = ".parquet")
   write_parquet(data, temp_file)
   result <- process_regular_file(temp_file, file_name)
   unlink(temp_file)
-  
+
   return(result)
 }
 
@@ -343,7 +343,7 @@ convert_hh_format <- function(file_path, file_name) {
 
 detect_and_process_file <- function(file_path, file_name) {
   log_info("  Detecting format for: {file_name}")
-  
+
   # Read just the first row to check structure
   first_row <- tryCatch({
     read_parquet(file_path, n_rows = 1)
@@ -351,36 +351,36 @@ detect_and_process_file <- function(file_path, file_name) {
     log_error("    Cannot read file: {e$message}")
     return(NULL)
   })
-  
+
   if (is.null(first_row)) {
     return(NULL)
   }
-  
+
   # Check for JSON nested structure in Count_HH
   if ("Count_HH" %in% names(first_row)) {
     sample_val <- as.character(first_row$Count_HH[1])
-    is_json <- grepl("\\[.*\\{.*\\}.*\\]", sample_val) || 
+    is_json <- grepl("\\[.*\\{.*\\}.*\\]", sample_val) ||
       grepl("\\{.*\\}", sample_val) ||
       grepl("'Count_HH/", sample_val)
-    
+
     if (is_json) {
       log_info("    ✅ Detected JSON nested structure - using JSON expander")
       return(process_json_nested_format(file_path, file_name))
     }
   }
-  
+
   # Check for HH bracket notation (new format like 4987)
   if (any(grepl("^HH\\[\\d+\\]/", names(first_row)))) {
     log_info("    ✅ Detected HH bracket format - converting to standard")
     return(convert_hh_format(file_path, file_name))
   }
-  
+
   # Check for standard Count_HH bracket notation
   if (any(grepl("^Count_HH\\[\\d+\\]/", names(first_row)))) {
     log_info("    ✅ Detected standard Count_HH bracket format")
     return(process_regular_file(file_path, file_name))
   }
-  
+
   # Unknown format - log details
   log_warn("    ⚠️ Unknown format for {file_name}")
   log_info("    First 10 column names: {paste(head(names(first_row), 10), collapse=', ')}")
@@ -393,19 +393,19 @@ detect_and_process_file <- function(file_path, file_name) {
 
 process_special_272 <- function(file_path, file_name) {
   log_info("  🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original")
-  
+
   # Set locale for French month names
   Sys.setlocale("LC_TIME", "French_France.1252")
-  
+
   # Read file (supports parquet or csv)
   if (grepl("\\.parquet$", file_path)) {
     df <- as.data.table(read_parquet(file_path))
   } else {
     df <- fread(file_path)
   }
-  
+
   log_info("    Read {nrow(df)} rows")
-  
+
   # EXACT original transformations
   df <- df |>
     mutate(country = "NIE") |>
@@ -419,7 +419,7 @@ process_special_272 <- function(file_path, file_name) {
       matches("Reason_Not_FM[1-9]|Reason_Not_FM10"),
       matches("Caregiver_Aware_h[1-9]|Caregiver_Aware_h10")
     )
-  
+
   # Parse and extract date info
   df <- df |>
     mutate(
@@ -427,14 +427,14 @@ process_special_272 <- function(file_path, file_name) {
       year = year(today),
       month = format(today, "%b")
     )
-  
+
   # Compute households visited
   df <- df |>
     mutate(across(matches("Children_seen_h[1-9]|Children_Seen_h10"),
                   ~ ifelse(!is.na(.), 1, 0),
                   .names = "h_{.col}")) |>
     mutate(tot_hh_visited = rowSums(across(starts_with("h_Children_Seen_")), na.rm = TRUE))
-  
+
   # Clean binary variables
   clean_binary_var <- function(x) {
     case_when(
@@ -443,7 +443,7 @@ process_special_272 <- function(file_path, file_name) {
       TRUE ~ NA_real_
     )
   }
-  
+
   clean_sex_var <- function(x) {
     case_when(
       toupper(x) == "F" ~ 1,
@@ -451,12 +451,12 @@ process_special_272 <- function(file_path, file_name) {
       TRUE ~ NA_real_
     )
   }
-  
+
   df <- df |>
     mutate(across(matches("Sex_Child[1-9]|Sex_Child10"), clean_sex_var),
            across(matches("FM_Child[1-9]|FM_Child10"), clean_binary_var),
            across(matches("Caregiver_Aware_h[1-9]|Caregiver_Aware_h10"), clean_binary_var))
-  
+
   # Process reasons
   reason_cols <- c("childnotborn", "childabsent", "noncompliance", "housenotvisited", "security")
   for (r in reason_cols) {
@@ -468,7 +468,7 @@ process_special_272 <- function(file_path, file_name) {
       }
     }
   }
-  
+
   # Summary stats
   df <- df |>
     mutate(
@@ -487,18 +487,18 @@ process_special_272 <- function(file_path, file_name) {
       male_vaccinated = total_vaccinated - female_vaccinated
     ) |>
     ungroup()
-  
+
   # Aggregate reasons
   df <- df |>
     mutate(
-      R_House_not_visited = rowSums(across(matches("R_housenotvisited[1-9]|R_housenotvisited10")), na.rm = TRUE),
-      R_childabsent = rowSums(across(matches("R_childabsent[1-9]|R_childabsent10")), na.rm = TRUE),
-      R_Non_Compliance = rowSums(across(matches("R_noncompliance[1-9]|R_noncompliance10")), na.rm = TRUE),
-      R_childnotborn = rowSums(across(matches("R_childnotborn[1-9]|R_childnotborn10")), na.rm = TRUE),
-      R_security = rowSums(across(matches("R_security[1-9]|R_security10")), na.rm = TRUE),
-      Care_Giver_Informed_SIA = rowSums(across(matches("Caregiver_Aware_h[1-9]|Caregiver_Aware_h10")), na.rm = TRUE)
+      r_house_not_visited = rowSums(across(matches("R_housenotvisited[1-9]|R_housenotvisited10")), na.rm = TRUE),
+      r_childabsent = rowSums(across(matches("r_childabsent[1-9]|r_childabsent10")), na.rm = TRUE),
+      r_non_compliance = rowSums(across(matches("R_noncompliance[1-9]|R_noncompliance10")), na.rm = TRUE),
+      r_childnotborn = rowSums(across(matches("r_childnotborn[1-9]|r_childnotborn10")), na.rm = TRUE),
+      r_security = rowSums(across(matches("r_security[1-9]|r_security10")), na.rm = TRUE),
+      care_giver_informed_sia = rowSums(across(matches("Caregiver_Aware_h[1-9]|Caregiver_Aware_h10")), na.rm = TRUE)
     )
-  
+
   # Round and response
   df <- df |>
     mutate(
@@ -520,7 +520,7 @@ process_special_272 <- function(file_path, file_name) {
         TRUE ~ NA_character_
       )
     )
-  
+
   df <- df |>
     mutate(
       roundNumber = case_when(
@@ -565,7 +565,7 @@ process_special_272 <- function(file_path, file_name) {
         TRUE ~ "OBR_name"
       )
     )
-  
+
   # Aggregate to cluster level
   df <- df |>
     filter(year > 2019) |>
@@ -582,16 +582,16 @@ process_special_272 <- function(file_path, file_name) {
       female_vaccinated = sum(female_vaccinated, na.rm = TRUE),
       total_vaccinated = sum(total_vaccinated, na.rm = TRUE),
       missed_child = sum(missed_child, na.rm = TRUE),
-      r_Non_Compliance = sum(R_Non_Compliance, na.rm = TRUE),
-      r_House_not_visited = sum(R_House_not_visited, na.rm = TRUE),
-      r_childabsent = sum(R_childabsent, na.rm = TRUE),
-      r_security = sum(R_security, na.rm = TRUE),
-      r_childnotborn = sum(R_childnotborn, na.rm = TRUE),
-      Care_Giver_Informed_SIA = sum(Care_Giver_Informed_SIA, na.rm = TRUE),
+      r_non_compliance = sum(r_non_compliance, na.rm = TRUE),
+      r_house_not_visited = sum(r_house_not_visited, na.rm = TRUE),
+      r_childabsent = sum(r_childabsent, na.rm = TRUE),
+      r_security = sum(r_security, na.rm = TRUE),
+      r_childnotborn = sum(r_childnotborn, na.rm = TRUE),
+      care_giver_informed_sia = sum(care_giver_informed_sia, na.rm = TRUE),
       .groups = "drop"
     ) |>
     mutate(
-      percent_care_Giver_Informed_SIA = ifelse(total_sampled > 0, round(Care_Giver_Informed_SIA / total_sampled * 100, 2), 0),
+      percent_care_giver_informed_sia = ifelse(total_sampled > 0, round(care_giver_informed_sia / total_sampled * 100, 2), 0),
       total_missed = ifelse(total_sampled < 60, 60 - total_sampled + missed_child, missed_child),
       status = ifelse(total_missed <= 3, "Pass", "Fail"),
       performance = case_when(
@@ -600,10 +600,10 @@ process_special_272 <- function(file_path, file_name) {
         total_missed < 20 ~ "poor",
         TRUE ~ "very poor"
       ),
-      tot_r = r_Non_Compliance + r_House_not_visited + r_childabsent + r_security + r_childnotborn,
+      tot_r = r_non_compliance + r_house_not_visited + r_childabsent + r_security + r_childnotborn,
       other_r = pmax(total_missed - tot_r, 0),
-      prct_r_Non_Compliance = ifelse(total_missed > 0, round(r_Non_Compliance / total_missed * 100, 2), 0),
-      prct_r_House_not_visited = ifelse(total_missed > 0, round(r_House_not_visited / total_missed * 100, 2), 0),
+      prct_r_non_compliance = ifelse(total_missed > 0, round(r_non_compliance / total_missed * 100, 2), 0),
+      prct_r_house_not_visited = ifelse(total_missed > 0, round(r_house_not_visited / total_missed * 100, 2), 0),
       prct_r_childabsent = ifelse(total_missed > 0, round(r_childabsent / total_missed * 100, 2), 0),
       prct_r_childnotborn = ifelse(total_missed > 0, round(r_childnotborn / total_missed * 100, 2), 0),
       prct_r_security = ifelse(total_missed > 0, round(r_security / total_missed * 100, 2), 0),
@@ -630,7 +630,7 @@ process_special_272 <- function(file_path, file_name) {
         TRUE ~ start_date
       )
     )
-  
+
   # Load preparedness data and join
   prep_data_file <- "data/lookup/lqas_lookup.xlsx"
   if (file.exists(prep_data_file)) {
@@ -648,7 +648,7 @@ process_special_272 <- function(file_path, file_name) {
           TRUE ~ `Round Number`
         )
       )
-    
+
     prep_data <- prep_data |>
       rename(
         response = `OBR Name`,
@@ -660,17 +660,17 @@ process_special_272 <- function(file_path, file_name) {
         start_date = round_start_date + 4,
         end_date = as_date(start_date) + 1
       )
-    
+
     prep_data <- prep_data |>
       select(response, vaccine.type, roundNumber, round_start_date, start_date, end_date)
-    
+
     lookup_table <- as_tibble(prep_data) |>
       mutate(
         start_date = as_date(start_date),
         end_date = as_date(end_date),
         round_start_date = as_date(round_start_date)
       )
-    
+
     # Join the lookup table
     df <- df |>
       left_join(lookup_table, by = c("response", "vaccine.type", "roundNumber")) |>
@@ -682,10 +682,10 @@ process_special_272 <- function(file_path, file_name) {
       select(-start_date.x, -start_date.y, -end_date.x, -end_date.y) |>
       filter(!is.na(District))
   }
-  
+
   # Special districts vaccine.type rule
   districts_special <- c("YUSUFARI", "GURI", "BIRINIWA", "KIRI KASAMA", "NGURU", "MACHINA", "KARASUWA", "BARDE")
-  
+
   result <- df |>
     mutate(vaccine.type = case_when(
       District %in% districts_special & response == "NIE-2025-04-01_nOPV_NIDs" ~ "nOPV2 & bOPV",
@@ -696,14 +696,14 @@ process_special_272 <- function(file_path, file_name) {
       roundNumber, numbercluster, round_start_date, start_date, end_date, year,
       male_sampled, female_sampled, total_sampled,
       male_vaccinated, female_vaccinated, total_vaccinated, missed_child,
-      r_Non_Compliance, r_House_not_visited, r_childabsent, r_security, r_childnotborn,
-      Care_Giver_Informed_SIA, percent_care_Giver_Informed_SIA, total_missed, status, performance,
-      tot_r, other_r, prct_r_Non_Compliance, prct_r_House_not_visited, prct_r_childabsent,
+      r_non_compliance, r_house_not_visited, r_childabsent, r_security, r_childnotborn,
+      care_giver_informed_sia, percent_care_giver_informed_sia, total_missed, status, performance,
+      tot_r, other_r, prct_r_non_compliance, prct_r_house_not_visited, prct_r_childabsent,
       prct_r_childnotborn, prct_r_security, prct_other_r
     )
-  
+
   log_info("    Processed 272: {nrow(result)} rows")
-  
+
   return(result)
 }
 
@@ -713,18 +713,18 @@ process_special_272 <- function(file_path, file_name) {
 
 process_special_nigeria <- function(file_path, file_name) {
   log_info("  🔸 SPECIAL CASE: Processing Nigeria CSV - Mirroring original")
-  
+
   # Set locale for French month names
   Sys.setlocale("LC_TIME", "French_France.1252")
-  
+
   # Read CSV
   raw <- fread(file_path)
   log_info("    Read {nrow(raw)} rows")
-  
+
   # Fix invalid UTF-8
   raw <- raw %>%
     mutate(across(where(is.character), ~ iconv(.x, from = "", to = "UTF-8", sub = "")))
-  
+
   # STANDARDIZE REQUIRED COLUMNS
   if (!("states" %in% names(raw))) {
     if ("state" %in% names(raw)) raw$states <- raw$state
@@ -739,7 +739,7 @@ process_special_nigeria <- function(file_path, file_name) {
     if ("Date" %in% names(raw)) raw$today <- raw$Date
   }
   if (!("Cluster" %in% names(raw))) raw$Cluster <- NA
-  
+
   # ORIGINAL SCRIPT STARTS HERE
   df <- raw |>
     mutate(country = "NIE") |>
@@ -753,7 +753,7 @@ process_special_nigeria <- function(file_path, file_name) {
       matches("Reason_Not_FM[1-9]|Reason_Not_FM10"),
       matches("Caregiver_Aware_h[1-9]|Caregiver_Aware_h10")
     )
-  
+
   # Parse and extract date info
   df <- df |>
     mutate(
@@ -761,14 +761,14 @@ process_special_nigeria <- function(file_path, file_name) {
       year = year(today),
       month = format(today, "%b")
     )
-  
+
   # Compute households visited
   df <- df |>
     mutate(across(matches("Children_seen_h[1-9]|Children_Seen_h10"),
                   ~ ifelse(!is.na(.), 1, 0),
                   .names = "h_{.col}")) |>
     mutate(tot_hh_visited = rowSums(across(starts_with("h_Children_Seen_")), na.rm = TRUE))
-  
+
   # Clean binary variables
   clean_binary_var <- function(x) {
     case_when(
@@ -777,7 +777,7 @@ process_special_nigeria <- function(file_path, file_name) {
       TRUE ~ NA_real_
     )
   }
-  
+
   clean_sex_var <- function(x) {
     case_when(
       toupper(x) == "F" ~ 1,
@@ -785,14 +785,14 @@ process_special_nigeria <- function(file_path, file_name) {
       TRUE ~ NA_real_
     )
   }
-  
+
   df <- df |>
     mutate(
       across(matches("Sex_Child[1-9]|Sex_Child10"), clean_sex_var),
       across(matches("FM_Child[1-9]|FM_Child10"), clean_binary_var),
       across(matches("Caregiver_Aware_h[1-9]|Caregiver_Aware_h10"), clean_binary_var)
     )
-  
+
   # Process reasons
   reason_cols <- c("childnotborn", "childabsent", "noncompliance", "housenotvisited", "security")
   for (r in reason_cols) {
@@ -804,7 +804,7 @@ process_special_nigeria <- function(file_path, file_name) {
       }
     }
   }
-  
+
   # Summary stats
   df <- df |>
     mutate(
@@ -823,18 +823,18 @@ process_special_nigeria <- function(file_path, file_name) {
       male_vaccinated = total_vaccinated - female_vaccinated
     ) |>
     ungroup()
-  
+
   # Aggregate reasons
   df <- df |>
     mutate(
-      R_House_not_visited = rowSums(across(matches("R_housenotvisited[1-9]|R_housenotvisited10")), na.rm = TRUE),
-      R_childabsent = rowSums(across(matches("R_childabsent[1-9]|R_childabsent10")), na.rm = TRUE),
-      R_Non_Compliance = rowSums(across(matches("R_noncompliance[1-9]|R_noncompliance10")), na.rm = TRUE),
-      R_childnotborn = rowSums(across(matches("R_childnotborn[1-9]|R_childnotborn10")), na.rm = TRUE),
-      R_security = rowSums(across(matches("R_security[1-9]|R_security10")), na.rm = TRUE),
-      Care_Giver_Informed_SIA = rowSums(across(matches("Caregiver_Aware_h[1-9]|Caregiver_Aware_h10")), na.rm = TRUE)
+      r_house_not_visited = rowSums(across(matches("R_housenotvisited[1-9]|R_housenotvisited10")), na.rm = TRUE),
+      r_childabsent = rowSums(across(matches("r_childabsent[1-9]|r_childabsent10")), na.rm = TRUE),
+      r_non_compliance = rowSums(across(matches("R_noncompliance[1-9]|R_noncompliance10")), na.rm = TRUE),
+      r_childnotborn = rowSums(across(matches("r_childnotborn[1-9]|r_childnotborn10")), na.rm = TRUE),
+      r_security = rowSums(across(matches("r_security[1-9]|r_security10")), na.rm = TRUE),
+      care_giver_informed_sia = rowSums(across(matches("Caregiver_Aware_h[1-9]|Caregiver_Aware_h10")), na.rm = TRUE)
     )
-  
+
   # Round and response
   df <- df |>
     mutate(
@@ -856,7 +856,7 @@ process_special_nigeria <- function(file_path, file_name) {
         TRUE ~ NA_character_
       )
     )
-  
+
   df <- df |>
     mutate(
       roundNumber = case_when(
@@ -903,7 +903,7 @@ process_special_nigeria <- function(file_path, file_name) {
         TRUE ~ "OBR_name"
       )
     )
-  
+
   df <- df |>
     mutate(
       roundNumber = case_when(
@@ -915,7 +915,7 @@ process_special_nigeria <- function(file_path, file_name) {
         TRUE ~ today
       )
     )
-  
+
   # Aggregate to cluster level
   df <- df |>
     filter(year > 2019) |>
@@ -932,17 +932,17 @@ process_special_nigeria <- function(file_path, file_name) {
       female_vaccinated = sum(female_vaccinated, na.rm = TRUE),
       total_vaccinated = sum(total_vaccinated, na.rm = TRUE),
       missed_child = sum(missed_child, na.rm = TRUE),
-      r_Non_Compliance = sum(R_Non_Compliance, na.rm = TRUE),
-      r_House_not_visited = sum(R_House_not_visited, na.rm = TRUE),
-      r_childabsent = sum(R_childabsent, na.rm = TRUE),
-      r_security = sum(R_security, na.rm = TRUE),
-      r_childnotborn = sum(R_childnotborn, na.rm = TRUE),
-      Care_Giver_Informed_SIA = sum(Care_Giver_Informed_SIA, na.rm = TRUE),
+      r_non_compliance = sum(r_non_compliance, na.rm = TRUE),
+      r_house_not_visited = sum(r_house_not_visited, na.rm = TRUE),
+      r_childabsent = sum(r_childabsent, na.rm = TRUE),
+      r_security = sum(r_security, na.rm = TRUE),
+      r_childnotborn = sum(r_childnotborn, na.rm = TRUE),
+      care_giver_informed_sia = sum(care_giver_informed_sia, na.rm = TRUE),
       .groups = "drop"
     ) |>
     filter(numbercluster >= 2) |>
     mutate(
-      percent_care_Giver_Informed_SIA = ifelse(total_sampled > 0, round(Care_Giver_Informed_SIA / total_sampled * 100, 2), 0),
+      percent_care_giver_informed_sia = ifelse(total_sampled > 0, round(care_giver_informed_sia / total_sampled * 100, 2), 0),
       total_missed = ifelse(total_sampled < 60, 60 - total_sampled + missed_child, missed_child),
       status = ifelse(total_missed <= 3, "Pass", "Fail"),
       performance = case_when(
@@ -951,10 +951,10 @@ process_special_nigeria <- function(file_path, file_name) {
         total_missed < 20 ~ "poor",
         TRUE ~ "very poor"
       ),
-      tot_r = r_Non_Compliance + r_House_not_visited + r_childabsent + r_security + r_childnotborn,
+      tot_r = r_non_compliance + r_house_not_visited + r_childabsent + r_security + r_childnotborn,
       other_r = pmax(total_missed - tot_r, 0),
-      prct_r_Non_Compliance = ifelse(total_missed > 0, round(r_Non_Compliance / total_missed * 100, 2), 0),
-      prct_r_House_not_visited = ifelse(total_missed > 0, round(r_House_not_visited / total_missed * 100, 2), 0),
+      prct_r_non_compliance = ifelse(total_missed > 0, round(r_non_compliance / total_missed * 100, 2), 0),
+      prct_r_house_not_visited = ifelse(total_missed > 0, round(r_house_not_visited / total_missed * 100, 2), 0),
       prct_r_childabsent = ifelse(total_missed > 0, round(r_childabsent / total_missed * 100, 2), 0),
       prct_r_childnotborn = ifelse(total_missed > 0, round(r_childnotborn / total_missed * 100, 2), 0),
       prct_r_security = ifelse(total_missed > 0, round(r_security / total_missed * 100, 2), 0),
@@ -969,7 +969,7 @@ process_special_nigeria <- function(file_path, file_name) {
         TRUE ~ start_date
       )
     )
-  
+
   # Lookup table join
   prep_data_file <- "data/lookup/lqas_lookup.xlsx"
   if (file.exists(prep_data_file)) {
@@ -987,7 +987,7 @@ process_special_nigeria <- function(file_path, file_name) {
           TRUE ~ `Round Number`
         )
       )
-    
+
     prep_data <- prep_data |>
       rename(
         response = `OBR Name`,
@@ -1000,14 +1000,14 @@ process_special_nigeria <- function(file_path, file_name) {
         end_date = as_date(start_date) + 1
       ) |>
       select(response, vaccine.type, roundNumber, round_start_date, start_date, end_date)
-    
+
     lookup_table <- as_tibble(prep_data) |>
       mutate(
         start_date = as_date(start_date),
         end_date = as_date(end_date),
         round_start_date = as_date(round_start_date)
       )
-    
+
     # Clean join keys
     df <- df %>%
       mutate(
@@ -1021,7 +1021,7 @@ process_special_nigeria <- function(file_path, file_name) {
         vaccine.type = trimws(as.character(vaccine.type)),
         roundNumber = trimws(as.character(roundNumber))
       )
-    
+
     df <- df |>
       left_join(lookup_table, by = c("response", "vaccine.type", "roundNumber")) |>
       mutate(
@@ -1032,11 +1032,11 @@ process_special_nigeria <- function(file_path, file_name) {
       select(-start_date.x, -start_date.y, -end_date.x, -end_date.y) |>
       filter(!is.na(District))
   }
-  
+
   # Special districts vaccine.type rule
   districts_special <- c("YUSUFARI", "GURI", "BIRINIWA", "KIRI KASAMA", "NGURU", "MACHINA", "KARASUWA", "BARDE")
   province_special <- c("Adamawa", "Bauchi", "Borno", "Jigawa", "Kano", "Yobe")
-  
+
   result <- df |>
     mutate(vaccine.type = case_when(
       District %in% districts_special & response == "NIE-2025-04-01_nOPV_NIDs" ~ "nOPV2 & bOPV",
@@ -1048,14 +1048,14 @@ process_special_nigeria <- function(file_path, file_name) {
       roundNumber, numbercluster, round_start_date, start_date, end_date, year,
       male_sampled, female_sampled, total_sampled,
       male_vaccinated, female_vaccinated, total_vaccinated, missed_child,
-      r_Non_Compliance, r_House_not_visited, r_childabsent, r_security, r_childnotborn,
-      Care_Giver_Informed_SIA, percent_care_Giver_Informed_SIA, total_missed, status, performance,
-      tot_r, other_r, prct_r_Non_Compliance, prct_r_House_not_visited, prct_r_childabsent,
+      r_non_compliance, r_house_not_visited, r_childabsent, r_security, r_childnotborn,
+      care_giver_informed_sia, percent_care_giver_informed_sia, total_missed, status, performance,
+      tot_r, other_r, prct_r_non_compliance, prct_r_house_not_visited, prct_r_childabsent,
       prct_r_childnotborn, prct_r_security, prct_other_r
     )
-  
+
   log_info("    Processed Nigeria CSV: {nrow(result)} rows")
-  
+
   return(result)
 }
 
@@ -1072,16 +1072,16 @@ update_fm_child_dynamic <- function(AC) {
     unique() |>
     as.integer() |>
     sort()
-  
+
   if (length(idx_from_any) == 0) return(AC)
-  
+
   # Check what columns exist in the dataset
   has_R <- any(str_detect(names(AC), "^Count_HH\\[\\d+\\]/FM_ChildR$"))
   has_L <- any(str_detect(names(AC), "^Count_HH\\[\\d+\\]/FM_ChildL$"))
   has_FM <- any(str_detect(names(AC), "^Count_HH\\[\\d+\\]/FM_Child$"))
-  
+
   has_RL <- has_R && has_L
-  
+
   # Log the form type
   if (has_RL && has_FM) {
     log_info("    Mixed dataset: Has both old (FM_Child) and new (R/L) columns - will unify with nOPV2 priority")
@@ -1090,17 +1090,17 @@ update_fm_child_dynamic <- function(AC) {
   } else if (!has_RL && has_FM) {
     log_info("    Old form dataset: Only FM_Child - using as is")
   }
-  
+
   mutate_list <- list()
-  
+
   for (ii in idx_from_any) {
     col_FM <- sprintf("Count_HH[%d]/FM_Child", ii)
     col_R  <- sprintf("Count_HH[%d]/FM_ChildR", ii)
     col_L  <- sprintf("Count_HH[%d]/FM_ChildL", ii)
-    
+
     # Case 1: We have R/L columns (new data)
     if (has_RL && all(c(col_R, col_L) %in% names(AC))) {
-      
+
       # Ensure R and L are numeric (0/1)
       if (!is.numeric(AC[[col_R]])) {
         AC[[col_R]] <- as.numeric(as.character(AC[[col_R]]) %in% c("1", "yes", "Yes", "YES", "Y", TRUE))
@@ -1108,11 +1108,11 @@ update_fm_child_dynamic <- function(AC) {
       if (!is.numeric(AC[[col_L]])) {
         AC[[col_L]] <- as.numeric(as.character(AC[[col_L]]) %in% c("1", "yes", "Yes", "YES", "Y", TRUE))
       }
-      
+
       # Replace NA with 0 (since NA means the field wasn't used in old records)
       AC[[col_R]] <- ifelse(is.na(AC[[col_R]]), 0, AC[[col_R]])
       AC[[col_L]] <- ifelse(is.na(AC[[col_L]]), 0, AC[[col_L]])
-      
+
       # Create unified FM_Child: nOPV2 priority (L), fallback to bOPV (R)
       unified_value <- expr(
         case_when(
@@ -1121,7 +1121,7 @@ update_fm_child_dynamic <- function(AC) {
           TRUE ~ 0
         )
       )
-      
+
       # If FM_Child column exists (old data), replace it with unified value
       if (col_FM %in% names(AC)) {
         # Ensure old FM_Child is numeric
@@ -1129,7 +1129,7 @@ update_fm_child_dynamic <- function(AC) {
           AC[[col_FM]] <- as.numeric(as.character(AC[[col_FM]]) %in% c("1", "yes", "Yes", "YES", "Y", TRUE))
         }
         AC[[col_FM]] <- ifelse(is.na(AC[[col_FM]]), 0, AC[[col_FM]])
-        
+
         # Replace with unified value that prioritizes R/L data
         mutate_list[[col_FM]] <- unified_value
       } else {
@@ -1137,7 +1137,7 @@ update_fm_child_dynamic <- function(AC) {
         mutate_list[[col_FM]] <- unified_value
       }
     }
-    
+
     # Case 2: Only old FM_Child exists (no R/L columns)
     else if (!has_RL && (col_FM %in% names(AC))) {
       # Ensure FM_Child is numeric and NA becomes 0
@@ -1149,13 +1149,13 @@ update_fm_child_dynamic <- function(AC) {
       next
     }
   }
-  
+
   if (length(mutate_list) == 0) {
     return(AC)
   }
-  
+
   result <- AC %>% mutate(!!!mutate_list)
-  
+
   # Log sample of unified values
   if (length(mutate_list) > 0) {
     sample_col <- names(mutate_list)[1]
@@ -1164,7 +1164,7 @@ update_fm_child_dynamic <- function(AC) {
       log_info("    Unified FM_Child sample (nOPV2 priority): {paste(sample_vals, collapse=', ')}")
     }
   }
-  
+
   return(result)
 }
 
@@ -1173,7 +1173,7 @@ update_fm_child_dynamic <- function(AC) {
 # ============================================================
 
 process_regular_file <- function(file_path, file_name) {
-  
+
   # Read parquet file
   data <- tryCatch({
     as.data.table(read_parquet(file_path))
@@ -1181,29 +1181,29 @@ process_regular_file <- function(file_path, file_name) {
     log_warn("    Failed to read {file_name}: {e$message}")
     return(NULL)
   })
-  
+
   if (is.null(data) || nrow(data) == 0) {
     log_warn("    Empty data in {file_name}")
     return(NULL)
   }
-  
+
   log_info("    Initial data: {nrow(data)} rows, {ncol(data)} columns")
-  
+
   # EXACT original processing steps
   data <- rename_repetitive_columns(data)
   data <- apply_custom_rules(data, file_name)
-  
+
   # Select columns (EXACT from original)
   selected_columns <- c(
     "Response", "roundNumber", "Country", "Region", "District", "Date_of_LQAS",
     "_GPS_hh_latitude", "_GPS_hh_longitude", "_GPS_hh_altitude",
-    grep("^Count_HH\\[\\d+\\]/(Sex_Child|FM_Child|FM_ChildR|FM_ChildL|Reason_Not_FM|Reason_NC_NFM|Reason_ABS_NFM|Care_Giver_Informed_SIA)$",
+    grep("^Count_HH\\[\\d+\\]/(Sex_Child|FM_Child|FM_ChildR|FM_ChildL|Reason_Not_FM|Reason_NC_NFM|Reason_ABS_NFM|care_giver_informed_sia)$",
          names(data), value = TRUE),
     "Count_HH_count", "Cluster"
   )
   selected_columns <- intersect(selected_columns, names(data))
   data <- data %>% select(all_of(selected_columns))
-  
+
   # Standardize data (EXACT from original)
   standardize_yes_no <- function(x) {
     case_when(
@@ -1212,7 +1212,7 @@ process_regular_file <- function(file_path, file_name) {
       TRUE ~ NA_real_
     )
   }
-  
+
   standardize_informed_sia <- function(x) {
     case_when(
       x %in% c("Y", "1") ~ 1,
@@ -1220,7 +1220,7 @@ process_regular_file <- function(file_path, file_name) {
       TRUE ~ NA_real_
     )
   }
-  
+
   data <- data %>%
     mutate(
       Country = str_squish(toupper(Country)),
@@ -1233,14 +1233,14 @@ process_regular_file <- function(file_path, file_name) {
       across(matches("^Count_HH\\[\\d+\\]/FM_Child$"), standardize_yes_no),
       across(matches("^Count_HH\\[\\d+\\]/FM_ChildR$"), standardize_yes_no),
       across(matches("^Count_HH\\[\\d+\\]/FM_ChildL$"), standardize_yes_no),
-      across(matches("^Count_HH\\[\\d+\\]/Care_Giver_Informed_SIA$"), standardize_informed_sia),
+      across(matches("^Count_HH\\[\\d+\\]/care_giver_informed_sia$"), standardize_informed_sia),
       across(matches("^Count_HH\\[\\d+\\]/Reason_ABS_NFM$"), map_abs_reason),
       across(matches("^Count_HH\\[\\d+\\]/Reason_NC_NFM$"), map_nc_reason)
     )
-  
+
   # Apply FM Child harmonizer (handles all form types dynamically)
   data <- update_fm_child_dynamic(data)
-  
+
   # Get actual child indices from the data (don't assume 1-10)
   child_idx <- names(data) |>
     str_match("^Count_HH\\[(\\d+)\\]/") |>
@@ -1249,9 +1249,9 @@ process_regular_file <- function(file_path, file_name) {
     unique() |>
     as.integer() |>
     sort()
-  
+
   log_info("    Detected child indices: {paste(child_idx, collapse=', ')}")
-  
+
   # If no indices found, try alternative pattern (some forms use underscores)
   if (length(child_idx) == 0) {
     child_idx <- names(data) |>
@@ -1263,29 +1263,29 @@ process_regular_file <- function(file_path, file_name) {
       sort()
     log_info("    Alternative pattern detected child indices: {paste(child_idx, collapse=', ')}")
   }
-  
+
   # If still no indices, log warning and return
   if (length(child_idx) == 0) {
     log_warn("    No child indices found in column names!")
     return(NULL)
   }
-  
+
   # Build column lists using detected indices
   sex_cols <- intersect(sprintf("Count_HH[%d]/Sex_Child", child_idx), names(data))
   fm_cols <- intersect(sprintf("Count_HH[%d]/FM_Child", child_idx), names(data))
   fmr_cols <- intersect(sprintf("Count_HH[%d]/FM_ChildR", child_idx), names(data))
   fml_cols <- intersect(sprintf("Count_HH[%d]/FM_ChildL", child_idx), names(data))
-  cgs_cols <- intersect(sprintf("Count_HH[%d]/Care_Giver_Informed_SIA", child_idx), names(data))
+  cgs_cols <- intersect(sprintf("Count_HH[%d]/care_giver_informed_sia", child_idx), names(data))
   abs_reason_cols <- intersect(sprintf("Count_HH[%d]/Reason_ABS_NFM", child_idx), names(data))
   nc_reason_cols <- intersect(sprintf("Count_HH[%d]/Reason_NC_NFM", child_idx), names(data))
-  
+
   log_info("    Found {length(sex_cols)} sex columns, {length(fm_cols)} FM_Child columns")
-  
+
   # If no FM_Child columns found, log warning
   if (length(fm_cols) == 0) {
     log_warn("    No FM_Child columns found! Vaccination data will be missing.")
   }
-  
+
   # Reason_Not_FM logic
   data <- data %>%
     mutate(
@@ -1302,17 +1302,17 @@ process_regular_file <- function(file_path, file_name) {
         .names = "R_{.fn}_{col}"
       )
     )
-  
+
   # Convert numeric columns
   numeric_count_cols <- c(sex_cols, fm_cols, fmr_cols, fml_cols, cgs_cols, "Count_HH_count", "Cluster")
   numeric_count_cols <- intersect(numeric_count_cols, names(data))
-  
+
   data <- data %>%
     mutate(across(
       all_of(numeric_count_cols),
       ~ as.numeric(replace(., . %in% c(".", "NA", ""), NA))
     ))
-  
+
   # ALG response / round fixes
   data <- data %>%
     mutate(Date_of_LQAS = as.Date(Date_of_LQAS)) %>%
@@ -1328,11 +1328,11 @@ process_regular_file <- function(file_path, file_name) {
         TRUE ~ roundNumber
       )
     )
-  
+
   # Build reason wide tables
   absent_reason_wide <- build_reason_wide(data, abs_reason_cols, "abs_reason_")
   noncomp_reason_wide <- build_reason_wide(data, nc_reason_cols, "nc_reason_")
-  
+
   # Calculate metrics using detected columns
   if (length(sex_cols) > 0 && length(fm_cols) > 0) {
     AF <- data %>%
@@ -1355,7 +1355,7 @@ process_regular_file <- function(file_path, file_name) {
       )
     log_warn("    Missing sex or FM_Child columns - using defaults")
   }
-  
+
   # Calculate female vaccinated
   if (length(sex_cols) > 0 && length(fm_cols) > 0) {
     AG <- AF %>%
@@ -1379,32 +1379,32 @@ process_regular_file <- function(file_path, file_name) {
         male_vaccinated = 0
       )
   }
-  
+
   AG <- AG %>% mutate(across(starts_with("R_"), as.numeric))
-  
+
   AS <- AG %>%
     mutate(
-      R_House_not_visited = rowSums(across(matches("^R_House_not_visited_Count_HH"), ~ replace_na(., 0))),
+      r_house_not_visited = rowSums(across(matches("^r_house_not_visited_Count_HH"), ~ replace_na(., 0))),
       R_Vaccinated_but_not_FM = rowSums(across(matches("^R_Vaccinated_but_not_FM_Count_HH"), ~ replace_na(., 0))),
-      R_Non_Compliance = rowSums(across(matches("^R_Non_Compliance_Count_HH"), ~ replace_na(., 0))),
+      r_non_compliance = rowSums(across(matches("^r_non_compliance_Count_HH"), ~ replace_na(., 0))),
       R_Child_was_asleep = rowSums(across(matches("^R_Child_was_asleep_Count_HH"), ~ replace_na(., 0))),
       R_Child_is_a_visitor = rowSums(across(matches("^R_Child_is_a_visitor_Count_HH"), ~ replace_na(., 0))),
-      R_childabsent = rowSums(across(matches("^R_childabsent_Count_HH"), ~ replace_na(., 0))),
-      Care_Giver_Informed_SIA = rowSums(across(all_of(cgs_cols), ~ replace_na(., 0)))
+      r_childabsent = rowSums(across(matches("^r_childabsent_Count_HH"), ~ replace_na(., 0))),
+      care_giver_informed_sia = rowSums(across(all_of(cgs_cols), ~ replace_na(., 0)))
     )
-  
+
   AQ <- AS %>%
     select(
       Country, Region, District, Response, roundNumber, Date_of_LQAS,
       male_sampled, female_sampled,
       total_sampled = Count_HH_count,
       male_vaccinated, female_vaccinated, total_vaccinated, missed_child,
-      R_Non_Compliance, R_House_not_visited, R_childabsent, R_Child_was_asleep,
-      R_Child_is_a_visitor, R_Vaccinated_but_not_FM, Care_Giver_Informed_SIA,
+      r_non_compliance, r_house_not_visited, r_childabsent, R_Child_was_asleep,
+      R_Child_is_a_visitor, R_Vaccinated_but_not_FM, care_giver_informed_sia,
       Cluster
     ) %>%
     mutate(Cluster = as.numeric(Cluster))
-  
+
   # Aggregate to district level
   F1 <- AQ %>%
     mutate(Date_of_LQAS = as_date(Date_of_LQAS)) %>%
@@ -1420,31 +1420,31 @@ process_regular_file <- function(file_path, file_name) {
       female_vaccinated = sum(female_vaccinated, na.rm = TRUE),
       total_vaccinated = sum(total_vaccinated, na.rm = TRUE),
       missed_child = sum(missed_child, na.rm = TRUE),
-      r_Non_Compliance = sum(R_Non_Compliance, na.rm = TRUE),
-      r_House_not_visited = sum(R_House_not_visited, na.rm = TRUE),
-      r_childabsent = sum(R_childabsent, na.rm = TRUE),
+      r_non_compliance = sum(r_non_compliance, na.rm = TRUE),
+      r_house_not_visited = sum(r_house_not_visited, na.rm = TRUE),
+      r_childabsent = sum(r_childabsent, na.rm = TRUE),
       r_Child_was_asleep = sum(R_Child_was_asleep, na.rm = TRUE),
       r_Child_is_a_visitor = sum(R_Child_is_a_visitor, na.rm = TRUE),
       r_Vaccinated_but_not_FM = sum(R_Vaccinated_but_not_FM, na.rm = TRUE),
-      Care_Giver_Informed_SIA = sum(Care_Giver_Informed_SIA, na.rm = TRUE),
-      percent_care_Giver_Informed_SIA = Care_Giver_Informed_SIA / total_sampled,
+      care_giver_informed_sia = sum(care_giver_informed_sia, na.rm = TRUE),
+      percent_care_giver_informed_sia = care_giver_informed_sia / total_sampled,
       .groups = "drop"
     ) %>%
     left_join(absent_reason_wide, by = c("Country", "Region", "District", "Response", "roundNumber")) %>%
     left_join(noncomp_reason_wide, by = c("Country", "Region", "District", "Response", "roundNumber"))
-  
+
   # Fill NA reasons with 0
   reason_count_cols <- names(F1)[str_detect(names(F1), "^abs_reason_|^nc_reason_")]
   if (length(reason_count_cols) > 0) {
     F1 <- F1 %>%
       mutate(across(all_of(reason_count_cols), ~ replace_na(., 0)))
   }
-  
+
   # Calculate final metrics
   F2 <- F1 %>%
     filter(start_date > as.Date("2019-10-01")) %>%
     mutate(
-      percent_care_Giver_Informed_SIA = round(percent_care_Giver_Informed_SIA * 100, 2),
+      percent_care_giver_informed_sia = round(percent_care_giver_informed_sia * 100, 2),
       total_missed = ifelse(total_sampled < 60, (60 - total_sampled) + missed_child, missed_child)
     ) %>%
     filter(cluster >= 3) %>%
@@ -1471,7 +1471,7 @@ process_regular_file <- function(file_path, file_name) {
         TRUE ~ "very poor"
       )
     )
-  
+
   # Add vaccine type
   F3 <- F2 %>%
     mutate(
@@ -1482,7 +1482,7 @@ process_regular_file <- function(file_path, file_name) {
         TRUE ~ NA_character_
       )
     )
-  
+
   # Load lookup table for campaign dates
   lookup_file <- "data/lookup/lqas_lookup.xlsx"
   if (file.exists(lookup_file)) {
@@ -1510,7 +1510,7 @@ process_regular_file <- function(file_path, file_name) {
         end_date = start_date + 1
       ) %>%
       select(Response, Vaccine.type_lookup, roundNumber, round_start_date, start_date, end_date)
-    
+
     F3 <- F3 %>%
       left_join(date_lookup, by = c("Response", "roundNumber")) %>%
       mutate(
@@ -1520,11 +1520,11 @@ process_regular_file <- function(file_path, file_name) {
       ) %>%
       select(-start_date.x, -start_date.y, -end_date.x, -end_date.y, -Vaccine.type_lookup)
   }
-  
+
   # Final formatting
   F4 <- F3 %>%
     mutate(
-      tot_r = r_Non_Compliance + r_House_not_visited + r_childabsent +
+      tot_r = r_non_compliance + r_house_not_visited + r_childabsent +
         r_Child_was_asleep + r_Child_is_a_visitor + r_Vaccinated_but_not_FM,
       other_r = ifelse((total_missed - tot_r) < 0, 0, (total_missed - tot_r)),
       Country = case_when(
@@ -1559,29 +1559,29 @@ process_regular_file <- function(file_path, file_name) {
       total_missed,
       status = Status,
       performance = Performance,
-      r_Non_Compliance,
-      r_House_not_visited,
+      r_non_compliance,
+      r_house_not_visited,
       r_childabsent,
       r_Child_was_asleep,
       r_Child_is_a_visitor,
       r_Vaccinated_but_not_FM,
       other_r,
-      percent_care_Giver_Informed_SIA,
+      percent_care_giver_informed_sia,
       starts_with("abs_reason_"),
       starts_with("nc_reason_")
     ) %>%
     mutate(
-      percent_care_Giver_Informed_SIA = round(percent_care_Giver_Informed_SIA, 2),
-      across(c(r_Non_Compliance, r_House_not_visited, r_childabsent,
+      percent_care_giver_informed_sia = round(percent_care_giver_informed_sia, 2),
+      across(c(r_non_compliance, r_house_not_visited, r_childabsent,
                r_Child_was_asleep, r_Child_is_a_visitor, r_Vaccinated_but_not_FM, other_r),
              ~ ifelse(total_missed == 0, 0, (.x / total_missed) * 100),
              .names = "prct_{.col}"),
       across(starts_with("prct_"), ~ round(.x, 2)),
       proportion_missed_child = round(total_missed / total_sampled, 2)
     )
-  
+
   log_info("    Processed regular file: {nrow(F4)} aggregated rows")
-  
+
   # Debug: Log sample of results
   if (nrow(F4) > 0) {
     log_info("    Sample output - first 3 districts:")
@@ -1590,7 +1590,7 @@ process_regular_file <- function(file_path, file_name) {
       log_info("      {sample_out$district[j]}: sampled={sample_out$total_sampled[j]}, vaccinated={sample_out$total_vaccinated[j]}, missed={sample_out$total_missed[j]}")
     }
   }
-  
+
   return(F4)
 }
 
@@ -1599,56 +1599,56 @@ process_regular_file <- function(file_path, file_name) {
 # ============================================================
 
 process_lqas_data <- function(force_full_run = FALSE) {
-  
+
   log_info("=" %>% paste(rep("=", 60), collapse = ""))
   log_info("PROCESSING LQAS DATA (Mirroring Original)")
   log_info("=" %>% paste(rep("=", 60), collapse = ""))
-  
+
   # List all Parquet files
   parquet_files <- list.files("data/raw", pattern = "\\.parquet$", full.names = TRUE)
-  
+
   # Also look for special case files
   nigeria_csv <- "data/raw/Nigeria_LQAS_int_oct_2025.csv"
   form_272 <- "data/raw/272.parquet"
-  
+
   all_files <- parquet_files
-  
+
   if (file.exists(nigeria_csv)) {
     all_files <- c(all_files, nigeria_csv)
     log_info("Found special case: Nigeria CSV")
   }
-  
+
   if (file.exists(form_272)) {
     all_files <- c(all_files, form_272)
     log_info("Found special case: 272.parquet")
   }
-  
+
   if (length(all_files) == 0) {
     log_error("No files found in data/raw/")
     log_info("Please run: python fetch_ona_data.py --force-full")
     return(NULL)
   }
-  
+
   log_info("Found {length(all_files)} total files to process")
-  
+
   # Process each file individually
   all_results <- list()
   processed_count <- 0
   failed_count <- 0
   special_count <- 0
-  
+
   for (i in seq_along(all_files)) {
     file_path <- all_files[i]
     file_name <- basename(file_path)
-    
+
     log_info("\n--- Processing file {i}/{length(all_files)}: {file_name} ---")
-    
+
     # Detect explicit special cases first
     is_272 <- grepl("^272\\.", file_name) || grepl("272", file_name)
     is_nigeria <- grepl("Nigeria.*\\.csv$", file_name)
-    
+
     result <- NULL
-    
+
     if (is_272) {
       result <- tryCatch({
         special_count <- special_count + 1
@@ -1675,13 +1675,13 @@ process_lqas_data <- function(force_full_run = FALSE) {
         return(NULL)
       })
     }
-    
+
     if (!is.null(result) && nrow(result) > 0) {
       # Save individual file output (mirroring original)
       individual_output <- file.path("data/processed", paste0(tools::file_path_sans_ext(file_name), ".csv"))
       fwrite(result, individual_output)
       log_info("    ✅ Saved individual output to {individual_output}")
-      
+
       all_results[[file_name]] <- result
       processed_count <- processed_count + 1
       log_info("    ✅ Successfully processed {file_name}")
@@ -1690,47 +1690,47 @@ process_lqas_data <- function(force_full_run = FALSE) {
       log_warn("    ❌ Failed to process {file_name}")
     }
   }
-  
+
   # Combine all results
   log_info("\n" %>% paste(rep("=", 60), collapse = ""))
   log_info("COMBINING RESULTS")
   log_info("=" %>% paste(rep("=", 60), collapse = ""))
-  
+
   if (length(all_results) == 0) {
     log_error("No files were successfully processed")
     return(NULL)
   }
-  
+
   combined <- bind_rows(all_results)
   log_info("Combined {nrow(combined)} rows from {length(all_results)} files")
   log_info("Regular files: {processed_count - special_count}, Special cases: {special_count}, Failed: {failed_count}")
-  
+
   # Remove duplicates
   combined <- combined %>%
     distinct(country, province, district, response, roundNumber, .keep_all = TRUE)
-  
+
   log_info("After deduplication: {nrow(combined)} rows")
-  
+
   # ============================================================
   # Save Outputs with Forced Write
   # ============================================================
   log_info("\n" %>% paste(rep("=", 60), collapse = ""))
   log_info("SAVING OUTPUTS")
   log_info("=" %>% paste(rep("=", 60), collapse = ""))
-  
+
   # Force write function for CSV
   force_write_csv <- function(data, file_path) {
     temp_file <- paste0(file_path, ".tmp", format(Sys.time(), "%Y%m%d%H%M%S"))
     tryCatch({
       fwrite(data, temp_file)
-      
+
       # Remove original if it exists
       if (file.exists(file_path)) {
         # Try to change permissions
         tryCatch({
           Sys.chmod(file_path, mode = "0777")
         }, error = function(e) {})
-        
+
         # Force delete with retry
         for (i in 1:3) {
           unlink_result <- tryCatch({
@@ -1739,41 +1739,41 @@ process_lqas_data <- function(force_full_run = FALSE) {
           }, error = function(e) {
             FALSE
           })
-          
+
           if (unlink_result || !file.exists(file_path)) break
           Sys.sleep(0.5)
         }
       }
-      
+
       # Rename temp file to target
       file.rename(temp_file, file_path)
-      
+
       # Verify
       if (file.exists(file_path)) {
         return(TRUE)
       } else {
         return(FALSE)
       }
-      
+
     }, error = function(e) {
       log_error("Error writing CSV: {e$message}")
       return(FALSE)
     })
   }
-  
+
   # Force write function for Parquet
   force_write_parquet <- function(data, file_path) {
     temp_file <- paste0(file_path, ".tmp", format(Sys.time(), "%Y%m%d%H%M%S"))
     tryCatch({
       write_parquet(data, temp_file)
-      
+
       # Remove original if it exists
       if (file.exists(file_path)) {
         # Try to change permissions
         tryCatch({
           Sys.chmod(file_path, mode = "0777")
         }, error = function(e) {})
-        
+
         # Force delete with retry
         for (i in 1:3) {
           unlink_result <- tryCatch({
@@ -1782,28 +1782,28 @@ process_lqas_data <- function(force_full_run = FALSE) {
           }, error = function(e) {
             FALSE
           })
-          
+
           if (unlink_result || !file.exists(file_path)) break
           Sys.sleep(0.5)
         }
       }
-      
+
       # Rename temp file to target
       file.rename(temp_file, file_path)
-      
+
       # Verify
       if (file.exists(file_path)) {
         return(TRUE)
       } else {
         return(FALSE)
       }
-      
+
     }, error = function(e) {
       log_error("Error writing Parquet: {e$message}")
       return(FALSE)
     })
   }
-  
+
   # Save final CSV for dashboard
   final_csv <- "data/final/lqas_dashboard_input.csv"
   if (force_write_csv(combined, final_csv)) {
@@ -1811,7 +1811,7 @@ process_lqas_data <- function(force_full_run = FALSE) {
   } else {
     log_error("❌ Failed to save {final_csv}")
   }
-  
+
   # Save as Parquet for faster loading
   final_parquet <- "data/final/lqas_dashboard_input.parquet"
   if (force_write_parquet(combined, final_parquet)) {
@@ -1819,7 +1819,7 @@ process_lqas_data <- function(force_full_run = FALSE) {
   } else {
     log_error("❌ Failed to save {final_parquet}")
   }
-  
+
   # Save summary (simple save, less likely to be locked)
   summary_file <- "data/processed/processing_summary.rds"
   summary <- list(
@@ -1832,7 +1832,7 @@ process_lqas_data <- function(force_full_run = FALSE) {
     countries = unique(combined$country),
     file_size_mb = ifelse(file.exists(final_csv), file.size(final_csv) / (1024 * 1024), NA)
   )
-  
+
   tryCatch({
     saveRDS(summary, summary_file)
     log_info("✅ Saved processing summary to {summary_file}")
@@ -1846,12 +1846,12 @@ process_lqas_data <- function(force_full_run = FALSE) {
     file.rename(temp_rds, summary_file)
     log_info("✅ Saved processing summary to {summary_file} (forced)")
   })
-  
+
   log_info("\n" %>% paste(rep("=", 60), collapse = ""))
   log_info("PROCESSING COMPLETE!")
   log_info("Total records: {nrow(combined)}")
   log_info("=" %>% paste(rep("=", 60), collapse = ""))
-  
+
   return(combined)
 }
 
