@@ -1,0 +1,57 @@
+# Create a scheduled task (run as Administrator)
+schtasks /create /tn "LQAS_Pipeline" /tr "C:\Program Files\R\R-4.4.3\bin\Rscript.exe C:\Users\TOURE\Documents\Gith_repositories\Posit-LQAS-Workflow\run_pipeline.R --skip-fetch" /sc daily /st 06:00
+
+comit:
+bash C:/Users/TOURE/Documents/Gith_repositories/auto_commit.sh
+
+cd "C:/Users/TOURE/Documents/Gith_repositories/Posit-LQAS-Workflow"
+Rscript run_pipeline.R
+Rscript run_pipeline.R --skip-fetch
+Rscript run_pipeline.R --skip-fetch --skip-process --skip-clean --skip-qc
+explorer.exe 04_dashboard.html
+
+
+run only clean:
+cd "C:/Users/TOURE/Documents/Gith_repositories/Posit-LQAS-Workflow"
+Rscript run_pipeline.R --skip-fetch --skip-process --skip-dashboard --skip-qc
+
+Rscript run_pipeline.R --skip-fetch --skip-qc
+
+
+📁 Project: Posit-LQAS-Workflow
+├── 📄 run_pipeline.R          # One-command orchestrator
+├── 📄 fetch_ona_data.py       # Python data fetcher
+├── 📁 R/
+│   ├── 📄 02_process_lqas.R    # Data processing
+│   ├── 📄 03_clean_geonames.R  # Geoname cleaning  
+│   ├── 📄 04_dashboard.Rmd     # Dashboard
+│   └── 📄 05_quality_control.R # QC checks
+├── 📁 data/
+│   ├── 📁 raw/                 # Parquet files
+│   ├── 📁 processed/           # Individual CSVs
+│   └── 📁 final/               # Cleaned outputs
+└── 📄 04_dashboard.html        # Interactive dashboard
+
+API documentation:
+http://localhost:8000/docs
+API Documentation: http://localhost:8000/docs
+
+Data endpoints: http://localhost:8000/api/summary, etc.
+
+
+Uvicorn running on http://127.0.0.1:8000
+🌍 Step 3 — Open in browser
+
+Test your endpoints:
+
+👉 Main page:
+
+http://127.0.0.1:8000/
+
+👉 Admin data:
+
+http://127.0.0.1:8000/nigeria/admin
+
+👉 LQAS:
+
+http://127.0.0.1:8000/nigeria/lqas
