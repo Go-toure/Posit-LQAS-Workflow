@@ -5,7 +5,7 @@
   "parquet_size_mb": 0.13,
   "estimated_csv_size_mb": 0.32,
   "compression_ratio": 2.5,
-  "last_fetch": "2026-03-30T06:41:22.911815",
+  "last_fetch": "2026-05-13T09:51:21.221423",
   "shape": "36x167",
   "format": "parquet",
   "engine": "pyarrow"
