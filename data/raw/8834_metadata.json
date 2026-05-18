@@ -1,12 +1,12 @@
 {
   "form_id": 8834,
-  "records": 373,
-  "columns": 262,
-  "parquet_size_mb": 0.35,
-  "estimated_csv_size_mb": 4.96,
-  "compression_ratio": 14.4,
-  "last_fetch": "2026-05-13T09:42:39.584712",
-  "shape": "373x262",
+  "records": 501,
+  "columns": 286,
+  "parquet_size_mb": 0.42,
+  "estimated_csv_size_mb": 7.24,
+  "compression_ratio": 17.2,
+  "last_fetch": "2026-05-18T15:10:49.213484",
+  "shape": "501x286",
   "format": "parquet",
   "engine": "pyarrow"
 }
