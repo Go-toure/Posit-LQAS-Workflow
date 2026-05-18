@@ -1,0 +1,12 @@
+{
+  "form_id": 5214,
+  "records": 4846,
+  "columns": 190,
+  "parquet_size_mb": 1.71,
+  "estimated_csv_size_mb": 47.15,
+  "compression_ratio": 27.6,
+  "last_fetch": "2026-05-18T15:16:51.571799",
+  "shape": "4846x190",
+  "format": "parquet",
+  "engine": "pyarrow"
+}

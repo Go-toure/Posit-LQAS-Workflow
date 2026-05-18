@@ -1062,9 +1062,8 @@ process_special_nigeria <- function(file_path, file_name) {
 # ============================================================
 # Smart FM_Child Harmonizer (Handles all form types dynamically)
 # ============================================================
-
-# Replace update_fm_child_dynamic with this EXACT version from your working script
 update_fm_child_dynamic <- function(AC) {
+  # Find all child indices from any FM_Child related columns
   idx_from_any <- names(AC) |>
     str_match("^Count_HH\\[(\\d+)\\]/FM_Child(R|L)?$") |>
     (\(m) m[, 2])() |>
@@ -1075,34 +1074,186 @@ update_fm_child_dynamic <- function(AC) {
 
   if (length(idx_from_any) == 0) return(AC)
 
-  has_R <- any(str_detect(names(AC), "^Count_HH\\[\\d+\\]/FM_ChildR$"))
-  has_L <- any(str_detect(names(AC), "^Count_HH\\[\\d+\\]/FM_ChildL$"))
-  has_RL <- has_R && has_L
-  if (!has_RL) return(AC)
+  # Detect which column types have actual data (non-NA, non-empty)
+  detect_column_with_data <- function(pattern) {
+    cols <- names(AC)[grepl(pattern, names(AC))]
+    if (length(cols) == 0) return(FALSE)
+    # Check if any column has at least one non-NA, non-empty value
+    any(sapply(cols, function(col) {
+      vals <- AC[[col]]
+      if (is.character(vals)) {
+        any(!is.na(vals) & vals != "" & vals != " ")
+      } else {
+        any(!is.na(vals))
+      }
+    }))
+  }
+
+  has_R <- detect_column_with_data("^Count_HH\\[\\d+\\]/FM_ChildR$")
+  has_L <- detect_column_with_data("^Count_HH\\[\\d+\\]/FM_ChildL$")
+  has_FM <- detect_column_with_data("^Count_HH\\[\\d+\\]/FM_Child$")
+
+  # Also check for the nested pattern (Count_HH/Count_HH/FM_Child)
+  has_nested_FM <- detect_column_with_data("^Count_HH\\[\\d+\\]/Count_HH/FM_Child$")
+  has_nested_R <- detect_column_with_data("^Count_HH\\[\\d+\\]/Count_HH/FM_ChildR$")
+  has_nested_L <- detect_column_with_data("^Count_HH\\[\\d+\\]/Count_HH/FM_ChildL$")
+
+  # Use nested if they have data and standard don't
+  if (!has_FM && has_nested_FM) has_FM <- TRUE
+  if (!has_R && has_nested_R) has_R <- TRUE
+  if (!has_L && has_nested_L) has_L <- TRUE
+
+  # Also update column names if using nested pattern
+  if (has_nested_FM && !has_FM) {
+    nested_cols <- names(AC)[grepl("^Count_HH\\[\\d+\\]/Count_HH/FM_Child$", names(AC))]
+    for (old in nested_cols) {
+      new <- gsub("/Count_HH/", "/", old)
+      setnames(AC, old, new)
+    }
+  }
+  if (has_nested_R && !has_R) {
+    nested_cols <- names(AC)[grepl("^Count_HH\\[\\d+\\]/Count_HH/FM_ChildR$", names(AC))]
+    for (old in nested_cols) {
+      new <- gsub("/Count_HH/", "/", old)
+      setnames(AC, old, new)
+    }
+    has_R <- TRUE
+  }
+  if (has_nested_L && !has_L) {
+    nested_cols <- names(AC)[grepl("^Count_HH\\[\\d+\\]/Count_HH/FM_ChildL$", names(AC))]
+    for (old in nested_cols) {
+      new <- gsub("/Count_HH/", "/", old)
+      setnames(AC, old, new)
+    }
+    has_L <- TRUE
+  }
+
+  log_info("    Data detection: has_FM={has_FM}, has_R={has_R}, has_L={has_L}")
+
+  # Function to safely convert any value to binary (0/1)
+  to_binary <- function(x) {
+    if (is.numeric(x)) {
+      return(ifelse(x == 1, 1L, ifelse(x == 0, 0L, NA_integer_)))
+    }
+    x_char <- as.character(x)
+    x_char <- stringr::str_trim(x_char)
+    x_char <- stringr::str_to_lower(x_char)
+
+    # Handle empty/NA
+    if (is.na(x_char) || x_char == "" || x_char == " ") return(NA_integer_)
+
+    # True values
+    if (x_char %in% c("1", "yes", "y", "true", "t", "oui", "o")) return(1L)
+    # False values
+    if (x_char %in% c("0", "no", "n", "false", "f", "non")) return(0L)
+
+    return(NA_integer_)
+  }
 
   mutate_list <- list()
 
   for (ii in idx_from_any) {
-    col_FM <- sprintf("Count_HH[%d]/FM_Child",  ii)
+    col_FM <- sprintf("Count_HH[%d]/FM_Child", ii)
     col_R  <- sprintf("Count_HH[%d]/FM_ChildR", ii)
     col_L  <- sprintf("Count_HH[%d]/FM_ChildL", ii)
 
-    if (!(col_R %in% names(AC) && col_L %in% names(AC))) next
+    # Ensure columns exist in AC
+    col_FM_exists <- col_FM %in% names(AC)
+    col_R_exists <- col_R %in% names(AC)
+    col_L_exists <- col_L %in% names(AC)
 
-    if (col_FM %in% names(AC)) {
-      mutate_list[[col_FM]] <- expr(
-        ifelse((!!sym(col_R) + !!sym(col_L)) >= 1 | !!sym(col_FM) == 1, 1, 0)
+    # Case 1: We have L column with data (nOPV2 - priority)
+    if (has_L && col_L_exists) {
+      # Convert L to binary
+      if (!is.numeric(AC[[col_L]])) {
+        AC[[col_L]] <- sapply(AC[[col_L]], to_binary)
+      }
+      AC[[col_L]] <- ifelse(is.na(AC[[col_L]]), 0L, AC[[col_L]])
+
+      unified_value <- expr(!!sym(col_L))
+
+      if (col_FM_exists) {
+        mutate_list[[col_FM]] <- unified_value
+      } else {
+        mutate_list[[col_FM]] <- unified_value
+      }
+    }
+    # Case 2: We have R column with data (bOPV only) and no L data
+    else if (has_R && col_R_exists && !has_L) {
+      if (!is.numeric(AC[[col_R]])) {
+        AC[[col_R]] <- sapply(AC[[col_R]], to_binary)
+      }
+      AC[[col_R]] <- ifelse(is.na(AC[[col_R]]), 0L, AC[[col_R]])
+
+      unified_value <- expr(!!sym(col_R))
+
+      if (col_FM_exists) {
+        mutate_list[[col_FM]] <- unified_value
+      } else {
+        mutate_list[[col_FM]] <- unified_value
+      }
+    }
+    # Case 3: We have both R and L with data - priority to L (nOPV2)
+    else if (has_R && has_L && col_R_exists && col_L_exists) {
+      if (!is.numeric(AC[[col_R]])) {
+        AC[[col_R]] <- sapply(AC[[col_R]], to_binary)
+      }
+      if (!is.numeric(AC[[col_L]])) {
+        AC[[col_L]] <- sapply(AC[[col_L]], to_binary)
+      }
+      AC[[col_R]] <- ifelse(is.na(AC[[col_R]]), 0L, AC[[col_R]])
+      AC[[col_L]] <- ifelse(is.na(AC[[col_L]]), 0L, AC[[col_L]])
+
+      # Priority: L (nOPV2) over R (bOPV)
+      unified_value <- expr(
+        case_when(
+          !!sym(col_L) == 1 ~ 1L,
+          !!sym(col_R) == 1 ~ 1L,
+          TRUE ~ 0L
+        )
       )
-    } else {
-      mutate_list[[col_FM]] <- expr(
-        ifelse((!!sym(col_R) + !!sym(col_L)) >= 1, 1, 0)
-      )
+
+      if (col_FM_exists) {
+        mutate_list[[col_FM]] <- unified_value
+      } else {
+        mutate_list[[col_FM]] <- unified_value
+      }
+    }
+    # Case 4: Only old FM_Child exists with data
+    else if (has_FM && col_FM_exists) {
+      if (!is.numeric(AC[[col_FM]])) {
+        AC[[col_FM]] <- sapply(AC[[col_FM]], to_binary)
+      }
+      AC[[col_FM]] <- ifelse(is.na(AC[[col_FM]]), 0L, AC[[col_FM]])
+      # No mutation needed, column already exists with correct values
+      next
     }
   }
 
-  if (length(mutate_list) == 0) return(AC)
-  AC %>% mutate(!!!mutate_list)
+  if (length(mutate_list) == 0) {
+    return(AC)
+  }
+
+  result <- AC %>% mutate(!!!mutate_list)
+
+  # Log the results for debugging
+  if (length(mutate_list) > 0) {
+    sample_col <- names(mutate_list)[1]
+    if (nrow(result) > 0 && sample_col %in% names(result)) {
+      vaccinated_count <- sum(result[[sample_col]] == 1, na.rm = TRUE)
+      not_vaccinated_count <- sum(result[[sample_col]] == 0, na.rm = TRUE)
+      total_non_na <- vaccinated_count + not_vaccinated_count
+      if (total_non_na > 0) {
+        log_info("    Unified FM_Child from available data: vaccinated={vaccinated_count}, not_vaccinated={not_vaccinated_count}")
+      } else {
+        log_warn("    WARNING: No valid vaccination data found after unification!")
+      }
+    }
+  }
+
+  return(result)
 }
+
 
 # ============================================================
 # Process Regular LQAS File (EXACT from original)
