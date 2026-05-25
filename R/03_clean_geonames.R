@@ -1484,7 +1484,7 @@ apply_afro_block <- function(data) {
         country %in% c("ANGOLA", "DEMOCRATIC REPUBLIC OF THE CONGO") ~ "DRC",
         country %in% c("CONGO", "GABON", "EQUATORIAL GUINEA") ~ "CEA",
         country %in% c("RWANDA", "BURUNDI", "KENYA", "ERITREA", "ETHIOPIA",
-                       "SOUTH SUDAN", "UGANDA", "TANZANIA", "MALAWI",
+                       "SOUTH SUDAN", "UGANDA", "UNITED REPUBLIC OF TANZANIA", "MALAWI",
                        "ZAMBIA", "MOZAMBIQUE", "ZIMBABWE", "BOTSWANA", "NAMIBIA",
                        "ESWATINI", "LESOTHO", "MADAGASCAR", "COMOROS",
                        "SEYCHELLES", "MAURITIUS", "SAO TOME AND PRINCIPE") ~ "ESA",
