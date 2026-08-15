@@ -1,0 +1,202 @@
+{
+  "timestamp": "2026-08-15T15:34:26.923322",
+  "forms_total": 38,
+  "successful": 8,
+  "skipped": 29,
+  "failed": 1,
+  "total_records": 126758,
+  "total_size_mb": 43.78,
+  "format": "parquet",
+  "results": [
+    {
+      "form_id": 8588,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 10271,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 5203,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 4388,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 8834,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 4450,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 9601,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 4436,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 5203,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 4431,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 4999,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 4481,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 4500,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 8094,
+      "status": "failed",
+      "records": 0
+    },
+    {
+      "form_id": 6837,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 3583,
+      "status": "success",
+      "records": 8597
+    },
+    {
+      "form_id": 5299,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 7589,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 6420,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 5889,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 8281,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 7602,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 4987,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 6429,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 7623,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 15782,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 5214,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 9794,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 6350,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 6104,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 5777,
+      "status": "skipped",
+      "records": 0
+    },
+    {
+      "form_id": 7614,
+      "status": "success",
+      "records": 4674
+    },
+    {
+      "form_id": 4419,
+      "status": "success",
+      "records": 1162
+    },
+    {
+      "form_id": 6769,
+      "status": "success",
+      "records": 1968
+    },
+    {
+      "form_id": 4351,
+      "status": "success",
+      "records": 6118
+    },
+    {
+      "form_id": 7983,
+      "status": "success",
+      "records": 4016
+    },
+    {
+      "form_id": 272,
+      "status": "success",
+      "records": 100187
+    },
+    {
+      "form_id": 13593,
+      "status": "success",
+      "records": 36
+    }
+  ]
+}
