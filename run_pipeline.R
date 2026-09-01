@@ -1,19 +1,31 @@
 #!/usr/bin/env Rscript
 # ============================================================
 # LQAS Pipeline Orchestrator - Enhanced Version with Progress Bars
-# Runs: fetch → process → clean → dashboard → qc → open
+# Runs: refresh lookup → fetch → process → clean → dashboard → qc →
+#       push to SharePoint → open
+# "Refresh LQAS Lookup" and "Push to SharePoint" fetch/publish data/
+# lookup/lqas_lookup.xlsx and data/final/afro_lqas_repositorty.csv
+# automatically (via the GPEI API and Microsoft Graph respectively),
+# so the pipeline no longer depends on anyone manually downloading or
+# uploading those files by hand.
 # Skip flags available:
-#   --skip-fetch, --skip-process, --skip-clean, --skip-dashboard, --skip-qc
+#   --skip-lookup-refresh, --skip-fetch, --skip-process, --skip-clean,
+#   --skip-dashboard, --skip-qc, --skip-sharepoint-push
+# --debug passes through to the lookup refresh (saves a fetch summary
+# to data/lookup/refresh_debug/).
 # Dashboard ALWAYS opens after generation (if it exists)
 # ============================================================
 
 # Configuration
 FORCE_FULL <- "--force-full" %in% commandArgs(trailingOnly = TRUE)
+DEBUG <- "--debug" %in% commandArgs(trailingOnly = TRUE)
+SKIP_LOOKUP_REFRESH <- "--skip-lookup-refresh" %in% commandArgs(trailingOnly = TRUE)
 SKIP_FETCH <- "--skip-fetch" %in% commandArgs(trailingOnly = TRUE)
 SKIP_PROCESS <- "--skip-process" %in% commandArgs(trailingOnly = TRUE)
 SKIP_CLEAN <- "--skip-clean" %in% commandArgs(trailingOnly = TRUE)
 SKIP_DASHBOARD <- "--skip-dashboard" %in% commandArgs(trailingOnly = TRUE)
 SKIP_QC <- "--skip-qc" %in% commandArgs(trailingOnly = TRUE)
+SKIP_SHAREPOINT_PUSH <- "--skip-sharepoint-push" %in% commandArgs(trailingOnly = TRUE)
 
 # Get project root directory (where this script is located)
 PROJECT_ROOT <- getwd()
@@ -80,31 +92,46 @@ run_r_script <- function(script_path, script_name) {
   
   update_progress(pb, "Finalizing")
   
-  # Check if it succeeded (look for error messages)
-  if (any(grepl("Error", result, ignore.case = TRUE) & 
-          !grepl("Loading required package", result, ignore.case = TRUE))) {
+  # Check if it succeeded: the script's actual exit status is the
+  # authoritative signal (a script that catches its own errors and
+  # calls quit(status=1), like R/06_push_to_sharepoint.R, won't
+  # necessarily print the word "Error" anywhere) -- the text scan
+  # below is kept as an extra, backward-compatible safety net for
+  # scripts that let an error propagate uncaught instead.
+  exit_status <- attr(result, "status")
+  if (is.null(exit_status)) exit_status <- 0L
+  looks_like_error <- any(grepl("Error", result, ignore.case = TRUE) &
+                           !grepl("Loading required package", result, ignore.case = TRUE))
+
+  if (exit_status != 0L || looks_like_error) {
     cat("\n❌ ERROR:", script_name, "failed!\n")
     return(FALSE)
   }
-  
+
   cat("\n✅", script_name, "completed successfully!\n")
   return(TRUE)
 }
 
 # Function to run Python script with progress tracking
-run_python_script <- function(script_path, script_name) {
+run_python_script <- function(script_path, script_name, extra_args = "") {
   cat("\n", paste(rep("=", 60), collapse = ""), "\n")
   cat("📌 STEP:", script_name, "\n")
   cat(paste(rep("=", 60), collapse = ""), "\n")
-  
+
   # Create progress bar
   pb <- create_progress_bar(total = 2)
   update_progress(pb, "Initializing Python")
-  
-  cmd <- paste("python", script_path, if(FORCE_FULL) "--force-full")
+
+  # Build the argument vector without an empty "" element when there
+  # are no extra args -- passing "" through as a literal argument
+  # would otherwise reach argparse as an unrecognized positional
+  # argument and make an otherwise-successful run look like a failure.
+  args_vec <- script_path
+  if (nzchar(extra_args)) args_vec <- c(args_vec, extra_args)
+
   update_progress(pb, "Executing Python script")
-  result <- system(cmd, intern = TRUE)
-  
+  result <- system2("python", args = args_vec, stdout = TRUE, stderr = TRUE)
+
   # Print output
   cat("\n")
   if (length(result) > 50) {
@@ -114,7 +141,19 @@ run_python_script <- function(script_path, script_name) {
   } else {
     cat(paste(result, collapse = "\n"), "\n")
   }
-  
+
+  # The previous version of this function always returned TRUE here,
+  # regardless of whether the Python script actually succeeded -- a
+  # failed fetch (e.g. a missing GPEI_API_TOKEN) would silently look
+  # like a completed step and the pipeline would carry on with stale
+  # data. Check the script's real exit status instead.
+  exit_status <- attr(result, "status")
+  if (is.null(exit_status)) exit_status <- 0L
+  if (exit_status != 0L) {
+    cat("\n❌ ERROR:", script_name, "failed!\n")
+    return(FALSE)
+  }
+
   cat("\n✅", script_name, "completed successfully!\n")
   return(TRUE)
 }
@@ -270,29 +309,53 @@ run_pipeline <- function() {
   # Define pipeline steps
   steps <- list()
   step_num <- 1
-  
-  if (!SKIP_FETCH) {
-    steps[[step_num]] <- list(name = "Data Fetch", type = "python", script = "fetch_ona_data.py")
+
+  if (!SKIP_LOOKUP_REFRESH) {
+    # hard_stop = FALSE: a failed refresh (e.g. a missing/expired
+    # GPEI_API_TOKEN) degrades gracefully to whatever lqas_lookup.xlsx
+    # is already on disk rather than blocking the whole pipeline --
+    # same reasoning already applied to the equivalent step in the
+    # im_workflow project's run_workflow.R.
+    steps[[step_num]] <- list(name = "Refresh LQAS Lookup", type = "python",
+                               script = "refresh_lqas_lookup.py",
+                               extra_args = if (DEBUG) "--debug" else "",
+                               hard_stop = FALSE)
     step_num <- step_num + 1
   }
-  
+
+  if (!SKIP_FETCH) {
+    steps[[step_num]] <- list(name = "Data Fetch", type = "python", script = "fetch_ona_data.py",
+                               extra_args = if (FORCE_FULL) "--force-full" else "")
+    step_num <- step_num + 1
+  }
+
   if (!SKIP_PROCESS) {
     steps[[step_num]] <- list(name = "Data Processing", type = "r", script = "R/02_process_lqas.R")
     step_num <- step_num + 1
   }
-  
+
   if (!SKIP_CLEAN) {
     steps[[step_num]] <- list(name = "Geoname Cleaning", type = "r", script = "R/03_clean_geonames.R")
     step_num <- step_num + 1
   }
-  
+
   if (!SKIP_DASHBOARD) {
     steps[[step_num]] <- list(name = "Dashboard Generation", type = "dashboard", script = NA)
     step_num <- step_num + 1
   }
-  
+
   if (!SKIP_QC) {
     steps[[step_num]] <- list(name = "Quality Control", type = "qc", script = NA)
+    step_num <- step_num + 1
+  }
+
+  if (!SKIP_SHAREPOINT_PUSH) {
+    # hard_stop = FALSE: this is the last step before the dashboard
+    # opens -- nothing downstream depends on it, so a SharePoint/
+    # network hiccup here shouldn't be reported as if the whole
+    # pipeline (including the data everyone actually needs) failed.
+    steps[[step_num]] <- list(name = "Push to SharePoint", type = "r", script = "R/06_push_to_sharepoint.R",
+                               hard_stop = FALSE)
     step_num <- step_num + 1
   }
   
@@ -304,11 +367,13 @@ run_pipeline <- function() {
   cat("Started at:", format(Sys.time(), "%Y-%m-%d %H:%M:%S"), "\n")
   cat("Total steps:", length(steps), "\n")
   cat("Force full run:", FORCE_FULL, "\n")
+  cat("Skip lookup refresh:", SKIP_LOOKUP_REFRESH, "\n")
   cat("Skip fetch:", SKIP_FETCH, "\n")
   cat("Skip process:", SKIP_PROCESS, "\n")
   cat("Skip clean:", SKIP_CLEAN, "\n")
   cat("Skip dashboard:", SKIP_DASHBOARD, "\n")
   cat("Skip QC:", SKIP_QC, "\n")
+  cat("Skip SharePoint push:", SKIP_SHAREPOINT_PUSH, "\n")
   cat("============================================================\n")
   
   # Create overall progress bar
@@ -322,7 +387,8 @@ run_pipeline <- function() {
     result <- FALSE
     
     if (step$type == "python") {
-      result <- run_python_script(step$script, step$name)
+      step_extra_args <- if (is.null(step$extra_args)) "" else step$extra_args
+      result <- run_python_script(step$script, step$name, extra_args = step_extra_args)
     } else if (step$type == "r") {
       result <- run_r_script(step$script, step$name)
     } else if (step$type == "dashboard") {
@@ -331,9 +397,12 @@ run_pipeline <- function() {
       result <- run_quality_control()
     }
     
-    if (!result && step$type != "qc" && step$type != "dashboard") {
+    step_hard_stop <- if (is.null(step$hard_stop)) TRUE else step$hard_stop
+    if (!result && step$type != "qc" && step$type != "dashboard" && step_hard_stop) {
       cat("\n❌ Pipeline stopped at step:", step$name, "\n")
       return(FALSE)
+    } else if (!result) {
+      cat("\n⚠️ Step failed but is non-blocking, continuing:", step$name, "\n")
     }
     
     # Small delay to show progress

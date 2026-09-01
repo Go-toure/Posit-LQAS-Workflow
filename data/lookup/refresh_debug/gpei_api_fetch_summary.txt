@@ -1,0 +1,3 @@
+Fetched at: 2026-09-01T16:15:32.458055
+Rows fetched: 462
+Sample row: {'Round Number': 'Round 0', 'OBR Name': 'MLW-2026-02-1_nOPV-NID', 'Vaccines': 'nOPV2', 'Country': 'MALAWI', 'Round Start Date': '2026-02-14', 'Round Status': 'Finished'}

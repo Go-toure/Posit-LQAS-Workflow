@@ -59384,3 +59384,655 @@ INFO [2026-08-25 13:54:25] =
 INFO [2026-08-25 13:54:25] PROCESSING COMPLETE!
 INFO [2026-08-25 13:54:25] Total records: 31507
 INFO [2026-08-25 13:54:25] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-09-01 16:15:40] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-09-01 16:15:40] Starting LQAS Data Processing (Mirroring Original)
+INFO [2026-09-01 16:15:40] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-09-01 16:15:41] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-09-01 16:15:41] PROCESSING LQAS DATA (Mirroring Original)
+INFO [2026-09-01 16:15:41] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-09-01 16:15:41] Found special case: 272.parquet
+INFO [2026-09-01 16:15:41] Found 37 total files to process
+INFO [2026-09-01 16:15:41] --- Processing file 1/37: 10271.parquet ---
+INFO [2026-09-01 16:15:41]   Detecting format for: 10271.parquet
+INFO [2026-09-01 16:15:41]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:15:42]     Initial data: 12588 rows, 218 columns
+INFO [2026-09-01 16:15:42]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:15:43]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:15:43]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:15:43]     Converted 22 numeric columns
+ERROR [2026-09-01 16:15:44]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:15:44]     ❌ Failed to process 10271.parquet
+INFO [2026-09-01 16:15:44] --- Processing file 2/37: 13593.parquet ---
+INFO [2026-09-01 16:15:44]   Detecting format for: 13593.parquet
+INFO [2026-09-01 16:15:44]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:15:44]     Initial data: 36 rows, 167 columns
+INFO [2026-09-01 16:15:44]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:15:44]     Harmonized FM_Child: vaccinated=36, not_vaccinated=0
+INFO [2026-09-01 16:15:44]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:15:44]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:15:44]     Converted 42 numeric columns
+ERROR [2026-09-01 16:15:44]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:15:44]     ❌ Failed to process 13593.parquet
+INFO [2026-09-01 16:15:44] --- Processing file 3/37: 15782.parquet ---
+INFO [2026-09-01 16:15:44]   Detecting format for: 15782.parquet
+INFO [2026-09-01 16:15:44]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:15:44]     Initial data: 690 rows, 181 columns
+INFO [2026-09-01 16:15:44]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:15:45]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:15:45]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:15:45]     Converted 22 numeric columns
+ERROR [2026-09-01 16:15:45]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:15:45]     ❌ Failed to process 15782.parquet
+INFO [2026-09-01 16:15:45] --- Processing file 4/37: 272.parquet ---
+INFO [2026-09-01 16:15:45]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-09-01 16:15:51]     Read 100187 rows
+INFO [2026-09-01 16:19:11]     Processed 272: 8493 rows
+INFO [2026-09-01 16:19:11]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-09-01 16:19:11]     ✅ Successfully processed 272.parquet
+INFO [2026-09-01 16:19:11] --- Processing file 5/37: 3583.parquet ---
+INFO [2026-09-01 16:19:11]   Detecting format for: 3583.parquet
+INFO [2026-09-01 16:19:11]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:12]     Initial data: 8597 rows, 188 columns
+INFO [2026-09-01 16:19:12]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:12]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:12]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:12]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:13]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:13]     ❌ Failed to process 3583.parquet
+INFO [2026-09-01 16:19:13] --- Processing file 6/37: 4351.parquet ---
+INFO [2026-09-01 16:19:13]   Detecting format for: 4351.parquet
+INFO [2026-09-01 16:19:13]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:13]     Initial data: 6118 rows, 200 columns
+INFO [2026-09-01 16:19:13]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:14]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:14]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:14]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:14]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:14]     ❌ Failed to process 4351.parquet
+INFO [2026-09-01 16:19:14] --- Processing file 7/37: 4388.parquet ---
+INFO [2026-09-01 16:19:14]   Detecting format for: 4388.parquet
+INFO [2026-09-01 16:19:14]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:14]     Initial data: 2782 rows, 308 columns
+INFO [2026-09-01 16:19:14]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:14]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:14]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:15]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:15]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:15]     ❌ Failed to process 4388.parquet
+INFO [2026-09-01 16:19:15] --- Processing file 8/37: 4419.parquet ---
+INFO [2026-09-01 16:19:15]   Detecting format for: 4419.parquet
+INFO [2026-09-01 16:19:15]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:15]     Initial data: 1162 rows, 195 columns
+INFO [2026-09-01 16:19:15]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:15]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:15]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:15]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:15]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:15]     ❌ Failed to process 4419.parquet
+INFO [2026-09-01 16:19:15] --- Processing file 9/37: 4431.parquet ---
+INFO [2026-09-01 16:19:15]   Detecting format for: 4431.parquet
+INFO [2026-09-01 16:19:16]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:16]     Initial data: 13616 rows, 209 columns
+INFO [2026-09-01 16:19:16]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:17]     Harmonized FM_Child: vaccinated=12922, not_vaccinated=694
+INFO [2026-09-01 16:19:17]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:17]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:17]     Converted 42 numeric columns
+ERROR [2026-09-01 16:19:18]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:18]     ❌ Failed to process 4431.parquet
+INFO [2026-09-01 16:19:18] --- Processing file 10/37: 4436.parquet ---
+INFO [2026-09-01 16:19:18]   Detecting format for: 4436.parquet
+INFO [2026-09-01 16:19:18]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:18]     Initial data: 2306 rows, 196 columns
+INFO [2026-09-01 16:19:18]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:18]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:18]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:18]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:18]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:18]     ❌ Failed to process 4436.parquet
+INFO [2026-09-01 16:19:18] --- Processing file 11/37: 4450.parquet ---
+INFO [2026-09-01 16:19:18]   Detecting format for: 4450.parquet
+INFO [2026-09-01 16:19:19]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:19]     Initial data: 2502 rows, 294 columns
+INFO [2026-09-01 16:19:19]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:19]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:19]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:19]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:19]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:19]     ❌ Failed to process 4450.parquet
+INFO [2026-09-01 16:19:19] --- Processing file 12/37: 4481.parquet ---
+INFO [2026-09-01 16:19:19]   Detecting format for: 4481.parquet
+INFO [2026-09-01 16:19:19]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:19]     Initial data: 5404 rows, 311 columns
+INFO [2026-09-01 16:19:19]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:20]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:20]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:20]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:20]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:20]     ❌ Failed to process 4481.parquet
+INFO [2026-09-01 16:19:20] --- Processing file 13/37: 4500.parquet ---
+INFO [2026-09-01 16:19:20]   Detecting format for: 4500.parquet
+INFO [2026-09-01 16:19:20]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:21]     Initial data: 14014 rows, 216 columns
+INFO [2026-09-01 16:19:21]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:21]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:21]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:21]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:22]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:22]     ❌ Failed to process 4500.parquet
+INFO [2026-09-01 16:19:22] --- Processing file 14/37: 4987.parquet ---
+INFO [2026-09-01 16:19:22]   Detecting format for: 4987.parquet
+INFO [2026-09-01 16:19:23]     ✅ Detected HH bracket format - converting to standard
+INFO [2026-09-01 16:19:23]   🔸 Converting HH bracket format to standard
+INFO [2026-09-01 16:19:26]     Read 42605 rows with 578 columns
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[1]/U5_Vac_FM_HH -> Count_HH[1]/FM_Child
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[2]/U5_Vac_FM_HH -> Count_HH[2]/FM_Child
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[3]/U5_Vac_FM_HH -> Count_HH[3]/FM_Child
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[4]/U5_Vac_FM_HH -> Count_HH[4]/FM_Child
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[5]/U5_Vac_FM_HH -> Count_HH[5]/FM_Child
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[6]/U5_Vac_FM_HH -> Count_HH[6]/FM_Child
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[7]/U5_Vac_FM_HH -> Count_HH[7]/FM_Child
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[8]/U5_Vac_FM_HH -> Count_HH[8]/FM_Child
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[9]/U5_Vac_FM_HH -> Count_HH[9]/FM_Child
+INFO [2026-09-01 16:19:26]     Mapped column: Count_HH[10]/U5_Vac_FM_HH -> Count_HH[10]/FM_Child
+INFO [2026-09-01 16:19:26]     Converted to standard format with 578 columns
+INFO [2026-09-01 16:19:31]     Initial data: 42605 rows, 578 columns
+INFO [2026-09-01 16:19:31]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:31]     Found 0 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:31]     Converted 10 numeric columns
+ERROR [2026-09-01 16:19:32]     Processing failed: In argument: `Date_of_LQAS = as.Date(Date_of_LQAS)`.
+WARN [2026-09-01 16:19:32]     ❌ Failed to process 4987.parquet
+INFO [2026-09-01 16:19:32] --- Processing file 15/37: 4999.parquet ---
+INFO [2026-09-01 16:19:32]   Detecting format for: 4999.parquet
+INFO [2026-09-01 16:19:32]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:32]     Initial data: 2147 rows, 313 columns
+INFO [2026-09-01 16:19:32]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:32]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:32]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:32]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:32]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:32]     ❌ Failed to process 4999.parquet
+INFO [2026-09-01 16:19:32] --- Processing file 16/37: 5203.parquet ---
+INFO [2026-09-01 16:19:32]   Detecting format for: 5203.parquet
+INFO [2026-09-01 16:19:32]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:33]     Initial data: 14358 rows, 297 columns
+INFO [2026-09-01 16:19:33]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:33]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:33]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:34]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:35]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:35]     ❌ Failed to process 5203.parquet
+INFO [2026-09-01 16:19:35] --- Processing file 17/37: 5214.parquet ---
+INFO [2026-09-01 16:19:35]   Detecting format for: 5214.parquet
+INFO [2026-09-01 16:19:35]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:35]     Initial data: 5209 rows, 190 columns
+INFO [2026-09-01 16:19:35]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:35]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:35]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:35]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:35]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:35]     ❌ Failed to process 5214.parquet
+INFO [2026-09-01 16:19:35] --- Processing file 18/37: 5299.parquet ---
+INFO [2026-09-01 16:19:35]   Detecting format for: 5299.parquet
+INFO [2026-09-01 16:19:36]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:36]     Initial data: 2047 rows, 489 columns
+INFO [2026-09-01 16:19:36]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:36]     Harmonized FM_Child: vaccinated=1899, not_vaccinated=136
+INFO [2026-09-01 16:19:36]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:36]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:36]     Converted 42 numeric columns
+ERROR [2026-09-01 16:19:36]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:36]     ❌ Failed to process 5299.parquet
+INFO [2026-09-01 16:19:36] --- Processing file 19/37: 5777.parquet ---
+INFO [2026-09-01 16:19:36]   Detecting format for: 5777.parquet
+INFO [2026-09-01 16:19:36]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:36]     Initial data: 1899 rows, 225 columns
+INFO [2026-09-01 16:19:36]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:36]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:36]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:36]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:37]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:37]     ❌ Failed to process 5777.parquet
+INFO [2026-09-01 16:19:37] --- Processing file 20/37: 5889.parquet ---
+INFO [2026-09-01 16:19:37]   Detecting format for: 5889.parquet
+INFO [2026-09-01 16:19:37]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:37]     Initial data: 1924 rows, 192 columns
+INFO [2026-09-01 16:19:37]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:37]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:37]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:37]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:37]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:37]     ❌ Failed to process 5889.parquet
+INFO [2026-09-01 16:19:37] --- Processing file 21/37: 6104.parquet ---
+INFO [2026-09-01 16:19:37]   Detecting format for: 6104.parquet
+INFO [2026-09-01 16:19:37]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:37]     Initial data: 453 rows, 334 columns
+INFO [2026-09-01 16:19:37]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:37]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:37]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:37]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:38]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:38]     ❌ Failed to process 6104.parquet
+INFO [2026-09-01 16:19:38] --- Processing file 22/37: 6350.parquet ---
+INFO [2026-09-01 16:19:38]   Detecting format for: 6350.parquet
+INFO [2026-09-01 16:19:38]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:38]     Initial data: 944 rows, 335 columns
+INFO [2026-09-01 16:19:38]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:38]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:38]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:38]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:38]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:38]     ❌ Failed to process 6350.parquet
+INFO [2026-09-01 16:19:38] --- Processing file 23/37: 6420.parquet ---
+INFO [2026-09-01 16:19:38]   Detecting format for: 6420.parquet
+INFO [2026-09-01 16:19:38]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:38]     Initial data: 3012 rows, 213 columns
+INFO [2026-09-01 16:19:38]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:38]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:38]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:39]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:39]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:39]     ❌ Failed to process 6420.parquet
+INFO [2026-09-01 16:19:39] --- Processing file 24/37: 6429.parquet ---
+INFO [2026-09-01 16:19:39]   Detecting format for: 6429.parquet
+INFO [2026-09-01 16:19:39]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:39]     Initial data: 1516 rows, 345 columns
+INFO [2026-09-01 16:19:39]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:39]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:39]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:39]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:39]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:39]     ❌ Failed to process 6429.parquet
+INFO [2026-09-01 16:19:39] --- Processing file 25/37: 6769.parquet ---
+INFO [2026-09-01 16:19:39]   Detecting format for: 6769.parquet
+INFO [2026-09-01 16:19:39]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:39]     Initial data: 1968 rows, 366 columns
+INFO [2026-09-01 16:19:39]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:40]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:40]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:40]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:40]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:40]     ❌ Failed to process 6769.parquet
+INFO [2026-09-01 16:19:40] --- Processing file 26/37: 6837.parquet ---
+INFO [2026-09-01 16:19:40]   Detecting format for: 6837.parquet
+INFO [2026-09-01 16:19:40]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:41]     Initial data: 10658 rows, 289 columns
+INFO [2026-09-01 16:19:41]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:41]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:41]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:42]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:42]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:42]     ❌ Failed to process 6837.parquet
+INFO [2026-09-01 16:19:42] --- Processing file 27/37: 7589.parquet ---
+INFO [2026-09-01 16:19:42]   Detecting format for: 7589.parquet
+INFO [2026-09-01 16:19:42]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:42]     Initial data: 258 rows, 341 columns
+INFO [2026-09-01 16:19:42]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:42]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:42]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:42]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:42]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:42]     ❌ Failed to process 7589.parquet
+INFO [2026-09-01 16:19:42] --- Processing file 28/37: 7602.parquet ---
+INFO [2026-09-01 16:19:42]   Detecting format for: 7602.parquet
+INFO [2026-09-01 16:19:42]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:43]     Initial data: 1615 rows, 361 columns
+INFO [2026-09-01 16:19:43]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:43]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:43]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:43]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:43]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:43]     ❌ Failed to process 7602.parquet
+INFO [2026-09-01 16:19:43] --- Processing file 29/37: 7614.parquet ---
+INFO [2026-09-01 16:19:43]   Detecting format for: 7614.parquet
+INFO [2026-09-01 16:19:43]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:43]     Initial data: 4674 rows, 181 columns
+INFO [2026-09-01 16:19:43]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:44]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:44]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:44]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:44]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:44]     ❌ Failed to process 7614.parquet
+INFO [2026-09-01 16:19:44] --- Processing file 30/37: 7623.parquet ---
+INFO [2026-09-01 16:19:44]   Detecting format for: 7623.parquet
+INFO [2026-09-01 16:19:44]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:44]     Initial data: 9447 rows, 506 columns
+INFO [2026-09-01 16:19:45]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:45]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:45]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:45]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:46]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:46]     ❌ Failed to process 7623.parquet
+INFO [2026-09-01 16:19:46] --- Processing file 31/37: 7983.parquet ---
+INFO [2026-09-01 16:19:46]   Detecting format for: 7983.parquet
+INFO [2026-09-01 16:19:46]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:46]     Initial data: 4016 rows, 345 columns
+INFO [2026-09-01 16:19:46]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:46]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:46]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:46]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:46]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:46]     ❌ Failed to process 7983.parquet
+INFO [2026-09-01 16:19:46] --- Processing file 32/37: 8281.parquet ---
+INFO [2026-09-01 16:19:46]   Detecting format for: 8281.parquet
+INFO [2026-09-01 16:19:47]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:47]     Initial data: 4604 rows, 238 columns
+INFO [2026-09-01 16:19:47]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:47]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:47]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:47]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:47]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:47]     ❌ Failed to process 8281.parquet
+INFO [2026-09-01 16:19:47] --- Processing file 33/37: 8588.parquet ---
+INFO [2026-09-01 16:19:47]   Detecting format for: 8588.parquet
+INFO [2026-09-01 16:19:47]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:48]     Initial data: 4747 rows, 193 columns
+INFO [2026-09-01 16:19:48]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:48]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:48]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:48]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:48]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:48]     ❌ Failed to process 8588.parquet
+INFO [2026-09-01 16:19:48] --- Processing file 34/37: 8834.parquet ---
+INFO [2026-09-01 16:19:48]   Detecting format for: 8834.parquet
+INFO [2026-09-01 16:19:48]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:48]     Initial data: 691 rows, 293 columns
+INFO [2026-09-01 16:19:48]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:49]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:49]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:49]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:49]     ❌ Failed to process 8834.parquet
+INFO [2026-09-01 16:19:49] --- Processing file 35/37: 9601.parquet ---
+INFO [2026-09-01 16:19:49]   Detecting format for: 9601.parquet
+INFO [2026-09-01 16:19:49]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:49]     Initial data: 882 rows, 182 columns
+INFO [2026-09-01 16:19:49]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:49]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:49]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:49]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:49]     ❌ Failed to process 9601.parquet
+INFO [2026-09-01 16:19:49] --- Processing file 36/37: 9794.parquet ---
+INFO [2026-09-01 16:19:49]   Detecting format for: 9794.parquet
+INFO [2026-09-01 16:19:49]     ✅ Detected standard Count_HH bracket format
+INFO [2026-09-01 16:19:49]     Initial data: 552 rows, 255 columns
+INFO [2026-09-01 16:19:49]     Converted Count_HH_count to numeric. Summary: min=10, max=10
+INFO [2026-09-01 16:19:49]     Detected child indices: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+INFO [2026-09-01 16:19:49]     Found 10 sex columns, 10 FM_Child columns
+INFO [2026-09-01 16:19:49]     Converted 22 numeric columns
+ERROR [2026-09-01 16:19:50]     Processing failed: In argument: `round_start_date = coalesce(round_start_date, start_date - 4)`.
+WARN [2026-09-01 16:19:50]     ❌ Failed to process 9794.parquet
+INFO [2026-09-01 16:19:50] --- Processing file 37/37: 272.parquet ---
+INFO [2026-09-01 16:19:50]   🔸 SPECIAL CASE: Processing 272 (Nigeria LQAS) - Mirroring original
+INFO [2026-09-01 16:19:52]     Read 100187 rows
+INFO [2026-09-01 16:22:44]     Processed 272: 8493 rows
+INFO [2026-09-01 16:22:44]     ✅ Saved individual output to data/processed/272.csv
+INFO [2026-09-01 16:22:44]     ✅ Successfully processed 272.parquet
+INFO [2026-09-01 16:22:44] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-09-01 16:22:44] COMBINING RESULTS
+INFO [2026-09-01 16:22:44] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-09-01 16:22:44] Combined 8493 rows from 1 files
+INFO [2026-09-01 16:22:44] Regular files: 0, Special cases: 2, Failed: 35
+INFO [2026-09-01 16:22:44] After deduplication: 7977 rows
+INFO [2026-09-01 16:22:44] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-09-01 16:22:44] SAVING OUTPUTS
+INFO [2026-09-01 16:22:44] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-09-01 16:22:44] ✅ Saved final data to data/final/lqas_dashboard_input.csv
+INFO [2026-09-01 16:22:44] ✅ Saved parquet to data/final/lqas_dashboard_input.parquet
+INFO [2026-09-01 16:22:44] ✅ Saved processing summary to data/processed/processing_summary.rds
+INFO [2026-09-01 16:22:45] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-09-01 16:22:45] EXPORTING METADATA TO EXCEL
+INFO [2026-09-01 16:22:45] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
+INFO [2026-09-01 16:22:45] ✅ Metadata exported to Excel: data/metadata/lqas_metadata.xlsx
+INFO [2026-09-01 16:22:45]    Sheets included:
+INFO [2026-09-01 16:22:45]      1. Dataset_Overview
+INFO [2026-09-01 16:22:45]      2. Country_Summary
+INFO [2026-09-01 16:22:45]      3. Variable_Dictionary
+INFO [2026-09-01 16:22:45]      4. Data_Quality
+INFO [2026-09-01 16:22:45]      5. Performance_by_Campaign
+INFO [2026-09-01 16:22:45]      6. Processing_Info
+INFO [2026-09-01 16:22:45]      7. Reason_Categories
+INFO [2026-09-01 16:22:45]      8. File_Structure
+INFO [2026-09-01 16:22:45]      9. Usage_Notes
+INFO [2026-09-01 16:22:45]      10. Example_Records
+INFO [2026-09-01 16:22:45] =
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+=
+INFO [2026-09-01 16:22:45] PROCESSING COMPLETE!
+INFO [2026-09-01 16:22:45] Total records: 7977
+INFO [2026-09-01 16:22:45] = == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == == =
