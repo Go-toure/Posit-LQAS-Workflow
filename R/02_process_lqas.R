@@ -1676,6 +1676,91 @@ process_regular_file <- function(file_path, file_name) {
   
   lookup_file <- "data/lookup/lqas_lookup.xlsx"
   if (file.exists(lookup_file)) {
+    # A lookup Vaccines value can list more than one option when
+    # different districts under the same OBR/round did different things
+    # -- e.g. "bOPV, nOPV2 & bOPV" or "bOPV, nOPV2" both mean some
+    # districts used bOPV alone and others used nOPV2 (possibly mixed
+    # with bOPV). Since this data has no district-level breakdown of
+    # which is which, there are only three valid vaccine.type values in
+    # this pipeline's vocabulary -- "bOPV", "nOPV2", or the combo
+    # "nOPV2 & bOPV" -- so classify by which of those are actually
+    # mentioned rather than trying to dedupe the raw text as a list.
+    # "mOPV2" is a data-entry typo for "mOPV" in this dataset, not a
+    # distinct vaccine, so it's folded into "mOPV" here too.
+    normalize_vaccine_combo <- function(x) {
+      if (is.na(x) || str_squish(x) == "") return(NA_character_)
+      has_fipv <- str_detect(x, regex("fIPV", ignore_case = TRUE))
+      has_nopv2 <- str_detect(x, regex("nOPV2", ignore_case = TRUE))
+      has_bopv <- str_detect(x, regex("bOPV", ignore_case = TRUE))
+      has_mopv <- str_detect(x, regex("mOPV", ignore_case = TRUE))
+      if (has_fipv && has_nopv2) return("fIPV+nOPV2")
+      if (has_nopv2 && has_bopv) return("nOPV2 & bOPV")
+      if (has_nopv2) return("nOPV2")
+      if (has_bopv) return("bOPV")
+      if (has_mopv) return("mOPV")
+      str_squish(x)
+    }
+
+    # Individual raw ONA forms each use their own country convention --
+    # e.g. the DRC form's raw Country is literally "RDC", South Sudan's
+    # is "SSUD", Ethiopia's is "ETH" -- while lqas_lookup.xlsx uses
+    # GPEI's full English names ("DEMOCRATIC REPUBLIC OF THE CONGO",
+    # "SOUTH SUDAN", "ETHIOPIA"). A plain toupper/trim never bridges
+    # that, so without this the country-based catch-up below silently
+    # finds nothing for any of these forms. This mirrors the alias
+    # table 03_clean_geonames.R already uses later in the pipeline
+    # (duplicated here since these run as separate Rscript processes).
+    normalize_country <- function(country) {
+      country <- toupper(trimws(as.character(country)))
+      case_when(
+        country %in% c("CHD") ~ "CHAD",
+        country %in% c("MLW", "MWI") ~ "MALAWI",
+        country %in% c("GAM") ~ "GAMBIA",
+        country %in% c("ALG") ~ "ALGERIA",
+        country %in% c("ETH") ~ "ETHIOPIA",
+        country %in% c("ANG") ~ "ANGOLA",
+        country %in% c("BEN") ~ "BENIN",
+        country %in% c("BFA", "BURKINA_FASO") ~ "BURKINA FASO",
+        country %in% c("CAE") ~ "CAMEROON",
+        country %in% c("CIV", "COTE D'IVOIRE", "CÔTE D’IVOIRE", "CÔTE D'IVOIRE") ~ "COTE D IVOIRE",
+        country %in% c("GUI") ~ "GUINEA",
+        country %in% c("KEN") ~ "KENYA",
+        country %in% c("MAL") ~ "MALI",
+        country %in% c("MAU") ~ "MAURITANIA",
+        country %in% c("MOZ") ~ "MOZAMBIQUE",
+        country %in% c("NIE") ~ "NIGERIA",
+        country %in% c("NIG") ~ "NIGER",
+        country %in% c("RCA") ~ "CENTRAL AFRICAN REPUBLIC",
+        country %in% c("RDC", "DRC") ~ "DEMOCRATIC REPUBLIC OF THE CONGO",
+        country %in% c("SEN") ~ "SENEGAL",
+        country %in% c("LIB", "LBR") ~ "LIBERIA",
+        country %in% c("SIL") ~ "SIERRA LEONE",
+        country %in% c("TOG") ~ "TOGO",
+        country %in% c("UGA") ~ "UGANDA",
+        country %in% c("ZMB") ~ "ZAMBIA",
+        country %in% c("ZIM") ~ "ZIMBABWE",
+        country %in% c("BDI", "BUI") ~ "BURUNDI",
+        country %in% c("RWA") ~ "RWANDA",
+        country %in% c("SSD", "SSUD") ~ "SOUTH SUDAN",
+        country %in% c("TNZ", "TANZANIA") ~ "UNITED REPUBLIC OF TANZANIA",
+        country %in% c("BWA") ~ "BOTSWANA",
+        country %in% c("SWZ") ~ "ESWATINI",
+        country %in% c("LSO") ~ "LESOTHO",
+        country %in% c("MDG") ~ "MADAGASCAR",
+        country %in% c("COM") ~ "COMOROS",
+        country %in% c("SYC") ~ "SEYCHELLES",
+        country %in% c("MUS") ~ "MAURITIUS",
+        country %in% c("CPV") ~ "CAPE VERDE",
+        country %in% c("STP") ~ "SAO TOME AND PRINCIPE",
+        country %in% c("GNB") ~ "GUINEA-BISSAU",
+        country %in% c("ERI") ~ "ERITREA",
+        country %in% c("GAB") ~ "GABON",
+        country %in% c("COG") ~ "CONGO",
+        country %in% c("GNQ") ~ "EQUATORIAL GUINEA",
+        TRUE ~ country
+      )
+    }
+
     date_lookup <- read_excel(lookup_file) %>%
       mutate(
         `Round Number` = case_when(
@@ -1692,23 +1777,105 @@ process_regular_file <- function(file_path, file_name) {
       rename(
         Response = `OBR Name`,
         Vaccine.type_lookup = Vaccines,
-        roundNumber = `Round Number`,
-        round_start_date = `Round Start Date`
+        roundNumber = `Round Number`
       ) %>%
+      # Give every lookup-side date/vaccine column its own distinct
+      # "_lookup" name instead of relying on dplyr's automatic .x/.y
+      # suffixing in the join below. start_date/end_date already exist
+      # on F3 (computed earlier from Date_of_LQAS), so a plain-name
+      # collision here was silently breaking this whole block for
+      # every file EXCEPT the 272/Nigeria special cases (which never
+      # go through this join at all) -- every other country's file was
+      # failing at this step and getting dropped from the final
+      # combined output entirely.
       mutate(
-        start_date = as.Date(round_start_date) + 4,
-        end_date = start_date + 1
+        Vaccine.type_lookup = map_chr(Vaccine.type_lookup, normalize_vaccine_combo),
+        Country_lookup = normalize_country(Country),
+        round_start_date_lookup = as.Date(`Round Start Date`),
+        start_date_lookup = round_start_date_lookup + 4,
+        end_date_lookup = start_date_lookup + 1
       ) %>%
-      select(Response, Vaccine.type_lookup, roundNumber, round_start_date, start_date, end_date)
-    
+      select(Response, Vaccine.type_lookup, roundNumber, Country_lookup,
+             round_start_date_lookup, start_date_lookup, end_date_lookup)
+
     F3 <- F3 %>%
+      mutate(start_date = as.Date(start_date), end_date = as.Date(end_date)) %>%
       left_join(date_lookup, by = c("Response", "roundNumber")) %>%
       mutate(
-        start_date = coalesce(start_date.y, start_date.x),
-        end_date = coalesce(end_date.y, end_date.x),
-        round_start_date = coalesce(round_start_date, start_date - 4)
+        # lqas_lookup.xlsx is the maintained GPEI campaign calendar, so
+        # once a row matches into it (exact Response+roundNumber match
+        # here), its round/date/vaccine info is the source of truth --
+        # it always wins over the raw survey's own value for these
+        # fields, which is only used as a fallback when the lookup has
+        # nothing for this row (e.g. a campaign not yet in the GPEI
+        # calendar). This also fixes rows where the regex-based
+        # Vaccine.type pass above guessed wrong from Response text but
+        # the lookup has the real vaccine.
+        start_date = coalesce(start_date_lookup, start_date),
+        end_date = coalesce(end_date_lookup, end_date),
+        round_start_date = coalesce(round_start_date_lookup, start_date - 4),
+        Vaccine.type = coalesce(Vaccine.type_lookup, Vaccine.type)
       ) %>%
-      select(-start_date.x, -start_date.y, -end_date.x, -end_date.y, -Vaccine.type_lookup)
+      select(-round_start_date_lookup, -start_date_lookup, -end_date_lookup, -Vaccine.type_lookup)
+
+    # ---- Catch-up fallback for responses the exact match couldn't fill ----
+    # Some survey responses never exactly match an OBR Name in the
+    # lookup: misspellings (e.g. "SSD-2026-01-05_NOPV2" vs the lookup's
+    # "SSD-2026-01-05_nOPV2"), informal place names used instead of the
+    # campaign code (e.g. "Addis Ababa" instead of
+    # "ETH-2025-12-b-nOPV2-NIDs"), or a round number that just doesn't
+    # line up between the two systems (e.g. survey round 1 when the
+    # lookup only lists that OBR's round 0). For any row still missing
+    # Vaccine.type or round_start_date after the exact match above,
+    # fall back to matching on Country plus the closest round start
+    # date at or before the row's own survey date -- i.e. whichever
+    # round it actually happened during. A visit that falls between two
+    # round start dates belongs to the earlier (already-started) round,
+    # never the one that hasn't started yet, so this always looks
+    # backward from the visit date, never forward.
+    still_missing <- which(is.na(F3$Vaccine.type) | is.na(F3$round_start_date))
+    if (length(still_missing) > 0) {
+      catchup_lookup <- date_lookup %>%
+        filter(!is.na(Country_lookup), !is.na(round_start_date_lookup)) %>%
+        arrange(Country_lookup, round_start_date_lookup)
+      catchup_by_country <- split(catchup_lookup, catchup_lookup$Country_lookup)
+
+      find_catchup <- function(country, ref_date) {
+        rows <- catchup_by_country[[country]]
+        if (is.null(rows) || nrow(rows) == 0 || is.na(ref_date)) {
+          return(list(vaccine = NA_character_, date = as.Date(NA),
+                      response = NA_character_, round = NA_character_))
+        }
+        candidates <- rows$round_start_date_lookup[rows$round_start_date_lookup <= ref_date]
+        pick_date <- if (length(candidates) > 0) max(candidates) else min(rows$round_start_date_lookup)
+        idx <- which(rows$round_start_date_lookup == pick_date)[1]
+        list(vaccine = rows$Vaccine.type_lookup[idx], date = pick_date,
+             response = rows$Response[idx], round = rows$roundNumber[idx])
+      }
+
+      # A row only reaches this loop because the exact match already
+      # failed to find anything usable for it, so once a catch-up hit is
+      # found the lookup's round/response/vaccine/date fully replace
+      # whatever the raw survey had for this row -- same "lqas_lookup
+      # wins" priority as the exact-match step above, not just a
+      # fill-if-missing.
+      filled <- 0L
+      for (i in still_missing) {
+        ctry <- normalize_country(F3$Country[i])
+        ref_date <- coalesce(F3$start_date[i], F3$round_start_date[i])
+        hit <- find_catchup(ctry, ref_date)
+        if (!is.na(hit$vaccine)) {
+          F3$Vaccine.type[i] <- hit$vaccine
+          F3$Response[i] <- hit$response
+          F3$roundNumber[i] <- hit$round
+          filled <- filled + 1L
+        }
+        if (!is.na(hit$date)) {
+          F3$round_start_date[i] <- hit$date
+        }
+      }
+      log_info("    Catch-up fallback filled {filled} of {length(still_missing)} previously-unmatched rows")
+    }
   }
   
   F4 <- F3 %>%

@@ -4,7 +4,7 @@ echo Scheduling Monday LQAS Pipeline
 echo ========================================
 
 SCHTASKS /CREATE /TN "WHO_LQAS_Monday_Pipeline" ^
-    /TR "C:\Program Files\Git\bin\bash.exe -c 'cd /c/Users/TOURE/Documents/Gith_repositories/Posit-LQAS-Workflow && Rscript run_pipeline.R && git add . && git commit -m \"Monday update: $(date +%%Y-%%m-%%d)\" && git push'" ^
+    /TR "C:\Program Files\Git\bin\bash.exe -c 'cd /c/Users/TOURE/Documents/Gith_repositories/Posit-LQAS-Workflow && Rscript run_pipeline.R --force-full && git add . && git commit -m \"Monday update: $(date +%%Y-%%m-%%d)\" && git push'" ^
     /SC WEEKLY ^
     /D MON ^
     /ST 11:00 ^

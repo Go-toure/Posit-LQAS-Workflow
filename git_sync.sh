@@ -7,8 +7,13 @@ echo "========================================"
 echo ""
 
 # Run pipeline
+# --force-full: without this, fetch_ona_data.py skips any form whose
+# raw file already exists on disk, so a scheduled run can go weeks
+# without ever pulling fresh ONA data. Always force a full refetch here.
+# Full path to Rscript.exe: a Task Scheduler / Git Bash environment
+# does not reliably have R's bin directory on PATH.
 echo "🚀 Running LQAS Pipeline..."
-Rscript run_pipeline.R
+"/c/Program Files/R/R-4.4.1/bin/x64/Rscript.exe" run_pipeline.R --force-full
 
 # Check if pipeline succeeded
 if [ $? -eq 0 ]; then

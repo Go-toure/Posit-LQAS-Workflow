@@ -1,0 +1,626 @@
+<title>Pipeline Command Reference</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --bg:#F2F5F1;
+    --surface:#FFFFFF;
+    --surface-2:#E9EFE9;
+    --ink:#1A2420;
+    --ink-muted:#55655D;
+    --ink-faint:#7C8B83;
+    --border:#D3DED2;
+    --accent:#1F6F63;
+    --accent-strong:#124039;
+    --accent-soft:#DCEAE7;
+    --copper:#A5652E;
+    --copper-soft:#F3E4D3;
+    --ok:#2F7A3C;
+    --ok-soft:#DFEEDF;
+    --warn:#93650E;
+    --warn-soft:#F5E9D2;
+    --crit:#9A3A26;
+    --crit-soft:#F5DFD8;
+    --code-bg:#16211D;
+    --code-ink:#E9EDE8;
+    --code-muted:#8FA79B;
+    --shadow: 0 1px 2px rgba(20,35,30,0.06), 0 6px 20px -8px rgba(20,35,30,0.15);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#101B17;
+      --surface:#16241E;
+      --surface-2:#1D2F27;
+      --ink:#E8EFEA;
+      --ink-muted:#9FB5AA;
+      --ink-faint:#71887D;
+      --border:#2A4238;
+      --accent:#6FC7B0;
+      --accent-strong:#95E0CB;
+      --accent-soft:#1D3A33;
+      --copper:#E1A868;
+      --copper-soft:#3A2A18;
+      --ok:#7FCB8C;
+      --ok-soft:#1E3620;
+      --warn:#E3BE72;
+      --warn-soft:#3B2E14;
+      --crit:#E3907A;
+      --crit-soft:#3D211B;
+      --code-bg:#0B1310;
+      --code-ink:#DCE8E1;
+      --code-muted:#6E8A7C;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px -10px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#101B17;
+    --surface:#16241E;
+    --surface-2:#1D2F27;
+    --ink:#E8EFEA;
+    --ink-muted:#9FB5AA;
+    --ink-faint:#71887D;
+    --border:#2A4238;
+    --accent:#6FC7B0;
+    --accent-strong:#95E0CB;
+    --accent-soft:#1D3A33;
+    --copper:#E1A868;
+    --copper-soft:#3A2A18;
+    --ok:#7FCB8C;
+    --ok-soft:#1E3620;
+    --warn:#E3BE72;
+    --warn-soft:#3B2E14;
+    --crit:#E3907A;
+    --crit-soft:#3D211B;
+    --code-bg:#0B1310;
+    --code-ink:#DCE8E1;
+    --code-muted:#6E8A7C;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 30px -10px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'IBM Plex Serif', Georgia, serif;
+    color:var(--ink);
+    text-wrap:balance;
+    margin:0 0 .35em;
+  }
+  a{color:var(--accent);}
+  code, .mono{ font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  .page{ max-width:1180px; margin:0 auto; padding:0 24px 96px; }
+
+  /* ---------- Header ---------- */
+  .masthead{
+    padding:44px 0 28px;
+    border-bottom:1px solid var(--border);
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem; letter-spacing:.11em; text-transform:uppercase;
+    color:var(--accent-strong);
+    background:var(--accent-soft);
+    border:1px solid var(--border);
+    padding:5px 10px 4px; border-radius:4px;
+    margin-bottom:16px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 3px var(--ok-soft); }
+  .masthead h1{ font-size:clamp(1.9rem, 1.5rem + 1.6vw, 2.7rem); font-weight:600; letter-spacing:-0.01em; }
+  .masthead .dek{
+    max-width:62ch; color:var(--ink-muted); font-size:1.05rem; margin:0 0 6px;
+  }
+  .masthead .meta{
+    font-size:.82rem; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* ---------- Quick launch cards ---------- */
+  .quickgrid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:14px;
+    margin-top:28px;
+  }
+  @media (max-width:720px){ .quickgrid{ grid-template-columns:1fr; } }
+  .qcard{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px 18px 16px;
+    box-shadow:var(--shadow);
+  }
+  .qcard .qlabel{
+    font-family:'IBM Plex Mono',monospace; font-size:.7rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-faint); margin-bottom:6px;
+  }
+  .qcard h3{ font-size:1.05rem; margin-bottom:10px; }
+  .qcard .qwhere{ font-size:.8rem; color:var(--ink-faint); margin-top:10px; }
+
+  /* ---------- Layout: nav + content ---------- */
+  .layout{
+    display:grid; grid-template-columns:220px minmax(0,1fr); gap:44px;
+    margin-top:36px; align-items:start;
+  }
+  @media (max-width:900px){ .layout{ grid-template-columns:1fr; } }
+
+  nav.toc{
+    position:sticky; top:24px;
+    display:flex; flex-direction:column; gap:2px;
+    font-size:.88rem;
+  }
+  @media (max-width:900px){
+    nav.toc{
+      position:static;
+      flex-direction:row; flex-wrap:wrap; gap:8px;
+      padding-bottom:18px; margin-bottom:8px;
+      border-bottom:1px solid var(--border);
+    }
+    nav.toc a{
+      border:1px solid var(--border); border-radius:999px; padding:5px 12px;
+      background:var(--surface);
+    }
+    nav.toc .toc-sub{ display:none; }
+  }
+  nav.toc a{
+    color:var(--ink-muted); text-decoration:none; padding:5px 8px; border-radius:6px;
+  }
+  nav.toc a:hover{ color:var(--ink); background:var(--surface-2); }
+  nav.toc .toc-group{ margin-top:14px; }
+  nav.toc .toc-group:first-child{ margin-top:0; }
+  nav.toc .toc-h{
+    font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--ink-faint); padding:5px 8px 2px;
+  }
+  nav.toc .toc-sub{ padding-left:16px; font-size:.83rem; }
+
+  main{ min-width:0; }
+  section{ margin-bottom:56px; scroll-margin-top:20px; }
+  section > .section-head{
+    display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  section h2{ font-size:1.5rem; font-weight:600; }
+  .section-path{
+    font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--ink-faint);
+    background:var(--surface-2); border:1px solid var(--border);
+    padding:2px 8px; border-radius:5px; white-space:nowrap;
+  }
+  .section-intro{ color:var(--ink-muted); max-width:70ch; margin:10px 0 0; }
+
+  h3.subhead{
+    font-size:1.05rem; font-weight:600; margin:30px 0 10px;
+    padding-top:2px;
+  }
+  h3.subhead .num{ color:var(--copper); font-family:'IBM Plex Mono',monospace; margin-right:8px; }
+
+  p{ color:var(--ink); max-width:70ch; }
+  p.muted{ color:var(--ink-muted); font-size:.92rem; max-width:66ch; }
+
+  /* ---------- Step chain ---------- */
+  .chain{
+    display:flex; flex-wrap:wrap; align-items:center; gap:0;
+    margin:14px 0 18px;
+  }
+  .chain .step{
+    display:flex; align-items:center; gap:8px;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:8px; padding:8px 12px;
+    font-size:.82rem;
+    box-shadow:var(--shadow);
+  }
+  .chain .step .n{
+    font-family:'IBM Plex Mono',monospace; font-size:.72rem;
+    color:var(--accent-strong); background:var(--accent-soft);
+    width:18px; height:18px; border-radius:50%;
+    display:inline-flex; align-items:center; justify-content:center;
+    flex:none;
+  }
+  .chain .step.optional{ opacity:.75; border-style:dashed; }
+  .chain .step .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:.68rem; color:var(--ink-faint);
+  }
+  .chain .arrow{
+    color:var(--ink-faint); padding:0 6px; font-size:.9rem; flex:none;
+  }
+  @media (max-width:640px){
+    .chain{ flex-direction:column; align-items:stretch; }
+    .chain .arrow{ display:none; }
+    .chain .step{ width:100%; }
+  }
+
+  /* ---------- Command blocks ---------- */
+  .cmd{
+    background:var(--code-bg); border-radius:9px; overflow:hidden;
+    margin:14px 0 18px; box-shadow:var(--shadow);
+  }
+  .cmd .cmd-bar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:7px 12px; border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .cmd .cmd-shell{
+    font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--code-muted);
+  }
+  .cmd .copy-btn{
+    font-family:'IBM Plex Mono',monospace; font-size:.68rem;
+    color:var(--code-muted); background:transparent; border:1px solid rgba(255,255,255,0.15);
+    border-radius:5px; padding:3px 9px; cursor:pointer;
+  }
+  .cmd .copy-btn:hover{ color:var(--code-ink); border-color:rgba(255,255,255,0.3); }
+  .cmd .copy-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .cmd pre{
+    margin:0; padding:12px 14px 14px; overflow-x:auto;
+  }
+  .cmd code{
+    font-size:.86rem; color:var(--code-ink); white-space:pre;
+  }
+  .cmd .prompt{ color:var(--copper); user-select:none; }
+  .cmd .comment{ color:var(--code-muted); }
+
+  /* ---------- Flag tables ---------- */
+  .flags{ margin:14px 0 8px; border-top:1px solid var(--border); }
+  .flag-row{
+    display:grid; grid-template-columns:minmax(140px,220px) 1fr;
+    gap:16px; padding:11px 0; border-bottom:1px solid var(--border);
+  }
+  @media (max-width:560px){ .flag-row{ grid-template-columns:1fr; gap:4px; } }
+  .flag-row .flag{
+    font-family:'IBM Plex Mono',monospace; font-size:.84rem; color:var(--copper);
+    white-space:nowrap;
+  }
+  .flag-row .desc{ font-size:.9rem; color:var(--ink-muted); }
+  .flag-row .desc b{ color:var(--ink); font-weight:600; }
+
+  /* ---------- Callouts ---------- */
+  .callout{
+    display:flex; gap:12px; align-items:flex-start;
+    border:1px solid var(--border); border-left:3px solid var(--accent);
+    background:var(--surface); border-radius:0 8px 8px 0;
+    padding:13px 16px; margin:16px 0; box-shadow:var(--shadow);
+  }
+  .callout.warn{ border-left-color:var(--warn); }
+  .callout.crit{ border-left-color:var(--crit); }
+  .callout .ctitle{ font-weight:600; font-size:.88rem; margin-bottom:3px; }
+  .callout p{ margin:0; font-size:.89rem; color:var(--ink-muted); }
+  .callout p b{ color:var(--ink); }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:5px;
+    font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.04em;
+    padding:2px 8px; border-radius:999px; font-weight:500;
+  }
+  .pill.current{ background:var(--ok-soft); color:var(--ok); }
+  .pill.legacy{ background:var(--crit-soft); color:var(--crit); }
+
+  table.io{ width:100%; border-collapse:collapse; margin:12px 0 18px; font-size:.88rem; }
+  table.io th{
+    text-align:left; font-family:'IBM Plex Mono',monospace; font-size:.68rem;
+    letter-spacing:.07em; text-transform:uppercase; color:var(--ink-faint);
+    padding:0 10px 8px 0; border-bottom:1px solid var(--border);
+  }
+  table.io td{
+    padding:9px 10px 9px 0; border-bottom:1px solid var(--border);
+    color:var(--ink-muted); vertical-align:top;
+  }
+  table.io td.f{ font-family:'IBM Plex Mono',monospace; color:var(--ink); white-space:nowrap; }
+  table.io tr:last-child td{ border-bottom:none; }
+  .io-wrap{ overflow-x:auto; }
+
+  hr.div{ border:none; border-top:1px solid var(--border); margin:40px 0; }
+
+  footer{
+    margin-top:8px; padding-top:22px; border-top:1px solid var(--border);
+    font-size:.8rem; color:var(--ink-faint); max-width:70ch;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <span class="eyebrow"><span class="dot"></span>AFRO Polio Data &middot; Operations Runbook</span>
+    <h1>Pipeline Command Reference</h1>
+    <p class="dek">Every command to run the LQAS pipeline end to end, and to refresh the AFRO-SIA Dashboard's input files — read straight off the current scripts, not from memory.</p>
+    <p class="meta">Verified against the scripts on your machine &middot; 2 Sept 2026</p>
+
+    <div class="quickgrid">
+      <div class="qcard">
+        <div class="qlabel">Full weekly refresh</div>
+        <h3>LQAS Pipeline</h3>
+        <div class="cmd" style="margin:0;">
+          <div class="cmd-bar"><span class="cmd-shell">Git Bash</span><button class="copy-btn" data-copy="Rscript run_pipeline.r --force-full">Copy</button></div>
+          <pre><code><span class="prompt">$</span> Rscript run_pipeline.r --force-full</code></pre>
+        </div>
+        <div class="qwhere">Posit-LQAS-Workflow project root</div>
+      </div>
+      <div class="qcard">
+        <div class="qlabel">Full refresh</div>
+        <h3>AFRO-SIA Dashboard Input</h3>
+        <div class="cmd" style="margin:0;">
+          <div class="cmd-bar"><span class="cmd-shell">cmd.exe</span><button class="copy-btn" data-copy="run_prepare_the_AFRO_SIA_Dashboard_input.bat">Copy</button></div>
+          <pre><code><span class="prompt">&gt;</span> run_prepare_the_AFRO_SIA_Dashboard_input.bat</code></pre>
+        </div>
+        <div class="qwhere">input\scope project root</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc">
+      <a href="#lqas">LQAS Pipeline</a>
+      <div class="toc-sub">
+        <a href="#lqas-run">One-command run</a>
+        <a href="#lqas-flags">Flags</a>
+        <a href="#lqas-solo">Run one step alone</a>
+        <a href="#lqas-recipes">Common recipes</a>
+        <a href="#lqas-scheduled">Scheduled wrappers</a>
+      </div>
+      <div class="toc-group">
+        <a href="#dashboard">Dashboard Input</a>
+        <div class="toc-sub">
+          <a href="#dash-launcher">Current vs. legacy</a>
+          <a href="#dash-flags">Flags</a>
+          <a href="#dash-outputs">Outputs</a>
+          <a href="#dash-recipes">Common recipes</a>
+        </div>
+      </div>
+      <div class="toc-group">
+        <a href="#together">Running both</a>
+        <a href="#credentials">Credentials &amp; logs</a>
+      </div>
+    </nav>
+
+    <main>
+
+      <section id="lqas">
+        <div class="section-head">
+          <h2>LQAS Pipeline</h2>
+          <span class="section-path">Posit-LQAS-Workflow</span>
+        </div>
+        <p class="section-intro">Located at <code>C:\Users\TOURE\Documents\Gith_repositories\Posit-LQAS-Workflow</code>. One orchestrator script, <code>run_pipeline.r</code>, runs all seven steps and opens the dashboard when it's done.</p>
+
+        <h3 class="subhead" id="lqas-run"><span class="num">01</span>One-command run</h3>
+        <p class="muted">Run from the project root. If <code>Rscript</code> isn't on <code>PATH</code> — true of most Task Scheduler and Git Bash sessions on this machine — use the full path instead, exactly as <code>monday_morning.sh</code> and <code>git_sync.sh</code> already do.</p>
+
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">Git Bash / PATH has Rscript</span><button class="copy-btn" data-copy="Rscript run_pipeline.r">Copy</button></div>
+          <pre><code><span class="prompt">$</span> cd /c/Users/TOURE/Documents/Gith_repositories/Posit-LQAS-Workflow
+<span class="prompt">$</span> Rscript run_pipeline.r</code></pre>
+        </div>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">Full path (no PATH entry)</span><button class="copy-btn" data-copy='"/c/Program Files/R/R-4.4.1/bin/x64/Rscript.exe" run_pipeline.r --force-full'>Copy</button></div>
+          <pre><code><span class="prompt">$</span> "/c/Program Files/R/R-4.4.1/bin/x64/Rscript.exe" run_pipeline.r --force-full</code></pre>
+        </div>
+
+        <p class="muted" style="margin-top:22px;">The orchestrator runs these seven steps in order, then always tries to open <code>04_dashboard.html</code> — even if a step failed, as long as a dashboard already exists from a previous run:</p>
+
+        <div class="chain">
+          <div class="step"><span class="n">1</span>Refresh Lookup<span class="tag">.py</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">2</span>Data Fetch<span class="tag">.py</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">3</span>Process<span class="tag">.R</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">4</span>Clean Geonames<span class="tag">.R</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">5</span>Dashboard<span class="tag">.Rmd</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">6</span>Quality Control<span class="tag">.R</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">7</span>SharePoint Push<span class="tag">.R</span></div>
+        </div>
+        <p class="muted">Steps 1 and 7 are <b style="color:var(--ink)">non-blocking</b> — a failed lookup refresh (expired <code>GPEI_API_TOKEN</code>) falls back to whatever <code>lqas_lookup.xlsx</code> is already on disk, and a failed SharePoint push doesn't stop the rest of the run.</p>
+
+        <h3 class="subhead" id="lqas-flags"><span class="num">02</span>Flags</h3>
+        <div class="flags">
+          <div class="flag-row"><div class="flag">--force-full</div><div class="desc">Makes step 2 refetch <b>every</b> ONA form. Without it, any form whose raw file already exists on disk is skipped — a scheduled run can go weeks without pulling fresh survey data.</div></div>
+          <div class="flag-row"><div class="flag">--debug</div><div class="desc">Passed through to step 1; saves a fetch summary to <code>data/lookup/refresh_debug/</code>.</div></div>
+          <div class="flag-row"><div class="flag">--skip-lookup-refresh</div><div class="desc">Skip step 1 (<code>refresh_lqas_lookup.py</code>).</div></div>
+          <div class="flag-row"><div class="flag">--skip-fetch</div><div class="desc">Skip step 2 (<code>fetch_ona_data.py</code>) — reuse whatever's already in <code>data/raw/</code>.</div></div>
+          <div class="flag-row"><div class="flag">--skip-process</div><div class="desc">Skip step 3 (<code>R/02_process_lqas.R</code>).</div></div>
+          <div class="flag-row"><div class="flag">--skip-clean</div><div class="desc">Skip step 4 (<code>R/03_clean_geonames.R</code>).</div></div>
+          <div class="flag-row"><div class="flag">--skip-dashboard</div><div class="desc">Skip step 5 — no <code>04_dashboard.html</code> is (re)generated.</div></div>
+          <div class="flag-row"><div class="flag">--skip-qc</div><div class="desc">Skip step 6 (<code>R/05_quality_control.R</code>).</div></div>
+          <div class="flag-row"><div class="flag">--skip-sharepoint-push</div><div class="desc">Skip step 7 — nothing gets published to SharePoint this run.</div></div>
+        </div>
+
+        <h3 class="subhead" id="lqas-solo"><span class="num">03</span>Run one step by itself</h3>
+        <p class="muted">Both of these are what the orchestrator calls internally — useful when you only need one piece.</p>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">Refresh the lookup file only</span><button class="copy-btn" data-copy="python refresh_lqas_lookup.py --debug">Copy</button></div>
+          <pre><code><span class="prompt">$</span> python refresh_lqas_lookup.py --debug</code></pre>
+        </div>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">Fetch raw ONA data only</span><button class="copy-btn" data-copy="python fetch_ona_data.py --force-full">Copy</button></div>
+          <pre><code><span class="prompt">$</span> python fetch_ona_data.py --force-full
+<span class="comment"># other flags: --config &lt;path&gt;   --form-ids 4500,6837   --test (connection check only)</span></code></pre>
+        </div>
+
+        <h3 class="subhead" id="lqas-recipes"><span class="num">04</span>Common recipes</h3>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">Iterate on processing/cleaning without re-fetching</span><button class="copy-btn" data-copy="Rscript run_pipeline.r --skip-lookup-refresh --skip-fetch">Copy</button></div>
+          <pre><code><span class="prompt">$</span> Rscript run_pipeline.r --skip-lookup-refresh --skip-fetch</code></pre>
+        </div>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">Just rebuild dashboard + QC from data already processed</span><button class="copy-btn" data-copy="Rscript run_pipeline.r --skip-lookup-refresh --skip-fetch --skip-process --skip-clean">Copy</button></div>
+          <pre><code><span class="prompt">$</span> Rscript run_pipeline.r --skip-lookup-refresh --skip-fetch --skip-process --skip-clean</code></pre>
+        </div>
+
+        <h3 class="subhead" id="lqas-scheduled"><span class="num">05</span>Scheduled / automated wrappers</h3>
+        <p class="muted">Already set up on this machine — you shouldn't need to touch these unless you're changing the schedule itself.</p>
+
+        <div class="io-wrap">
+        <table class="io">
+          <tr><th>Script</th><th>What it does</th><th>Run by hand</th></tr>
+          <tr>
+            <td class="f">monday_morning.sh</td>
+            <td><code>git pull</code>, then the full-refresh run above, then — if it exits clean and there are changes — commits <code>lqas_cleaned.csv</code>, <code>lqas_cleaned.parquet</code>, <code>04_dashboard.html</code> and pushes, then opens the dashboard.</td>
+            <td class="f">bash monday_morning.sh</td>
+          </tr>
+          <tr>
+            <td class="f">git_sync.sh</td>
+            <td>Same run + commit + push, minus the initial pull, plus staging <code>logs/*.log</code>.</td>
+            <td class="f">bash git_sync.sh</td>
+          </tr>
+          <tr>
+            <td class="f">schedule_monday_task.bat</td>
+            <td>One-time setup: registers Task Scheduler job <b style="color:var(--ink)">WHO_LQAS_Monday_Pipeline</b> — every Monday 11:00, full-refresh + <code>git add/commit/push</code>.</td>
+            <td class="f">schedule_monday_task.bat<br><span style="color:var(--ink-faint)">(as Administrator)</span></td>
+          </tr>
+          <tr>
+            <td class="f">schedule_monday.ps1</td>
+            <td>Alternative one-time setup: registers job <b style="color:var(--ink)">LQAS_Monday_Pipeline</b>, which instead runs <code>monday_morning.sh</code> (so it pulls first).</td>
+            <td class="f">.\schedule_monday.ps1<br><span style="color:var(--ink-faint)">(elevated PowerShell)</span></td>
+          </tr>
+        </table>
+        </div>
+        <div class="callout warn">
+          <div>
+            <div class="ctitle">These two scheduling scripts don't know about each other</div>
+            <p>They register <b>two different task names</b> for the same Monday slot. Set up one, not both — otherwise the pipeline runs twice back to back every Monday.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="div">
+
+      <section id="dashboard">
+        <div class="section-head">
+          <h2>AFRO-SIA Dashboard Input</h2>
+          <span class="section-path">input\scope</span>
+        </div>
+        <p class="section-intro">Located at <code>C:\Users\TOURE\Documents\REPOSITORIES\input\scope</code>. Standalone from the LQAS pipeline above — it shares no files or schedule with it. Run it by hand whenever the dashboard needs fresh scope/admin data.</p>
+
+        <h3 class="subhead" id="dash-launcher"><span class="num">01</span>Current launcher, and the one to retire</h3>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">cmd.exe <span class="pill current" style="margin-left:8px;">current</span></span><button class="copy-btn" data-copy="run_prepare_the_AFRO_SIA_Dashboard_input.bat">Copy</button></div>
+          <pre><code><span class="prompt">&gt;</span> run_prepare_the_AFRO_SIA_Dashboard_input.bat
+<span class="comment"># same as: python scripts\prepare_the_AFRO_SIA_Dashboard_input.py</span></code></pre>
+        </div>
+        <div class="callout crit">
+          <div>
+            <div class="ctitle"><span class="pill legacy">legacy — don't use</span> run_download_gpei_scopes.bat</div>
+            <p>Still on disk, still calls <code>scripts\download_gpei_scopes.py</code> — the old Playwright browser-login flow. It broke for good when GPEI's login page switched to a WHO SSO button with no username/password fields left to automate. <b>Use the launcher above instead</b>; this one is kept only as a fossil.</p>
+          </div>
+        </div>
+
+        <h3 class="subhead" id="dash-launcher2"><span class="num">02</span>What it does</h3>
+        <div class="chain">
+          <div class="step"><span class="n">1</span>GPEI API fetch<span class="tag">lookup + scopes</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">2</span>SharePoint download<span class="tag">admin + LQAS</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">3</span>Build scope_.csv<span class="tag">build_scope_file.R</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">4</span>Build .rds inputs<span class="tag">prepare_dashboard_inputs.R</span></div>
+        </div>
+        <p class="muted">Step 1 pulls <code>lookup.xlsx</code> and <code>gpei_scopes.csv</code> from poliogo.afro.who.int's own API — campaigns of type "Polio" only, Jan 1 2019 → today by default. Step 2 pulls <code>AFRO_admin_data.xlsx</code> and <code>AFRO_LQAS_data_c.csv</code> from the WHO AF-pep/GISWORKSPACE SharePoint site via Microsoft Graph — no browser, no MFA.</p>
+
+        <h3 class="subhead" id="dash-flags"><span class="num">03</span>Flags</h3>
+        <div class="flags">
+          <div class="flag-row"><div class="flag">--debug</div><div class="desc">Saves fetch/build/rds output to <code>logs\gpei_debug\</code>.</div></div>
+          <div class="flag-row"><div class="flag">--start-date / --end-date</div><div class="desc">Override the default window (<code>2019-01-01</code> → today). Format <code>YYYY-MM-DD</code>.</div></div>
+          <div class="flag-row"><div class="flag">--skip-build</div><div class="desc">Fetch the input files only; skip building <code>scope_.csv</code> yourself.</div></div>
+          <div class="flag-row"><div class="flag">--skip-afro-download</div><div class="desc">Skip the <code>AFRO_admin_data.xlsx</code> SharePoint download.</div></div>
+          <div class="flag-row"><div class="flag">--skip-lqas-download</div><div class="desc">Skip the <code>AFRO_LQAS_data_c.csv</code> SharePoint download.</div></div>
+          <div class="flag-row"><div class="flag">--skip-gpei-fetch</div><div class="desc">Skip the GPEI API step — use when poliogo.afro.who.int is down. Combine with the SharePoint flags above to control what still runs.</div></div>
+          <div class="flag-row"><div class="flag">--skip-rds</div><div class="desc">Skip the final .rds conversion — leaves the dashboard's <code>input\</code> folder untouched.</div></div>
+        </div>
+
+        <h3 class="subhead" id="dash-outputs"><span class="num">04</span>Outputs</h3>
+        <div class="io-wrap">
+        <table class="io">
+          <tr><th>Location</th><th>Files</th></tr>
+          <tr><td class="f">data\</td><td>lookup.xlsx, gpei_scopes.csv, AFRO_admin_data.xlsx, AFRO_LQAS_data_c.csv, scope_.csv</td></tr>
+          <tr><td class="f">…\AFRO-SIA_Dashboard\input\</td><td>AFRO_admin_data.rds, Scope.rds, AFRO_LQAS_data_c.rds</td></tr>
+          <tr><td class="f">logs\gpei_debug\</td><td>Fetch/build/rds debug output — only populated when <code>--debug</code> is passed</td></tr>
+        </table>
+        </div>
+
+        <h3 class="subhead" id="dash-recipes"><span class="num">05</span>Common recipes</h3>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">GPEI API is down — refresh SharePoint files &amp; rebuild only</span><button class="copy-btn" data-copy="run_prepare_the_AFRO_SIA_Dashboard_input.bat --skip-gpei-fetch --debug">Copy</button></div>
+          <pre><code><span class="prompt">&gt;</span> run_prepare_the_AFRO_SIA_Dashboard_input.bat --skip-gpei-fetch --debug</code></pre>
+        </div>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">Backfill a custom date range</span><button class="copy-btn" data-copy="run_prepare_the_AFRO_SIA_Dashboard_input.bat --start-date 2022-01-01 --end-date 2026-08-31">Copy</button></div>
+          <pre><code><span class="prompt">&gt;</span> run_prepare_the_AFRO_SIA_Dashboard_input.bat --start-date 2022-01-01 --end-date 2026-08-31</code></pre>
+        </div>
+      </section>
+
+      <hr class="div">
+
+      <section id="together">
+        <div class="section-head"><h2>Running both</h2></div>
+        <p class="section-intro">The two pipelines don't depend on each other, so order doesn't matter functionally — but for a full "refresh everything" pass:</p>
+        <div class="chain">
+          <div class="step"><span class="n">1</span>LQAS Pipeline<span class="tag">Posit-LQAS-Workflow</span></div><span class="arrow">→</span>
+          <div class="step"><span class="n">2</span>Dashboard Input<span class="tag">input\scope</span></div>
+        </div>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">Git Bash</span><button class="copy-btn" data-copy="cd /c/Users/TOURE/Documents/Gith_repositories/Posit-LQAS-Workflow &amp;&amp; Rscript run_pipeline.r --force-full">Copy</button></div>
+          <pre><code><span class="prompt">$</span> cd /c/Users/TOURE/Documents/Gith_repositories/Posit-LQAS-Workflow
+<span class="prompt">$</span> Rscript run_pipeline.r --force-full</code></pre>
+        </div>
+        <div class="cmd">
+          <div class="cmd-bar"><span class="cmd-shell">cmd.exe</span><button class="copy-btn" data-copy="cd /d C:\Users\TOURE\Documents\REPOSITORIES\input\scope &amp;&amp; run_prepare_the_AFRO_SIA_Dashboard_input.bat">Copy</button></div>
+          <pre><code><span class="prompt">&gt;</span> cd /d C:\Users\TOURE\Documents\REPOSITORIES\input\scope
+<span class="prompt">&gt;</span> run_prepare_the_AFRO_SIA_Dashboard_input.bat</code></pre>
+        </div>
+      </section>
+
+      <section id="credentials">
+        <div class="section-head"><h2>Credentials &amp; logs</h2></div>
+        <div class="io-wrap">
+        <table class="io">
+          <tr><th>Project</th><th>Secrets file</th><th>Holds</th></tr>
+          <tr><td class="f">Posit-LQAS-Workflow</td><td class="f">config\secrets.env</td><td>GPEI_API_TOKEN, SHAREPOINT_TENANT_ID / CLIENT_ID / CLIENT_SECRET</td></tr>
+          <tr><td class="f">input\scope</td><td class="f">config\secrets.env</td><td>Same three SharePoint values, copied from the LQAS project; its own GPEI_API_TOKEN</td></tr>
+        </table>
+        </div>
+        <p class="muted">Both are copied once from that folder's <code>secrets.env.example</code> and never printed, logged, or committed. Run logs land in each project's own <code>logs\</code> folder; pass <code>--debug</code> anywhere above for a richer per-run summary.</p>
+      </section>
+
+    </main>
+  </div>
+
+  <footer>
+    Reflects the scripts as they exist on disk, read directly rather than assumed — including <code>refresh_lqas_lookup.py</code> and the SharePoint LQAS download, both added recently enough that older notes won't mention them. Re-check after any further script changes; this page doesn't run anything itself.
+  </footer>
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = btn.getAttribute('data-copy') || '';
+      var done = function(){
+        var original = btn.textContent;
+        btn.textContent = 'Copied';
+        setTimeout(function(){ btn.textContent = original; }, 1200);
+      };
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(text).then(done).catch(function(){
+            fallbackCopy(text); done();
+          });
+        } else {
+          fallbackCopy(text); done();
+        }
+      }catch(e){
+        try{ fallbackCopy(text); done(); }catch(e2){}
+      }
+    });
+  });
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    document.body.removeChild(ta);
+  }
+})();
+</script>

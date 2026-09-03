@@ -108,6 +108,35 @@ def is_polio_campaign(list_entry):
     return any(ct.get("slug") == "polio" for ct in (list_entry.get("campaign_types") or []))
 
 
+def clean_vaccine_names(raw):
+    """The GPEI API's per-round vaccine_names field sometimes lists both
+    an individual vaccine AND a combined-scope label that already
+    includes it for the same round -- e.g. "nOPV2, nOPV2 & bOPV"
+    instead of just "nOPV2 & bOPV" (confirmed against real data: 3 of
+    462 rows in one fetch showed this pattern). Downstream, R/02_process_lqas.r
+    joins survey rows to this lookup table using vaccine.type as part
+    of the match key, so a redundant/inflated string here means real
+    survey rows silently fail to match anything and end up with a
+    missing vaccine.type. Drop any comma-separated token that's a
+    strict substring of another token in the same value, then
+    de-duplicate what's left, preserving order.
+    """
+    if not raw:
+        return raw
+    tokens = [t.strip() for t in raw.split(",") if t.strip()]
+    if not tokens:
+        return raw
+    kept = [t for i, t in enumerate(tokens)
+            if not any(i != j and t != other and t in other for j, other in enumerate(tokens))]
+    seen = set()
+    deduped = []
+    for t in kept:
+        if t not in seen:
+            seen.add(t)
+            deduped.append(t)
+    return ", ".join(deduped) if deduped else raw
+
+
 def compute_round_status(round_obj, today):
     if round_obj.get("is_planned"):
         return None
@@ -142,7 +171,7 @@ def fetch_lookup_rows(headers):
         for rnd in cal_entry.get("rounds", []):
             number = rnd.get("number")
             started_at = rnd.get("started_at")
-            vaccine_names = rnd.get("vaccine_names") or ""
+            vaccine_names = clean_vaccine_names(rnd.get("vaccine_names") or "")
             status = compute_round_status(rnd, today)
             if status and started_at:
                 rows.append({
