@@ -73,6 +73,16 @@ FILE_TO_UPLOAD <- "data/final/afro_lqas_repositorty.csv"
 # the existing AFRO_LQAS_data_c.csv that other pipelines already
 # depend on, instead of creating a second, differently-named file.
 REMOTE_FILE_NAME <- "AFRO_LQAS_data_c.csv"
+
+# The data dictionary R/03_clean_geonames.R generates alongside this
+# run (current schema + a changelog vs the previous run's schema) --
+# uploaded right next to the main file so anyone consuming
+# AFRO_LQAS_data_c.csv from SharePoint can see what changed (added/
+# removed/renamed columns) without needing access to this repo.
+# Missing is non-fatal -- see main() below.
+DICTIONARY_FILE <- "data/metadata/AFRO_LQAS_data_c_dictionary.xlsx"
+REMOTE_DICTIONARY_NAME <- "AFRO_LQAS_data_c_dictionary.xlsx"
+
 GRAPH_ENDPOINT <- "https://graph.microsoft.com/v1.0"
 
 # ------------------------------------------------------------
@@ -192,9 +202,14 @@ upload_file <- function(local_file_path, remote_file_name, drive_id, access_toke
     item <- content(chunk_response, "parsed")
   } else {
     file_content <- readBin(local_file_path, "raw", n = file_size)
+    content_type <- if (grepl("\\.xlsx$", remote_file_name, ignore.case = TRUE)) {
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    } else {
+      "text/csv"
+    }
     upload_response <- PUT(
       upload_url,
-      add_headers(Authorization = paste("Bearer", access_token), "Content-Type" = "text/csv"),
+      add_headers(Authorization = paste("Bearer", access_token), "Content-Type" = content_type),
       body = file_content
     )
     if (!(status_code(upload_response) %in% c(200, 201))) {
@@ -237,6 +252,24 @@ main <- function() {
     drive_id <- get_drive_id(access_token)
     verify_target_folder(drive_id, access_token)
     upload_file(FILE_TO_UPLOAD, REMOTE_FILE_NAME, drive_id, access_token)
+
+    # Data dictionary upload is best-effort: a failure here (or the file
+    # simply not existing, e.g. an older checkout of 03_clean_geonames.R
+    # that predates generate_data_dictionary()) must never fail the whole
+    # push -- the main data file refreshing successfully is what matters
+    # most, and is already confirmed above by the time we get here.
+    if (file.exists(DICTIONARY_FILE)) {
+      tryCatch({
+        upload_file(DICTIONARY_FILE, REMOTE_DICTIONARY_NAME, drive_id, access_token)
+      }, error = function(e) {
+        log_msg(paste0("WARNING: failed to upload the data dictionary (", conditionMessage(e),
+                        "). The main data file was still refreshed successfully."))
+      })
+    } else {
+      log_msg(paste0("WARNING: ", DICTIONARY_FILE, " not found -- skipping the data dictionary ",
+                      "upload. (Run R/03_clean_geonames.R first if you want it refreshed.)"))
+    }
+
     TRUE
   }, error = function(e) {
     log_msg(paste0("FAILED: ", conditionMessage(e)))

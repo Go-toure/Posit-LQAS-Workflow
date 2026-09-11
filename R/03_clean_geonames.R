@@ -17,6 +17,7 @@ suppressPackageStartupMessages({
   library(stringr)
   library(janitor)
   library(arrow)
+  library(writexl)  # for generate_data_dictionary()'s Excel output
 })
 
 # Create logs directory
@@ -1651,6 +1652,139 @@ generate_summary_stats <- function(data) {
 }
 
 # ============================================================
+# FUNCTION: GENERATE DATA DICTIONARY (+ schema changelog vs previous run)
+# ============================================================
+#
+# AFRO_LQAS_data_c.csv (this script's OUTPUT_FILE once pushed to
+# SharePoint by R/06_push_to_sharepoint.R) is a shared input several
+# OTHER pipelines/dashboards download directly from SharePoint
+# (im_workflow, the AFRO-SIA Dashboard's own input-prep step, ...).
+# None of them get any signal when a run here adds, removes, or
+# changes the type of a column -- they just silently start missing
+# data (this is exactly what happened to the AFRO-SIA Dashboard's
+# Absence/Non-Compliance reason columns: the SharePoint copy predated
+# those columns being added here, and nothing flagged the gap).
+#
+# This generates an Excel workbook documenting the CURRENT schema plus
+# a diff against whatever schema was on disk immediately before this
+# run, so anyone who owns a downstream pipeline can see at a glance
+# what changed and update their own code accordingly. MUST be called
+# BEFORE write_output_files() overwrites old_csv_path below.
+generate_data_dictionary <- function(old_csv_path, new_data, dict_dir) {
+  log_info("\n📖 Generating data dictionary (schema + changelog vs previous run)")
+  dir_create(dict_dir)
+  dir_create(file.path(dict_dir, "dictionary_history"))
+
+  new_cols <- names(new_data)
+  new_types <- vapply(new_data, function(x) class(x)[1], character(1))
+  names(new_types) <- new_cols
+
+  old_cols <- character(0)
+  old_types <- character(0)
+  if (file.exists(old_csv_path)) {
+    old_header <- tryCatch(
+      readr::read_csv(old_csv_path, n_max = 20, show_col_types = FALSE, progress = FALSE),
+      error = function(e) {
+        log_warn("Could not read previous file {old_csv_path} for schema comparison: {conditionMessage(e)}")
+        NULL
+      }
+    )
+    if (!is.null(old_header)) {
+      old_cols <- names(old_header)
+      old_types <- vapply(old_header, function(x) class(x)[1], character(1))
+      names(old_types) <- old_cols
+    }
+  } else {
+    log_info("No previous {old_csv_path} found -- treating every column as new (first run).")
+  }
+
+  added_cols <- setdiff(new_cols, old_cols)
+  removed_cols <- setdiff(old_cols, new_cols)
+  common_cols <- intersect(new_cols, old_cols)
+  type_changed <- common_cols[vapply(common_cols, function(col) {
+    !identical(unname(old_types[[col]]), unname(new_types[[col]]))
+  }, logical(1))]
+
+  # Sheet: full current dictionary (every column, its type, and whether
+  # it changed vs the previous run).
+  full_dict <- data.frame(
+    Variable = new_cols,
+    Type = unname(new_types[new_cols]),
+    Status = ifelse(new_cols %in% added_cols, "NEW in this run",
+              ifelse(new_cols %in% type_changed, "Type changed vs previous run",
+                     "Unchanged")),
+    Example = vapply(new_cols, function(col) {
+      vals <- new_data[[col]]
+      vals <- vals[!is.na(vals)]
+      if (length(vals) == 0) return(NA_character_)
+      paste(utils::head(unique(as.character(vals)), 3), collapse = ", ")
+    }, character(1)),
+    stringsAsFactors = FALSE
+  )
+  full_dict$Notes <- NA_character_
+  full_dict$Notes[grepl("^abs_reason_", full_dict$Variable)] <- "Count of children with specific absenteeism reason"
+  full_dict$Notes[grepl("^nc_reason_", full_dict$Variable)] <- "Count of children with specific non-compliance reason"
+  full_dict$Notes[grepl("^prct_", full_dict$Variable)] <- "Percentage of missed children by specific reason"
+
+  # Sheet: only what actually changed -- the one a downstream pipeline
+  # owner should check first.
+  changes <- data.frame(
+    Variable = c(added_cols, removed_cols, type_changed),
+    Change = c(
+      rep("ADDED", length(added_cols)),
+      rep("REMOVED", length(removed_cols)),
+      rep("TYPE CHANGED", length(type_changed))
+    ),
+    Details = c(
+      if (length(added_cols) > 0) paste0("New column (type: ", unname(new_types[added_cols]), ")") else character(0),
+      if (length(removed_cols) > 0) paste0("No longer present (was type: ", unname(old_types[removed_cols]), ")") else character(0),
+      if (length(type_changed) > 0) paste0(unname(old_types[type_changed]), " -> ", unname(new_types[type_changed])) else character(0)
+    ),
+    stringsAsFactors = FALSE
+  )
+
+  overview <- data.frame(
+    Attribute = c("Generated At", "Compared Against", "Total Columns (this run)",
+                  "Total Columns (previous run)", "Columns Added", "Columns Removed",
+                  "Columns With Type Changes"),
+    Value = c(
+      format(Sys.time(), "%Y-%m-%d %H:%M:%S"),
+      if (length(old_cols) > 0) old_csv_path else "(no previous file found -- first run)",
+      as.character(length(new_cols)), as.character(length(old_cols)),
+      as.character(length(added_cols)), as.character(length(removed_cols)),
+      as.character(length(type_changed))
+    ),
+    stringsAsFactors = FALSE
+  )
+
+  workbook <- list(
+    Overview = overview,
+    Changes_vs_Previous = changes,
+    Full_Dictionary = full_dict
+  )
+
+  stable_path <- file.path(dict_dir, "AFRO_LQAS_data_c_dictionary.xlsx")
+  history_path <- file.path(dict_dir, "dictionary_history",
+                             sprintf("AFRO_LQAS_data_c_dictionary_%s.xlsx", format(Sys.time(), "%Y%m%d_%H%M%S")))
+
+  tryCatch({
+    writexl::write_xlsx(workbook, stable_path)
+    file.copy(stable_path, history_path, overwrite = TRUE)
+    log_info("✅ Data dictionary written: {stable_path}")
+    if (length(added_cols) > 0) log_info(paste("   + ADDED columns:", paste(added_cols, collapse = ", ")))
+    if (length(removed_cols) > 0) log_info(paste("   - REMOVED columns:", paste(removed_cols, collapse = ", ")))
+    if (length(type_changed) > 0) log_info(paste("   ~ TYPE CHANGED columns:", paste(type_changed, collapse = ", ")))
+    if (length(added_cols) == 0 && length(removed_cols) == 0 && length(type_changed) == 0) {
+      log_info("   No schema changes vs the previous run.")
+    }
+  }, error = function(e) {
+    log_error("Failed to write data dictionary: {conditionMessage(e)}")
+  })
+
+  return(stable_path)
+}
+
+# ============================================================
 # FUNCTION: WRITE OUTPUT FILES
 # ============================================================
 
@@ -1742,7 +1876,15 @@ run_cleaning_pipeline <- function(input_file, lookup_file, output_file, start_da
   # STEP 12: Generate summary statistics
   summary_stats <- generate_summary_stats(data)
 
-  # STEP 13: Write output files
+  # STEP 13: Generate a data dictionary + changelog vs the previous run
+  # (must run BEFORE write_output_files() overwrites the old CSV below).
+  dictionary_path <- generate_data_dictionary(
+    old_csv_path = sub("\\.parquet$", ".csv", output_file),
+    new_data = data,
+    dict_dir = "data/metadata"
+  )
+
+  # STEP 14: Write output files
   write_output_files(data, output_file)
 
   log_info("\n✅ CLEANING PIPELINE COMPLETED SUCCESSFULLY!")
